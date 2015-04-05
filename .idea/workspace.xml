@@ -2,227 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39edcd33-6137-43ef-abe0-1c27b3ef460b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/book/2013-12-20-book-list-of-2013.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/book/2014-03-14-book-list-of-2014.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/book/2014-03-14-book-test.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/life/2013-06-17-the-end-of-regular-college-course.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/life/2013-08-01-the-importent-of-writing.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/life/2014-01-02-my-2013.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/life/2014-04-15-we-should-be-better-than-us.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/life/2015-01-01-my-2014.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/life/2015-01-30-microsoft-openhack-2015.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2013-04-23-general-bootstrap-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-git-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-html-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-javascript-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-jquery-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-php-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-python-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-shell-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-01-15-general-svn-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-05-11-general-mysql-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2014-08-03-general-mac-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/resource/2015-02-13-general-seo-resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/study/2015-03-01-my-2014-03.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2012-09-19-php-session-security.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2012-09-27-open-widown-in-javascript.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2012-09-27-php-variable-variables.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2012-11-08-openstack-nova-internal.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2012-12-31-python-development-of-sae.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-01-30-command-of-kanyun.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-01-30-deploy-kanyun.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-01-30-introduction-kanyun-server.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-01-30-introduction-of-kanyun-worker.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-02-24-javascript-variable-domain.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-03-20-debug-and-modify-openstack-horizon.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-03-20-different-bewteen-kvm-xen-qemu.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-03-21-introduction-of-ceilometer.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-03-21-vnc-vs-rdp.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-03-27-glossary-of-ceilometer.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-04-25-conceptual-logical-physical.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-04-25-some-concept-about-enterprise-storage.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-04-26-create-windows-xp-image-for-openstack.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-01-deploy-a-ceilometer-horizon-project.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-01-terminal-command-of-ceilometer.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-03-create-windows-7-image-for-openstack.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-03-php-cache-of-a-page.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-06-interactive-coding-ipython.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-06-the-viewpoint-metatag.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-06-why-use-pip-over-easy-install.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-13-openstack-grizzly-multihost-deployment-doc.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-15-create-ubuntu-image-for-openstack.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-15-different-between-python-package-tools.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-15-learn-how-to-use-distutils.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-16-deploy-openstack-grizzly-in-virtual-machine.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-19-what-is-wsgi.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-05-27-openstack-horizon-locale.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-06-07-learn-python-setuptools-in-detail.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-06-09-learn-python-abc-module.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-06-09-learn-python-stevedore-module-in-detail.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-06-11-hacking-in-openstack-ceilometer-compute-agent.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-06-11-pipeline-of-openstack-ceilometer.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-06-12-hacking-in-openstack-ceilometer-api.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-06-12-hacking-in-openstack-ceilometer-collector.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-10-01-deploy-ceilometer-of-openstack.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2013-12-08-implemention-of-breadcrumbs-by-css3.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-01-16-php-namespace-and-autoload.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-01-17-python-script-of-sae-log-download.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-01-24-apache-log-format.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-01-25-how-to-use-php-socket.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-01-30-understanding-the-github-workflow.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-02-15-apache-and-nginx.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-03-10-grunt-bower-and-laravel.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-03-20-use-other-libraries-in-laravel.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-03-22-managing-your-larrvel-queue-by-supervisor.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-04-11-redis-queue-in-laravel.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-04-16-insert-large-number-of-data-in-mysql.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-04-19-design-patterns-of-php.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-04-23-roc-curve.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-04-27-magic-methods-and-magic-constants-in-php.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-05-04-set-environment-variables-of-server-for-php.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-09-26-use-old-version-of-brew-php.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2014-12-06-ioc-and-facade-in-laravel.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tech/2015-01-08-conflict-between-camel-and-snake-in-laravel.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2012-12-30-share-windows-and-linux.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-01-09-remote-access-of-mysql.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-01-16-create-remote-resp.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-02-25-quick-open-in-windows.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-03-25-open-tcp-port-of-libvirt.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-03-25-tools-of-sever-deployment.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-04-21-add-snippet.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-04-22-add-svn-ignore-file.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-04-22-highlight-of-jekyll.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-04-22-ignore-password-in-git-push.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-04-22-wordpress-to-jekyll.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-04-23-deploy-jeklly-blog.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-05-20-set-proxy-for-git-or-apt.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-05-22-change-to-zsh.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-05-23-install-mysql-and-mongo-web-admin.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-08-04-something-about-tools-i-used.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-08-06-tools-of-reading.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-08-28-change-bootstrap-to-3.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-12-08-linux-command-continue.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-12-11-deploy-pptp-vpn-in-ubuntu.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2013-12-11-lamp-in-mac.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2014-03-20-php-debug-with-xdebug.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2014-04-10-install-docker-in-mac.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2014-04-10-install-vagrant-in-mac.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/tool/2015-01-10-use-dropzone-and-qiniu-to-store-blog-images.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2012/09/19/php-session-security.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2012/09/27/open-widown-in-javascript.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2012/09/27/php-variable-variables.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2012/11/08/openstack-nova-internal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2012/12/30/share-windows-and-linux.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2012/12/31/python-development-of-sae.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/01/09/remote-access-of-mysql.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/01/16/create-remote-resp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/01/30/command-of-kanyun.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/01/30/deploy-kanyun.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/01/30/introduction-kanyun-server.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/01/30/introduction-of-kanyun-worker.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/02/24/javascript-variable-domain.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/02/25/quick-open-in-windows.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/03/20/debug-and-modify-openstack-horizon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/03/20/different-bewteen-kvm-xen-qemu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/03/21/introduction-of-ceilometer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/03/21/vnc-vs-rdp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/03/25/open-tcp-port-of-libvirt.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/03/25/tools-of-sever-deployment.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/03/27/glossary-of-ceilometer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/21/add-snippet.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/22/add-svn-ignore-file.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/22/highlight-of-jekyll.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/22/ignore-password-in-git-push.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/22/wordpress-to-jekyll.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/23/deploy-jeklly-blog.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/23/general-bootstrap-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/25/conceptual-logical-physical.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/25/some-concept-about-enterprise-storage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/04/26/create-windows-xp-image-for-openstack.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/01/deploy-a-ceilometer-horizon-project.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/01/terminal-command-of-ceilometer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/03/create-windows-7-image-for-openstack.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/03/php-cache-of-a-page.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/06/interactive-coding-ipython.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/06/the-viewpoint-metatag.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/06/why-use-pip-over-easy-install.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/13/openstack-grizzly-multihost-deployment-doc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/15/create-ubuntu-image-for-openstack.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/15/different-between-python-package-tools.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/15/learn-how-to-use-distutils.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/16/deploy-openstack-grizzly-in-virtual-machine.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/19/what-is-wsgi.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/20/set-proxy-for-git-or-apt.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/22/change-to-zsh.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/23/install-mysql-and-mongo-web-admin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/05/27/openstack-horizon-locale.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/07/learn-python-setuptools-in-detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/09/learn-python-abc-module.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/09/learn-python-stevedore-module-in-detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/11/hacking-in-openstack-ceilometer-compute-agent.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/11/pipeline-of-openstack-ceilometer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/12/hacking-in-openstack-ceilometer-api.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/12/hacking-in-openstack-ceilometer-collector.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/06/17/the-end-of-regular-college-course.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/08/01/the-importent-of-writing.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/08/04/something-about-tools-i-used.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/08/06/tools-of-reading.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/08/28/change-bootstrap-to-3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/10/01/deploy-ceilometer-of-openstack.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/12/08/implemention-of-breadcrumbs-by-css3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/12/08/linux-command-continue.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/12/11/deploy-pptp-vpn-in-ubuntu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/12/11/lamp-in-mac.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2013/12/20/book-list-of-2013.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/02/my-2013.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-git-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-html-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-javascript-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-jquery-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-php-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-python-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-shell-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/15/general-svn-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/16/php-namespace-and-autoload.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/17/python-script-of-sae-log-download.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/24/apache-log-format.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/25/how-to-use-php-socket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/01/30/understanding-the-github-workflow.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/02/15/apache-and-nginx.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/03/10/grunt-bower-and-laravel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/03/14/book-list-of-2014.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/03/14/book-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/03/20/php-debug-with-xdebug.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/03/20/use-other-libraries-in-laravel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/03/22/managing-your-larrvel-queue-by-supervisor.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/10/install-docker-in-mac.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/10/install-vagrant-in-mac.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/11/redis-queue-in-laravel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/15/we-should-be-better-than-us.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/16/insert-large-number-of-data-in-mysql.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/19/design-patterns-of-php.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/23/roc-curve.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/04/27/magic-methods-and-magic-constants-in-php.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/05/04/set-environment-variables-of-server-for-php.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/05/11/general-mysql-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/08/03/general-mac-resources.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/09/26/use-old-version-of-brew-php.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2014/12/06/ioc-and-facade-in-laravel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2015/01/01/my-2014-04.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2015/01/01/my-2014.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2015/01/08/conflict-between-camel-and-snake-in-laravel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2015/01/30/microsoft-openhack-2015.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/2015/02/13/general-seo-resources.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/404.html" afterPath="$PROJECT_DIR$/_site/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html" afterPath="$PROJECT_DIR$/_site/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.md" afterPath="$PROJECT_DIR$/index.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2013/04/23/opensource-licenses.html" afterPath="$PROJECT_DIR$/_site/2013/04/23/opensource-licenses.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/pages/rss.xml" afterPath="$PROJECT_DIR$/_site/pages/rss.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CNAME" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" afterPath="$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="coolnameismy.github.io.iws" />
@@ -247,50 +29,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.7962648" vertical-offset="116" max-vertical-offset="705">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0" vertical-offset="0" max-vertical-offset="405">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015-04-05-new-life-in2015.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/life/2015-04-05-new-life-in2015.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="345">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8389982" vertical-offset="1001" max-vertical-offset="4470">
-              <caret line="98" column="56" selection-start-line="98" selection-start-column="56" selection-end-line="98" selection-end-column="56" />
+            <state vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="4470">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-04-23-opensource-licenses.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/tech/2013-04-23-opensource-licenses.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="1155">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -326,12 +95,12 @@
       <list>
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/about.md" />
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_posts/study/2015-04-01-my-2015-04.md" />
         <option value="$PROJECT_DIR$/index.md" />
         <option value="$PROJECT_DIR$/_posts/life/2014-03-14-book-test.md" />
         <option value="$PROJECT_DIR$/_posts/tech/2015-04-05-jekyll-github.md" />
         <option value="$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" />
+        <option value="$PROJECT_DIR$/_config.yml" />
       </list>
     </option>
   </component>
@@ -523,6 +292,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/_posts/tech" />
     </key>
   </component>
@@ -651,6 +421,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ie.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7504425" vertical-offset="11" max-vertical-offset="600">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="4470">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/tech/2013-04-23-opensource-licenses.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="1155">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/study/2015-04-01-my-2015-04.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -662,29 +462,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ie.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7504425" vertical-offset="11" max-vertical-offset="600">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.md">
+    <entry file="file://$PROJECT_DIR$/_posts/study/2015-03-01-my-2015-03.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="0" max-vertical-offset="405">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -694,19 +478,35 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="345">
+        <state vertical-scroll-proportion="0.40250447" vertical-offset="0" max-vertical-offset="559">
           <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md">
+    <entry file="file://$PROJECT_DIR$/index.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8389982" vertical-offset="1001" max-vertical-offset="4470">
-          <caret line="98" column="56" selection-start-line="98" selection-start-column="56" selection-end-line="98" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.37567085" vertical-offset="0" max-vertical-offset="559">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNAME">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7962648" vertical-offset="116" max-vertical-offset="705">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
           <folding />
         </state>
       </provider>

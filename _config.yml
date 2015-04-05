@@ -36,7 +36,7 @@ markdown: redcarpet                         #markdown解释器
 #  url:
 #
 ## disqus 设置
-#disqus:
-#shortname: coolnameismy
+disqus:
+shortname: coolnameismy
 
 #
