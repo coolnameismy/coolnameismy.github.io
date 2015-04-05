@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>使用Supervisor来管理你的Laravel队列 | 刘彦玮的技术博客</title>
+<meta name="author" content="刘彦玮">
+
+  <meta name="keywords" content="Laravel,PHP,Supervisor,Queue">
+
+
+
+
+<link rel="shortcut icon" href="http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="刘彦玮的技术博客" type="application/atom+xml">
+  </head>
+  <body>
+        <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="技术" class="tags__li tags-btn">技术</li>
+       
+        <li id="工具" class="tags__li tags-btn">工具</li>
+       
+        <li id="资源" class="tags__li tags-btn">资源</li>
+       
+        <li id="生活" class="tags__li tags-btn">生活</li>
+       
+        <li id="读书" class="tags__li tags-btn">读书</li>
+       
+        <li id="学习" class="tags__li tags-btn">学习</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="mailto:coolnameismy@hotmail.com" id="icon-email" class="tags-btn fontello"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." disabled >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="资源 pl__all" href="/2015/02/13/general-seo-resources.html"><span class="pl__circle"></span><span class="pl__title">SEO 常用资源</span><span class="pl__date">Feb 2015</span></a>
+    
+      <a class="生活 pl__all" href="/2015/01/30/microsoft-openhack-2015.html"><span class="pl__circle"></span><span class="pl__title">微软 Openhack 2015</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html"><span class="pl__circle"></span><span class="pl__title">使用Dropzone和七牛云存储来优化博客图床</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="技术 pl__all" href="/2015/01/08/conflict-between-camel-and-snake-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel 关联模型由于名称一致性导致的问题</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="学习 pl__all" href="/2015/01/01/my-2014-04.html"><span class="pl__circle"></span><span class="pl__title">2015年2月的学习</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="学习 pl__all" href="/2015/01/01/my-2014.html"><span class="pl__circle"></span><span class="pl__title">2014 个人总结</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="技术 pl__all" href="/2014/12/06/ioc-and-facade-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel 核心：控制反转（Inversion of Control）和门面模式（Facade）</span><span class="pl__date">Dec 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/09/26/use-old-version-of-brew-php.html"><span class="pl__circle"></span><span class="pl__title">回退Mac上用Brew安装的PHP版本</span><span class="pl__date">Sep 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/08/03/general-mac-resources.html"><span class="pl__circle"></span><span class="pl__title">Mac 常用资源</span><span class="pl__date">Aug 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/05/11/general-mysql-resources.html"><span class="pl__circle"></span><span class="pl__title">MySQL常用资源</span><span class="pl__date">May 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/05/04/set-environment-variables-of-server-for-php.html"><span class="pl__circle"></span><span class="pl__title">为PHP设置服务器(Apache/Nginx)环境变量</span><span class="pl__date">May 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/27/magic-methods-and-magic-constants-in-php.html"><span class="pl__circle"></span><span class="pl__title">PHP中的魔术方法和魔术常量简介和使用</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/23/roc-curve.html"><span class="pl__circle"></span><span class="pl__title">ROC曲线</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/19/design-patterns-of-php.html"><span class="pl__circle"></span><span class="pl__title">设计模式详解及PHP实现</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/16/insert-large-number-of-data-in-mysql.html"><span class="pl__circle"></span><span class="pl__title">MySQL大量数据插入各种方法性能分析与比较</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="生活 pl__all" href="/2014/04/15/we-should-be-better-than-us.html"><span class="pl__circle"></span><span class="pl__title">我们得比自己更努力</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/11/redis-queue-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel中使用Redis作为队列系统的工作流程</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/04/10/install-vagrant-in-mac.html"><span class="pl__circle"></span><span class="pl__title">在Mac下安装使用Vagrant</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/04/10/install-docker-in-mac.html"><span class="pl__circle"></span><span class="pl__title">在Mac下安装使用Docker</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/22/managing-your-larrvel-queue-by-supervisor.html"><span class="pl__circle"></span><span class="pl__title">使用Supervisor来管理你的Laravel队列</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/20/use-other-libraries-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">在Laravel中使用自己的类库三种方式</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/03/20/php-debug-with-xdebug.html"><span class="pl__circle"></span><span class="pl__title">用Xdebug和Sublime调试PHP代码</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2014/03/14/book-test.html"><span class="pl__circle"></span><span class="pl__title">2014阅读书单</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2014/03/14/book-list-of-2014.html"><span class="pl__circle"></span><span class="pl__title">2014阅读书单</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/10/grunt-bower-and-laravel.html"><span class="pl__circle"></span><span class="pl__title">用Laravel+Grunt+Bower管理你的应用</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/02/15/apache-and-nginx.html"><span class="pl__circle"></span><span class="pl__title">从运行原理及使用场景看Apache和Nginx</span><span class="pl__date">Feb 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html"><span class="pl__circle"></span><span class="pl__title">在Github上搭建Jekyll博客和创建主题</span><span class="pl__date">Feb 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/30/understanding-the-github-workflow.html"><span class="pl__circle"></span><span class="pl__title">了解GitHub工作流【译】</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/25/how-to-use-php-socket.html"><span class="pl__circle"></span><span class="pl__title">PHP Socket的使用</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/24/apache-log-format.html"><span class="pl__circle"></span><span class="pl__title">Apache 日志文件格式及简单处理</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/17/python-script-of-sae-log-download.html"><span class="pl__circle"></span><span class="pl__title">Python脚本--下载合并SAE日志</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/16/php-namespace-and-autoload.html"><span class="pl__circle"></span><span class="pl__title">PHP命名空间及自动加载</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-svn-resources.html"><span class="pl__circle"></span><span class="pl__title">SVN 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-shell-resources.html"><span class="pl__circle"></span><span class="pl__title">Shell 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-python-resources.html"><span class="pl__circle"></span><span class="pl__title">Python 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-php-resources.html"><span class="pl__circle"></span><span class="pl__title">PHP 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-jquery-resources.html"><span class="pl__circle"></span><span class="pl__title">jQuery 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-javascript-resources.html"><span class="pl__circle"></span><span class="pl__title">JavaScript 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-html-resources.html"><span class="pl__circle"></span><span class="pl__title">HTML 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-git-resources.html"><span class="pl__circle"></span><span class="pl__title">Git 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="生活 pl__all" href="/2014/01/02/my-2013.html"><span class="pl__circle"></span><span class="pl__title">2013个人总结</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2013/12/20/book-list-of-2013.html"><span class="pl__circle"></span><span class="pl__title">2013阅读书单</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/11/lamp-in-mac.html"><span class="pl__circle"></span><span class="pl__title">Mac下用brew搭建PHP(LNMP/LAMP)开发环境</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/11/deploy-pptp-vpn-in-ubuntu.html"><span class="pl__circle"></span><span class="pl__title">在ubuntu下搭建pptp vpn服务器</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/08/linux-command-continue.html"><span class="pl__circle"></span><span class="pl__title">Linux下多个命令连续执行方法</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/12/08/implemention-of-breadcrumbs-by-css3.html"><span class="pl__circle"></span><span class="pl__title">基于CSS3实现尖角面包屑</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/10/01/deploy-ceilometer-of-openstack.html"><span class="pl__circle"></span><span class="pl__title">部署Ceilometer到已有环境中</span><span class="pl__date">Oct 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/28/change-bootstrap-to-3.html"><span class="pl__circle"></span><span class="pl__title">更新前端框架到Bootstrap3</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/06/tools-of-reading.html"><span class="pl__circle"></span><span class="pl__title">我与工具--阅读和知识管理</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/04/something-about-tools-i-used.html"><span class="pl__circle"></span><span class="pl__title">我与工具</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="生活 pl__all" href="/2013/08/01/the-importent-of-writing.html"><span class="pl__circle"></span><span class="pl__title">持续写作的重要性</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="生活 pl__all" href="/2013/06/17/the-end-of-regular-college-course.html"><span class="pl__circle"></span><span class="pl__title">本科生涯结束了</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/12/hacking-in-openstack-ceilometer-collector.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer Collector代码解读</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/12/hacking-in-openstack-ceilometer-api.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer数据存储与API源码解析</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/11/pipeline-of-openstack-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer中的Pipeline机制</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/11/hacking-in-openstack-ceilometer-compute-agent.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer Compute Agent源码解读</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/09/learn-python-stevedore-module-in-detail.html"><span class="pl__circle"></span><span class="pl__title">学习Python动态扩展包stevedore</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/09/learn-python-abc-module.html"><span class="pl__circle"></span><span class="pl__title">学习Python的ABC模块</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/07/learn-python-setuptools-in-detail.html"><span class="pl__circle"></span><span class="pl__title">Python包管理工具setuptools详解</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/27/openstack-horizon-locale.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Horizon 中文本地化</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/23/install-mysql-and-mongo-web-admin.html"><span class="pl__circle"></span><span class="pl__title">安装MySQL和MongoDB的WEB管理界面</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/22/change-to-zsh.html"><span class="pl__circle"></span><span class="pl__title">从Bash切换到Zsh</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/20/set-proxy-for-git-or-apt.html"><span class="pl__circle"></span><span class="pl__title">给Git或者APT设置goagent代理</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/19/what-is-wsgi.html"><span class="pl__circle"></span><span class="pl__title">WSGI学习</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/16/deploy-openstack-grizzly-in-virtual-machine.html"><span class="pl__circle"></span><span class="pl__title">在虚拟机单机部署OpenStack Grizzly</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/learn-how-to-use-distutils.html"><span class="pl__circle"></span><span class="pl__title">学习使用python打包工具distutils</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/different-between-python-package-tools.html"><span class="pl__circle"></span><span class="pl__title">python包工具之间的关系</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/create-ubuntu-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Ubuntu镜像</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/13/openstack-grizzly-multihost-deployment-doc.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Grizzly Multihost部署文档</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/why-use-pip-over-easy-install.html"><span class="pl__circle"></span><span class="pl__title">为什么使用pip而不是easy_install</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/the-viewpoint-metatag.html"><span class="pl__circle"></span><span class="pl__title">HTML中meta标签viewpoint的作用</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/interactive-coding-ipython.html"><span class="pl__circle"></span><span class="pl__title">交互式编程-IPython</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/03/php-cache-of-a-page.html"><span class="pl__circle"></span><span class="pl__title">页面提速之——数据缓存</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/03/create-windows-7-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Win7镜像</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/01/terminal-command-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">Ceilometer的命令行使用</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/01/deploy-a-ceilometer-horizon-project.html"><span class="pl__circle"></span><span class="pl__title">部署一个ceilometer-horizon项目</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/26/create-windows-xp-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Windows XP镜像</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/25/some-concept-about-enterprise-storage.html"><span class="pl__circle"></span><span class="pl__title">几种企业的存储系统</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/25/conceptual-logical-physical.html"><span class="pl__circle"></span><span class="pl__title">概念模型、逻辑模型、物理模型的区别</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/23/opensource-licenses.html"><span class="pl__circle"></span><span class="pl__title">五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="资源 pl__all" href="/2013/04/23/general-bootstrap-resources.html"><span class="pl__circle"></span><span class="pl__title">Bootstrap常用资源</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/23/deploy-jeklly-blog.html"><span class="pl__circle"></span><span class="pl__title">在GitHub上搭建自己的Jekyll博客--了解环境</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/wordpress-to-jekyll.html"><span class="pl__circle"></span><span class="pl__title">博客迁移完成</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/ignore-password-in-git-push.html"><span class="pl__circle"></span><span class="pl__title">让git push命令不再需要密码</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/highlight-of-jekyll.html"><span class="pl__circle"></span><span class="pl__title">Jekyll的中的代码高亮</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/add-svn-ignore-file.html"><span class="pl__circle"></span><span class="pl__title">给SVN控制的项目添加忽略文件/文件夹</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/21/add-snippet.html"><span class="pl__circle"></span><span class="pl__title">给sublime增加snippet</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/27/glossary-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack监控项目Ceilometer的一些术语</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/03/25/tools-of-sever-deployment.html"><span class="pl__circle"></span><span class="pl__title">服务器自动化部署及运维常见工具</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/03/25/open-tcp-port-of-libvirt.html"><span class="pl__circle"></span><span class="pl__title">Linux下开启Libvirtd的tcp监控</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/21/vnc-vs-rdp.html"><span class="pl__circle"></span><span class="pl__title">VNC和远程桌面的区别</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/21/introduction-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer项目简介</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/20/different-bewteen-kvm-xen-qemu.html"><span class="pl__circle"></span><span class="pl__title">虚拟化与云计算中KVM,Xen,Qemu的区别和联系</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/20/debug-and-modify-openstack-horizon.html"><span class="pl__circle"></span><span class="pl__title">调试和修改OpenStack中的Horizon部分</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/02/25/quick-open-in-windows.html"><span class="pl__circle"></span><span class="pl__title">win7快速打开应用程序或文件</span><span class="pl__date">Feb 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/02/24/javascript-variable-domain.html"><span class="pl__circle"></span><span class="pl__title">JavaScript变量作用域</span><span class="pl__date">Feb 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/introduction-of-kanyun-worker.html"><span class="pl__circle"></span><span class="pl__title">kanyun worker原理</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/introduction-kanyun-server.html"><span class="pl__circle"></span><span class="pl__title">kanyun server服务</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/deploy-kanyun.html"><span class="pl__circle"></span><span class="pl__title">在OpenStack中部署kanyun</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/command-of-kanyun.html"><span class="pl__circle"></span><span class="pl__title">kanyun的api-client命令</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/01/16/create-remote-resp.html"><span class="pl__circle"></span><span class="pl__title">git创建远程库</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/01/09/remote-access-of-mysql.html"><span class="pl__circle"></span><span class="pl__title">MySQL远程访问</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2012/12/31/python-development-of-sae.html"><span class="pl__circle"></span><span class="pl__title">sae下的python开发部署和一个简单例子</span><span class="pl__date">Dec 2012</span></a>
+    
+      <a class="工具 pl__all" href="/2012/12/30/share-windows-and-linux.html"><span class="pl__circle"></span><span class="pl__title">Windows和Linux切换最终解决方案</span><span class="pl__date">Dec 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/11/08/openstack-nova-internal.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Nova内部机制【译】</span><span class="pl__date">Nov 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/27/php-variable-variables.html"><span class="pl__circle"></span><span class="pl__title">PHP可变变量</span><span class="pl__date">Sep 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/27/open-widown-in-javascript.html"><span class="pl__circle"></span><span class="pl__title">JS中防止浏览器屏蔽window.open</span><span class="pl__date">Sep 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/19/php-session-security.html"><span class="pl__circle"></span><span class="pl__title">PHP操作Session的原理及提升安全性时的一个问题</span><span class="pl__date">Sep 2012</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+  <h1 id="post__title" data-identifier="20140322">使用Supervisor来管理你的Laravel队列</h1>
+  <blockquote>
+<p>Laravel官网教程中，并没有提到用它来写CLI应用，即守护进程或者可执行脚本。但是它却提供了更加便捷的队列(Queue)功能。</p>
+</blockquote>
+
+<h2>Laravel队列</h2>
+
+<p>我们在开发应用过程中难免会遇到处理耗时任务的需求，这些任务如果直接在用户的请求中处理，必然会导致页面显示被阻塞。虽然利用fastcgi的一些特性可以先输出页面，后台任务继续执行，但是这样远远不如将任务交给异步队列来处理方便。</p>
+
+<h3>配置和启动</h3>
+
+<p>Laravel队列功能为我们提供了一个便捷的方式去处理这些异步任务，配置一个队列只需要以下几步：</p>
+
+<ol>
+<li>配置<code>app/config/queue.php</code>中的<code>default</code>配置项为系统中的队列系统，<code>sync</code>是直接执行，并不是异步队列。</li>
+<li>创建队列处理类，如<code>SendMail</code>。类文件位置可以参考我的另一篇文章<a href="/2014/03/20/use-other-libraries-in-laravel.html">在Laravel中使用自己的类库三种方式</a></li>
+<li>将应用中的一个任务推送到队列<code>Queue::push(&#39;SendMail&#39;)</code></li>
+<li>启动Laravel队列监听器<code>php artisan queue:listen</code>或者用<code>php artisan queue:work</code>处理队头的一条消息</li>
+</ol>
+
+<h3>Laravel队列并行处理</h3>
+
+<p>如果使用过Laravel队列的朋友应该发现，<code>queue:listen</code>是线性执行的，即一个任务做完以后才会读取下一条任务。这样并不能满足我们日常的异步耗时任务处理的需求，于是有人建议启动多个<code>queue:listen</code>。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">php artisan queue:listen &amp;&amp; php artisan queue:listen ...
+</code></pre></div>
+<p>这样虽然理论上是可行的，因为在异步队列的帮助下，程序并不会出现冲突。但是由于PHP本身对内存处理的缺陷，很难保证一个长期运行在后台的程序不出现内存泄露，例如<code>queue:listen</code>这样的死循环程序。因此在正式环境中我们更倾向于使用多个<code>queue:work</code>并行执行异步队列中的任务。<code>queue:work</code>只是读取队首的一项任务，执行完成后即结束程序，如果没有任务也会结束程序。这个方式类似于PHP对于WEB请求的处理，不会出现内存泄露。</p>
+
+<p>利用Supervisor可以便捷的创建基于<code>queue:work</code>的异步队列并行处理。</p>
+
+<h2>Supervisor</h2>
+
+<p><a href="http://supervisord.org/index.html">Supervisor</a>是一个进程控制系统，由python编写，它提供了大量的功能来实现对进程的管理。</p>
+
+<ol>
+<li>程序的多进程启动，可以配置同时启动的进程数，而不需要一个个启动</li>
+<li>程序的退出码，可以根据程序的退出码来判断是否需要自动重启</li>
+<li>程序所产生日志的处理</li>
+<li>进程初始化的环境，包括目录，用户，umask，关闭进程所需要的信号等等</li>
+<li>手动管理进程(开始，启动，重启，查看进程状态)的web界面，和xmlrpc接口</li>
+</ol>
+
+<h3>安装</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pip install supervisor
+</code></pre></div>
+<h3>配置</h3>
+
+<p>配置项示例如下，后面我们会详细创建一个独有的Laravel配置</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">; Sample supervisor config file.
+;
+; For more information on the config file, please see:
+; http://supervisord.org/configuration.html
+;
+; Note: shell expansion (&quot;~&quot; or &quot;$HOME&quot;) is not supported.  Environment
+; variables can be expanded using this syntax: &quot;%(ENV_HOME)s&quot;.
+
+[unix_http_server]          ; supervisord的unix socket服务配置
+file=/tmp/supervisor.sock   ; socket文件的保存目录
+;chmod=0700                 ; socket的文件权限 (default 0700)
+;chown=nobody:nogroup       ; socket的拥有者和组名
+;username=user              ; 默认不需要登陆用户 (open server)
+;password=123               ; 默认不需要登陆密码 (open server)
+
+;[inet_http_server]         ; supervisord的tcp服务配置
+;port=127.0.0.1:9001        ; tcp端口
+;username=user              ; tcp登陆用户
+;password=123               ; tcp登陆密码
+
+[supervisord]                ; supervisord的主进程配置
+logfile=/tmp/supervisord.log ; 主要的进程日志配置
+logfile_maxbytes=50MB        ; 最大日志体积，默认50MB
+logfile_backups=10           ; 日志文件备份数目，默认10
+loglevel=info                ; 日志级别，默认info; 还有:debug,warn,trace
+pidfile=/tmp/supervisord.pid ; supervisord的pidfile文件
+nodaemon=false               ; 是否以守护进程的方式启动
+minfds=1024                  ; 最小的有效文件描述符，默认1024
+minprocs=200                 ; 最小的有效进程描述符，默认200
+;umask=022                   ; 进程文件的umask，默认200
+;user=chrism                 ; 默认为当前用户，如果为root则必填
+;identifier=supervisor       ; supervisord的表示符, 默认时&#39;supervisor&#39;
+;directory=/tmp              ; 默认不cd到当前目录
+;nocleanup=true              ; 不在启动的时候清除临时文件，默认false
+;childlogdir=/tmp            ; (&#39;AUTO&#39; child log dir, default $TEMP)
+;environment=KEY=value       ; 初始键值对传递给进程
+;strip_ansi=false            ; (strip ansi escape codes in logs; def. false)
+
+; the below section must remain in the config file for RPC
+; (supervisorctl/web interface) to work, additional interfaces may be
+; added by defining them in separate rpcinterface: sections
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
+;serverurl=http://127.0.0.1:9001 ; use an http:// url to specify an inet socket
+;username=chris              ; 如果设置应该与http_username相同
+;password=123                ; 如果设置应该与http_password相同
+;prompt=mysupervisor         ; 命令行提示符，默认&quot;supervisor&quot;
+;history_file=~/.sc_history  ; 命令行历史纪录
+
+; The below sample program section shows all possible program subsection values,
+; create one or more &#39;real&#39; program: sections to be able to control them under
+; supervisor.
+
+;[program:theprogramname]
+;command=/bin/cat              ; 运行的程序 (相对使用PATH路径, 可以使用参数)
+;process_name=%(program_name)s ; 进程名表达式，默认为%(program_name)s
+;numprocs=1                    ; 默认启动的进程数目，默认为1
+;directory=/tmp                ; 在运行前cwd到指定的目录，默认不执行cmd
+;umask=022                     ; 进程umask，默认None
+;priority=999                  ; 程序运行的优先级，默认999
+;autostart=true                ; 默认随supervisord自动启动，默认true
+;autorestart=unexpected        ; whether/when to restart (default: unexpected)
+;startsecs=1                   ; number of secs prog must stay running (def. 1)
+;startretries=3                ; max # of serial start failures (default 3)
+;exitcodes=0,2                 ; 期望的退出码，默认0,2
+;stopsignal=QUIT               ; 杀死进程的信号，默认TERM
+;stopwaitsecs=10               ; max num secs to wait b4 SIGKILL (default 10)
+;stopasgroup=false             ; 向unix进程组发送停止信号，默认false
+;killasgroup=false             ; 向unix进程组发送SIGKILL信号，默认false
+;user=chrism                   ; 为运行程序的unix帐号设置setuid
+;redirect_stderr=true          ; 将标准错误重定向到标准输出，默认false
+;stdout_logfile=/a/path        ; 标准输出的文件路径NONE＝none;默认AUTO
+;stdout_logfile_maxbytes=1MB   ; max # logfile bytes b4 rotation (default 50MB)
+;stdout_logfile_backups=10     ; # of stdout logfile backups (default 10)
+;stdout_capture_maxbytes=1MB   ; number of bytes in &#39;capturemode&#39; (default 0)
+;stdout_events_enabled=false   ; emit events on stdout writes (default false)
+;stderr_logfile=/a/path        ; stderr log path, NONE for none; default AUTO
+;stderr_logfile_maxbytes=1MB   ; max # logfile bytes b4 rotation (default 50MB)
+;stderr_logfile_backups=10     ; # of stderr logfile backups (default 10)
+;stderr_capture_maxbytes=1MB   ; number of bytes in &#39;capturemode&#39; (default 0)
+;stderr_events_enabled=false   ; emit events on stderr writes (default false)
+;environment=A=1,B=2           ; process environment additions (def no adds)
+;serverurl=AUTO                ; override serverurl computation (childutils)
+
+; The below sample eventlistener section shows all possible
+; eventlistener subsection values, create one or more &#39;real&#39;
+; eventlistener: sections to be able to handle event notifications
+; sent by supervisor.
+
+;[eventlistener:theeventlistenername]
+;command=/bin/eventlistener    ; 运行的程序 (相对使用PATH路径, 可以使用参数)
+;process_name=%(program_name)s ; 进程名表达式，默认为%(program_name)s
+;numprocs=1                    ; 默认启动的进程数目，默认为1
+;events=EVENT                  ; event notif. types to subscribe to (req&#39;d)
+;buffer_size=10                ; 事件缓冲区队列大小，默认10
+;directory=/tmp                ; 在运行前cwd到指定的目录，默认不执行cmd
+;umask=022                     ; 进程umask，默认None
+;priority=-1                   ; 程序运行的优先级，默认-1
+;autostart=true                ; 默认随supervisord自动启动，默认true
+;autorestart=unexpected        ; whether/when to restart (default: unexpected)
+;startsecs=1                   ; number of secs prog must stay running (def. 1)
+;startretries=3                ; max # of serial start failures (default 3)
+;exitcodes=0,2                 ; 期望的退出码，默认0,2
+;stopsignal=QUIT               ; 杀死进程的信号，默认TERM
+;stopwaitsecs=10               ; max num secs to wait b4 SIGKILL (default 10)
+;stopasgroup=false             ; 向unix进程组发送停止信号，默认false
+;killasgroup=false             ; 向unix进程组发送SIGKILL信号，默认false
+;user=chrism                   ; setuid to this UNIX account to run the program
+;redirect_stderr=true          ; redirect proc stderr to stdout (default false)
+;stdout_logfile=/a/path        ; stdout log path, NONE for none; default AUTO
+;stdout_logfile_maxbytes=1MB   ; max # logfile bytes b4 rotation (default 50MB)
+;stdout_logfile_backups=10     ; # of stdout logfile backups (default 10)
+;stdout_events_enabled=false   ; emit events on stdout writes (default false)
+;stderr_logfile=/a/path        ; stderr log path, NONE for none; default AUTO
+;stderr_logfile_maxbytes=1MB   ; max # logfile bytes b4 rotation (default 50MB)
+;stderr_logfile_backups        ; # of stderr logfile backups (default 10)
+;stderr_events_enabled=false   ; emit events on stderr writes (default false)
+;environment=A=1,B=2           ; process environment additions
+;serverurl=AUTO                ; override serverurl computation (childutils)
+
+; The below sample group section shows all possible group values,
+; create one or more &#39;real&#39; group: sections to create &quot;heterogeneous&quot;
+; process groups.
+
+;[group:thegroupname]
+;programs=progname1,progname2  ; 任何在[program:x]中定义的x
+;priority=999                  ; 程序运行的优先级，默认999
+
+; The [include] section can just contain the &quot;files&quot; setting.  This
+; setting can list multiple files (separated by whitespace or
+; newlines).  It can also contain wildcards.  The filenames are
+; interpreted as relative to this file.  Included files *cannot*
+; include files themselves.
+
+;[include]
+;files = relative/directory/*.ini
+</code></pre></div>
+<h3>Laravel配置</h3>
+
+<p>在supervisor的include中，我们可以创建一个<code>SendMail</code>项目</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">[program:waaQueue]
+command                 = php artisan queue:work
+directory               = /path/to/app
+process_name            = %(program_name)s_%(process_num)s
+numprocs                = 6
+autostart               = true
+autorestart             = true
+stdout_logfile          = /path/to/app/storage/logs/supervisor_waaQueue.log
+stdout_logfile_maxbytes = 10MB
+stderr_logfile          = /path/to/app/storage/logs/supervisor_wqqQueue.log
+stderr_logfile_maxbytes = 10MB
+</code></pre></div>
+<h3>启动</h3>
+
+<ol>
+<li>首先启动supervisord，执行<code>supervisord</code>即可，它会在默认目录下寻找配置文件</li>
+<li>运行<code>supervisorctl help</code>来查看可使用命令</li>
+</ol>
+
+<h2>参考</h2>
+
+<ol>
+<li><a href="http://laravel.io/forum/02-09-2014-run-multiple-queue-jobs-the-same-time-with-beanstalk-and-supervisor">Run multiple queue jobs the same time, with Beanstalk and Supervisor??</a></li>
+<li><a href="http://supervisord.org/configuration.html#program-x-section-example">superivisord configuration</a></li>
+<li><a href="https://github.com/laravel/framework/issues/579">queue:listen not working</a></li>
+<li><a href="http://www.iitshare.com/supervisord-manage-process.html">使用supervisord来管理process</a></li>
+</ol>
+
+</article> <!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://yourdomain.com/2014/03/22/managing-your-larrvel-queue-by-supervisor.html&text=使用Supervisor来管理你的Laravel队列" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://yourdomain.com/2014/03/22/managing-your-larrvel-queue-by-supervisor.html&title=使用Supervisor来管理你的Laravel队列" target="_blank"></a>
+</div> <!-- end #post__share -->
+<div id="disqus_thread" name="">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+        <p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/script.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', '');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>

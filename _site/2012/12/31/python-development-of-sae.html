@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>sae下的python开发部署和一个简单例子 | 刘彦玮的技术博客</title>
+<meta name="author" content="刘彦玮">
+
+
+
+  <meta name="description " content="sae下的python开发部署和一个简单例子">
+
+
+<link rel="shortcut icon" href="http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="刘彦玮的技术博客" type="application/atom+xml">
+  </head>
+  <body>
+        <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="技术" class="tags__li tags-btn">技术</li>
+       
+        <li id="工具" class="tags__li tags-btn">工具</li>
+       
+        <li id="资源" class="tags__li tags-btn">资源</li>
+       
+        <li id="生活" class="tags__li tags-btn">生活</li>
+       
+        <li id="读书" class="tags__li tags-btn">读书</li>
+       
+        <li id="学习" class="tags__li tags-btn">学习</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="mailto:coolnameismy@hotmail.com" id="icon-email" class="tags-btn fontello"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." disabled >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="资源 pl__all" href="/2015/02/13/general-seo-resources.html"><span class="pl__circle"></span><span class="pl__title">SEO 常用资源</span><span class="pl__date">Feb 2015</span></a>
+    
+      <a class="生活 pl__all" href="/2015/01/30/microsoft-openhack-2015.html"><span class="pl__circle"></span><span class="pl__title">微软 Openhack 2015</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html"><span class="pl__circle"></span><span class="pl__title">使用Dropzone和七牛云存储来优化博客图床</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="技术 pl__all" href="/2015/01/08/conflict-between-camel-and-snake-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel 关联模型由于名称一致性导致的问题</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="学习 pl__all" href="/2015/01/01/my-2014-04.html"><span class="pl__circle"></span><span class="pl__title">2015年2月的学习</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="学习 pl__all" href="/2015/01/01/my-2014.html"><span class="pl__circle"></span><span class="pl__title">2014 个人总结</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="技术 pl__all" href="/2014/12/06/ioc-and-facade-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel 核心：控制反转（Inversion of Control）和门面模式（Facade）</span><span class="pl__date">Dec 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/09/26/use-old-version-of-brew-php.html"><span class="pl__circle"></span><span class="pl__title">回退Mac上用Brew安装的PHP版本</span><span class="pl__date">Sep 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/08/03/general-mac-resources.html"><span class="pl__circle"></span><span class="pl__title">Mac 常用资源</span><span class="pl__date">Aug 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/05/11/general-mysql-resources.html"><span class="pl__circle"></span><span class="pl__title">MySQL常用资源</span><span class="pl__date">May 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/05/04/set-environment-variables-of-server-for-php.html"><span class="pl__circle"></span><span class="pl__title">为PHP设置服务器(Apache/Nginx)环境变量</span><span class="pl__date">May 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/27/magic-methods-and-magic-constants-in-php.html"><span class="pl__circle"></span><span class="pl__title">PHP中的魔术方法和魔术常量简介和使用</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/23/roc-curve.html"><span class="pl__circle"></span><span class="pl__title">ROC曲线</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/19/design-patterns-of-php.html"><span class="pl__circle"></span><span class="pl__title">设计模式详解及PHP实现</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/16/insert-large-number-of-data-in-mysql.html"><span class="pl__circle"></span><span class="pl__title">MySQL大量数据插入各种方法性能分析与比较</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="生活 pl__all" href="/2014/04/15/we-should-be-better-than-us.html"><span class="pl__circle"></span><span class="pl__title">我们得比自己更努力</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/11/redis-queue-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel中使用Redis作为队列系统的工作流程</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/04/10/install-vagrant-in-mac.html"><span class="pl__circle"></span><span class="pl__title">在Mac下安装使用Vagrant</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/04/10/install-docker-in-mac.html"><span class="pl__circle"></span><span class="pl__title">在Mac下安装使用Docker</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/22/managing-your-larrvel-queue-by-supervisor.html"><span class="pl__circle"></span><span class="pl__title">使用Supervisor来管理你的Laravel队列</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/20/use-other-libraries-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">在Laravel中使用自己的类库三种方式</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/03/20/php-debug-with-xdebug.html"><span class="pl__circle"></span><span class="pl__title">用Xdebug和Sublime调试PHP代码</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2014/03/14/book-test.html"><span class="pl__circle"></span><span class="pl__title">2014阅读书单</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2014/03/14/book-list-of-2014.html"><span class="pl__circle"></span><span class="pl__title">2014阅读书单</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/10/grunt-bower-and-laravel.html"><span class="pl__circle"></span><span class="pl__title">用Laravel+Grunt+Bower管理你的应用</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/02/15/apache-and-nginx.html"><span class="pl__circle"></span><span class="pl__title">从运行原理及使用场景看Apache和Nginx</span><span class="pl__date">Feb 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html"><span class="pl__circle"></span><span class="pl__title">在Github上搭建Jekyll博客和创建主题</span><span class="pl__date">Feb 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/30/understanding-the-github-workflow.html"><span class="pl__circle"></span><span class="pl__title">了解GitHub工作流【译】</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/25/how-to-use-php-socket.html"><span class="pl__circle"></span><span class="pl__title">PHP Socket的使用</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/24/apache-log-format.html"><span class="pl__circle"></span><span class="pl__title">Apache 日志文件格式及简单处理</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/17/python-script-of-sae-log-download.html"><span class="pl__circle"></span><span class="pl__title">Python脚本--下载合并SAE日志</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/16/php-namespace-and-autoload.html"><span class="pl__circle"></span><span class="pl__title">PHP命名空间及自动加载</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-svn-resources.html"><span class="pl__circle"></span><span class="pl__title">SVN 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-shell-resources.html"><span class="pl__circle"></span><span class="pl__title">Shell 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-python-resources.html"><span class="pl__circle"></span><span class="pl__title">Python 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-php-resources.html"><span class="pl__circle"></span><span class="pl__title">PHP 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-jquery-resources.html"><span class="pl__circle"></span><span class="pl__title">jQuery 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-javascript-resources.html"><span class="pl__circle"></span><span class="pl__title">JavaScript 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-html-resources.html"><span class="pl__circle"></span><span class="pl__title">HTML 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-git-resources.html"><span class="pl__circle"></span><span class="pl__title">Git 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="生活 pl__all" href="/2014/01/02/my-2013.html"><span class="pl__circle"></span><span class="pl__title">2013个人总结</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2013/12/20/book-list-of-2013.html"><span class="pl__circle"></span><span class="pl__title">2013阅读书单</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/11/lamp-in-mac.html"><span class="pl__circle"></span><span class="pl__title">Mac下用brew搭建PHP(LNMP/LAMP)开发环境</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/11/deploy-pptp-vpn-in-ubuntu.html"><span class="pl__circle"></span><span class="pl__title">在ubuntu下搭建pptp vpn服务器</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/08/linux-command-continue.html"><span class="pl__circle"></span><span class="pl__title">Linux下多个命令连续执行方法</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/12/08/implemention-of-breadcrumbs-by-css3.html"><span class="pl__circle"></span><span class="pl__title">基于CSS3实现尖角面包屑</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/10/01/deploy-ceilometer-of-openstack.html"><span class="pl__circle"></span><span class="pl__title">部署Ceilometer到已有环境中</span><span class="pl__date">Oct 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/28/change-bootstrap-to-3.html"><span class="pl__circle"></span><span class="pl__title">更新前端框架到Bootstrap3</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/06/tools-of-reading.html"><span class="pl__circle"></span><span class="pl__title">我与工具--阅读和知识管理</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/04/something-about-tools-i-used.html"><span class="pl__circle"></span><span class="pl__title">我与工具</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="生活 pl__all" href="/2013/08/01/the-importent-of-writing.html"><span class="pl__circle"></span><span class="pl__title">持续写作的重要性</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="生活 pl__all" href="/2013/06/17/the-end-of-regular-college-course.html"><span class="pl__circle"></span><span class="pl__title">本科生涯结束了</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/12/hacking-in-openstack-ceilometer-collector.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer Collector代码解读</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/12/hacking-in-openstack-ceilometer-api.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer数据存储与API源码解析</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/11/pipeline-of-openstack-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer中的Pipeline机制</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/11/hacking-in-openstack-ceilometer-compute-agent.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer Compute Agent源码解读</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/09/learn-python-stevedore-module-in-detail.html"><span class="pl__circle"></span><span class="pl__title">学习Python动态扩展包stevedore</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/09/learn-python-abc-module.html"><span class="pl__circle"></span><span class="pl__title">学习Python的ABC模块</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/07/learn-python-setuptools-in-detail.html"><span class="pl__circle"></span><span class="pl__title">Python包管理工具setuptools详解</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/27/openstack-horizon-locale.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Horizon 中文本地化</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/23/install-mysql-and-mongo-web-admin.html"><span class="pl__circle"></span><span class="pl__title">安装MySQL和MongoDB的WEB管理界面</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/22/change-to-zsh.html"><span class="pl__circle"></span><span class="pl__title">从Bash切换到Zsh</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/20/set-proxy-for-git-or-apt.html"><span class="pl__circle"></span><span class="pl__title">给Git或者APT设置goagent代理</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/19/what-is-wsgi.html"><span class="pl__circle"></span><span class="pl__title">WSGI学习</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/16/deploy-openstack-grizzly-in-virtual-machine.html"><span class="pl__circle"></span><span class="pl__title">在虚拟机单机部署OpenStack Grizzly</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/learn-how-to-use-distutils.html"><span class="pl__circle"></span><span class="pl__title">学习使用python打包工具distutils</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/different-between-python-package-tools.html"><span class="pl__circle"></span><span class="pl__title">python包工具之间的关系</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/create-ubuntu-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Ubuntu镜像</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/13/openstack-grizzly-multihost-deployment-doc.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Grizzly Multihost部署文档</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/why-use-pip-over-easy-install.html"><span class="pl__circle"></span><span class="pl__title">为什么使用pip而不是easy_install</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/the-viewpoint-metatag.html"><span class="pl__circle"></span><span class="pl__title">HTML中meta标签viewpoint的作用</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/interactive-coding-ipython.html"><span class="pl__circle"></span><span class="pl__title">交互式编程-IPython</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/03/php-cache-of-a-page.html"><span class="pl__circle"></span><span class="pl__title">页面提速之——数据缓存</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/03/create-windows-7-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Win7镜像</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/01/terminal-command-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">Ceilometer的命令行使用</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/01/deploy-a-ceilometer-horizon-project.html"><span class="pl__circle"></span><span class="pl__title">部署一个ceilometer-horizon项目</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/26/create-windows-xp-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Windows XP镜像</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/25/some-concept-about-enterprise-storage.html"><span class="pl__circle"></span><span class="pl__title">几种企业的存储系统</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/25/conceptual-logical-physical.html"><span class="pl__circle"></span><span class="pl__title">概念模型、逻辑模型、物理模型的区别</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/23/opensource-licenses.html"><span class="pl__circle"></span><span class="pl__title">五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="资源 pl__all" href="/2013/04/23/general-bootstrap-resources.html"><span class="pl__circle"></span><span class="pl__title">Bootstrap常用资源</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/23/deploy-jeklly-blog.html"><span class="pl__circle"></span><span class="pl__title">在GitHub上搭建自己的Jekyll博客--了解环境</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/wordpress-to-jekyll.html"><span class="pl__circle"></span><span class="pl__title">博客迁移完成</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/ignore-password-in-git-push.html"><span class="pl__circle"></span><span class="pl__title">让git push命令不再需要密码</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/highlight-of-jekyll.html"><span class="pl__circle"></span><span class="pl__title">Jekyll的中的代码高亮</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/add-svn-ignore-file.html"><span class="pl__circle"></span><span class="pl__title">给SVN控制的项目添加忽略文件/文件夹</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/21/add-snippet.html"><span class="pl__circle"></span><span class="pl__title">给sublime增加snippet</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/27/glossary-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack监控项目Ceilometer的一些术语</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/03/25/tools-of-sever-deployment.html"><span class="pl__circle"></span><span class="pl__title">服务器自动化部署及运维常见工具</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/03/25/open-tcp-port-of-libvirt.html"><span class="pl__circle"></span><span class="pl__title">Linux下开启Libvirtd的tcp监控</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/21/vnc-vs-rdp.html"><span class="pl__circle"></span><span class="pl__title">VNC和远程桌面的区别</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/21/introduction-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer项目简介</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/20/different-bewteen-kvm-xen-qemu.html"><span class="pl__circle"></span><span class="pl__title">虚拟化与云计算中KVM,Xen,Qemu的区别和联系</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/20/debug-and-modify-openstack-horizon.html"><span class="pl__circle"></span><span class="pl__title">调试和修改OpenStack中的Horizon部分</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/02/25/quick-open-in-windows.html"><span class="pl__circle"></span><span class="pl__title">win7快速打开应用程序或文件</span><span class="pl__date">Feb 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/02/24/javascript-variable-domain.html"><span class="pl__circle"></span><span class="pl__title">JavaScript变量作用域</span><span class="pl__date">Feb 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/introduction-of-kanyun-worker.html"><span class="pl__circle"></span><span class="pl__title">kanyun worker原理</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/introduction-kanyun-server.html"><span class="pl__circle"></span><span class="pl__title">kanyun server服务</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/deploy-kanyun.html"><span class="pl__circle"></span><span class="pl__title">在OpenStack中部署kanyun</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/command-of-kanyun.html"><span class="pl__circle"></span><span class="pl__title">kanyun的api-client命令</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/01/16/create-remote-resp.html"><span class="pl__circle"></span><span class="pl__title">git创建远程库</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/01/09/remote-access-of-mysql.html"><span class="pl__circle"></span><span class="pl__title">MySQL远程访问</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2012/12/31/python-development-of-sae.html"><span class="pl__circle"></span><span class="pl__title">sae下的python开发部署和一个简单例子</span><span class="pl__date">Dec 2012</span></a>
+    
+      <a class="工具 pl__all" href="/2012/12/30/share-windows-and-linux.html"><span class="pl__circle"></span><span class="pl__title">Windows和Linux切换最终解决方案</span><span class="pl__date">Dec 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/11/08/openstack-nova-internal.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Nova内部机制【译】</span><span class="pl__date">Nov 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/27/php-variable-variables.html"><span class="pl__circle"></span><span class="pl__title">PHP可变变量</span><span class="pl__date">Sep 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/27/open-widown-in-javascript.html"><span class="pl__circle"></span><span class="pl__title">JS中防止浏览器屏蔽window.open</span><span class="pl__date">Sep 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/19/php-session-security.html"><span class="pl__circle"></span><span class="pl__title">PHP操作Session的原理及提升安全性时的一个问题</span><span class="pl__date">Sep 2012</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+  <h1 id="post__title" data-identifier="20121231">sae下的python开发部署和一个简单例子</h1>
+  <blockquote>
+<p>以前开发php时，一直在使用<a href="http://sae.sina.com.cn" title="sae">sae</a>的平台和服务，非常的喜欢。现在在整openstack，所以改用python做一些东西，为了不来回切换两个语言，我决定学习学习django，方便做一些自己的东西。关于sae下python的使用，<a href="http://appstack.sinaapp.com/static/doc/release/testing/index.html" title="sae官方文档">sae官方文档</a>写的非常全面，我这里只是记录自己的一个学习过程</p>
+</blockquote>
+
+<h2>搭建本地开发环境</h2>
+
+<p>安装django</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">easy_install django
+</code></pre></div>
+<p>下载安装本地开发环境</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git clone https://github.com/SAEPython/saepythondevguide.git
+cd dev_server
+python setup.py install
+</code></pre></div>
+<h2>创建python项目</h2>
+
+<p>到sae.sina.com.cn下创建一个python项目</p>
+
+<p>进入管理面板创建版本，版本号为1</p>
+
+<p>使用svn下载代码</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">svn co https://svn.sinaapp.com/xxxxx/
+</code></pre></div>
+<p>进入主目录，发现一个1的文件夹，这个就是对应的django的工程目录</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">django-admin.py start project mysite
+mv mysite/* 1    
+</code></pre></div>
+<p>在1下创建配置文件config.yaml，并写入如下内容</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">libraries:
+- name: &quot;django&quot;
+   version: &quot;1.4&quot;
+</code></pre></div>
+<p>在1下创建index.wsgi，内容如下</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import sae
+from mysite import wsgi
+application = sae.create_wsgi_app(wsgi.application)    
+</code></pre></div>
+<p>项目创建完毕，在1中执行dev_server.py来启动sae项目，默认localhost:8080访问</p>
+
+<p>我在这里遇到一个问题，我是用Windows虚拟的Linux，所以我在Windows下无法通过ip:8080访问到linux。看了d&gt;ev_server.py的代码发现这里host是写死为localhost的，所以我将代码小改动了一下</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">#/usr/local/lib/python2.7/dist-packages/sae_python_dev.../EGG-INFO/scripts/dev_server.py
+run_simple(option.host, options.port...)
+if __name__ == &#39;__main__&#39;:
+    parser = Option.Parser()
+    parser.add_option(&quot;--host&quot;,dest=&quot;host&quot;,default=&quot;localhost&quot;)    
+</code></pre></div>
+<p>这样就能通过增加--host，将外部访问的ip设定好了</p>
+
+<h2>实现一个简单的投票应用</h2>
+
+<p>在1目录下，创建应用</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">python manage.py startapp polls
+</code></pre></div>
+<p>修改配置文件settings</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import os
+
+if &#39;SERVER_SOFTWARE&#39; in os.environ:
+    from sae.const import(
+                          MYSQL_HOST,
+                          MYSQL_PORT,
+                          MYSQL_USER,
+                          MYSQL_PASS,
+                          MYSQL_DB
+                          )
+else:
+    MYSQL_HOST = &quot;localhost&quot;
+    MYSQL_PORT = &quot;3306&quot;
+    MYSQL_USER = &quot;root&quot;
+    MYSQL_PASS = &quot;xxxxx&quot;
+    MYSQL_DB = &quot;app_polls&quot;
+
+DATABASES = {
+    &#39;default&#39;: {
+        &#39;ENGINE&#39;:   &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;:     MYSQL_DB,
+        &#39;USER&#39;:     MYSQL_USER,
+        &#39;PASSWORD&#39;: MYSQL_PASS,
+        &#39;HOST&#39;:     MYSQL_HOST,
+        &#39;PORT&#39;:     MYSQL_PORT,
+    }
+}
+...
+TEMPLATE_DIRS = (
+    # Put strings here, like &quot;/home/html/django_templates&quot; or &quot;C:/www/django/templates&quot;.
+    # Always use forward slashes, even on Windows.
+    # Don&#39;t forget to use absolute paths, not relative paths.
+    os.path.join(os.path.dirname(__file__), &#39;templates&#39;),
+)
+
+INSTALLED_APPS = (
+    &#39;django.contrib.auth&#39;,
+    &#39;django.contrib.contenttypes&#39;,
+    &#39;django.contrib.sessions&#39;,
+    &#39;django.contrib.sites&#39;,
+    &#39;django.contrib.messages&#39;,
+    &#39;django.contrib.staticfiles&#39;,
+    # Uncomment the next line to enable the admin:
+    &#39;django.contrib.admin&#39;,
+    # Uncomment the next line to enable admin documentation:
+    # &#39;django.contrib.admindocs&#39;,
+    &#39;polls&#39;
+)
+</code></pre></div>
+<p>这里的配置项主要是将SAE和本地开发环境区分开，在SAE环境下使用它们提供的变量就可以直接连接数据库了，不过记得要在SAE控制面板进行初始化</p>
+
+<p>配置主urls，即mysite下的urls</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns(&#39;&#39;,
+    url(r&#39;^admin/&#39;, include(admin.site.urls)),
+    url(r&#39;^polls/&#39;, include(&#39;polls.urls&#39;)),
+)
+</code></pre></div>
+<p>在polls文件夹下修改urls</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">from django.conf.urls import patterns, url
+
+urlpatterns = patterns(&#39;polls.views&#39;,
+    url(r&#39;^$&#39;, &#39;index&#39;),
+    url(r&#39;^(?P&lt;poll_id&gt;\d+)/$&#39;, &#39;detail&#39;),
+    url(r&#39;^(?P&lt;poll_id&gt;\d+)/results/$&#39;, &#39;results&#39;),
+    url(r&#39;^(?P&lt;poll_id&gt;\d+)/vote/$&#39;, &#39;vote&#39;),
+)
+</code></pre></div>
+<p>在polls文件夹下创建model.py</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">from django.db import models
+
+
+class Poll(models.Model):
+    question = models.CharField(max_length=200)
+    pub_date = models.DateTimeField(&#39;date published&#39;)
+
+
+class Choice(models.Model):
+    poll = models.ForeignKey(Poll)
+    choice = models.CharField(max_length=200)
+    votes = models.IntegerField()
+</code></pre></div>
+<p>然后在mysql中创建一个add_polls数据库，使用</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">python manage.py syncdb
+</code></pre></div>
+<p>同步数据库，这个仅限本地，如果要在sae使用的话，需要本地生成后导入到sae上。</p>
+
+<p>在polls文件夹下创建view视图文件</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">from django.shortcuts import render_to_response, get_object_or_404
+from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from polls.models import Poll, Choice
+
+
+#主页显示最新的5条投票列表
+def index(request):
+    latest_poll_list = Poll.objects.all().order_by(&#39;-pub_date&#39;)[:5]
+    return render_to_response(&#39;index.html&#39;, {&#39;latest_poll_list&#39;: latest_poll_list})
+
+
+#获得某条信息详细情况
+def detail(request, poll_id):
+    p = get_object_or_404(Poll, pk=poll_id)
+    return render_to_response(&#39;detail.html&#39;, {&#39;poll&#39;: p},
+                               context_instance=RequestContext(request))
+
+
+#投票
+def vote(request, poll_id):
+    p = get_object_or_404(Poll, pk=poll_id)
+    try:
+        selected_choice = p.choice_set.get(pk=request.POST[&#39;choice&#39;])
+    except (KeyError, Choice.DoesNotExist):
+        return render_to_response(&#39;detail.html&#39;, {
+            &#39;poll&#39;: p,
+            &#39;error_message&#39;: &quot;You didn&#39;t select a choice.&quot;,
+        }, context_instance=RequestContext(request))
+    else:
+        selected_choice.votes += 1
+        selected_choice.save()
+        return HttpResponseRedirect(reverse(&#39;polls.views.results&#39;, args=(p.id,)))
+
+
+#显示投票结果
+def results(request, poll_id):
+    p = get_object_or_404(Poll, pk=poll_id)
+    return render_to_response(&#39;results.html&#39;, {&#39;poll&#39;: p})
+</code></pre></div>
+<p>在polls下创建templates文件夹，并创建以下三个文件</p>
+
+<p>detail.html</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;h1&gt;{{ poll.question }}&lt;/h1&gt;
+{% if error_message %}&lt;p&gt;&lt;strong&gt;{{ error_message }}&lt;/strong&gt;&lt;/p&gt;{% endif %}
+&lt;form action=&quot;/polls/{{ poll.id }}/vote/&quot; method=&quot;post&quot;&gt;
+{% csrf_token %}
+{% for choice in poll.choice_set.all %}
+    &lt;input type=&quot;radio&quot; name=&quot;choice&quot; id=&quot;choice{{ forloop.counter }}&quot; value=&quot;{{ choice.id }}&quot; /&gt;
+    &lt;label for=&quot;choice{{ forloop.counter }}&quot;&gt;{{ choice.choice }}&lt;/label&gt;&lt;br /&gt;
+{% endfor %}
+&lt;input type=&quot;submit&quot; value=&quot;Vote&quot; /&gt;
+&lt;/form&gt;
+</code></pre></div>
+<p>index.html</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{% if latest_poll_list %}
+    &lt;ul&gt;
+    {% for poll in latest_poll_list %}
+        &lt;li&gt;&lt;a href=&quot;/polls/{{ poll.id }}/&quot;&gt;{{ poll.question }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+{% else %}
+    &lt;p&gt;No polls are available.&lt;/p&gt;
+{% endif %}
+</code></pre></div>
+<p>results.html</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;h1&gt;{{ poll.question }}&lt;/h1&gt;
+&lt;ul&gt;
+{% for choice in poll.choice_set.all %}
+    &lt;li&gt;{{ choice.choice }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+&lt;a href=&quot;/polls/{{ poll.id }}/&quot;&gt;Vote again?&lt;/a&gt;
+</code></pre></div>
+</article> <!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://yourdomain.com/2012/12/31/python-development-of-sae.html&text=sae下的python开发部署和一个简单例子" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://yourdomain.com/2012/12/31/python-development-of-sae.html&title=sae下的python开发部署和一个简单例子" target="_blank"></a>
+</div> <!-- end #post__share -->
+<div id="disqus_thread" name="">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+        <p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/script.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', '');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>

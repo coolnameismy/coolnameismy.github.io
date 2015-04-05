@@ -1,10 +1,7 @@
 # Site settings
 title: 刘彦玮的技术博客
 email: coolnameismy@hotmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: > #刘彦玮的技术博客
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: coolnameismy@hotmail.com
@@ -18,10 +15,28 @@ author:                                     #自定义常亮
   name: 刘彦玮
   email: coolnameismy@hotmail.com
   link: http://liuyanwei.jumppo.com/
+  weibo: http://weibo.com/1897719834
+  github: http://github.com/coolnameismy
 title: 刘彦玮的技术博客                             #自定义常量
+
+# avatar头像及Favicon
+avatar: https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460
+#favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+
 locals:                                     #自定义常量
   tags: 标签
   about: 关于
 active: 技术                                 #自定义常量
 subscribe_rss: /pages/atom.xml              #订阅地址
 markdown: redcarpet                         #markdown解释器
+
+# google analytics 设置
+#ga:
+#  id:
+#  url:
+#
+## disqus 设置
+#disqus:
+#shortname: coolnameismy
+
+#

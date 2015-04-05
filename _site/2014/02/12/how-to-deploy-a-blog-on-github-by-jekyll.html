@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>在Github上搭建Jekyll博客和创建主题 | 刘彦玮的技术博客</title>
+<meta name="author" content="刘彦玮">
+
+  <meta name="keywords" content="Jekyll,Github">
+
+
+
+
+<link rel="shortcut icon" href="http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="刘彦玮的技术博客" type="application/atom+xml">
+  </head>
+  <body>
+        <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="技术" class="tags__li tags-btn">技术</li>
+       
+        <li id="工具" class="tags__li tags-btn">工具</li>
+       
+        <li id="资源" class="tags__li tags-btn">资源</li>
+       
+        <li id="生活" class="tags__li tags-btn">生活</li>
+       
+        <li id="读书" class="tags__li tags-btn">读书</li>
+       
+        <li id="学习" class="tags__li tags-btn">学习</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="mailto:coolnameismy@hotmail.com" id="icon-email" class="tags-btn fontello"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." disabled >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="资源 pl__all" href="/2015/02/13/general-seo-resources.html"><span class="pl__circle"></span><span class="pl__title">SEO 常用资源</span><span class="pl__date">Feb 2015</span></a>
+    
+      <a class="生活 pl__all" href="/2015/01/30/microsoft-openhack-2015.html"><span class="pl__circle"></span><span class="pl__title">微软 Openhack 2015</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html"><span class="pl__circle"></span><span class="pl__title">使用Dropzone和七牛云存储来优化博客图床</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="技术 pl__all" href="/2015/01/08/conflict-between-camel-and-snake-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel 关联模型由于名称一致性导致的问题</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="学习 pl__all" href="/2015/01/01/my-2014-04.html"><span class="pl__circle"></span><span class="pl__title">2015年2月的学习</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="学习 pl__all" href="/2015/01/01/my-2014.html"><span class="pl__circle"></span><span class="pl__title">2014 个人总结</span><span class="pl__date">Jan 2015</span></a>
+    
+      <a class="技术 pl__all" href="/2014/12/06/ioc-and-facade-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel 核心：控制反转（Inversion of Control）和门面模式（Facade）</span><span class="pl__date">Dec 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/09/26/use-old-version-of-brew-php.html"><span class="pl__circle"></span><span class="pl__title">回退Mac上用Brew安装的PHP版本</span><span class="pl__date">Sep 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/08/03/general-mac-resources.html"><span class="pl__circle"></span><span class="pl__title">Mac 常用资源</span><span class="pl__date">Aug 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/05/11/general-mysql-resources.html"><span class="pl__circle"></span><span class="pl__title">MySQL常用资源</span><span class="pl__date">May 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/05/04/set-environment-variables-of-server-for-php.html"><span class="pl__circle"></span><span class="pl__title">为PHP设置服务器(Apache/Nginx)环境变量</span><span class="pl__date">May 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/27/magic-methods-and-magic-constants-in-php.html"><span class="pl__circle"></span><span class="pl__title">PHP中的魔术方法和魔术常量简介和使用</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/23/roc-curve.html"><span class="pl__circle"></span><span class="pl__title">ROC曲线</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/19/design-patterns-of-php.html"><span class="pl__circle"></span><span class="pl__title">设计模式详解及PHP实现</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/16/insert-large-number-of-data-in-mysql.html"><span class="pl__circle"></span><span class="pl__title">MySQL大量数据插入各种方法性能分析与比较</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="生活 pl__all" href="/2014/04/15/we-should-be-better-than-us.html"><span class="pl__circle"></span><span class="pl__title">我们得比自己更努力</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/04/11/redis-queue-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">Laravel中使用Redis作为队列系统的工作流程</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/04/10/install-vagrant-in-mac.html"><span class="pl__circle"></span><span class="pl__title">在Mac下安装使用Vagrant</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/04/10/install-docker-in-mac.html"><span class="pl__circle"></span><span class="pl__title">在Mac下安装使用Docker</span><span class="pl__date">Apr 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/22/managing-your-larrvel-queue-by-supervisor.html"><span class="pl__circle"></span><span class="pl__title">使用Supervisor来管理你的Laravel队列</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/20/use-other-libraries-in-laravel.html"><span class="pl__circle"></span><span class="pl__title">在Laravel中使用自己的类库三种方式</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/03/20/php-debug-with-xdebug.html"><span class="pl__circle"></span><span class="pl__title">用Xdebug和Sublime调试PHP代码</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2014/03/14/book-test.html"><span class="pl__circle"></span><span class="pl__title">2014阅读书单</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2014/03/14/book-list-of-2014.html"><span class="pl__circle"></span><span class="pl__title">2014阅读书单</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/03/10/grunt-bower-and-laravel.html"><span class="pl__circle"></span><span class="pl__title">用Laravel+Grunt+Bower管理你的应用</span><span class="pl__date">Mar 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/02/15/apache-and-nginx.html"><span class="pl__circle"></span><span class="pl__title">从运行原理及使用场景看Apache和Nginx</span><span class="pl__date">Feb 2014</span></a>
+    
+      <a class="工具 pl__all" href="/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html"><span class="pl__circle"></span><span class="pl__title">在Github上搭建Jekyll博客和创建主题</span><span class="pl__date">Feb 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/30/understanding-the-github-workflow.html"><span class="pl__circle"></span><span class="pl__title">了解GitHub工作流【译】</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/25/how-to-use-php-socket.html"><span class="pl__circle"></span><span class="pl__title">PHP Socket的使用</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/24/apache-log-format.html"><span class="pl__circle"></span><span class="pl__title">Apache 日志文件格式及简单处理</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/17/python-script-of-sae-log-download.html"><span class="pl__circle"></span><span class="pl__title">Python脚本--下载合并SAE日志</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="技术 pl__all" href="/2014/01/16/php-namespace-and-autoload.html"><span class="pl__circle"></span><span class="pl__title">PHP命名空间及自动加载</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-svn-resources.html"><span class="pl__circle"></span><span class="pl__title">SVN 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-shell-resources.html"><span class="pl__circle"></span><span class="pl__title">Shell 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-python-resources.html"><span class="pl__circle"></span><span class="pl__title">Python 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-php-resources.html"><span class="pl__circle"></span><span class="pl__title">PHP 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-jquery-resources.html"><span class="pl__circle"></span><span class="pl__title">jQuery 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-javascript-resources.html"><span class="pl__circle"></span><span class="pl__title">JavaScript 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-html-resources.html"><span class="pl__circle"></span><span class="pl__title">HTML 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="资源 pl__all" href="/2014/01/15/general-git-resources.html"><span class="pl__circle"></span><span class="pl__title">Git 常用资源</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="生活 pl__all" href="/2014/01/02/my-2013.html"><span class="pl__circle"></span><span class="pl__title">2013个人总结</span><span class="pl__date">Jan 2014</span></a>
+    
+      <a class="读书 pl__all" href="/2013/12/20/book-list-of-2013.html"><span class="pl__circle"></span><span class="pl__title">2013阅读书单</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/11/lamp-in-mac.html"><span class="pl__circle"></span><span class="pl__title">Mac下用brew搭建PHP(LNMP/LAMP)开发环境</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/11/deploy-pptp-vpn-in-ubuntu.html"><span class="pl__circle"></span><span class="pl__title">在ubuntu下搭建pptp vpn服务器</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/12/08/linux-command-continue.html"><span class="pl__circle"></span><span class="pl__title">Linux下多个命令连续执行方法</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/12/08/implemention-of-breadcrumbs-by-css3.html"><span class="pl__circle"></span><span class="pl__title">基于CSS3实现尖角面包屑</span><span class="pl__date">Dec 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/10/01/deploy-ceilometer-of-openstack.html"><span class="pl__circle"></span><span class="pl__title">部署Ceilometer到已有环境中</span><span class="pl__date">Oct 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/28/change-bootstrap-to-3.html"><span class="pl__circle"></span><span class="pl__title">更新前端框架到Bootstrap3</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/06/tools-of-reading.html"><span class="pl__circle"></span><span class="pl__title">我与工具--阅读和知识管理</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/08/04/something-about-tools-i-used.html"><span class="pl__circle"></span><span class="pl__title">我与工具</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="生活 pl__all" href="/2013/08/01/the-importent-of-writing.html"><span class="pl__circle"></span><span class="pl__title">持续写作的重要性</span><span class="pl__date">Aug 2013</span></a>
+    
+      <a class="生活 pl__all" href="/2013/06/17/the-end-of-regular-college-course.html"><span class="pl__circle"></span><span class="pl__title">本科生涯结束了</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/12/hacking-in-openstack-ceilometer-collector.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer Collector代码解读</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/12/hacking-in-openstack-ceilometer-api.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer数据存储与API源码解析</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/11/pipeline-of-openstack-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer中的Pipeline机制</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/11/hacking-in-openstack-ceilometer-compute-agent.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer Compute Agent源码解读</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/09/learn-python-stevedore-module-in-detail.html"><span class="pl__circle"></span><span class="pl__title">学习Python动态扩展包stevedore</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/09/learn-python-abc-module.html"><span class="pl__circle"></span><span class="pl__title">学习Python的ABC模块</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/06/07/learn-python-setuptools-in-detail.html"><span class="pl__circle"></span><span class="pl__title">Python包管理工具setuptools详解</span><span class="pl__date">Jun 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/27/openstack-horizon-locale.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Horizon 中文本地化</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/23/install-mysql-and-mongo-web-admin.html"><span class="pl__circle"></span><span class="pl__title">安装MySQL和MongoDB的WEB管理界面</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/22/change-to-zsh.html"><span class="pl__circle"></span><span class="pl__title">从Bash切换到Zsh</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/05/20/set-proxy-for-git-or-apt.html"><span class="pl__circle"></span><span class="pl__title">给Git或者APT设置goagent代理</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/19/what-is-wsgi.html"><span class="pl__circle"></span><span class="pl__title">WSGI学习</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/16/deploy-openstack-grizzly-in-virtual-machine.html"><span class="pl__circle"></span><span class="pl__title">在虚拟机单机部署OpenStack Grizzly</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/learn-how-to-use-distutils.html"><span class="pl__circle"></span><span class="pl__title">学习使用python打包工具distutils</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/different-between-python-package-tools.html"><span class="pl__circle"></span><span class="pl__title">python包工具之间的关系</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/15/create-ubuntu-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Ubuntu镜像</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/13/openstack-grizzly-multihost-deployment-doc.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Grizzly Multihost部署文档</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/why-use-pip-over-easy-install.html"><span class="pl__circle"></span><span class="pl__title">为什么使用pip而不是easy_install</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/the-viewpoint-metatag.html"><span class="pl__circle"></span><span class="pl__title">HTML中meta标签viewpoint的作用</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/06/interactive-coding-ipython.html"><span class="pl__circle"></span><span class="pl__title">交互式编程-IPython</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/03/php-cache-of-a-page.html"><span class="pl__circle"></span><span class="pl__title">页面提速之——数据缓存</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/03/create-windows-7-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Win7镜像</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/01/terminal-command-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">Ceilometer的命令行使用</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/05/01/deploy-a-ceilometer-horizon-project.html"><span class="pl__circle"></span><span class="pl__title">部署一个ceilometer-horizon项目</span><span class="pl__date">May 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/26/create-windows-xp-image-for-openstack.html"><span class="pl__circle"></span><span class="pl__title">给OpenStack创建Windows XP镜像</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/25/some-concept-about-enterprise-storage.html"><span class="pl__circle"></span><span class="pl__title">几种企业的存储系统</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/25/conceptual-logical-physical.html"><span class="pl__circle"></span><span class="pl__title">概念模型、逻辑模型、物理模型的区别</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/23/opensource-licenses.html"><span class="pl__circle"></span><span class="pl__title">五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="资源 pl__all" href="/2013/04/23/general-bootstrap-resources.html"><span class="pl__circle"></span><span class="pl__title">Bootstrap常用资源</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/23/deploy-jeklly-blog.html"><span class="pl__circle"></span><span class="pl__title">在GitHub上搭建自己的Jekyll博客--了解环境</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/wordpress-to-jekyll.html"><span class="pl__circle"></span><span class="pl__title">博客迁移完成</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/ignore-password-in-git-push.html"><span class="pl__circle"></span><span class="pl__title">让git push命令不再需要密码</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/highlight-of-jekyll.html"><span class="pl__circle"></span><span class="pl__title">Jekyll的中的代码高亮</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/22/add-svn-ignore-file.html"><span class="pl__circle"></span><span class="pl__title">给SVN控制的项目添加忽略文件/文件夹</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/04/21/add-snippet.html"><span class="pl__circle"></span><span class="pl__title">给sublime增加snippet</span><span class="pl__date">Apr 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/27/glossary-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack监控项目Ceilometer的一些术语</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/03/25/tools-of-sever-deployment.html"><span class="pl__circle"></span><span class="pl__title">服务器自动化部署及运维常见工具</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/03/25/open-tcp-port-of-libvirt.html"><span class="pl__circle"></span><span class="pl__title">Linux下开启Libvirtd的tcp监控</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/21/vnc-vs-rdp.html"><span class="pl__circle"></span><span class="pl__title">VNC和远程桌面的区别</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/21/introduction-of-ceilometer.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Ceilometer项目简介</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/20/different-bewteen-kvm-xen-qemu.html"><span class="pl__circle"></span><span class="pl__title">虚拟化与云计算中KVM,Xen,Qemu的区别和联系</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/03/20/debug-and-modify-openstack-horizon.html"><span class="pl__circle"></span><span class="pl__title">调试和修改OpenStack中的Horizon部分</span><span class="pl__date">Mar 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/02/25/quick-open-in-windows.html"><span class="pl__circle"></span><span class="pl__title">win7快速打开应用程序或文件</span><span class="pl__date">Feb 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/02/24/javascript-variable-domain.html"><span class="pl__circle"></span><span class="pl__title">JavaScript变量作用域</span><span class="pl__date">Feb 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/introduction-of-kanyun-worker.html"><span class="pl__circle"></span><span class="pl__title">kanyun worker原理</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/introduction-kanyun-server.html"><span class="pl__circle"></span><span class="pl__title">kanyun server服务</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/deploy-kanyun.html"><span class="pl__circle"></span><span class="pl__title">在OpenStack中部署kanyun</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2013/01/30/command-of-kanyun.html"><span class="pl__circle"></span><span class="pl__title">kanyun的api-client命令</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/01/16/create-remote-resp.html"><span class="pl__circle"></span><span class="pl__title">git创建远程库</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="工具 pl__all" href="/2013/01/09/remote-access-of-mysql.html"><span class="pl__circle"></span><span class="pl__title">MySQL远程访问</span><span class="pl__date">Jan 2013</span></a>
+    
+      <a class="技术 pl__all" href="/2012/12/31/python-development-of-sae.html"><span class="pl__circle"></span><span class="pl__title">sae下的python开发部署和一个简单例子</span><span class="pl__date">Dec 2012</span></a>
+    
+      <a class="工具 pl__all" href="/2012/12/30/share-windows-and-linux.html"><span class="pl__circle"></span><span class="pl__title">Windows和Linux切换最终解决方案</span><span class="pl__date">Dec 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/11/08/openstack-nova-internal.html"><span class="pl__circle"></span><span class="pl__title">OpenStack Nova内部机制【译】</span><span class="pl__date">Nov 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/27/php-variable-variables.html"><span class="pl__circle"></span><span class="pl__title">PHP可变变量</span><span class="pl__date">Sep 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/27/open-widown-in-javascript.html"><span class="pl__circle"></span><span class="pl__title">JS中防止浏览器屏蔽window.open</span><span class="pl__date">Sep 2012</span></a>
+    
+      <a class="技术 pl__all" href="/2012/09/19/php-session-security.html"><span class="pl__circle"></span><span class="pl__title">PHP操作Session的原理及提升安全性时的一个问题</span><span class="pl__date">Sep 2012</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+  <h1 id="post__title" data-identifier="20140212">在Github上搭建Jekyll博客和创建主题</h1>
+  <blockquote>
+<p>之前本来想展开写的，后来发现Jekyll官网的教程已经非常完善了就没有多写，所以只有<a href="/2013/04/23/deploy-jeklly-blog.html">这篇</a>。
+但是过了这么久，发现很多人还是不清楚怎么搭建，所以这里打算详细写一下，并且把自己对图片的解决方案以及主题的创建步骤也一并写下。</p>
+
+<p>本篇主要谈如何搭建，不再讲为什么用它们。</p>
+</blockquote>
+
+<p><strong>说明：本篇用到的代码中，为了防止解析冲突，一律多了<code>\</code>这个来防止被误解析</strong></p>
+
+<h2>创建一个库</h2>
+
+<p>在Github上新开一个库，名字叫做<code>username.github.io</code>，然后当别人在地址栏输入相应url的时候就可以访问进来了。</p>
+
+<p>在这个库中完全可以只上传一个<code>index.html</code>，来讲自己要写的东西写进去，但是这样会丧失很多灵活性，所以需要Jekyll的帮助来创建自己的博客。</p>
+
+<h2>设定目录结构</h2>
+
+<p>把自己的库clone到本地来，建立如下目录结构：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">├── CNAME
+├── README.md
+├── _config.yml
+├── _includes
+│   ├── disqus.html
+│   ├── footer.html
+│   ├── googleanalytics.html
+│   ├── header.html
+│   └── navside.html
+├── _layouts
+│   ├── base.html
+│   ├── book.html
+│   ├── page.html
+│   └── post.html
+├── _posts
+│   ├── Book
+│   ├── Life
+│   ├── Resource
+│   ├── Technology
+│   └── Tool
+├── index.html
+├── pages
+│   ├── about.html
+│   ├── archive.html
+│   └── atom.xml
+├── public
+│   ├── css
+│   ├── fonts
+│   ├── img
+│   ├── js
+│   └── upload
+└── sitemap.txt
+</code></pre></div>
+<p>这个目录结构是我自己设定的，也可以有不同的目录结构，看<a href="http://jekyllrb.com/docs/structure/">官网</a>。</p>
+
+<p>接下来我主要解释这里面每一个目录的功能。</p>
+
+<h3>配置文件</h3>
+
+<p><code>_config.yml</code>里写有整个站点的主要配置项，我的如下：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">permalink: /:year/:month/:day/:title.html   #博文的固定链接
+paginate: 10                                #分页时每页博文数量
+author:                                     #自定义常亮
+  name: 闫肃
+  email: yansu0711@gmail.com
+  link: http://yansu.org
+title: 闫肃的博客                             #自定义常量
+locals:                                     #自定义常量
+  tags: 标签
+  about: 关于
+active: 技术                                 #自定义常量
+subscribe_rss: /pages/atom.xml              #订阅地址
+markdown: redcarpet                         #markdown解释器
+</code></pre></div>
+<p>这里的自定义常量可以在模板中使用，以后有修改的时候就不需要跑去改代码了。尤其是对一些私人的选项，可以在这里定义。现在我的博客中出了disqus和googleanalytics外都直接在这里设定就好了。</p>
+
+<h3>域名配置</h3>
+
+<p><code>CNAME</code>这个文件写明了这个站点的域名，如果不喜欢<code>username.github.io</code>的话，可以像我一样改掉</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">yansu.org
+</code></pre></div>
+<p>改法只要在这个文件中写入域名就可以了。不过你需要去域名服务商那里设定域名解析规则。</p>
+
+<p>只要把<code>主机记录</code>为<code>@</code>,<code>www</code>的记录值写成<code>username.github.io</code>就好了。</p>
+
+<h3>博客存放</h3>
+
+<p><code>_posts</code>下的所有目录中的所有博客，都会被Jekyll处理成为静态的html文件，然后放在<code>_site</code>下。我这里没有<code>_site</code>目录，是因为我在<code>.gitignore</code>文件中把这个目录屏蔽掉了，它不会上传到Github上。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">_site/
+_drafts/
+.DS_Store
+</code></pre></div>
+<p>以上是我的<code>.gitignore</code>文件内容。</p>
+
+<p>在<code>_posts</code>下的符合<code>YYYY-MM-DD-xxxxxx.md</code>的文件，都会被Jekyll认定为博客内容。我在<code>_posts</code>下又新建了一些文件夹，主要是方便自己本地管理博客。</p>
+
+<p>在上述这些文件中，必须先定义一些配置项，例如这篇博客的md文件中，开头是这样的：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">layout: post                                   #这个博客的布局文件
+title: 在Github上搭建自己的Jekyll博客             #博客标题
+category: 工具                                  #博客分类
+tags: Jekyll                                   #博客标签
+keywords: Jekyll,Github                        #自定义常量
+description:                                   #自定义常量
+</code></pre></div>
+<p>除了自定义常量外的必须包含进去，自定义变量在这个布局中可以访问。</p>
+
+<h3>模版文件</h3>
+
+<p>剩余的目录，基本都属于模板文件了，我解释一下各自的作用：</p>
+
+<ul>
+<li><code>_includes</code> 可以在模板中随时包含的文件</li>
+<li><code>_layouts</code> 布局文件，在博客头配置中可以选择</li>
+<li><code>pages</code> 站内固定的页面</li>
+<li><code>public</code> 公共资源，包括<code>js</code>,<code>css</code>,<code>img</code>等，还有我博客中调用的图片，我都放这里</li>
+<li><code>index.html</code> 站点的首页，整个站的入口文件</li>
+<li><code>sitemap.txt</code> 给搜索引擎看的，如何爬取这个站</li>
+</ul>
+
+<h2>创建自己的主题</h2>
+
+<p>上面讲了如何布局好站内文件结构，接下来主要就是如何创建一个自己的主题了。</p>
+
+<p>布局文件是整个主题最重要的文件，这些文件告诉Jekyll如何去形成一个html页面。</p>
+
+<p>首先我说一下我最基础的<code>page.html</code>文件，因为它决定了入口文件<code>index.html</code>的布局。</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">layout: base
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-12 aside3-title&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">&quot;#identifier&quot;</span><span class="nt">&gt;</span>{\{ page.title }}<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-12 aside3-content&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;page-content&quot;</span><span class="nt">&gt;</span>
+      {\{ content }}
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;hr&gt;</span>
+    {\% include disqus.html %}
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>从这里可以看到这个文件写起来一点都不复杂，但是为什么开头还有个<code>layout</code>呢？因为它也不是最基本的布局文件，最基本的是<code>base.html</code>，我们看一下它的内容。</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  {\% include header.html %}
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+      {\% include navside.html %}
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-8 col-lg-8 col-sm-12 col-xs-12 aside3&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;pjax&quot;</span><span class="nt">&gt;</span>
+            {\{ content }}
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  {\% include footer.html %}
+  {\% include googleanalytics.html %}
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>这个文件就更像一个HTML文件了，用PHP或者Python写过web应用的人看到<code>{\% %}</code>这样的标签应该不陌生，这不就是模板标签嘛。其实Jekyll也是借用了一下模板系统的，官网说明在<a href="http://jekyllrb.com/docs/templates/">这里</a>，看到开头第一句讲的它用了<a href="http://docs.shopify.com/themes/liquid-basics">Liquid</a>了吧。如果Jekyll的文档不能满足你的话，可以去Liquid那里查查。</p>
+
+<p>我解释一下<code>base.html</code>中几个标签的功能。</p>
+
+<ul>
+<li><code>{\% include header.html %}</code> 从<code>_includes</code>中把<code>header.html</code>包含进来放在这里</li>
+<li><code>{\% include navside.html %}</code> 同上</li>
+<li><code>{\{ content }}</code> 这句的作用是将继承这个Layout的文件中的代码，放在这里</li>
+</ul>
+
+<p>所以再看<code>page.html</code>文件就很容易了，它就是把配置项下面的内容，填补到<code>base.html</code>中的<code>{\{ content }}</code>处形成了一个文件。那么<code>page.html</code>中的<code>{\{ content }}</code>做什么用呢？因为别人也可以以<code>page.html</code>来作为自己的布局文件。</p>
+
+<p>入口文件<code>index.html</code>就是这么干的：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">layout: page
+title: 首页
+...
+</code></pre></div>
+<p>这里看到选择了page作为布局文件，那么title干嘛用的呢？其实它是在被包含的<code>header.html</code>中被用到了。来看看<code>header.html</code>怎么写的：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;title&gt;</span>{\{ page.title }} | {\{ site.title }}<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;author&quot;</span> <span class="na">content=</span><span class="s">&quot;刘彦玮&quot;</span><span class="nt">&gt;</span>
+{\% if page.keywords %}
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content=</span><span class="s">&quot;Jekyll,Github&quot;</span><span class="nt">&gt;</span>
+{\% endif %}
+{\% if page.description  %}
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;description &quot;</span> <span class="na">content=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+{\% endif %}
+
+...
+</code></pre></div>
+<p>这里又使用了一些新标签——<code>{\{ }\}</code>，这个标签就是用来书写变量的，通过在配置处配置变量，或者使用系统的自定义变量，可以轻松改变页面内的一些元素或者内容。</p>
+
+<p>系统变量查询可以去<a href="http://jekyllrb.com/docs/variables/">这里</a></p>
+
+<p>其实整个主题书写就是这么简单，如果有不清楚的可以再看看官网的文档。动一动手就非常明白了。</p>
+
+<h2>插入图片</h2>
+
+<p>很多人感觉用Jekyll最不方便的就是插入图片了，其实我也是这么觉得的。所以只能自己去想些办法。</p>
+
+<h3>图片统一存放</h3>
+
+<p>图片我都放在了<code>/public/upload</code>下，所以我在插入图片的时候只要用<code>![xxx](http://7u2ho6.com1.z0.glb.clouddn.com/xxx)</code>就可以了。</p>
+
+<h3>方便的图片导入</h3>
+
+<p>导入图片的方式是我将<code>upload</code>文件夹做了个软连接，放到mac的dock上就行了，有图片要用的时候直接往里面一拖。</p>
+
+<h3>方便的截图</h3>
+
+<p>很多时候图片都是现截取的，比如用QQ的截图工具，或者系统的截图工具，但是他们截取完都存放在了<code>user/Pictures</code>里面，来回移动太累了。我这里介绍一个Mac下的一个工具——Trickster，看图</p>
+
+<p><img src="http://7u2ho6.com1.z0.glb.clouddn.com/tech-trickster-move-picture.png" alt="移动图片"></p>
+
+<p>这个工具可以看到刚刚修改过的图片，而且还有一个收藏的文件夹，我每次截取完图以后，从左边往右边一拖，然后在markdown中就可以继续书写了。一点都不耗时。</p>
+
+<h2>本地预览及提交</h2>
+
+<p>本地预览自己的修改很容易，只要进入<code>username.github.io</code>目录，执行</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">jekyll serve
+</code></pre></div>
+<p>然后访问<code>http://localhost:4000</code>就OK了，安装Jekyll的方式自行谷歌吧...</p>
+
+<p>自己预览过没有问题以后，就提交到服务端吧，Git三步走</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add xxx
+git commit -m &quot;xxx&quot;
+git push
+</code></pre></div>
+<h2>其他</h2>
+
+<p>我觉得自己的这个主题设定的算是比较好修改和移植的了，如果大家有什么问题，可以尽管问。</p>
+
+<p>另外一些特别的功能，比如三栏、评论、谷歌分析，这些都不难，相信你稍微打开Github读一下这个主题的代码就很快明白了。</p>
+
+<p>代码地址戳<a href="https://github.com/suyan/suyan.github.io">这里</a></p>
+
+</article> <!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://yourdomain.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html&text=在Github上搭建Jekyll博客和创建主题" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://yourdomain.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html&title=在Github上搭建Jekyll博客和创建主题" target="_blank"></a>
+</div> <!-- end #post__share -->
+<div id="disqus_thread" name="">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+        <p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/script.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '', '');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
