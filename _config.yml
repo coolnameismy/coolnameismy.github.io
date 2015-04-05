@@ -1,14 +1,27 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: 刘彦玮的技术博客
+email: coolnameismy@hotmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: coolnameismy@hotmail.com
+github_username:  coolnameismy
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown
+permalink: /:year/:month/:day/:title.html   #博文的固定链接
+paginate: 10                                #分页时每页博文数量
+author:                                     #自定义常亮
+  name: 刘彦玮
+  email: coolnameismy@hotmail.com
+  link: http://liuyanwei.jumppo.com/
+title: 刘彦玮的技术博客                             #自定义常量
+locals:                                     #自定义常量
+  tags: 标签
+  about: 关于
+active: 技术                                 #自定义常量
+subscribe_rss: /pages/atom.xml              #订阅地址
+markdown: redcarpet                         #markdown解释器
