@@ -2,13 +2,13 @@
 <rss version="2.0">
   <channel>
     <title>刘彦玮的技术博客</title>
-    <link>http://yourdomain.com</link>
+    <link>http://liuyanwei.jumppo.com</link>
     <description></description>
     
       <item>
         <title>新的2015年，新的开始</title>
-        <link>http://yourdomain.com/2015/04/05/new-life-in2015.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/04/05/new-life-in2015.html</guid>
+        <link>http://liuyanwei.jumppo.com/2015/04/05/new-life-in2015.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/04/05/new-life-in2015.html</guid>
         <pubDate>Sun, 05 Apr 2015 00:00:00 +0800</pubDate>
         <description>&lt;blockquote&gt;
 &lt;p&gt;014年我给自己规划的2需要完成的事情，第一是2015年可以有个宝宝，第二是，2015年换一份新的工作...&lt;/p&gt;
@@ -28,8 +28,8 @@
     
       <item>
         <title>2015年3月的学习</title>
-        <link>http://yourdomain.com/2015/04/01/my-2015-04.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/04/01/my-2015-04.html</guid>
+        <link>http://liuyanwei.jumppo.com/2015/04/01/my-2015-04.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/04/01/my-2015-04.html</guid>
         <pubDate>Wed, 01 Apr 2015 00:00:00 +0800</pubDate>
         <description>&lt;blockquote&gt;
 &lt;p&gt;这个月的主要工作偏前端，根据设计图输出页面，这个月也让我接触到一些前端非常不错的工具，sublime的emmet，livesytle，sass，coffeescript等等，
@@ -82,8 +82,8 @@
     
       <item>
         <title>2015年2月的学习</title>
-        <link>http://yourdomain.com/2015/03/01/my-2015-03.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/03/01/my-2015-03.html</guid>
+        <link>http://liuyanwei.jumppo.com/2015/03/01/my-2015-03.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/03/01/my-2015-03.html</guid>
         <pubDate>Sun, 01 Mar 2015 00:00:00 +0800</pubDate>
         <description>&lt;blockquote&gt;
 &lt;p&gt;在新公司的第一个月，用从.net转向java的我需要学习的地方有很多。这个月里我熟悉了java的web项目，maven管理，提高了ios开发水平。开发环境从window机器，迁移到了mac，
@@ -151,8 +151,8 @@
     
       <item>
         <title>在Github上搭建Jekyll博客和创建主题</title>
-        <link>http://yourdomain.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html</guid>
+        <link>http://liuyanwei.jumppo.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html</guid>
         <pubDate>Wed, 12 Feb 2014 00:00:00 +0800</pubDate>
         <description>&lt;blockquote&gt;
 &lt;p&gt;之前本来想展开写的，后来发现Jekyll官网的教程已经非常完善了就没有多写，所以只有&lt;a href=&quot;/2013/04/23/deploy-jeklly-blog.html&quot;&gt;这篇&lt;/a&gt;。
@@ -416,8 +416,8 @@ git push
     
       <item>
         <title>五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</title>
-        <link>http://yourdomain.com/2013/04/23/opensource-licenses.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/2013/04/23/opensource-licenses.html</guid>
+        <link>http://liuyanwei.jumppo.com/2013/04/23/opensource-licenses.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2013/04/23/opensource-licenses.html</guid>
         <pubDate>Tue, 23 Apr 2013 00:00:00 +0800</pubDate>
         <description>&lt;h2&gt;简介&lt;/h2&gt;
 

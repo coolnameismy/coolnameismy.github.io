@@ -3,7 +3,7 @@ title: 刘彦玮的技术博客
 email: coolnameismy@hotmail.com
 description: > #刘彦玮的技术博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://liuyanwei.jumppo.com" # the base hostname & protocol for your site
 twitter_username: coolnameismy@hotmail.com
 github_username:  coolnameismy
 
@@ -35,8 +35,7 @@ markdown: redcarpet                         #markdown解释器
 #  id:
 #  url:
 #
-## disqus 设置
-disqus:
-shortname: coolnameismy
 
-#
+# disqus 设置
+disqus:
+  shortname: coolnameismy

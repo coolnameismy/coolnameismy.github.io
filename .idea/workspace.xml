@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39edcd33-6137-43ef-abe0-1c27b3ef460b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CNAME" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" afterPath="$PROJECT_DIR$/_posts/tech/2014-02-12-how-to-deploy-a-blog-on-github-by-jekyll.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html" afterPath="$PROJECT_DIR$/_site/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2015/03/01/my-2015-03.html" afterPath="$PROJECT_DIR$/_site/2015/03/01/my-2015-03.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2015/04/01/my-2015-04.html" afterPath="$PROJECT_DIR$/_site/2015/04/01/my-2015-04.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2015/04/05/new-life-in2015.html" afterPath="$PROJECT_DIR$/_site/2015/04/05/new-life-in2015.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/2013/04/23/opensource-licenses.html" afterPath="$PROJECT_DIR$/_site/2013/04/23/opensource-licenses.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/pages/rss.xml" afterPath="$PROJECT_DIR$/_site/pages/rss.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="coolnameismy.github.io.iws" />
@@ -32,8 +38,8 @@
       <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7962648" vertical-offset="116" max-vertical-offset="705">
-              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.7962648" vertical-offset="101" max-vertical-offset="690">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -505,8 +511,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7962648" vertical-offset="116" max-vertical-offset="705">
-          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.7962648" vertical-offset="101" max-vertical-offset="690">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="11" />
           <folding />
         </state>
       </provider>
