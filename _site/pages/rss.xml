@@ -27,6 +27,85 @@
       </item>
     
       <item>
+        <title>IOS蓝牙的开发专题</title>
+        <link>http://liuyanwei.jumppo.com/2015/04/04/ios-BLE-2.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/04/04/ios-BLE-2.html</guid>
+        <pubDate>Sat, 04 Apr 2015 00:00:00 +0800</pubDate>
+        <description>&lt;h1&gt;IOS蓝牙使用&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;最近做一个ios蓝牙设备的项目，需要用ios连接外部蓝牙设备，就对ios蓝牙相关技术做了一些研究，主要分为下面几个专题&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;（一）蓝牙相关基础知识&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;- 蓝牙常见名称和缩写
+- 蓝牙基础支持
+- ios蓝牙和版本之前的关系
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ios与蓝牙设备的使用&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1 建立中心角色
+2 扫描外设（discover）
+3 连接外设(connect)
+4 扫描外设中的服务和特征(discover)
+5 与外设做数据交互(explore and interact)
+    -读数据
+    -读描述
+    -写数据
+    -订阅数据
+6 断开连接(disconnect)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;（一）蓝牙相关基础知识&lt;/h1&gt;
+
+&lt;h5&gt;蓝牙常见名称和缩写&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;- MFI ======= make for ipad ,iphone, itouch
+&amp;gt; 专们为苹果设备制作的设备
+
+- BLE ==== buletouch low energy，蓝牙4.0设备因为低耗电，所以也叫做BLE
+- peripheral,central == 外设和中心,发起连接的时central，被连接的设备为perilheral
+- service and characteristic === 服务和特征
+&amp;gt; 每个设备会提供服务和特征，类似于服务端的api，但是机构不同。每个外设会有很多服务，每个服务中包含很多字段，这些字段的权限一般分为
+读read，写write，通知notiy几种，就是我们连接设备后具体需要回去的内容。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;MFI === ExternalAccessory 框架
+4.0 BLE  === CoreBluetooth 框架&lt;/p&gt;
+
+&lt;h5&gt;蓝牙基础支持&lt;/h5&gt;
+
+&lt;h5&gt;蓝牙和版本之前的关系&lt;/h5&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>IOS蓝牙的开发专题</title>
+        <link>http://liuyanwei.jumppo.com/2015/04/04/ios-BLE-1.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/04/04/ios-BLE-1.html</guid>
+        <pubDate>Sat, 04 Apr 2015 00:00:00 +0800</pubDate>
+        <description>&lt;h1&gt;IOS蓝牙使用&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;最近做一个ios蓝牙设备的项目，需要用ios连接外部蓝牙设备，就对ios蓝牙相关技术做了一些研究，主要分为下面几个专题&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;蓝牙相关基础知识&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;- 蓝牙常见名称和缩写
+- 蓝牙基础支持
+- ios蓝牙和版本之前的关系
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ios与蓝牙设备的使用&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1 建立中心角色
+2 扫描外设（discover）
+3 连接外设(connect)
+4 扫描外设中的服务和特征(discover)
+5 与外设做数据交互(explore and interact)
+    -读数据
+    -读描述
+    -写数据
+    -订阅数据
+6 断开连接(disconnect)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      </item>
+    
+      <item>
         <title>2015年3月的学习</title>
         <link>http://liuyanwei.jumppo.com/2015/04/01/my-2015-04.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/04/01/my-2015-04.html</guid>
