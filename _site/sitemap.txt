@@ -9,6 +9,12 @@
 
 
 
+  /2015/05/28/tomcat-domain-name.html
+
+  /2015/05/28/spring-4.html
+
+  /2015/05/28/spring-3.html
+
   /2015/05/28/spring-2.html
 
   /2015/05/28/spring-1.html

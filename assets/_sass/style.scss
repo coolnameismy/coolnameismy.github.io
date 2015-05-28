@@ -386,7 +386,7 @@ a {
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  cursor: not-allowed;
+  cursor: text;
   &::-webkit-input-placeholder {
     color: $pl-input-ph;
     font-style: italic;
