@@ -6,6 +6,167 @@
     <description></description>
     
       <item>
+        <title>提高IOS开发效率的工具</title>
+        <link>http://liuyanwei.jumppo.com/2015/05/29/ios-develop-tool.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/29/ios-develop-tool.html</guid>
+        <pubDate>Fri, 29 May 2015 00:00:00 +0800</pubDate>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;ios开发中又很多可以提高开发效率的工具，这篇文章整理我使用提高效率的工具，如果你也有一些好的工具，可以向我推荐一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;-1  源代码依赖管理工具cocoaPods&lt;/p&gt;
+
+&lt;p&gt;-2  Xcode 好用的插件&lt;/p&gt;
+
+&lt;h2&gt;1:源代码依赖管理工具cocoaPods&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;以来管理工具有很多，例如java的maven，android的gradle，js的bower，ios中的cocaPods。他们可以帮你下载第三方包
+  并管理这些包的依赖关系。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+
+&lt;h4&gt;安装&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  1:更新ruby环境 $ gem update rails ＝＝＝＝＝＝＝＝＝ Mac OS X 10.5以上&lt;/li&gt;
+&lt;li&gt;  2:更新gem环境 ： gem update --system&lt;/li&gt;
+&lt;li&gt;  3:安装cocoapods：sudo gem install cocoapods&lt;/li&gt;
+&lt;li&gt;  4:pod setup&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;h4&gt;配置项目依赖&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1:创建prdfile文件 :touch Podfile&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2:输入项目依赖 vi Podfile,例如&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;platform :ios, &amp;quot;6.1&amp;quot;
+pod &amp;#39;MBProgressHUD&amp;#39;, &amp;#39;~&amp;gt; 0.8&amp;#39;
+pod &amp;#39;MapBox&amp;#39;, &amp;#39;~&amp;gt; 1.1.0&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;3:pod install 安装&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;4:后续打开项目文件&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;h4&gt;常用命令&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  1:查看某个库是否存在 －－$ pod search AFNetworking&lt;/li&gt;
+&lt;li&gt;  2:更新pod －－$ pod update&lt;/li&gt;
+&lt;li&gt;  3：安装pod  -- $ pod install&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;使用下面两条命令可以提高速度，原因是不检查spec仓库更新&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  pod install --verbose --no-repo-update&lt;/li&gt;
+&lt;li&gt;  pod update --verbose --no-repo-update&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;2:xcode好用的插件&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;xcode插件可以大大提高开发效率&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;插件安装方式&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  1：推荐！ 使用Alcatraz安装，commannd + sift + 9 调出图形界面，然后使用搜索插件安装&lt;/li&gt;
+&lt;li&gt;  2：手动安装：对应有些好的插件，Alcatraz找不到的话，可以手动下载插件包，然后安装。
+安装方法：下载附件，解压后放在：你的用户/Library/Application Support/Developer/Shared/Xcode/Plug-ins目录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Alcatraz安装&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  作用：管理xcode插件&lt;/li&gt;
+&lt;li&gt;  安装：命令行执行：curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh&lt;/li&gt;
+&lt;li&gt;  删除：rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/li&gt;
+&lt;li&gt;  快捷键 command + shift + 9
+github地址：https://github.com/supermarin/Alcatraz&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;推荐插件&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;KSImageNamed&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; Xcode资源文件在代码中添加只能感应，例如： [UIImage imageNamed: 会出现项目中的资源文件的智能感应&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;OMColorSense&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; Xcode 代码中可以通过选择颜色生成uicolor代码&lt;/li&gt;
+&lt;li&gt; 使用:先随便写个颜色，然后点击颜色行，改行的右上角会出现色快，点击可以选择颜色。或点击Xcode导航中的Edit-》insert color&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;VVDocumenter-Xcode&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Xcode 按三次斜杠（///）后自动生成方法的注释&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;fuzzyAutocomplete ，hou或是AutoresizeMask-for-Xcode&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  加强版只能感应，只是模糊匹配,必装！&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SCXcodeMiniMap&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  类似Sublime Text 右侧的迷你预览图&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;XToDo&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  代办列表管理&lt;/li&gt;
+&lt;li&gt;  支持//TODO: //FIXME: //!!!: //???: 快捷键分别是 ： control + shift + T ,control + shift + X ,control + shift + ! ,control + shift + Q&lt;/li&gt;
+&lt;li&gt;  打开list 快捷键control + T&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;injectionforxcode&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  说明：动态修改app中的样式而不需要重新编译&lt;/li&gt;
+&lt;li&gt;  教程：http://nonomori.farbox.com/post/injection-plugin-for-xcode&lt;/li&gt;
+&lt;li&gt;  快捷键：control = ：更新代码&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;XAlign&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  说明：自动对齐代码&lt;/li&gt;
+&lt;li&gt;  快捷键：command+shift+X&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Code Pilot&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  xcode查找文件插件&lt;/li&gt;
+&lt;li&gt;  快捷键：command+shift+X,建议替换为control+X&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CocoaPods&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  cocoaPods插件&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Peckham&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  自动import头文件&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dash for Xcode&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  xcode文档插件&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      </item>
+    
+      <item>
         <title>tomcat部署绑定多个域名</title>
         <link>http://liuyanwei.jumppo.com/2015/05/28/tomcat-domain-name.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/28/tomcat-domain-name.html</guid>

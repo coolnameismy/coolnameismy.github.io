@@ -9,6 +9,8 @@
 
 
 
+  /2015/05/29/ios-develop-tool.html
+
   /2015/05/28/tomcat-domain-name.html
 
   /2015/05/28/spring-4.html
