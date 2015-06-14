@@ -6,9 +6,9 @@
     <description></description>
     
       <item>
-        <title>ios好用的第三方控件（一）Masonry的使用</title>
-        <link>http://liuyanwei.jumppo.com/2015/06/14/ios-library1.html</link>
-        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/06/14/ios-library1.html</guid>
+        <title>Masonry的使用</title>
+        <link>http://liuyanwei.jumppo.com/2015/06/14/ios-library-masonry.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/06/14/ios-library-masonry.html</guid>
         <pubDate>Sun, 14 Jun 2015 00:00:00 +0800</pubDate>
         <description>&lt;h1&gt;（一）Masonry介绍&lt;/h1&gt;
 
@@ -114,11 +114,11 @@ make.left.and.right.equalTo(self.view);&lt;/p&gt;&lt;/li&gt;
 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Masonry高级使用例子&lt;/h3&gt;
+&lt;h3&gt;Masonry高级使用例子1&lt;/h3&gt;
 
 &lt;h4&gt;IOS计算器使用Masorny布局：&lt;/h4&gt;
 
-&lt;p&gt;![]&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://geekpics.net/images/2015/06/14/2Djeo.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//高级布局练习 ios自带计算器布局&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exp4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 
@@ -271,7 +271,27 @@ make.left.and.right.equalTo(self.view);&lt;/p&gt;&lt;/li&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;本例子使用的baseline去控制高度位置，这似乎不是太准，如果想要精准控制高度位置，可以使用一行一行添加的方法，每次当前行的top去equelTo上一行的bottom。
+给个提示：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;for（遍历所有行)
+    for（遍历所以列）
+    //当前行约束根据上一行去设置
+    ......
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt; 下一个例子中，使用上面类似的方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Masonry高级使用例子2&lt;/h3&gt;
+
+&lt;h4&gt;根据设计图，使用masonry布局：&lt;/h4&gt;
+
+&lt;p&gt;/* &lt;img src=&quot;https://geekpics.net/images/2015/06/14/2Djeo.jpg&quot; alt=&quot;&quot;&gt; */&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;to be continue...&lt;/p&gt;
+</description>
       </item>
     
       <item>

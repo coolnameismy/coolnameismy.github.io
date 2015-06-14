@@ -1,12 +1,13 @@
 ---
 layout: post
-title: ios好用的第三方控件（一）Masonry的使用
+title: Masonry的使用
 subtitle: Masonry
 category: 专题
 tags: ios , library
 keywords: ios,AFNetworking,RestKit,SVProgressHUD,CocoaLumberjack,facebook/pop,Masonry
-description: 
+description:
 ---
+
 
 #  （一）Masonry介绍
 
@@ -114,13 +115,13 @@ make.left.and.right.equalTo(self.view);
 
 ````
 
-### Masonry高级使用例子
+### Masonry高级使用例子1
 
 #### IOS计算器使用Masorny布局：
 
-![]
+![](https://geekpics.net/images/2015/06/14/2Djeo.jpg)
 
-```` objective-ctive-c
+```` objective-c
 
 //高级布局练习 ios自带计算器布局
 -(void)exp4{
@@ -277,3 +278,29 @@ make.left.and.right.equalTo(self.view);
 
 ````
 
+本例子使用的baseline去控制高度位置，这似乎不是太准，如果想要精准控制高度位置，可以使用一行一行添加的方法，每次当前行的top去equelTo上一行的bottom。
+给个提示：
+
+````
+
+for（遍历所有行)
+    for（遍历所以列）
+    //当前行约束根据上一行去设置
+    ......
+
+````
+
+-  下一个例子中，使用上面类似的方法
+
+
+### Masonry高级使用例子2
+
+#### 根据设计图，使用masonry布局：
+
+/* ![](https://geekpics.net/images/2015/06/14/2Djeo.jpg) */
+
+```` objective-c
+
+
+````
+to be continue...
