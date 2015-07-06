@@ -9,6 +9,8 @@
 
 
 
+  /2015/07/06/rabbitmq.html
+
   /2015/06/14/ios-library-masonry.html
 
   /2015/05/29/ios-develop-tool.html

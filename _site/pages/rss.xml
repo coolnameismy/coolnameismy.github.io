@@ -6,6 +6,233 @@
     <description></description>
     
       <item>
+        <title>RabbitMQ使用</title>
+        <link>http://liuyanwei.jumppo.com/2015/07/06/rabbitmq.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/07/06/rabbitmq.html</guid>
+        <pubDate>Mon, 06 Jul 2015 00:00:00 +0800</pubDate>
+        <description>&lt;hr&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;RabbitMQ RabbitMQ是一个在AMQP基础上完整的，可复用的企业消息系统。他遵循Mozilla Public License。主页地址：https://www.rabbitmq.com/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;本章内容&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;ol&gt;
+&lt;li&gt;- RabbitMQ 配置&lt;/li&gt;
+&lt;li&gt;- RabbitMQ Java dome&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;RabbitMQ 配置&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;由于我的开发环境是mac环境，这里会详细介绍mac环境的RabbitMQ配置，linux和window配置简单描述&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;mac环境安装：&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  系统已经自带了Erlang，所以只需要安装rabbitmq-server，可以使用工具brew或者macports安装，我是使用了macports&lt;/li&gt;
+&lt;li&gt;  安装命令：prot install rabbitmq-server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;linux&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;RabbitMQ是基于Erlang的，所以首先必须配置Erlang环境。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;从Erlang的官网 http://www.erlang.org/download.html 下载最新的erlang安装包，我下载的版本是 otp&lt;em&gt;src&lt;/em&gt;R14B03.tar.gz 。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;然后：&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    $ tar xvzf otp_src_R14B03.tar.gz
+    $ cd otp_src_R14B03
+    $ ./configure
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;window安装&lt;/h4&gt;
+
+&lt;p&gt;参考：&lt;a href=&quot;http://blog.csdn.net/a__java___a/article/details/17614797&quot;&gt;http://blog.csdn.net/a&lt;strong&gt;java&lt;/strong&gt;_a/article/details/17614797&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;管理工具&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;管理工具安装很简单，执行命令： rabbitmq-plugins enable rabbitmq_management
+
+参考官方文档：http://www.rabbitmq.com/management.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://geekpics.net/images/2015/07/06/n9FNEZI.jpg&quot; alt=&quot;管理工具截图&quot;&gt;&lt;/p&gt;
+
+&lt;h2&gt;java dome实现&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;h4&gt;下载 rabbitmq客户端包&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;手动下载
+地址：http://www.rabbitmq.com/download.html
+里面有各种版本的rabbitmq clinet，根据需要选择，我这里选择了java。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;maven下载&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; &amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;com.rabbitmq&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;amqp-client&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;3.5.3&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;几个概念说明&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Broker：简单来说就是消息队列服务器实体。
+Exchange：消息交换机，它指定消息按什么规则，路由到哪个队列。
+Queue：消息队列载体，每个消息都会被投入到一个或多个队列。
+Binding：绑定，它的作用就是把exchange和queue按照路由规则绑定起来。
+Routing Key：路由关键字，exchange根据这个关键字进行消息投递。
+vhost：虚拟主机，一个broker里可以开设多个vhost，用作不同用户的权限分离。
+producer：消息生产者，就是投递消息的程序。
+consumer：消息消费者，就是接受消息的程序。
+channel：消息通道，在客户端的每个连接里，可建立多个channel，每个channel代表一个会话任务。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;生产者实现&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    &lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;company&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.rabbitmq.client.Channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.rabbitmq.client.Connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.rabbitmq.client.ConnectionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.concurrent.TimeoutException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+
+    &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * Created by zteliuyw on 15/7/6.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Producer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//队列名称&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QUEUE_NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//生成数据到mq&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sendMsg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+            &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;             * 创建连接连接到MabbitMQ&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;             */&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;ConnectionFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ConnectionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;//设置MabbitMQ所在主机ip或者主机名&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setHost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;//创建一个连接&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;Connection&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newConnection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;//创建一个频道&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;Channel&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createChannel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;//指定一个队列&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;queueDeclare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QUEUE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+                &lt;span class=&quot;c1&quot;&gt;//往队列中发出一条消息&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;basicPublish&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QUEUE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; [x] Sent &amp;#39;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;//关闭频道和连接&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TimeoutException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;消费者实现&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.rabbitmq.client.Channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.rabbitmq.client.Connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.rabbitmq.client.ConnectionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.rabbitmq.client.QueueingConsumer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.concurrent.TimeoutException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * Created by zteliuyw on 15/7/6.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Consumer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//队列名称&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QUEUE_NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//打开连接和创建频道，与发送端一样&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ConnectionFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ConnectionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setHost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Connection&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newConnection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;Channel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createChannel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;//声明队列，主要为了防止消息接收者先运行此程序，队列还不存在时创建队列。&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;queueDeclare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QUEUE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; [*] Waiting for messages. To exit press CTRL+C&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+                &lt;span class=&quot;c1&quot;&gt;//创建队列消费者&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;QueueingConsumer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;consumer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;QueueingConsumer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;//指定消费队列&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;basicConsume&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QUEUE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;c1&quot;&gt;//nextDelivery是一个阻塞方法（内部实现其实是阻塞队列的take方法）&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;QueueingConsumer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Delivery&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delivery&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;consumer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nextDelivery&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delivery&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBody&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; [x] Received &amp;#39;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TimeoutException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InterruptedException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;recvMsg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这里使用继承了Thread类实现多线程。&lt;/p&gt;
+
+&lt;h4&gt;测试Dome ，使用生产者发送数据，消费者接受数据&lt;/h4&gt;
+
+&lt;p&gt;2个java工程，一个是生产者工程，main声明一个生产者，然后丢一条hello world消息，实现如下：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    public static void main(String[] args) {
+        Producer producer = new Producer();
+        String date = new SimpleDateFormat(&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;).format(new Date());//设置日期格式
+        producer.sendMsg(&amp;quot;hello world &amp;quot;+ date);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;消费者的java工程，main方法启动一个消费者起一个线程接受消息，实现方法如下：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    public static void main(String[] args) {
+
+        Consumer consumer = new Consumer();
+        consumer.recvMsg();
+
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果如图：左侧是生产者，右侧是消费者
+&lt;img src=&quot;https://geekpics.net/images/2015/07/06/NGVKWnbX.jpg&quot; alt=&quot;效果如图：&quot;&gt;&lt;/p&gt;
+</description>
+      </item>
+    
+      <item>
         <title>Masonry的使用</title>
         <link>http://liuyanwei.jumppo.com/2015/06/14/ios-library-masonry.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/06/14/ios-library-masonry.html</guid>
