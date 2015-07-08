@@ -6,6 +6,166 @@
     <description></description>
     
       <item>
+        <title>MyBatis简单使用的demo</title>
+        <link>http://liuyanwei.jumppo.com/2015/07/07/mybatis.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/07/07/mybatis.html</guid>
+        <pubDate>Tue, 07 Jul 2015 00:00:00 +0800</pubDate>
+        <description>&lt;hr&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;MyBatis 是一个java持久层框架，类似hibernate，但是比hibernate轻，功能没hibernate多，关于谁好谁坏，一直有人再争论，应该是各有各的好处，大家可以自行百度其优缺点。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;本章内容&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;ol&gt;
+&lt;li&gt;- MyBatis 配置&lt;/li&gt;
+&lt;li&gt;- MyBatis Java dome&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;MyBatis 配置&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;ol&gt;
+&lt;li&gt;-下载MyBatis包，推荐使用maven下载&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;-下载MySql包，推荐使用maven下载&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;5.1.31&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;3.1.1&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;MyBatis 使用&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;h4&gt;1： 建一个xml配置文件，配置数据库连接&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+    &amp;lt;!DOCTYPE configuration PUBLIC &amp;quot;-//mybatis.org//DTD Config 3.0//EN&amp;quot; &amp;quot;http://mybatis.org/dtd/mybatis-3-config.dtd&amp;quot;&amp;gt;
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;environments default=&amp;quot;development&amp;quot;&amp;gt;
+            &amp;lt;environment id=&amp;quot;development&amp;quot;&amp;gt;
+                &amp;lt;transactionManager type=&amp;quot;JDBC&amp;quot; /&amp;gt;
+                &amp;lt;!-- 配置数据库连接信息 --&amp;gt;
+                &amp;lt;dataSource type=&amp;quot;POOLED&amp;quot;&amp;gt;
+                    &amp;lt;property name=&amp;quot;driver&amp;quot; value=&amp;quot;com.mysql.jdbc.Driver&amp;quot; /&amp;gt;
+                    &amp;lt;property name=&amp;quot;url&amp;quot; value=&amp;quot;jdbc:mysql://localhost:3306/test&amp;quot; /&amp;gt;
+                    &amp;lt;property name=&amp;quot;username&amp;quot; value=&amp;quot;root&amp;quot; /&amp;gt;
+                    &amp;lt;property name=&amp;quot;password&amp;quot; value=&amp;quot;xxx&amp;quot; /&amp;gt;
+                &amp;lt;/dataSource&amp;gt;
+            &amp;lt;/environment&amp;gt;
+        &amp;lt;/environments&amp;gt;
+
+        &amp;lt;mappers&amp;gt;
+            &amp;lt;mapper resource=&amp;quot;com/company/userMapper.xml&amp;quot;/&amp;gt;
+        &amp;lt;/mappers&amp;gt;
+
+    &amp;lt;/configuration&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;2：建立一个pojo User类&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;company&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Created by zteliuyw on 15/7/6.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;3：建立一个user方法对于的映射文件mapping&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; ?&amp;gt;
+    &amp;lt;!DOCTYPE mapper PUBLIC &amp;quot;-//mybatis.org//DTD Mapper 3.0//EN&amp;quot; &amp;quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&amp;quot;&amp;gt;
+    &amp;lt;mapper namespace=&amp;quot;com.company.UserMapper&amp;quot;&amp;gt;
+
+        &amp;lt;!--
+            根据id查询得到一个user对象
+         --&amp;gt;
+        &amp;lt;select id=&amp;quot;getUser&amp;quot; parameterType=&amp;quot;int&amp;quot;
+                resultType=&amp;quot;com.company.User&amp;quot;&amp;gt;
+            select * from user where id=#{id}
+        &amp;lt;/select&amp;gt;
+    &amp;lt;/mapper&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;4：建立一个映射文件mapping对应方法的类&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    package com.company;
+
+    public interface UserMapper {
+        public User getUser(int id);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;5：使用mybatis获取数据&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//mybatis的配置文件&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;conf.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//使用类加载器加载mybatis的配置文件（它也加载关联的映射文件）&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;InputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClassLoader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getResourceAsStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//构建sqlSession的工厂&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;SqlSessionFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sessionFactory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SqlSessionFactoryBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//使用MyBatis提供的Resources类加载mybatis的配置文件（它也加载关联的映射文件）&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//Reader reader = Resources.getResourceAsReader(resource);&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//构建sqlSession的工厂&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(reader);&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//创建能执行映射文件中sql的sqlSession&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;SqlSession&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sessionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;openSession&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;             * 映射sql的标识字符串，&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;             * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;             * getUser是select标签的id属性值，通过select标签的id属性值就可以找到要执行的SQL&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;             */&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;statement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;com.company.User.getUser&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//映射sql的标识字符串&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;UserMapper&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userMapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//执行查询返回一个唯一user对象的sql&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+
+&lt;p&gt;输出的结果：
+{&amp;quot;id&amp;quot;:1,name:&amp;quot;liuyanwei&amp;quot;}&lt;/p&gt;
+</description>
+      </item>
+    
+      <item>
         <title>RabbitMQ使用</title>
         <link>http://liuyanwei.jumppo.com/2015/07/06/rabbitmq.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/07/06/rabbitmq.html</guid>
