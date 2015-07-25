@@ -12,16 +12,19 @@ description:
 -1  ios绘图基础
 
 -2  ios常见的图形绘制
+
     - 画线
     - 画圆、圆弧
     - 画矩形,画椭圆，多边形
     - 画图片
     - 画文字
+
 ---
-画出来的草图：
+
+#### 画出来的草图：
 ![草图](https://geekpics.net/images/2015/07/25/aNRFGp.jpg)
 
-代码下载:github库，对应此文章的目录是draw
+#### 代码下载:github库，对应此文章的目录是draw
 [代码](https://github.com/coolnameismy/demo)
 
 ## 1:ios绘图基础
@@ -35,17 +38,17 @@ description:
 -   画图可以使用默认路径画，或者单独创建path画图，对应画图的api并不完全相同，是两组名称相似的api，两组pi常用的方法如下
 
 ````
-            CGContextMoveToPoint设置起点
-            CGContextClosePath 连接起点和当前点
-            CGPathCreateMutable 类似于 CGContextBeginPath
-            CGPathMoveToPoint 类似于 CGContextMoveToPoint
-            CGPathAddLineToPoint 类似于 CGContextAddLineToPoint
-            CGPathAddCurveToPoint 类似于 CGContextAddCurveToPoint
-            CGPathAddEllipseInRect 类似于 CGContextAddEllipseInRect
-            CGPathAddArc 类似于 CGContextAddArc
-            CGPathAddRect 类似于 CGContextAddRect
-            CGPathCloseSubpath 类似于 CGContextClosePath
-            CGContextAddPath函数把一个路径添加到graphics
+CGContextMoveToPoint设置起点
+CGContextClosePath 连接起点和当前点
+CGPathCreateMutable 类似于 CGContextBeginPath
+CGPathMoveToPoint 类似于 CGContextMoveToPoint
+CGPathAddLineToPoint 类似于 CGContextAddLineToPoint
+CGPathAddCurveToPoint 类似于 CGContextAddCurveToPoint
+CGPathAddEllipseInRect 类似于 CGContextAddEllipseInRect
+CGPathAddArc 类似于 CGContextAddArc
+CGPathAddRect 类似于 CGContextAddRect
+CGPathCloseSubpath 类似于 CGContextClosePath
+CGContextAddPath函数把一个路径添加到graphics
 
 ````
 - 画图步骤 1：获取context，2：设置路径 3：填充或描边路径
@@ -68,6 +71,7 @@ CGContextFillEllipseInRect	 填充指定矩形中的椭圆
 #### 2.0 准备工作
 - （1）新建一个文件，继承UIView
 - （2）重写-(void)drawRect:(CGRect)rect； 方法
+
 ```` objective-c
 
 -(void)drawRect:(CGRect)rect{
@@ -103,8 +107,6 @@ CGContextFillEllipseInRect	 填充指定矩形中的椭圆
     //CGFloat lengths[] = {10,10};
 
 
-
-
 }
 
 
@@ -113,6 +115,7 @@ CGContextFillEllipseInRect	 填充指定矩形中的椭圆
 #### 2.1:画线
 >   第一个方法我写的比较详细，写了使用path的方式和直接画线的方式。推荐使用path的方式画线。
 >   另外，第一个方法也写了移动笔触画线和用点集合画线。后面方法只会涉及其中一种，因为方法都比较类似。
+
 
 ```` objective-c
 
@@ -154,9 +157,8 @@ CGContextFillEllipseInRect	 填充指定矩形中的椭圆
         CGContextStrokePath(ctx);
     }
 
+
 ````
-
-
 
 
 #### 2.2:画矩形,画椭圆，多边形
@@ -227,9 +229,13 @@ CGContextFillEllipseInRect	 填充指定矩形中的椭圆
 
 
 #### 2.5:画圆、圆弧、贝塞尔曲线
-> 画圆和圆弧是一回事，只是起点和重点位置不同，画圆画弧线主要依赖于这几个方法
->  CGContextAddArc,CGContextAddArcToPoint,CGContextAddCurveToPoint,CGContextAddQuadCurveToPoint
-> 后面两个方法是贝塞尔二次曲线和三次曲线
+
+>  画圆和圆弧是一回事，只是起点和重点位置不同，画圆画弧线主要依赖于这几个方法
+CGContextAddArc,CGContextAddArcToPoint,
+CGContextAddCurveToPoint,CGContextAddQuadCurveToPoint
+后面两个方法是贝塞尔二次曲线和三次曲线
+
+---
 
 ```` objective-c
 
