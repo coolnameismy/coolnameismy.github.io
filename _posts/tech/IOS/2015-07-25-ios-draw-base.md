@@ -106,8 +106,23 @@ CGContextFillEllipseInRect	 填充指定矩形中的椭圆
     //虚线线条样式
     //CGFloat lengths[] = {10,10};
 
+    //画线
+    [self drawLine:ctx];
 
-}
+    //画圆、圆弧
+    [self drawCircle:ctx];
+
+
+    //画矩形,画椭圆，多边形
+    [self drawShape:ctx];
+
+    //画图片
+    [self drawPicture:ctx];
+
+    //画文字
+    [self drawText:ctx];
+
+    }
 
 
 ````
@@ -166,7 +181,7 @@ CGContextFillEllipseInRect	 填充指定矩形中的椭圆
 ```` objective-c
 
 //画矩形,画椭圆，多边形
--(void)drawShare:(CGContextRef)ctx{
+-(void)drawSharp:(CGContextRef)ctx{
 
     CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
 
