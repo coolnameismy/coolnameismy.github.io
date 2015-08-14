@@ -7,13 +7,17 @@
 
   /sitemap.txt
 
+  /sitemap.xml
 
+  /pages/test.html
+
+
+
+  /2015/08/14/ios-BLE-2.html
 
   /2015/07/26/ios-draw-Graffiti.html
 
   /2015/07/25/ios-draw-base.html
-
-  /2015/07/17/ios-BLE-2.html
 
   /2015/07/17/ios-BLE-1.html
 

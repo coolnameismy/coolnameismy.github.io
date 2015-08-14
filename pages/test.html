@@ -1,0 +1,24 @@
+---
+layout: null
+---
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>网站工具</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>网站的全部页面list</h1> </br>
+
+    {% for post in site.posts limit:20 %}
+        {{ site.url }}{{ post.url }}
+        </br>
+    {% endfor %}
+</body>
+</html>
