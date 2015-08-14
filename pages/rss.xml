@@ -7,7 +7,7 @@ layout: null
     <title>{{ site.title }}</title>
     <link>{{ site.url }}</link>
     <description>{{ site.description }}</description>
-    {% for post in site.posts limit:20 %}
+    {% for post in site.posts %}
       <item>
         <title>{{ post.title }}</title>
         <link>{{ site.url }}{{ post.url }}</link>

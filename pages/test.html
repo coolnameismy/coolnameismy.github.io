@@ -16,7 +16,7 @@ layout: null
 <body>
     <h1>网站的全部页面list</h1> </br>
 
-    {% for post in site.posts limit:20 %}
+    {% for post in site.posts %}
         {{ site.url }}{{ post.url }}
         </br>
     {% endfor %}

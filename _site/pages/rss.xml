@@ -1064,7 +1064,7 @@ typedef NS_OPTIONS(NSUInteger, CBCharacteristicProperties) {
       </item>
     
       <item>
-        <title>IOS蓝牙的开发专题目录</title>
+        <title>IOS蓝牙的开发专题</title>
         <link>http://liuyanwei.jumppo.com/2015/07/17/ios-BLE-0.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/07/17/ios-BLE-0.html</guid>
         <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
@@ -2179,6 +2179,67 @@ make.left.and.right.equalTo(self.view);&lt;/p&gt;&lt;/li&gt;
       </item>
     
       <item>
+        <title>ios中那些好用的第三方库</title>
+        <link>http://liuyanwei.jumppo.com/2015/06/14/ios-library-0.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/06/14/ios-library-0.html</guid>
+        <pubDate>Sun, 14 Jun 2015 00:00:00 +0800</pubDate>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;ios 里面有很多很多好用的第三方框架，有许多是项目中必用的，本文主要来写一些常用的ios第三方库的使用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;（一）Masonry&lt;/h3&gt;
+
+&lt;hr&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; Masonry是一个轻量级的布局框架 拥有自己的描述语法 采用更优雅的链式语法封装自动布局 简洁明了 并具有高可读性 而且同时支持 iOS 和 Max OS X。
+ Masonry是一个用代码写ios或os界面的库，可以代替Auto layout。
+ Masonry的github地址：https://github.com/SnapKit/Masonry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;文章地址:  &lt;a href=&quot;/2015/07/17/ios-BLE-1.html&quot;&gt;Masonry的使用&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;后续预计更新内容：&lt;/h3&gt;
+
+&lt;hr&gt;
+
+&lt;ul&gt;
+&lt;li&gt;objc 类库
+
+&lt;ul&gt;
+&lt;li&gt;  AFNetworking&lt;/li&gt;
+&lt;li&gt;  SVProgressHUD&lt;/li&gt;
+&lt;li&gt;  CocoaLumberjack&lt;/li&gt;
+&lt;li&gt;  DZNEmptyDataSet&lt;/li&gt;
+&lt;li&gt;  BEMSimpleLineGraph&lt;/li&gt;
+&lt;li&gt;  SDWebImage&lt;/li&gt;
+&lt;li&gt;  MJRefresh&lt;/li&gt;
+&lt;li&gt;  pop&lt;/li&gt;
+&lt;li&gt;  RestKit&lt;/li&gt;
+&lt;li&gt;  ReactiveCocoa&lt;/li&gt;
+&lt;li&gt;  Quick&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;ul&gt;
+&lt;li&gt;swift 类库
+
+&lt;ul&gt;
+&lt;li&gt;  Spring&lt;/li&gt;
+&lt;li&gt;  Alamofire&lt;/li&gt;
+&lt;li&gt;  ios-charts&lt;/li&gt;
+&lt;li&gt;  realm-cocoa&lt;/li&gt;
+&lt;li&gt;  animated-tab-bar&lt;/li&gt;
+&lt;li&gt;  SnapKit&lt;/li&gt;
+&lt;li&gt;  Dollar.swift&lt;/li&gt;
+&lt;li&gt;  Kingfisher&lt;/li&gt;
+&lt;li&gt;  ExSwift&lt;/li&gt;
+&lt;li&gt;  HanekeSwift&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+    
+      <item>
         <title>提高IOS开发效率的工具</title>
         <link>http://liuyanwei.jumppo.com/2015/05/29/ios-develop-tool.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/29/ios-develop-tool.html</guid>
@@ -2368,13 +2429,11 @@ github地址：https://github.com/supermarin/Alcatraz&lt;/li&gt;
       </item>
     
       <item>
-        <title>Spring4+hibernate专题 （四）</title>
+        <title>Spring 文件上传</title>
         <link>http://liuyanwei.jumppo.com/2015/05/28/spring-4.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/28/spring-4.html</guid>
         <pubDate>Thu, 28 May 2015 00:00:00 +0800</pubDate>
-        <description>&lt;h1&gt;（四）Spring- Hibernate 项目中常见的功能方法&lt;/h1&gt;
-
-&lt;blockquote&gt;
+        <description>&lt;blockquote&gt;
 &lt;p&gt;获取文件流的方法，已经在专题的“（二）Spring- RestController 请求参数详解” 中说过了，大家可以去找之前的获取方式。
  本篇主要讲的是文件上传的处理和保存。中间件使用的是tomcat。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2858,13 +2917,11 @@ MultipartFile file = ((MultipartHttpServletRequest) request).getFile(&amp;quot;f
       </item>
     
       <item>
-        <title>Spring4+hibernate专题 （三）</title>
+        <title>Spring- Hibernate数据基本操作</title>
         <link>http://liuyanwei.jumppo.com/2015/05/28/spring-3.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/28/spring-3.html</guid>
         <pubDate>Thu, 28 May 2015 00:00:00 +0800</pubDate>
-        <description>&lt;h1&gt;（三）Spring- Hibernate数据操作&lt;/h1&gt;
-
-&lt;blockquote&gt;
+        <description>&lt;blockquote&gt;
 &lt;p&gt;在阅读之前，最好对数据库，orm框架有简单的了解&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -3027,22 +3084,15 @@ MultipartFile file = ((MultipartHttpServletRequest) request).getFile(&amp;quot;f
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这样spring会自动在UserService实例化的时候，给我们注入UserDAO&lt;/p&gt;
-
-&lt;h2&gt;6. HibernateDaoSupport 对数据进行增删查改&lt;/h2&gt;
-
-&lt;p&gt;sorry 暂时还不太会，还在研究中~ ：）&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+</description>
       </item>
     
       <item>
-        <title>Spring4+hibernate专题 （二）</title>
+        <title>Spring RestController 请求参数详解</title>
         <link>http://liuyanwei.jumppo.com/2015/05/28/spring-2.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/28/spring-2.html</guid>
         <pubDate>Thu, 28 May 2015 00:00:00 +0800</pubDate>
-        <description>&lt;h1&gt;（二）Spring- RestController 请求参数详解&lt;/h1&gt;
-
-&lt;blockquote&gt;
+        <description>&lt;blockquote&gt;
 &lt;p&gt;在阅读之前，最好先了解http请求的get,post,以及各种head头类型，请求参数类型。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -3234,19 +3284,11 @@ MultipartFile file = ((MultipartHttpServletRequest) request).getFile(&amp;quot;f
       </item>
     
       <item>
-        <title>Spring4+hibernate专题（一）</title>
+        <title>Spring和hibernate的maven配置</title>
         <link>http://liuyanwei.jumppo.com/2015/05/28/spring-1.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/28/spring-1.html</guid>
         <pubDate>Thu, 28 May 2015 00:00:00 +0800</pubDate>
-        <description>&lt;h1&gt;（一）Spring- 开发环境搭建&lt;/h1&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;之前一直都用.NET写web mvc 和api接口等服务代码的，不过由于现在自己的开发环境全部都换成了mac，.net环境在mac写的支持不是很好，所以
-  尝试用java spring去写一些东西。对于Spring我也是初学者，但随着这几个月带着看看，现在已经可以完成  spring 相关服务端代码开发。现在整理一下
-  之前遇到的问题，并写一些学习的心得和教程吧，也因为网上spring4.0以上版本的学习资料比较少。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2&gt;本章内容&lt;/h2&gt;
+        <description>&lt;h2&gt;本章内容&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;- java编辑器推荐&lt;/li&gt;
@@ -3519,6 +3561,49 @@ json映射类型要注意，否则返回会出现500错误，网上解决这个�
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      </item>
+    
+      <item>
+        <title>Spring4+hibernate专题</title>
+        <link>http://liuyanwei.jumppo.com/2015/05/28/spring-0.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/05/28/spring-0.html</guid>
+        <pubDate>Thu, 28 May 2015 00:00:00 +0800</pubDate>
+        <description>&lt;p&gt;# IOS蓝牙使用&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;之前一直都用.NET写web mvc 和api接口等服务代码的，不过由于现在自己的开发环境全部都换成了mac，.net环境在mac写的支持不是很好，所以
+  尝试用java spring去写一些东西。对于Spring我也是初学者，但随着这几个月带着看看，现在已经可以完成  spring 相关服务端代码开发。现在整理一下
+  之前遇到的问题，并写一些学习的心得和教程吧，也因为网上spring4.0以上版本的学习资料比较少，也比较杂。&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;（一）Spring和hibernate的maven配置&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1. - java编辑器推荐
+2. - maven需要下载的包和说明
+3. - spring配置文件
+4. - hibernate配置
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;文章地址&lt;/em&gt; &lt;a href=&quot;/2015/05/28/spring-1.html&quot;&gt;Spring和hibernate的maven配置&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;（二）Spring RestController 请求参数详解&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1. 无参数，设置RestController请求路径
+2. 查询字符串参数，可选和必选参数
+3. json参数，RestController用实体类型接受
+4. 路径参数
+5. body参数
+6. 文件流参数
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;文章地址&lt;/em&gt;  &lt;a href=&quot;/2015/05/28/spring-2.html&quot;&gt;Spring RestController&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;（三）Spring- Hibernate数据基本操作&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;文章地址&lt;/em&gt;  &lt;a href=&quot;/2015/05/28/spring-3.html&quot;&gt;Spring- Hibernate数据基本操作&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;（四）Spring 文件上传&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;文章地址&lt;/em&gt;  &lt;a href=&quot;/2015/05/28/spring-4.html&quot;&gt;Spring 文件上传&lt;/a&gt;&lt;/p&gt;
+</description>
       </item>
     
       <item>
