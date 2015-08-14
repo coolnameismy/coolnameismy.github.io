@@ -36,7 +36,7 @@ description:
     -   RestKit
     -   ReactiveCocoa
     -   Quick
-    
+    -   Mantle
 ---
 
 - swift 类库
