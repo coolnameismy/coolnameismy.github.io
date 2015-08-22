@@ -6,6 +6,404 @@
     <description></description>
     
       <item>
+        <title>自己markdown博客的图床程序</title>
+        <link>http://liuyanwei.jumppo.com/2015/08/22/github-ImagesUploadWebSite.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/08/22/github-ImagesUploadWebSite.html</guid>
+        <pubDate>Sat, 22 Aug 2015 00:00:00 +0800</pubDate>
+        <description>&lt;blockquote&gt;
+&lt;h2&gt;自己的博客是使用jekyll搭在github上的，但是图片却必须找图床，很麻烦。所以自己在网站找了一个图床，改了一改，增加了上传成功后的markdown图片引用代码段，并整理后放到了github上&lt;/h2&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;ImagesUploadWebSite&lt;/h2&gt;
+
+&lt;p&gt;jumppo图床网站，基于html5和php。地址：&lt;a href=&quot;https://github.com/coolnameismy/ImagesUploadWebSite&quot;&gt;https://github.com/coolnameismy/ImagesUploadWebSite&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;介绍&lt;/h2&gt;
+
+&lt;p&gt;这个一个基于html5和php的一个图床网站，根据Martin Angelov写的HTML5 File Uploads with jQuery项目修改而成。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://tutorialzine.com/2011/09/html5-file-upload-jquery-php/&quot;&gt;HTML5 File Uploads with jQuery&lt;/a&gt; 发布于2011年9月26日，
+本项目在它的基础上修改了界面，修改了上传成功的返回值类型（图片名、地址、html标签和markdowm标签）等等，后续还会继续增加功能&lt;/p&gt;
+
+&lt;h2&gt;ImagesUploadWebSite功能&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;拖拽图片上传&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;图片上传后返回值多种类型&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;图片名称：a.jpeg
+图片地址：images.jumppo.com/uploads/a.jpeg
+html：&amp;lt;img src=images.jumppo.com/uploads/a.jpeg/&amp;gt;
+markdown：![](images.jumppo.com/uploads/a.jpeg)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;demo地址 &lt;a href=&quot;http://imagesdemo.jumppo.com/&quot;&gt;http://imagesdemo.jumppo.com/&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;说明：demo程序仅供演示，请不要作为图床使用，上传的图片会定期自动清理。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://images.jumppo.com/uploads/imagesUploadWebsite0.png&quot; alt=&quot;&quot;&gt;
+&lt;img src=&quot;http://images.jumppo.com/uploads/imagesUploadWebsite.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h1&gt;如何使用&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;搭建一个php宿主网站，代码下载后放入宿主网站&lt;/li&gt;
+&lt;li&gt;打开根目录下的config.js文件，修改配置&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1&gt;常见问题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  图片上传后打开401错误：请提高文件夹权限后应用程序的权限，比如我用iis搭的php，我通过给web设置连接用户为administor解决的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;后续准备增加的功能&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  用户权限设置&lt;/li&gt;
+&lt;li&gt;  批量上传后点击图片，可以显示每个图片的上传信息&lt;/li&gt;
+&lt;li&gt;  用户登录后查看自己的图片列表&lt;/li&gt;
+&lt;li&gt;  用户上传图片可以指定文件夹&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>ios的线程和同步异步操作</title>
+        <link>http://liuyanwei.jumppo.com/2015/08/19/ios-ThreadAndAsynchronization.html</link>
+        <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/08/19/ios-ThreadAndAsynchronization.html</guid>
+        <pubDate>Wed, 19 Aug 2015 00:00:00 +0800</pubDate>
+        <description>&lt;h2&gt;ios的线程和同步异步操作&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;h2&gt;ios的多线程，同步异步操作，都是我们日常的开发中经常会遇到的问题，本文把常见的ios线程，同步异步的操作进行了整理。&lt;/h2&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;代码下载:&lt;/h2&gt;
+
+&lt;p&gt;我博客中大部分示例代码都上传到了github，地址是：https://github.com/coolnameismy/demo，&lt;a href=&quot;https://github.com/coolnameismy/demo&quot;&gt;点击跳转代码下载地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本文代码存放目录是 &lt;strong&gt;ThreadAndAsynchronization&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;如果大家支持，请follow我的github账号，并fork我的项目，有其他问题可以在github上给我留言或者给我发邮件，coolnameismy@hotmail.com，blog的RSS订阅地址：http://liuyanwei.jumppo.com/pages/rss.xml&lt;/p&gt;
+
+&lt;h2&gt;基础知识&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;h3&gt;1.线程和进程 ,多线程&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;线程和进程&lt;/strong&gt;：网上有一大堆很专业的说法，大多数说的都比较复杂，越复杂的解释其实说的越准确和严谨，但是常常会把人弄糊涂。这里我也不去解释了，大多数场景你可以理解为，一个应用程序就是一个进程，而一个进程可以分为多个线程&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;多线程&lt;/strong&gt;：大多数框架都支持一个进程启多个线程，比如 c#、java、obejctive-c，但是并不是所有的框架都支持，比如flex的框架就不支持多线程。
+多线程必须要有多核的cpu支持才行，对应单核cpu，无论你起多少个线程，都是在同一个cpu上跑程序，速度并不会有任何变化。对于多核cpu，多个线程会在多个cpu中同时运行，从而加快程序的执行速度。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;多线程适用场景&lt;/strong&gt;
+最常见的是网络下载，在网络下载的适合，你总不能让程序一直无响应吧，所以你启动另一个线程去下载，留着主线程去相应用户的ui事件。多线程适合一些高io，低cpu的操作。&lt;/p&gt;
+
+&lt;h3&gt;2.同步和异步，并行和串行&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;同步&lt;/strong&gt;就是顺序往下执行。举例：烧完水后泡茶&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;异步&lt;/strong&gt;就是几件事情同时在执行。烧水的时候拿出茶具，洗茶具，然后泡茶。其中烧水和拿茶具，洗茶具是同时进行的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;并行和串行&lt;/strong&gt; 并行就是几个人同时做一件事，串行就是一个人同时做几件事。&lt;/p&gt;
+
+&lt;h3&gt;3.同步异步操作和多线程的联系和区别&lt;/h3&gt;
+
+&lt;p&gt;同步是我们一般程序顺序执行，异步是大多数时候是多线程，但是却不一定。比如方法回叫和定时执行的方法也是异步操作，单不一定全是多线程。&lt;/p&gt;
+
+&lt;h3&gt;4.ios中的同步异步方法和多线程技术&lt;/h3&gt;
+
+&lt;p&gt;1 performSelector&lt;/p&gt;
+
+&lt;p&gt;支持多线程和异步操作，使用简单，但是没有没有线程的一些控制和调度的操作&lt;/p&gt;
+
+&lt;p&gt;2 NSThread&lt;/p&gt;
+
+&lt;p&gt;支持多线程和异步操作，使用简单，比performSelector稍微复杂一些，performSelector背后使用的就是NSThread，但是没有没有线程的一些控制和调度的操作&lt;/p&gt;
+
+&lt;p&gt;3 NSTimer&lt;/p&gt;
+
+&lt;p&gt;不支持多线程操作，但是可以执行异步操作，异步操作很方便，最常用的就是定时执行和延迟执行某一方法&lt;/p&gt;
+
+&lt;p&gt;4 GCD&lt;/p&gt;
+
+&lt;p&gt;支持多线程，同步异步操作，线程控制，线程队列，线程信号等等，IOS和OS中最强大的线程管理都是是它了。
+要说缺点的话，就是代码比较复杂，前面能实现的就用前面的把，如果实现不了，那找它准没错。&lt;/p&gt;
+
+&lt;h2&gt;代码例子&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;代码注释写的很全，大家直接看注释都能懂，可以在github上把代码下载下来跑跑看。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//ios多线程，同步异步的使用，大家可以切换类，去掉注释跑跑看&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;viewDidLoad&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;super&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewDidLoad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+
+    &lt;span class=&quot;c1&quot;&gt;//使用performSelector的多线程和异步&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[self performSelectorFunction];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//使用NSThread的多线程&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[self NSThreadFunction];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//使用NSTimer的反面教材&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[self NSTimerFunction];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//使用GCD的多线程&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[self GCDFunction];&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;//耗时2秒的方法&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;function1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSThread&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;sleepForTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;function1 done&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;1. performSelector的使用&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *使用performSelector 的多线程&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *优点：简单&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *缺点：没有串行并线队列，不能实现高级线程调度&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;performSelectorFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;performSelectorFunction start&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//同步&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//方式执行，直接执行function1&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[self performSelector:@selector(function1)];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//异步，线程阻塞&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//延迟两秒执行function1,在function1执行期间，主线程是阻塞的，表现就是界面无响应。&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[self performSelector:@selector(function1) withObject:nil afterDelay:2];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//线程阻塞 最后一个参决定是同步还是异步&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 主线程上执行，主线程阻塞，waitUntilDone:YES：等待执行完成顺序执行，waitUntilDone:NO 先执行后面语句&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[self performSelectorOnMainThread:@selector(function1) withObject:nil waitUntilDone:NO];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//异步，非阻塞&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//子线程上执行&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;performSelectorInBackground&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;function1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;withObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;performSelectorFunction end&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;2. NSThreadFunction的使用&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *使用NSThread 的多线程&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *优点：简单&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *缺点：没有串行并线队列，不能实现高级线程调度,和performSelector是一样的。&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;NSThreadFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;NSThreadFunction start&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//同步 阻塞&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//线程暂停 2秒&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[NSThread sleepForTimeInterval:2];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//异步 非阻塞&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//显示创建的方式执行&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//NSThread *myThread = [[NSThread alloc]initWithTarget:self selector:@selector(function1) object:nil];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[myThread start];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//异步 非阻塞&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//静态方法执行线程&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[NSThread detachNewThreadSelector:@selector(function1) toTarget:self withObject:nil];&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;NSThreadFunction end&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3. NSTimerFunction的使用&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *使反面教材，他不是多线程，但可以执行异步操作。最常用的就是定时执行一个任务，重复或非重复。&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;NSTimerFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;NSTimerFunction start&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//定时执行任务，可以重复和不重复&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(function1) userInfo:nil repeats:NO];&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//暂时停止定时器&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[timer setFireDate:[NSDate distantFuture]];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//重新开启定时器&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[timer setFireDate:[NSDate distantPast]];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//永久通知定时器&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//[timer invalidate];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//timer = nil;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;NSTimerFunction end&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;4. GCD的使用&lt;/h3&gt;
+
+&lt;p&gt;GCD的方法很多，用法也很多，这里只列举一些常用的方法。常用的方法包括：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;同步、非阻塞执行&lt;/li&gt;
+&lt;li&gt;异步非阻塞执行&lt;/li&gt;
+&lt;li&gt;一次性执行&lt;/li&gt;
+&lt;li&gt;延迟执行&lt;/li&gt;
+&lt;li&gt;线程队列串行执行&lt;/li&gt;
+&lt;li&gt;线程队列控制（屏障，同步等待，线程暂停和恢复，线程信号量控制等）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective-c&quot; data-lang=&quot;objective-c&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *使用GCD 的多线程&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *优点：有很多串行并线队列多线程，block实现线程方法，高级，好用，方法多。&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *缺点：在很多不需要高级控制线程的场景可以不用使用GCD&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GCDFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;GCDFunction start&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//获取一个队列&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;dispatch_queue_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultQueue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatch_get_global_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DISPATCH_QUEUE_PRIORITY_DEFAULT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//dispatch_async：异步方式执行方法（最常用）&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_async(defaultQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        [self function1];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//dispatch_sync：同步方式使用场景，比较少用，一般与异步方式进行调用&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_async(defaultQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//       NSMutableArray *array = [self GCD_sync_Function];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//       dispatch_async(dispatch_get_main_queue(), ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//           //利用获取的arry在主线程中更新UI&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//       });&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//dispatch_once：一次性执行，常常用户单例模式.这种单例模式更安全&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    static dispatch_once_t onceToken;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_once(&amp;amp;onceToken, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        // code to be executed once&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;dispatch_once&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//dispatch_after 延迟异步执行&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_after(popTime, defaultQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;dispatch_after&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+
+
+    &lt;span class=&quot;c1&quot;&gt;//dispatch_group_async 组线程可以实现线程之间的串联和并联操作&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_group_t group = dispatch_group_create();&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    NSDate *now = [NSDate date];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    //做第一件事 2秒&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_group_async(group, defaultQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        [NSThread sleepForTimeInterval:2];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//         NSLog(@&amp;quot;work 1 done&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    //做第二件事 5秒&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_group_async(group, defaultQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        [NSThread sleepForTimeInterval:5];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;work 2 done&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    //两件事都完成后会进入方法进行通知&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_group_notify(group, defaultQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;dispatch_group_notify&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;%f&amp;quot;,[[NSDate date]timeIntervalSinceDate:now]);//总共用时5秒，因为2个线程同时进行&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+
+
+    &lt;span class=&quot;c1&quot;&gt;//dispatch_barrier_async :作用是在并行队列中，等待前面的队列执行完成后在继续往下执行&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_queue_t concurrentQueue = dispatch_queue_create(&amp;quot;my.concurrent.queue&amp;quot;, DISPATCH_QUEUE_CONCURRENT);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_async(concurrentQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        [NSThread sleepForTimeInterval:2];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;work 1 done&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_async(concurrentQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        [NSThread sleepForTimeInterval:2];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;work 2 done&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    //等待前面的线程完成后执行&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_barrier_async(concurrentQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//         NSLog(@&amp;quot;dispatch_barrier_async&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_async(concurrentQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        [NSThread sleepForTimeInterval:3];&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        NSLog(@&amp;quot;work 3 done&amp;quot;);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    });&lt;/span&gt;
+
+
+
+    &lt;span class=&quot;c1&quot;&gt;//dispatch_semaphore 信号量的使用，串行异步操作&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_semaphore_create　　　创建一个semaphore&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//　　 dispatch_semaphore_signal　　　发送一个信号&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//　　 dispatch_semaphore_wait　　　　等待信号&lt;/span&gt;
+
+
+    &lt;span class=&quot;cm&quot;&gt;/*应用场景1：马路有2股道，3辆车通过 ，每辆车通过需要2秒&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     *条件分解:&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;        马路有2股道 &amp;lt;=&amp;gt;  dispatch_semaphore_create(2) //创建两个信号&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;        三楼车通过 &amp;lt;=&amp;gt; dispatch_async(defaultQueue, ^{ } 执行三次&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;        车通过需要2秒 &amp;lt;=&amp;gt;  [NSThread sleepForTimeInterval:2];//线程暂停两秒&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     */&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;dispatch_semaphore_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;dispatch_async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaultQueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DISPATCH_TIME_FOREVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSThread&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;sleepForTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;carA pass the road&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dispatch_async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaultQueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DISPATCH_TIME_FOREVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSThread&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;sleepForTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;carB pass the road&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dispatch_async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaultQueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DISPATCH_TIME_FOREVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSThread&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;sleepForTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;carC pass the road&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+
+
+    &lt;span class=&quot;c1&quot;&gt;//应用场景2 ：原子性保护，保证同时只有一个线程进入操作&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    for(int i=0 ;i&amp;lt; 10000 ;i++){&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        dispatch_async(defaultQueue, ^{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//            NSLog(@&amp;quot;i:%d&amp;quot;,i);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//            dispatch_semaphore_signal(semaphore);&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//        });&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//    }&lt;/span&gt;
+
+
+    &lt;span class=&quot;n&quot;&gt;NSLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;GCDFunction end&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;代码下载:&lt;/h2&gt;
+
+&lt;h4&gt;我博客中大部分示例代码都上传到了github，地址是：https://github.com/coolnameismy/demo，&lt;a href=&quot;https://github.com/coolnameismy/demo&quot;&gt;点击跳转代码下载地址&lt;/a&gt;&lt;/h4&gt;
+
+&lt;h4&gt;本文代码存放目录是BleDemo&lt;/h4&gt;
+
+&lt;h4&gt;如果大家支持，请follow我的github账号，并fork我的项目，有其他问题可以在github上给我留言或者给我发邮件，coolnameismy@hotmail.com，blog的RSS订阅地址：http://liuyanwei.jumppo.com/pages/rss.xml&lt;/h4&gt;
+</description>
+      </item>
+    
+      <item>
         <title>ios蓝牙开发（二）主从模式的ios代码实现</title>
         <link>http://liuyanwei.jumppo.com/2015/08/14/ios-BLE-2.html</link>
         <guid isPermaLink="true">http://liuyanwei.jumppo.com/2015/08/14/ios-BLE-2.html</guid>

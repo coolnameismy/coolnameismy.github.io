@@ -7,8 +7,7 @@ keywords: tomcat
 description:
 ---
 
-> 自己的博客是使用jekyll搭在github上的，但是图片却必须找图床，很麻烦。所以自己在网站找了一个图床，
-> 改了一改，增加了上传成功后的markdown图片引用代码段，并整理
+> 自己的博客是使用jekyll搭在github上的，但是图片却必须找图床，很麻烦。所以自己在网站找了一个图床，改了一改，增加了上传成功后的markdown图片引用代码段，并整理后放到了github上
 ---
 
 ## ImagesUploadWebSite
