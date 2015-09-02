@@ -6,24 +6,24 @@ tags: IOS,绘图,coreGraphices,Graffiti
 description:
 ---
 
->   之前一篇文字写了ios绘图基础，这篇文章，使用之前写的绘图基础，做一个涂鸦板。文字把每一步完成都结果都单独保存一个文件，加上v+版本号
+>   之前一篇文字写了ios绘图基础，这篇文章，使用之前写的绘图基础，做一个涂鸦板。并把每一步完成都结果都单独保存一个文件，加上v+版本号
 
-#### ios绘图demo,做一个涂鸦板(上)
+#### [ios绘图基础](http://liuyanwei.jumppo.com/2015/07/25/ios-draw-base.html)
+
+#### [ios绘图demo,做一个涂鸦板(上)](http://liuyanwei.jumppo.com/2015/07/26/ios-draw-Graffiti.html)
 
 -  1完成一个最基本的涂鸦板
 -  2给涂鸦板加上颜色选择功能，和笔触粗细功能
 
-#### ios绘图demo,做一个涂鸦板(下）-》暂未写
+#### [ios绘图demo,做一个涂鸦板(下)](http://liuyanwei.jumppo.com/2015/07/26/ios-draw-Graffiti-2.html)
 
--  1给涂鸦板加上画图形功能
--  2给涂鸦板加上撤销上一步功能
--  3涂鸦板图片到相册
--  4来个高级的，画贝塞尔曲线
+-  3画贝塞尔曲线
+
 
 ---
 
-#### | ios绘图demo,做一个涂鸦板(上) | 完成后的效果图：
-![效果图](https://geekpics.net/images/2015/07/26/NuHrzI4sX.gif)
+#### ios绘图demo,做一个涂鸦板(上) 的效果图：
+![效果图](http://images.jumppo.com/uploads/paintDemo.gif)
 
 #### 代码下载:github库，对应此文章的目录是paint ,[点击跳转代码下载地址](https://github.com/coolnameismy/demo)
 
@@ -342,4 +342,4 @@ description:
 ###### 完成后，我们的画板就可以画出彩色的笔画，控制粗细了。之后，我会继续给画板增加一些功能，并把方法写出来。
 
 ###### | ios绘图demo,做一个涂鸦板(上) | 完成后的效果图：
-![效果图](https://geekpics.net/images/2015/07/26/NuHrzI4sX.gif)
+![效果图](http://images.jumppo.com/uploads/paintDemo.gif)
