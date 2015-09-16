@@ -115,11 +115,9 @@ make.left.and.right.equalTo(self.view);
 
 ````
 
-### Masonry高级使用例子1
+### Masonry例子-计算器布局
 
-#### IOS计算器使用Masorny布局：
-
-![](https://geekpics.net/images/2015/06/14/2Djeo.jpg)
+![](http://images.jumppo.com/uploads/masonry_1.png)
 
 ```` objective-c
 
@@ -298,7 +296,7 @@ for（遍历所有行)
 #### 根据设计图，使用masonry布局：
 
 步骤1
-![步骤1](https://geekpics.net/images/2015/06/11/ZFqHcpm.jpg)
+![](http://images.jumppo.com/uploads/masonry_2.png)
 
 步骤2
 ![步骤2](https://geekpics.net/images/2015/06/15/dOGITvg.jpg)
