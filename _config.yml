@@ -1,9 +1,9 @@
 # Site settings
-title: 刘彦玮的技术博客
+title: MF.W
 email: coolnameismy@hotmail.com
-description: > #刘彦玮的技术博客
+description: > #MF.W
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://liuyanwei.jumppo.com" # the base hostname & protocol for your site
+url: "http://devlives.com" # the base hostname & protocol for your site
 twitter_username: coolnameismy@hotmail.com
 github_username:  coolnameismy
 
@@ -12,12 +12,12 @@ github_username:  coolnameismy
 permalink: /:year/:month/:day/:title.html   #博文的固定链接
 paginate: 10                                #分页时每页博文数量
 author:                                     #自定义常亮
-  name: 刘彦玮
-  email: coolnameismy@hotmail.com
-  link: http://liuyanwei.jumppo.com/
-  weibo: http://weibo.com/1897719834
-  github: http://github.com/coolnameismy
-title: 刘彦玮的技术博客                             #自定义常量
+  name: MF.W
+  email: wang_lichen@outlook.com
+  link: http://devlives.com/
+  weibo: http://weibo.com/mafeiwang
+  github: http://github.com/mafeiwang
+title: MF.W                             #自定义常量
 
 # avatar头像及Favicon
 avatar: https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460
