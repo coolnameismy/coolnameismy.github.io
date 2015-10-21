@@ -15,6 +15,55 @@ ios的webview有2个类，一个叫UIWebView，另一个是WKWebView。两者的
 
 WKWebView 是苹果在 iOS 8 中引入的新组件，目的是给出一个新的高性能的 Web View 解决方案，摆脱过去 UIWebView 的老旧笨重特别是内存占用量巨大的问题，它使用Nitro JavaScript引擎，这意味着所有第三方浏览器运行JavaScript将会跟safari一样快.
 
-苹果将 UIWebViewDelegate 与 UIWebView 重构成了 14 个类和 3 个协议，引入了不少新的功能和接口，这可以在一定程度上看做苹果对其封锁 Web View 内核的行为作出的补偿：既然你们都说 UIWebView 太渣，那我就造一个不渣的给你们用呗~~ 众所周知，连 Chrome 的 iOS 版用的也是 UIWebView 的内核。
+ios9默认是不允许加载http请求的，对于webview，加载http网页也是不允许的。可以通过修改info.plist取消http限制
+
+在项目中找到info.plist，源文件形式打开，添加下面内容
+````
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+````
 
 
+
+##  大纲
+
+-   UIWebView使用
+    -   加载网页或本地页面
+    -   js和app之间的交互
+-   WKWebView的使用
+    -   加载页面，前进，后退，刷新，进度条
+    -   app调js方法
+    -   js掉app方法
+-   文章demo
+-   参考文章
+
+##  UIWebView使用
+---
+>   UIVebView现在已经弃用，ios8以上都应该用新的WKWebview，所以UIWebView我就随便讲讲，他也相对简单一些。
+
+
+### 加载网页或本地页面
+
+````swift
+ //从本地加载html
+ let path:String! = NSBundle.mainBundle().pathForResource("index", ofType: "html")
+
+ 
+````
+
+
+
+##  WKWebView的使用
+---
+
+
+##  参考文章
+-   (WKWeb​View)[http://nshipster.cn/wkwebkit/]
+-   (iOS 8 WebKit框架概览（上）译文)[http://www.cocoachina.com/ios/20150203/11089.html]
+-   (iOS 8 WebKit框架概览（下）译文)[http://www.cocoachina.com/ios/20150205/11108.html]
+
+
+## demo
