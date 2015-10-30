@@ -31,7 +31,6 @@ description:
 
 ````
 
-效果如下
 ![](http://images.jumppo.com/uploads/UIKitDynamics01.gif)
 
 ## UIKit Dynamics基础
@@ -77,7 +76,6 @@ description:
 
 ````
 
-效果如下
 ![](http://images.jumppo.com/uploads/UIKitDynamics02.gif)
 
 ````swift
@@ -118,7 +116,6 @@ UIAttachmentBehavior是连接行为，要把box钉在某一位置，就给他添
     }
 ````
 
-效果如下
 ![](http://images.jumppo.com/uploads/UIKitDynamics03.gif)
 
 
@@ -170,7 +167,6 @@ UIAttachmentBehavior是连接行为，要把box钉在某一位置，就给他添
 ````
 
 
-效果如下
 ![](http://images.jumppo.com/uploads/UIKitDynamics04.gif)
 
 ## 重力+黑洞吸引
@@ -206,7 +202,6 @@ func blockHole(){
 }
 ````
 
-效果如下
 ![](http://images.jumppo.com/uploads/UIKitDynamics05.gif)
 
 ## 自定义力学行为，合成多个力学行为的效果
@@ -272,7 +267,7 @@ func blockHole(){
 ##  参考文章
 ---
 
-(iOS开发之让你的应用“动”起来)[http://www.cocoachina.com/ios/20141022/10005.html]
-(关于App的一些迷思以及一些动画效果开源库的推荐)[http://www.jianshu.com/p/69449e6bdc14]
-(CABasicAnimation的基本使用方法（移动·旋转·放大·缩小）)[http://blog.csdn.net/iosevanhuang/article/details/14488239]
-(动画解释)[http://www.objccn.io/issue-12-1/]
+ -   [iOS动画和特效专题](/2015/10/29/iOS-animation-0.html)
+ -   [WWDC 2013 Session笔记 - UIKit Dynamics入门](http://www.cocoachina.com/industry/20131106/7309.html)
+ -   [UICollectionView和UIKit Dynamics](http://www.cocoachina.com/industry/20140425/8241.html)
+ -   [实战iOS 9：剖析UIKit Dynamics的改进 移动·旋转·放大·缩小](http://www.csdn.net/article/1970-01-01/2825673)

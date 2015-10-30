@@ -2,8 +2,7 @@
 layout: post
 title: iOS动画和特效（一）UIView动画和CoreAnimation
 category: 技术
-tags:iOS
-keywords: iOS,animation,UIKit,Dynamics
+tags:
 description:
 ---
 
@@ -17,6 +16,7 @@ description:
 
 
 使用UIView.beginAnimations() ->  UIView.commitAnimations()实现
+
 ````swift
 
         //开始动画配置
@@ -44,7 +44,8 @@ description:
 
 ````
 
-使用跟简单的和UIView.animateWithDuration()实现
+使用更简单的和UIView.animateWithDuration()实现
+
 ````swift
 
     UIView.animateWithDuration(0.2, delay: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
@@ -76,7 +77,8 @@ animateWithDuration的方法有4个从载方法，参数不同，根据需要调
 ## Core Animation的类图
 ---
 
-![](http://www.cocoachina.com/cms/uploads/allimg/141022/4196_141022102913_1.png)
+![](http://images.jumppo.com/uploads/animationAndEffect05.png)
+
 
 CAAnimation：核心动画的基础类，不能直接使用，负责动画运行时间、速度的控制，本身实现了CAMediaTiming协议。
 
@@ -151,6 +153,7 @@ override func animationDidStop(anim:CAAnimation, finished flag: Bool) {
 其他注意几个地方
 
 1:keyPath用于区分BasicAnimation动画类型
+
 ````swift
   /*
         可选的KeyPath
@@ -389,6 +392,7 @@ kCATransitionFromBottom:
 
 
 *步骤2：随机获取图片和随机获取转场效果的函数*
+
 ````swift
 
     func fetchImage()->UIImage{
@@ -433,6 +437,8 @@ kCATransitionFromBottom:
 ````
 
 *步骤3：左右滑动方法，实现场景切换*
+
+
 ````swift
 
       func rightSwipe(gesture:UISwipeGestureRecognizer){
@@ -470,7 +476,8 @@ kCATransitionFromBottom:
 ##  参考文章
 ---
 
-(iOS开发之让你的应用“动”起来)[http://www.cocoachina.com/ios/20141022/10005.html]
-(关于App的一些迷思以及一些动画效果开源库的推荐)[http://www.jianshu.com/p/69449e6bdc14]
-(CABasicAnimation的基本使用方法（移动·旋转·放大·缩小）)[http://blog.csdn.net/iosevanhuang/article/details/14488239]
-(动画解释)[http://www.objccn.io/issue-12-1/]
+-   [iOS动画和特效专题](/2015/10/29/iOS-animation-0.html)
+-   [iOS开发之让你的应用“动”起来](http://www.cocoachina.com/ios/20141022/10005.html)
+-   [关于App的一些迷思以及一些动画效果开源库的推荐](http://www.jianshu.com/p/69449e6bdc14)
+-   [CABasicAnimation的基本使用方法 移动·旋转·放大·缩小](http://blog.csdn.net/iosevanhuang/article/details/14488239)
+-   [动画解释](http://www.objccn.io/issue-12-1/)
