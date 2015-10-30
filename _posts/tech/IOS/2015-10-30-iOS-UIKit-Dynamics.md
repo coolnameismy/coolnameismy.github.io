@@ -268,62 +268,6 @@ func blockHole(){
 
 如果大家支持，请在github上follow我，star我的项目
 
-================================================================================================================================================
-
-
-
-
-
--   Core Animation
-    -   UIView动画封装
-    -   CABasicAnimation（基本动画）
-    -   CAKeyframeAnimation（关键帧动画）
-    -   CATransition
-    -   动画组
-    -   转场动画
-
--   UIKit Dynamics （UIKit动力行为）
-    
-
--   laryer隐式动画
-    -   使用隐式动画
-    -   禁用隐式动画
-
--   第三方动画库
-    -   Popgit
-    -   Spring
-
--   其他
-    -
-    -   Motion Effects
-    -   Custom View Controller Transitions
-
--   我的学习顺序
-
--   参考文章
-
-
-frame         	控制UIView的大小和该UIView在superview中的相对位置。
-bounds        	控制UIView的大小
-center        	控制UIView的位置
-transform     	控制UIView的缩放，旋转角度等固定好中心位置之后的变化
-alpha         	控制UIView的透明度
-backgroundColor	控制UIView的背景色
-contentStretch	控制UIView的拉伸方式
-
-EaseInOut // slow at beginning and end
-EaseIn // slow at beginning
-EaseOut // slow at end
-Linear
-
-
-
-
-##  我的学习顺序
--   1. 学习iOS高层次的api，比如UIView和UIimage的动画api
--   2. 学习低层次的api，CABasicAnimation，CAKeyframeAnimation，CATransition等等的使用
--   3. 第三方动画库，objc的Pop，swift的Spring的使用
--   4. 第三方动画库，objc的Pop，swift的Spring的源码阅读和学习
 
 ##  参考文章
 ---
@@ -332,5 +276,3 @@ Linear
 (关于App的一些迷思以及一些动画效果开源库的推荐)[http://www.jianshu.com/p/69449e6bdc14]
 (CABasicAnimation的基本使用方法（移动·旋转·放大·缩小）)[http://blog.csdn.net/iosevanhuang/article/details/14488239]
 (动画解释)[http://www.objccn.io/issue-12-1/]
-()[]
-()[]

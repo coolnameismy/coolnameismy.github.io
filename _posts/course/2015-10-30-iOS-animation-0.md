@@ -8,7 +8,7 @@ description:
 ---
 
 
-### [iOS动画和特效（一）UIView动画和CoreAnimation](/2015/07/17/ios-BLE-1.html)
+### [iOS动画和特效（一）UIView动画和CoreAnimation](/2015-10-30-iOS-Animation-UIViewAndCoreAnimation.html)
 ---
     - UIView动画
     - 隐式动画
@@ -28,6 +28,8 @@ description:
 ## 今后计划内容
 
 -  iOS动画和特效（三）常用的地第三方动画库
+    -   Popgit
+    -   Spring
 
 -  iOS动画和特效（四）动手做些酷炫的效果
 
