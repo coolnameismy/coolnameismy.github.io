@@ -16,7 +16,7 @@ description:
     - 关键帧动画 CAKeyframeAnimation
     - 转场效果
 
-### [iOS动画和特效（二）UIKit力学行为](/2015/08/14/ios-BLE-2.html)
+### [iOS动画和特效（二）UIKit力学行为](/2015-10-30-iOS-UIKit-Dynamics.html)
 ---
    -   UIAttachmentBehavior：连接行为
    -   UICollisionBehavior：碰撞行为

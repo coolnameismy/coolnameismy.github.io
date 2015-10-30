@@ -32,7 +32,7 @@ description:
 ````
 
 效果如下
-！[]()
+![](http://images.jumppo.com/uploads/UIKitDynamics01.gif)
 
 ## UIKit Dynamics基础
 
@@ -78,7 +78,7 @@ description:
 ````
 
 效果如下
-！[]()
+![](http://images.jumppo.com/uploads/UIKitDynamics02.gif)
 
 ````swift
 //还可以添加更为复杂边界
@@ -119,7 +119,7 @@ UIAttachmentBehavior是连接行为，要把box钉在某一位置，就给他添
 ````
 
 效果如下
-！[]()
+![](http://images.jumppo.com/uploads/UIKitDynamics03.gif)
 
 
 ## 重力+推力
@@ -171,7 +171,7 @@ UIAttachmentBehavior是连接行为，要把box钉在某一位置，就给他添
 
 
 效果如下
-！[]()
+![](http://images.jumppo.com/uploads/UIKitDynamics04.gif)
 
 ## 重力+黑洞吸引
 >   让自由落下的箱子被黑洞吸引吧！
@@ -207,7 +207,7 @@ func blockHole(){
 ````
 
 效果如下
-！[]()
+![](http://images.jumppo.com/uploads/UIKitDynamics05.gif)
 
 ## 自定义力学行为，合成多个力学行为的效果
 >   让自由落下的箱子被黑洞吸引吧！

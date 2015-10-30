@@ -123,7 +123,7 @@ CAKeyframeAnimation：关键帧动画，同样是通过属性进行动画参数�
 ### CABasicAnimation注意点
 
 使用上面的代码之后，发现点击之后view确实向右移动了100，但是再次点击红色区域却发现不会继续移动了，但是点击移动前view所在位置,红色区域会重复移动，如图
-(示意图)[]
+![](http://images.jumppo.com/uploads/animationAndEffect01.gif)
 
 出现这种现象的原因是因为动画是通过view的layer设置位置的。而设置layer的位置后，uiview的位置是不会发生变化的，所以虽然看见红色移动了，但其实红色view.frame没变化，所以点击区域也没变化。那么如何解决？
 
@@ -254,7 +254,7 @@ baseAnimation.fillMode = kCAFillModeForwards
 
 ````
 
-![效果图]()
+![](http://images.jumppo.com/uploads/animationAndEffect02.gif)
 
 ## 关键帧动画 CAKeyframeAnimation
 >   关键帧动画就是在动画控制过程中开发者指定主要的动画状态，至于各个状态间动画如何进行则由系统自动运算补充（每两个关键帧之间系统形成的动画称为“补间动画”），这种动画的好处就是开发者不用逐个控制每个动画帧，而只要关心几个关键帧的状态即可。
@@ -292,6 +292,8 @@ baseAnimation.fillMode = kCAFillModeForwards
         tapGesture.view?.layer.addAnimation(keyframeAnimation, forKey: "keyframeAnimation1")
 
 ````
+
+![](http://images.jumppo.com/uploads/animationAndEffect03.gif)
 
 关键帧动画其他可以设置的参数
 
@@ -447,7 +449,20 @@ kCATransitionFromBottom:
 ````
 
 完成后效果图如下：
-![]()
+![](http://images.jumppo.com/uploads/animationAndEffect04.gif)
+
+## demo
+---
+[本文的demo下载](https://github.com/coolnameismy/demo/AnimationAndEffects)
+
+本文的代码对于的文件名：
+
+-   QuickExampleViewController.swift
+-   BasicAnimationViewController.swift
+-   KeyFrameAnimationViewController.swift
+-   TransferAnimationViewController.swift
+
+如果大家支持，请在github上follow我，star我的项目
 
 
 
