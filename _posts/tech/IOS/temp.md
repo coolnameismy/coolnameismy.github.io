@@ -11,6 +11,8 @@ description:
 ---
 >   UIView的方法中有几个易用的静态方法可以做出动画效果，分别是UIView.beginAnimations() ->  UIView.commitAnimations() 和UIView.animateWithDuration()方法
 >   我们以一个UIView，每点击一次向右移动100，变色，加速运动这个简单的动效作为例子。
+>   转载请注明出处
+
 
 
 使用UIView.beginAnimations() ->  UIView.commitAnimations()实现
@@ -306,10 +308,6 @@ kCAAnimationCubicPaced:平滑均匀执行
 ````
 
 
-
-
-
-
 ##  转场效果
 
 转场动画就是从一个场景以动画的形式过渡到另一个场景。转场动画的使用一般分为以下几个步骤：
@@ -468,7 +466,7 @@ kCATransitionFromBottom:
     -   转场动画
 
 -   UIKit Dynamics （UIKit动力学）
-    
+
 
 -   laryer隐式动画
     -   使用隐式动画
@@ -502,13 +500,6 @@ EaseOut // slow at end
 Linear
 
 
-
-
-##  我的学习顺序
--   1. 学习iOS高层次的api，比如UIView和UIimage的动画api
--   2. 学习低层次的api，CABasicAnimation，CAKeyframeAnimation，CATransition等等的使用
--   3. 第三方动画库，objc的Pop，swift的Spring的使用
--   4. 第三方动画库，objc的Pop，swift的Spring的源码阅读和学习
 
 ##  参考文章
 ---

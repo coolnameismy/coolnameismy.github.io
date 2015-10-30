@@ -1,6 +1,6 @@
 ---
 layout: post
-title: iOS动画和特效（二）UIKit Dynamics-UIKit动力行为
+title: iOS动画和特效（二）UIKit力学行为
 category: 技术
 tags:
 description:
@@ -169,13 +169,104 @@ UIAttachmentBehavior是连接行为，要把box钉在某一位置，就给他添
 
 ````
 
-## 重力+推力
+
 效果如下
 ！[]()
 
+## 重力+黑洞吸引
+>   让自由落下的箱子被黑洞吸引吧！
+
+````swift
+//黑洞
+func blockHole(){
+
+    //把黑洞画出来
+    let point = UIImageView(image: UIImage(named: "blackhole"))
+    point.frame = CGRect(x: 300, y: 140, width: 50, height: 50)
+    view.addSubview(point)
+
+    //初始化动画的持有者
+    let animator =  UIDynamicAnimator(referenceView: view)
+    //初始化重力行为
+    let gravityBehavior = UIGravityBehavior(items: [box])
+    //添加重力行为
+    animator.addBehavior(gravityBehavior)
+
+    //需要保持变量
+    self.animator = animator
+
+    //0.5秒后启动黑洞
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(500 * NSEC_PER_MSEC)), dispatch_get_main_queue()) { () -> Void in
+        NSLog("black hole !!!")
+        let snapBehavior = UISnapBehavior(item: self.box, snapToPoint: CGPoint(x: 300, y: 140))
+        snapBehavior.damping = 50 //阻尼
+        self.animator.addBehavior(snapBehavior)
+    }
+
+}
+````
+
+效果如下
+！[]()
+
+## 自定义力学行为，合成多个力学行为的效果
+>   让自由落下的箱子被黑洞吸引吧！
 
 
+定义一个行为类，给行为添加重力和吸力子行为
+````swift
 
+    class GravityAndSnapBehavior:UIDynamicBehavior {
+        init(view:UIView) {
+            var point:CGPoint!
+            super.init()
+            let gravityBehavior = UIGravityBehavior(items: [view])
+            let snapBehavior = UISnapBehavior(item: view, snapToPoint: CGPoint(x: 300, y: 140))
+            self.addChildBehavior(gravityBehavior)
+            point =  CGPoint(x: 100 , y: 100)
+            self.addChildBehavior(snapBehavior)
+            //可以监听每一个步骤，然后自己对行为加自定义的影响和作用
+            self.action = {
+                NSLog("step")
+//                view.layer.position = CGPoint(x: point.x++, y: point.y++)
+      }
+
+
+````
+
+黑洞+使用自定义的合成行为
+
+````swift
+    class GravityAndSnapBehavior:UIDynamicBehavior {
+        init(view:UIView) {
+            //把黑洞画出来
+            let blackhole = UIImageView(image: UIImage(named: "blackhole"))
+            blackhole.frame = CGRect(x: 300, y: 140, width: 50, height: 50)
+            view.addSubview(blackhole)
+
+            //初始化动画的持有者
+            let animator =  UIDynamicAnimator(referenceView: view)
+            //初始化合成行为
+            let gravityAndSnapBehavior = GravityAndSnapBehavior(view: box)
+            //添加重力行为
+            animator.addBehavior(gravityAndSnapBehavior)
+            //需要保持变量
+            self.animator = animator
+      }
+
+
+````
+
+指定注意的是UIDynamBehavior中的action属性，这个属性会再每次view改变时候出发，因此你可以根据自己需要，添加自己的特殊行为
+
+
+## demo
+---
+[本文的demo下载](https://github.com/coolnameismy/demo/AnimationAndEffects)
+
+本文的代码对于的文件名：AnimationAndEffects/UIKitDynamicsViewController.swift
+
+如果大家支持，请在github上follow我，star我的项目
 
 ================================================================================================================================================
 
