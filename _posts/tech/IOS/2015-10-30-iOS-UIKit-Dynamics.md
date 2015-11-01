@@ -209,6 +209,7 @@ func blockHole(){
 
 
 定义一个行为类，给行为添加重力和吸力子行为
+
 ````swift
 
     class GravityAndSnapBehavior:UIDynamicBehavior {
@@ -232,6 +233,7 @@ func blockHole(){
 黑洞+使用自定义的合成行为
 
 ````swift
+
     class GravityAndSnapBehavior:UIDynamicBehavior {
         init(view:UIView) {
             //把黑洞画出来
