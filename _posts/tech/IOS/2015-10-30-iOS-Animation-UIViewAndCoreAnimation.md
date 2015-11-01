@@ -370,6 +370,7 @@ kCATransitionFromBottom:
 *步骤1：添加view底图，添加view的左右滑动手势*
 
 ````swift
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
