@@ -1,7 +1,7 @@
 ---
 layout: post
 title: iOS动画和特效专题（零）- 大纲和计划
-category: 技术
+category: 专题
 tags:
 description:
 ---
@@ -24,6 +24,8 @@ description:
    -   UIPushBehavior：推力行为
    -   UISnapBehavior：不知道怎么翻译，实际效果类似吸引力
 
+### [iOS动画和特效（三）MotionEffects](/2015/11/1/iOS-MotionEffects.html)
+---
 
 ## 今后计划内容
 
