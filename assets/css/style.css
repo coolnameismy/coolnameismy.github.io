@@ -407,8 +407,11 @@ h1, h2, h3, h4, h5, h6 {
 #post__content li > p {
   margin: 0; }
 #post__content a {
-  color: #7d8b99;
-  word-break: break-all; }
+    color: #BF1827;
+    word-break: break-all;
+    font-family: sans-serif;
+    font-weight: bold;
+}
   #post__content a:hover {
     text-decoration: underline; }
 #post__content img {

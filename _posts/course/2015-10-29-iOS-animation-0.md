@@ -24,14 +24,19 @@ description:
    -   UIPushBehavior：推力行为
    -   UISnapBehavior：不知道怎么翻译，实际效果类似吸引力
 
-### [iOS动画和特效（三）MotionEffects](/2015/11/1/iOS-MotionEffects.html)
+### [iOS动画和特效（三）MotionEffects](/2015/11/01/iOS-MotionEffects.html)
 ---
+
+### [iOS动画和特效（四）controller间的自定义过渡效果](/2015/11/06/iOS-controller-transitioning.html)
+---
+
+
 
 ## 今后计划内容
 
 
-iOS动画和特效（三）常用的地第三方动画库
+iOS动画和特效-常用的地第三方动画库
    -   Popgit
    -   Spring
 
-iOS动画和特效（四）动手做些酷炫的效果
+iOS动画和特效-弹性uiview动画效果
