@@ -16,7 +16,7 @@ title: Welcome
 
 ## 博客中的技术类型
 ---
-我叫刘彦玮，熟悉.net,java,ios和前端html,css,js。所以博客中主要包含的技术类型主要是这些，另外也会写一个自己不熟悉但是感兴趣的内容，和大家一起学习。
+我叫刘彦玮，7年全栈工程师。熟悉.net,java,ios和前端html,css,js。所以博客中主要包含的技术类型主要是这些，另外也会写一个自己不熟悉但是感兴趣的内容，和大家一起学习。
 
 -   IOS 2015年会多一些
 -   java 少量
@@ -49,4 +49,4 @@ title: Welcome
 ---
 这个博客通过 [Jekyll](http://jekyllrb.com/) 生成，博客的源码托管在[Github](https://github.com/coolnameismy/coolnameismy.github.io)上，如果有任何改进意见，欢迎讨论。
 
-如果有问题可以直接评论,或是给我发邮件。除此之外可以通过RRS订阅blog的更新，点击左下角两个图标即可。如果觉得写的不错，就给我点个赞或是github上follow我一下。谢谢大家的支持，blog有人看，我才会有兴趣写下去。
+如果有问题可以直接评论,或是给我发邮件。除此之外可以通过RRS订阅blog的更新，点击左下角两个图标即可。如果觉得写的不错，就给我点个赞或是github上follow我一下。谢谢大家的支持。
