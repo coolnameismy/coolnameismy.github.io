@@ -80,6 +80,23 @@ CALayer常用的属性
 
 ````
 
+## CATransaction的常见参数设置
+
+设置动画执行时间
+
+````swift    CATransaction.setAnimationDuration(1) ````
+
+关闭隐式动画,这句话必须放在修改属性之前
+
+````swift   CATransaction.setDisableActions(true)   ````
+
+设置动画完成后的回调
+
+````swift
+        CATransaction.setCompletionBlock { () -> Void in
+            NSLog("Animation complete")
+        }
+````
 
 
 ## 动画的暂停与继续
@@ -121,7 +138,3 @@ CALayer常用的属性
 如果大家支持，请在github上follow我，star我的项目
 
 
-## 文章引用和参考
-
--   [iOS7中的ViewController切换](http://onevcat.com/2013/10/vc-transition-in-ios7/)
--   [实现通过圆圈放大缩小的转场动画](http://www.kittenyang.com/pingtransition/)
