@@ -1,0 +1,184 @@
+---
+layout: post
+title: iOS动画和特效（六）swift动画库spring使用和代码拆解
+category: 技术
+tags:
+description:
+---
+
+![](https://camo.githubusercontent.com/4b086bf363f44f96e9384c06fbfc36610a98f9d3/687474703a2f2f636c2e6c792f696d6167652f3031325230443352337832672f646f776e6c6f61642f737072696e677377696674322e6a7067)
+
+
+## table of content
+
+* [spring介绍](#spring介绍)
+* [简单介绍使用spring实现动画效果](#简单介绍使用spring实现动画效果)
+* [spring代码拆解](#spring代码拆解)
+    -   demo架构
+    -   核心动画实现
+
+##  spring介绍
+
+ [spring](https://github.com/MengTo/Spring) 是一个基于swift写的动画库，是swift目前最常用的动画库 github6000+ 
+ 
+  ### spring优点：
+
+  - 用简单的语法封装了ios UIView Animation的方法，使用起来减少了代码量
+  - 添加了几种常见的动画效果如shake pop等动画
+  - 支持直接在storyboard中通过配置加入动画效果
+
+  ### 安装：
+
+  - 手动安装：直接将项目中的spring文件夹拖入你的项目
+  - pods：
+
+````
+    use_frameworks!
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+````
+
+## 简单介绍使用spring实现动画效果
+
+spring实现动画效果有2种方式，一种是在storyboard里面配置，我个人来说不喜欢这种方式，iOS开发部分前端后端，都是一个人做，动画实现放在界面中其实维护起来容易出错，并且不利于代码重用，所以我就不介绍storyboard的实现方式，有兴趣的自己看spring主页。spring提供的demo里面，code和option弹出vc使用的就是storyboard配置的方式。
+
+### 使用spring动画示例：
+
+````swift
+    
+     //1：需要让view继承自SpringView
+     var ballView: SpringView!
+
+     //2：配置动画的运行参数
+     ballView.animation = "Shake" //配置动画方式
+     
+     //配置运动曲线 这里类似于先慢后快的运动，除了原生的运动曲线外，Spring库还添加了许多自定义的运动曲线
+     ballView.curve = "EaseOut" 
+
+     //3：执行动画
+     ballView.animate()
+
+````
+
+这样就动了起来，如图：
+
+![]()
+
+
+### 可选的配置参数
+
+Animation：动画类型
+
+````
+    shake
+    pop
+    morph
+    squeeze
+    wobble
+    swing
+    flipX
+    flipY
+    fall
+    squeezeLeft
+    squeezeRight
+    squeezeDown
+    squeezeUp
+    slideLeft
+    slideRight
+    slideDown
+    slideUp
+    fadeIn
+    fadeOut
+    fadeInLeft
+    fadeInRight
+    fadeInDown
+    fadeInUp
+    zoomIn
+    zoomOut
+    flash
+````
+
+Curve：运动曲线
+
+````
+    EaseIn,
+    EaseOut,
+    EaseInOut,
+    Linear,
+    Spring,
+    EaseInSine,
+    EaseOutSine,
+    EaseInOutSine,
+    EaseInQuad,
+    EaseOutQuad,
+    EaseInOutQuad,
+    EaseInCubic,
+    EaseOutCubic,
+    EaseInOutCubic,
+    EaseInQuart,
+    EaseOutQuart,
+    EaseInOutQuart,
+    EaseInQuint,
+    EaseOutQuint,
+    EaseInOutQuint,
+    EaseInExpo,
+    EaseOutExpo,
+    EaseInOutExpo,
+    EaseInCirc,
+    EaseOutCirc,
+    EaseInOutCirc,
+    EaseInBack,
+    EaseOutBack,
+    EaseInOutBack
+````
+
+Properties：属性
+
+````
+    force
+    duration
+    delay
+    damping
+    velocity
+    repeatCount
+    scale
+    x
+    y
+    rotate
+
+````
+
+**注意，并不是所有的属性都可以同时设置使用的**
+
+
+##  spring代码拆解
+
+### 左侧和下次弹出效果是如何实现的
+
+### spring基本动画的实现方式
+
+### spring中运动时间函数的实现
+
+### spring中动画类型的实现
+
+### spring library中我们能学到的细节
+
+
+## demo
+---
+
+
+
+[本文的demo下载](https://github.com/coolnameismy/demo/AnimationAndEffects)
+
+本文的代码对于的文件夹/ControllerTransitioning
+
+- ImplicitAnimationViewController.swift:隐式动画
+
+
+如果大家支持，请在github上follow我，star我的项目
+
+
+##  推荐的相关文章
+
+[Layer 中自定义属性的动画](http://www.objccn.io/issue-12-2/)
+[iOS开发之让你的应用“动”起来](http://www.cocoachina.com/ios/20141022/10005.html)
