@@ -615,19 +615,31 @@ var str:String = {
 ````swift
 
 class Person {
-    func hello(name:String) -> String{
-        return "hello \(name)"
+
+    //普通方法
+    func hi(name:String) -> String{
+        return "hi \(name)"
+    }
+
+    //静态方法
+    class func hello(){
+        NSLog("hello")
     }
 }
 
 let person = Person()
 
 //常规方法调用
-person.hello("liuyanwei")
+person.hi("liuyanwei")
+Person.hello()
 
 //利用方法名调用
-let funcOnPerson = Person.hello
-funcOnPerson(person)("liuyanwei")
+let funcOnPerson1 = Person.hi
+funcOnPerson1(person)("liuyanwei")
+
+//调用静态方法
+let funcOnPerson2 = Person.hello
+funcOnPerson2()
 
 ````
 
