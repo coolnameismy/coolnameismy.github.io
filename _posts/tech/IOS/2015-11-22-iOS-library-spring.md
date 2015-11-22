@@ -357,14 +357,14 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
     let animation = CABasicAnimation()
     animation.keyPath = "transform"
     animation.fromValue = NSValue(CATransform3D:
-        CATransform3DMakeRotation(0, 0, 0, 0))
+    CATransform3DMakeRotation(0, 0, 0, 0))
 
     //FlipX使用这句
     //animation.toValue = NSValue(CATransform3D:
         CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)))
     //FlipY使用这句
     animation.toValue = NSValue(CATransform3D:
-        CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
+    CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
 
     animation.duration = CFTimeInterval(duration)
     animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
