@@ -22,13 +22,14 @@ description:
  [spring](https://github.com/MengTo/Spring) 是一个基于swift写的动画库，是swift目前最常用的动画库 github6000+ 
  
 
-### spring优点：
+###  spring优点：
 
   - 用简单的语法封装了ios UIView Animation的方法，使用起来减少了代码量
   - 添加了几种常见的动画效果如shake pop等动画
   - 支持直接在storyboard中通过配置加入动画效果
 
-### 安装：
+
+###  安装：
 
   - 手动安装：直接将项目中的spring文件夹拖入你的项目
   - pods：
