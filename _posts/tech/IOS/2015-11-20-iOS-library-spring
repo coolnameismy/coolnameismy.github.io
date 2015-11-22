@@ -150,17 +150,281 @@ Properties：属性
 **注意，并不是所有的属性都可以同时设置使用的**
 
 
-##  spring代码拆解
+##  spring动画的实现-序
 
-### 左侧和下次弹出效果是如何实现的
+我们简单的看下spring动画库中的代码文件。spring1.0.3版本，spring文件夹有30个文件，其中居然还存在一些基本没用的文件，还有些文件的作用我也没仔细看。这里主要分析下spring动画实现部分的代码，最核心的类只有就3个文件
 
-### spring基本动画的实现方式
+````swift
 
-### spring中运动时间函数的实现
+//核心动画效果实现类
+Spring
 
-### spring中动画类型的实现
+//UIView.animateWithDuration的动画的简单封装
+SpringAnimation
 
-### spring library中我们能学到的细节
+//使用动画的入口类，本身继承自UIView，自己使用时可以通过继承SpringView，然后就可以使用spring动画特效，同时也支持Storyboard配置动画属性
+SpringView
+
+````
+
+说实话个人觉得这个库写的很啰嗦，spring里面30个文件，正真核心的就3个。使用动画也很不方便，还得继承SpringView，这个算是侵入式的编程，java中strcts被spring的Controller的区别一样。要是我来写一个动画库，1个文件把动效封装一下就好了，用静态方法或是扩展方法都挺好，也不会去支持通过storyboard去配置动画。我真的会去写一个哦，计划16年写吧。15年还得更新更新babybluetooth蓝牙库。
+
+虽然这么说spring框架，但其实他里面的动画效果和时间函数还是挺好的，作者好像就是设计师出生，里面每个特效的参数设置的极为合理。后面我来拆一拆它每一个动画效果和时间函数的实现。
+
+
+## 动画效果实现
+>   本文中把所有spring中的动画特效类型使用原生方法实现一次
+
+动画效果有这些
+
+````
+    shake //晃动
+    pop
+    morph
+    squeeze
+    wobble
+    swing
+    flipX
+    flipY
+    fall
+    squeezeLeft
+    squeezeRight
+    squeezeDown
+    squeezeUp
+    slideLeft
+    slideRight
+    slideDown
+    slideUp
+    fadeIn
+    fadeOut
+    fadeInLeft
+    fadeInRight
+    fadeInDown
+    fadeInUp
+    zoomIn
+    zoomOut
+    flash
+
+````
+
+这段介绍暂时忽略动画的时间函数，都已线性时间函数为例
+
+### shake
+
+shake是一个关键帧动画，通过定义左右左右2次的数值变化实现晃动效果，这个效果使用原生代码实现如下
+
+````swift
+
+        let force = 1
+        let duration = 0.7
+        let delay = 0
+        let repeatCount:Float = 1.0
+        let timeFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0, 30*force, -30*force, 30*force, 0]
+        animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+        animation.timingFunction =  timeFunction
+        animation.duration = CFTimeInterval(duration)
+        animation.additive = true
+        animation.repeatCount = repeatCount
+        animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+        ballView.layer.addAnimation(animation, forKey: "shake")
+
+````
+
+### pop
+
+
+````swift
+
+   let force:Float = 1.0
+        let duration = 0.7
+        let delay = 0
+        let repeatCount:Float = 1.0
+        let timeFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+      
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "transform.scale"
+        animation.values = [0, 0.2 * force, -0.2 * force, 0.2 * force, 0]
+        animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+        animation.timingFunction = timeFunction
+        animation.duration = CFTimeInterval(duration)
+        animation.additive = true
+        animation.repeatCount = repeatCount
+        animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+        view.layer.addAnimation(animation, forKey: "pop")
+
+````
+
+###  morph 
+
+这个词中文应该是变形的意思，他是实现是做了x和y轴的scale变化
+
+````swift
+
+    let morphX = CAKeyframeAnimation()
+    morphX.keyPath = "transform.scale.x"
+    morphX.values = [1, 1.3*force, 0.7, 1.3*force, 1]
+    morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+    morphX.timingFunction = getTimingFunction(curve)
+    morphX.duration = CFTimeInterval(duration)
+    morphX.repeatCount = repeatCount
+    morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+    layer.addAnimation(morphX, forKey: "morphX")
+
+    let morphY = CAKeyframeAnimation()
+    morphY.keyPath = "transform.scale.y"
+    morphY.values = [1, 0.7, 1.3*force, 0.7, 1]
+    morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+    morphY.timingFunction = getTimingFunction(curve)
+    morphY.duration = CFTimeInterval(duration)
+    morphY.repeatCount = repeatCount
+    morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+    layer.addAnimation(morphY, forKey: "morphY")
+
+````
+
+###  squeeze
+
+挤压效果，这个效果和上面的很类似，只有x和y的scale参数不一样。注意这个force参数设置的位置还是很有讲究的
+
+````swift
+ //区别
+ morphX.values = [1, 1.5*force, 0.5, 1.5*force, 1]
+ morphY.values = [1, 0.5, 1, 0.5, 1]
+
+````
+
+### wobble
+
+摆动效果，实际上类似于shake并在shake中带一些旋转
+
+````swift
+
+    let animation = CAKeyframeAnimation()
+    animation.keyPath = "transform.rotation"
+    animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
+    animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+    animation.duration = CFTimeInterval(duration)
+    animation.additive = true
+    animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+    layer.addAnimation(animation, forKey: "wobble")
+
+    let x = CAKeyframeAnimation()
+    x.keyPath = "position.x"
+    x.values = [0, 30*force, -30*force, 30*force, 0]
+    x.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+    x.timingFunction = getTimingFunction(curve)
+    x.duration = CFTimeInterval(duration)
+    x.additive = true
+    x.repeatCount = repeatCount
+    x.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+    layer.addAnimation(x, forKey: "x")
+
+````
+
+### swing
+
+这个词翻译过来也是摆动，我的英文也没那么好，不能给大家形象的解释swing和wobble区别。这里就当不同的摆动效果吧。spring中swing的摆动是只旋转
+
+````swift
+
+    let animation = CAKeyframeAnimation()
+    animation.keyPath = "transform.rotation"
+    animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
+    animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+    animation.duration = CFTimeInterval(duration)
+    animation.additive = true
+    animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+    layer.addAnimation(animation, forKey: "swing")
+
+````
+
+### FlipX,FlipY
+
+这两个动画是分别使用3D中x和y轴转换
+
+````swift
+
+    var perspective = CATransform3DIdentity
+    perspective.m34 = -1.0 / layer.frame.size.width/2
+
+    let animation = CABasicAnimation()
+    animation.keyPath = "transform"
+    animation.fromValue = NSValue(CATransform3D:
+        CATransform3DMakeRotation(0, 0, 0, 0))
+
+    //FlipX使用这句
+    //animation.toValue = NSValue(CATransform3D:
+        CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)))
+    //FlipY使用这句
+    animation.toValue = NSValue(CATransform3D:
+        CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
+
+    animation.duration = CFTimeInterval(duration)
+    animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+    animation.timingFunction = getTimingFunction(curve)
+    layer.addAnimation(animation, forKey: "3d")
+
+````
+
+### fall
+
+这个方法是使用animateWithDuration和CGAffineTransformMakeTranslation实现的,做了y轴下降和旋转
+
+````swift
+
+   UIView.animateWithDuration(NSTimeInterval(duration), delay: NSTimeInterval(delay), usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: [.CurveLinear,.AllowUserInteraction], animations: { () -> Void in
+            let translate = CGAffineTransformMakeTranslation(0, 300)
+            let rotate = CGAffineTransformMakeRotation(15 * CGFloat(M_PI / 180))
+            self.view.transform = CGAffineTransformConcat(translate, rotate)
+        }, completion: nil)
+
+````
+
+### squeezeLeft,squeezeRight,squeezeDown,squeezeUp,slideLeft,slideRight,slideDown,slideUp
+
+这组方法是上下左右移动，slideLeft就是普通的移动，squeeze开头的会在移动中根据方向改变x或y的sacle，是效果更加逼真一些
+
+````swift
+
+ UIView.animateWithDuration(NSTimeInterval(duration), delay: NSTimeInterval(delay), usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: [.CurveLinear,.AllowUserInteraction], animations: { () -> Void in
+            let translate = CGAffineTransformMakeTranslation(100, 0)
+            //slide开头就不需要scale效果
+            let scale = CGAffineTransformMakeScale(0.8, 1)
+            self.view.transform = CGAffineTransformConcat(translate, scale)
+            }, completion: nil)
+
+````
+
+###  fadeIn，fadeOut，fadeInLeft，fadeInRight，fadeInDown，fadeInUp 
+
+这组动画是淡入淡出效果。后面四个带方向的是淡入淡出时添加方向位移效果。代码不写了，都一样的东西，就比移动的动画代码增加了一个alpha属性的修改。这组动画任然使用animateWithDuration完成
+
+### zoomIn，zoomOut
+
+方法缩小，但是在spring中附加了淡入淡出的效果。这个命名就和之前的不符合了，按照之前的方法命名习惯，这里应该分成4个方法，普通的和淡入淡出的版本
+    
+
+### flash 
+
+就是repeat几次，fadeIn，fadeOut，fadeIn，fadeOut，好像在闪烁一样。这个效果spring根本没做好。
+
+### 动画类型总结
+
+整体来说spring的动画类型也没有很多，有的动画效果参数设置的还不错，有的动画也没做好，有很多优化的空间。
+
+
+## 时间函数实现
+
+
+
+
+## spring library中我们能学到的细节
+
+
 
 
 ## demo

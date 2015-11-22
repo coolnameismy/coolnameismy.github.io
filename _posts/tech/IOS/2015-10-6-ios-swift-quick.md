@@ -583,6 +583,28 @@ extension Person{
     }
 }
 ````
+## OptionSetType
+
+OptionSetType是NSOption在swift的替代
+
+````swift
+
+public struct UIViewAutoresizing : OptionSetType {
+    public init(rawValue: UInt)
+    public static var None: UIViewAutoresizing { get }
+    public static var FlexibleLeftMargin: UIViewAutoresizing { get }
+    public static var FlexibleWidth: UIViewAutoresizing { get }
+    public static var FlexibleRightMargin: UIViewAutoresizing { get }
+    public static var FlexibleTopMargin: UIViewAutoresizing { get }
+    public static var FlexibleHeight: UIViewAutoresizing { get }
+    public static var FlexibleBottomMargin: UIViewAutoresizing { get }
+}
+
+//使用,选择多个
+[FlexibleLeftMargin,FlexibleWidth]
+
+
+````
 
 #（三）高级
 
@@ -644,13 +666,16 @@ funcOnPerson2()
 ````
 
 ##swift单例标准写法
+
 ````swift
-private let sharedInstance = MyManager()
+
 class MyManager  {
+    static private let sharedInstance = MyManager()
     class var sharedManager : MyManager {
         return sharedInstance
     }
 }
+
 ````
 
 #最后
