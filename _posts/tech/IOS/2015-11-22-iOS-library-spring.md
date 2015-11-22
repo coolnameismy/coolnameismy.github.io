@@ -21,13 +21,14 @@ description:
 
  [spring](https://github.com/MengTo/Spring) 是一个基于swift写的动画库，是swift目前最常用的动画库 github6000+ 
  
-  ### spring优点：
+
+### spring优点：
 
   - 用简单的语法封装了ios UIView Animation的方法，使用起来减少了代码量
   - 添加了几种常见的动画效果如shake pop等动画
   - 支持直接在storyboard中通过配置加入动画效果
 
-  ### 安装：
+### 安装：
 
   - 手动安装：直接将项目中的spring文件夹拖入你的项目
   - pods：
@@ -39,7 +40,7 @@ description:
 
 ## 简单介绍使用spring实现动画效果
 
-spring实现动画效果有2种方式，一种是在storyboard里面配置，我个人来说不喜欢这种方式，iOS开发部分前端后端，都是一个人做，动画实现放在界面中其实维护起来容易出错，并且不利于代码重用，所以我就不介绍storyboard的实现方式，有兴趣的自己看spring主页。spring提供的demo里面，code和option弹出vc使用的就是storyboard配置的方式。
+spring实现动画效果有2种方式，一种是在storyboard里面配置，我个人来说不喜欢这种方式，iOS开发不分前端后端，动画实现放在界面中其实维护起来容易出错，并且不利于代码重用，所以我就不介绍storyboard的实现方式，有兴趣的自己看spring主页。spring提供的demo里面，code和option弹出vc使用的就是storyboard配置的方式。
 
 ### 使用spring动画示例：
 
@@ -152,7 +153,7 @@ Properties：属性
 
 ##  spring动画的实现-序
 
-我们简单的看下spring动画库中的代码文件。spring1.0.3版本，spring文件夹有30个文件，其中居然还存在一些基本没用的文件，还有些文件的作用我也没仔细看。这里主要分析下spring动画实现部分的代码，最核心的类只有就3个文件
+我们简单的看一下spring动画库中的代码文件。spring1.0.3版本，spring文件夹有30个文件，其中居然还存在一些基本没用的文件，还有些文件的作用我也没仔细看。这里主要分析下spring动画实现部分的代码，最核心的类只有就3个文件
 
 ````swift
 
@@ -162,12 +163,13 @@ Spring
 //UIView.animateWithDuration的动画的简单封装
 SpringAnimation
 
-//使用动画的入口类，本身继承自UIView，自己使用时可以通过继承SpringView，然后就可以使用spring动画特效，同时也支持Storyboard配置动画属性
+//使用动画的入口类，本身继承自UIView，自己使用时可以通过继承SpringView，
+//然后就可以使用spring动画特效，同时也支持Storyboard配置动画属性
 SpringView
 
 ````
 
-说实话个人觉得这个库写的很啰嗦，spring里面30个文件，正真核心的就3个。使用动画也很不方便，还得继承SpringView，这个算是侵入式的编程，java中strcts被spring的Controller的区别一样。要是我来写一个动画库，1个文件把动效封装一下就好了，用静态方法或是扩展方法都挺好，也不会去支持通过storyboard去配置动画。我真的会去写一个哦，计划16年写吧。15年还得更新更新babybluetooth蓝牙库。
+说实话个人觉得这个库写的很啰嗦，spring里面30个文件，正真核心的就3个。使用动画也很不方便，还得继承SpringView，这个算是侵入式的编程，就像java中strcts和spring的controller区别一样明显。要是我来写一个动画库，1个文件把动效封装一下就好了，用静态方法或是扩展方法都挺好，也不会去支持通过storyboard去配置动画。我真的会去写一个哦，计划16年写吧。15年还得更新更新babybluetooth蓝牙库。
 
 虽然这么说spring框架，但其实他里面的动画效果和时间函数还是挺好的，作者好像就是设计师出生，里面每个特效的参数设置的极为合理。后面我来拆一拆它每一个动画效果和时间函数的实现。
 
