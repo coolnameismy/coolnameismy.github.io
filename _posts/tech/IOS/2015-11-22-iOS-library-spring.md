@@ -479,4 +479,4 @@ spring动画库中扩充了原生时间函数的类型，原来只有EaseIn，Ea
 
 ## 最后
 
-spring还算一个不错的动画库，欢迎大家和我一起交流学习，如果大家支持，请在github上[follow](https://github.com/coolnameismy)和star
+spring还算一个不错的动画库，欢迎大家和我一起交流学习，如果大家支持，请[github上follow和star](https://github.com/coolnameismy)

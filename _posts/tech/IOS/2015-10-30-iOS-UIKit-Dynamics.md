@@ -263,8 +263,7 @@ func blockHole(){
 
 本文的代码对于的文件名：AnimationAndEffects/UIKitDynamicsViewController.swift
 
-如果大家支持，请在github上follow我，star我的项目
-
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
 
 ##  参考文章
 ---

@@ -469,8 +469,7 @@ kCATransitionFromBottom:
 -   KeyFrameAnimationViewController.swift
 -   TransferAnimationViewController.swift
 
-如果大家支持，请在github上follow我，star我的项目
-
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
 
 
 

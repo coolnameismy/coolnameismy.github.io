@@ -343,3 +343,7 @@ description:
 
 ###### | ios绘图demo,做一个涂鸦板(上) | 完成后的效果图：
 ![效果图](http://images.jumppo.com/uploads/paintDemo.gif)
+
+## 最后
+
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)

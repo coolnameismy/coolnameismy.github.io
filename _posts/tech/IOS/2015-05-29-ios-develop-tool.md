@@ -115,3 +115,6 @@ github地址：https://github.com/supermarin/Alcatraz
 12. Dash for Xcode
     -   xcode文档插件
 
+## 最后
+
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)

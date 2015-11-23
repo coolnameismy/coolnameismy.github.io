@@ -16,8 +16,8 @@ description:
 
 -   仿射是什么
 -   仿射变换的原理和计算
--   仿射在iOS中常用的方法和使用
--   3D仿射变换的使用
+-   仿射在iOS中常用的方法
+-   3D仿射变换
 
 ##  仿射是什么
 
@@ -80,7 +80,7 @@ description:
  CGAffineTransformMake ( CGFloat a, CGFloat b, CGFloat c, CGFloat d, CGFloat tx, CGFloat ty )
 ````
 
-这个方法的6个参数可以拼出一个矩阵,具体
+这个方法的6个参数可以拼出一个矩阵
 
 ````
     //仿射矩阵
@@ -92,14 +92,14 @@ description:
 
 ````
 
-而仿射变化的定义有点复杂，我自己理解就是： 点p（以二维坐标为例）通过仿射矩阵C 后变成新的点p' 。
+仿射变化的定义有点复杂，我自己理解就是： 点p（以二维坐标为例）通过仿射矩阵C 后变成新的点p' 。
 
 以上面的缩放仿射变化CGAffineTransformScale为例。就是view中每一个点p通过矩阵C后，view中的每一个新的点p'组成的新的图形，相比之前的view有了缩放的效果。
 
 
 ##  仿射变换的原理和计算
 
-仿射变化原理是研究生数学中的矩阵分析（感慨之前为什么没好好学这门课。。。 自己看这个仿射矩阵画了好多时间才弄明白怎么回事，还补了补基础矩阵计算），所以要弄明白仿射矩阵对作用点的影响，还得先看看矩阵的乘法是如何计算的。
+仿射变化原理是数学中的矩阵原理（线性代数、矩阵分析。感慨之前为什么没好好学这门课。。。 自己看这个仿射矩阵画了好多时间才弄明白怎么回事，还补了补基础的矩阵计算知识），要弄明白仿射矩阵对作用点的影响，还得先看看矩阵的乘法怎么计算。
 
 ### 基础-矩阵的乘法
 
@@ -158,7 +158,7 @@ description:
 
 ````
 
-根据矩阵计算规则我们知道A*B的结果是一个一行3列的矩阵，设A*B得到的新矩阵C ，那么C的矩阵应该为
+根据矩阵计算规则我们知道A x B的结果是一个1行3列的矩阵，设A x B得到的新矩阵C ，那么C的矩阵应该为
 
 
 ````
@@ -181,6 +181,10 @@ y' = b*x + d*y + ty
 -   翻转（Flip）
 -   旋转（Rotation）
 -   剪切（Shear）
+
+![](http://my.csdn.net/uploads/201205/07/1336349553_1044.jpg)
+
+![](http://my.csdn.net/uploads/201205/07/1336349566_2134.jpg)
 
 ### 平移（Translation）
 
@@ -222,7 +226,7 @@ y' = y + ty
 
 ````
 
-在来看看代码
+再来看看代码
 
 ````swift
 
@@ -355,6 +359,173 @@ let rotation = CGAffineTransformMake(CGFloat( cos(M_PI_4) ), CGFloat( sin(M_PI_4
 
 -   翻转（Flip）
 
+我不知道使用CGAffineTransformMake()如何设置矩阵可以实现翻转效果，请知道的读者告知。我阅读的所有Flip效果都是使用CATransform3D实现的，代码如下
+
+````swift
+
+//Flip仿射，要是有3D去实现
+let flip = CATransform3DMakeRotation(angle, x, y, z)
+
+//示例
+let flipX = CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)
+let flipY = CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)
+let flipZ = CATransform3DMakeRotation(CGFloat(M_PI), 0, 0, 1)
+
+````
+
+### 总结一下CATransform3DMakeRotation方法的6个参数
+
+在不考虑旋转时，CATransform3DMakeRotation6个参数可以写成
+
+````swift
+ 
+ //sx,sy:缩放因子
+ //shx,shy:斜切因子
+ //tx,ty:移动因子
+ CGAffineTransformMake (sx,shx,shy,sy,tx,ty)
+
+````
+
+
+
+## 仿射在iOS中常用的方法
+
+
+````swift
+
+        //位移仿射
+        CGAffineTransformMakeTranslation
+        CGAffineTransformTranslate
+        //旋转仿射
+        CGAffineTransformMakeRotation
+        CGAffineTransformRotate
+        //缩放仿射
+        CGAffineTransformMakeScale
+        CGAffineTransformScale
+
+        //叠加仿射效果
+        CGAffineTransformConcat
+        
+        //仿射矩阵方法，可以直接做效果叠加
+        CGAffineTransformMake (sx,shx,shy,sy,tx,ty)
+
+        /*
+            这个是一个初始化矩阵，带入矩阵算法计算后的结构会得到
+            x'=x , y'=y
+            它的作用是清除之前对矩阵设置的仿射效果，或者用来初始化一个原始无效果的仿射矩阵
+            [ 1 0 0 ]
+            [ 0 1 0 ]
+            [ 0 0 1 ]
+        */
+        CGAffineTransformIdentity
+
+        //检查是否有做过仿射效果
+        CGAffineTransformIsIdentity(transform)
+
+        //检查2个仿射效果是否相同
+        CGAffineTransformEqualToTransform(transform1,transform2)
+
+        //仿射效果反转（反效果，比如原来扩大，就变成缩小）
+        CGAffineTransformInvert(transform)
+
+
+````
+
+##  3D仿射变换
+
+3D仿射在iOS中是通过CATransform3D实现的，它有着与CGAffineTrans类似的一组API，但他们有个重要的区别在于**CATransform3D的效果只能加在layer的transform属性上**，而CGAffineTransform直接加在View上
+
+
+###  3D仿射矩
+
+类似于2D仿射，3D仿射也有一个基础矩阵，并且比2D的多一个维度
+
+````
+    [                       ]
+        m11  m12  m13  m14
+        m21  m22  m23  m24
+        m31  m32  m33  m34
+        m41  m42  m43  m44  
+    [                       ]
+
+````
+
+矩阵的计算过程和2D类似，最后也能得到矩阵中每个位置的值对3D仿射效果的作用。我直接把结果贴出来。
+
+平移因子：  m41（x位置）  m42（y位置）  m43（z位置）
+缩放因子：  m11（x位置）  m22（y位置）  
+切变因子：  m21（x位置）  m12（y位置）  
+旋转因子：  m13（x位置）  m31（y位置）  
+透视因子：  m34(有旋转才能看出效果)
+ 
+
+###  3D仿射常用的方法
+
+````swift
+
+        //位移3D仿射
+        CATransform3DMakeTranslation
+        CATransform3DTranslation
+        
+        //旋转3D仿射
+        CATransform3DMakeRotation
+        CATransform3DRotation
+     
+        //缩放3D仿射
+        CATransform3DMakeScale
+        CATransform3DScale
+
+        //叠加3D仿射效果
+        CATransform3DConcat
+        
+        //仿射基础3D方法，可以直接做效果叠加
+        CGAffineTransformMake (sx,shx,shy,sy,tx,ty)
+
+        /*
+            这个是一个初始化矩阵，带入矩阵算法计算后的结构会得到
+            x'=x , y'=y , z'=z
+            它的作用是清除之前对矩阵设置的仿射效果，或者用来初始化一个原始无效果的仿射矩阵
+            [ 1 0 0 0 ]
+            [ 0 1 0 0 ]
+            [ 0 0 1 0 ]
+            [ 0 0 0 1 ]
+        */
+        CATransform3DIdentity
+
+        //检查是否有做过仿射3D效果
+        CATransform3DIsIdentity(transform)
+
+        //检查是否是一个仿射3D效果
+        CATransform3DIsAffine(transform)
+
+        //检查2个3D仿射效果是否相同
+        CATransform3DEqualToTransform(transform1,transform2)
+
+        //3D仿射效果反转（反效果，比如原来扩大，就变成缩小）
+        CATransform3DInvert(transform)
+
+        //2D仿射转换3D仿射
+        CATransform3DGetAffineTransform(transform)
+        CATransform3DMakeAffineTransform(transform)
+
+````
+
+
+## demo
+---
+
+[本文的demo下载](https://github.com/coolnameismy/demo/AffineTransform)
+
+本文demo是一个playground文件，做了一些2D仿射的效果。如果没有显示出UIView，可以在每一个bg对应的行后面的小圆圈点一下，就可以在playground中看见UIView对应仿射的变化
+
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
+
+
+##  推荐的相关文章
+
+网上关于仿射的文章参考了许多，也没看到几篇质量很高的文章，基本上都没这这篇写的全，倒是有一个利用3D仿射做的一个特效还不错，大家可以看看
+
+[iOS动效-利用CATransform3D实现翻页动画效果](http://www.jianshu.com/p/9cbf52eb39dd)
 
 
 

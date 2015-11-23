@@ -141,9 +141,7 @@ CALayer常用的属性
 
 - ImplicitAnimationViewController.swift:隐式动画
 
-
-如果大家支持，请在github上follow我，star我的项目
-
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
 
 ##  推荐的相关文章
 
