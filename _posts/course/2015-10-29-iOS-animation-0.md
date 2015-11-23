@@ -5,7 +5,7 @@ category: 专题
 tags:
 description:
 ---
--	[iOS动画和特效（一）iOS动画和特效（一）UIView动画和CoreAnimation](http://liuyanwei.jumppo.com/2015/10/30/iOS-Animation-UIViewAndCoreAnimation.html)
+-	[iOS动画和特效（一）UIView动画和CoreAnimation](http://liuyanwei.jumppo.com/2015/10/30/iOS-Animation-UIViewAndCoreAnimation.html)
 -	[iOS动画和特效（二）UIKit力学行为](http://liuyanwei.jumppo.com/2015/10/30/iOS-UIKit-Dynamics.html)
 -	[iOS动画和特效（三）MotionEffects](http://liuyanwei.jumppo.com/2015/11/01/iOS-MotionEffects.html)
 -	[iOS动画和特效（四）controller间的自定义过渡效果](http://liuyanwei.jumppo.com/2015/11/06/iOS-controller-transitioning.html)
