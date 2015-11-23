@@ -7,20 +7,20 @@ keywords: Jekyll,Github
 description: 
 ---
 
-> 之前本来想展开写的，后来发现Jekyll官网的教程已经非常完善了就没有多写，所以只有[这篇][1]。
-> 但是过了这么久，发现很多人还是不清楚怎么搭建，所以这里打算详细写一下，并且把自己对图片的解决方案以及主题的创建步骤也一并写下。
-> 
-> 本篇主要谈如何搭建，不再讲为什么用它们。
+   
+> 本篇主要谈如何搭建，不再讲为什么用它们。使用可以看这里 -> [Jekyll中文网][1]
 
-__说明：本篇用到的代码中，为了防止解析冲突，一律多了`\`这个来防止被误解析__
+ 
+
 
 ## 创建一个库
-在Github上新开一个库，名字叫做`username.github.io`，然后当别人在地址栏输入相应url的时候就可以访问进来了。
 
-在这个库中完全可以只上传一个`index.html`，来讲自己要写的东西写进去，但是这样会丧失很多灵活性，所以需要Jekyll的帮助来创建自己的博客。
+在Github上新开一个库，名字叫做`username.github.io`
+
 
 ## 设定目录结构
-把自己的库clone到本地来，建立如下目录结构：
+
+jekyll推荐目录结构：
 
 ```
 ├── CNAME
@@ -100,21 +100,22 @@ markdown: redcarpet                         #markdown解释器
 
 ```
 
-这里的自定义常量可以在模板中使用，以后有修改的时候就不需要跑去改代码了。尤其是对一些私人的选项，可以在这里定义。现在我的博客中出了disqus和googleanalytics外都直接在这里设定就好了。
+把常量写在这里，方便配置。比如有一些个人使用的百度统计和disqus评论系统的id等等。如果大家从我的blogclone的项目，需要修改这些个人配置。
+
 
 ### 域名配置
-`CNAME`这个文件写明了这个站点的域名，如果不喜欢`username.github.io`的话，可以像我一样改掉
 
-```
-yansu.org
-```
+`CNAME`这个文件写明了这个站点的域名，如果不喜欢`username.github.io`的话，可以像我一样改掉
 
 改法只要在这个文件中写入域名就可以了。不过你需要去域名服务商那里设定域名解析规则。
 
-只要把`主机记录`为`@`,`www`的记录值写成`username.github.io`就好了。
+把`主机记录`为`@`,`www`的记录值写成`username.github.io`就好了。
+
 
 ### 博客存放
+
 `_posts`下的所有目录中的所有博客，都会被Jekyll处理成为静态的html文件，然后放在`_site`下。我这里没有`_site`目录，是因为我在`.gitignore`文件中把这个目录屏蔽掉了，它不会上传到Github上。
+
 
 ```
 _site/
@@ -152,6 +153,7 @@ description:                                   #自定义常量
 - `sitemap.txt` 给搜索引擎看的，如何爬取这个站
 
 ## 创建自己的主题
+
 上面讲了如何布局好站内文件结构，接下来主要就是如何创建一个自己的主题了。
 
 布局文件是整个主题最重要的文件，这些文件告诉Jekyll如何去形成一个html页面。
@@ -285,9 +287,13 @@ git push
 
 代码地址戳[这里][6]
 
-[1]: /2013/04/23/deploy-jeklly-blog.html
+[1]: http://jekyllcn.com/
 [2]: http://jekyllrb.com/docs/structure/
 [3]: http://jekyllrb.com/docs/templates/
 [4]: http://docs.shopify.com/themes/liquid-basics
 [5]: http://jekyllrb.com/docs/variables/
 [6]: https://github.com/coolnameismy/coolnameismy.github.io
+
+
+## 参考内容
+
