@@ -1,0 +1,7 @@
+
+
+##  接受pull request
+
+1：找到pull request的commit id，例如abcdefg
+2：下载对方pull request的代码放入新建分支new  ````git checkout 5b4d575dd66974a8eb6b84f13647e1ea3219898f -b new````
+3：检查修改并合并到master分支，再提交的版本库
