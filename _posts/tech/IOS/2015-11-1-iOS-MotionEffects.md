@@ -1,7 +1,7 @@
 ---
 layout: post
 title: iOS动画和特效（三）MotionEffects
-category: 技术
+category: iOS
 tags:
 description:
 ---

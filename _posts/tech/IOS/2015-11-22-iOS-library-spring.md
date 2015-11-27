@@ -1,7 +1,7 @@
 ---
 layout: post
 title: iOS动画和特效（六）swift动画库spring使用和代码拆解
-category: 技术
+category: iOS
 tags:
 description:
 ---

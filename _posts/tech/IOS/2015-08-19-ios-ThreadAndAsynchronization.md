@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ios的线程和同步异步操作
-category: 技术
+category: iOS
 tags: IOS,线程
 keywords: IOS,异步，同步,线程
 description:

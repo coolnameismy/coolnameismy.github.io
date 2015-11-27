@@ -2,7 +2,7 @@
 layout: post
 title: Masonry的使用
 subtitle: Masonry
-category: 技术
+category: iOS
 tags: ios , library
 keywords: ios,AFNetworking,RestKit,SVProgressHUD,CocoaLumberjack,facebook/pop,Masonry
 description:

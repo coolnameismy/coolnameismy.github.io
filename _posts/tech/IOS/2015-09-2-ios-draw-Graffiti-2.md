@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ios绘图demo,做一个涂鸦板(下)
-category: 技术
+category: iOS
 tags: IOS,绘图,coreGraphices,Graffiti
 description:
 ---

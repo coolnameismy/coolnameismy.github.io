@@ -1,7 +1,7 @@
 ---
 layout: post
 title: iOS动画和特效（五）layer隐式动画
-category: 技术
+category: iOS
 tags:
 description:
 ---

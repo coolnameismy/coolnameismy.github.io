@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ios绘图基础
-category: 技术
+category: iOS
 tags: IOS,绘图,coreGraphices
 description:
 ---

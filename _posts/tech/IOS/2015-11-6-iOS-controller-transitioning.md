@@ -1,7 +1,7 @@
 ---
 layout: post
 title: iOS动画和特效（四）controller间的自定义过渡效果
-category: 技术
+category: iOS
 tags:
 description:
 ---

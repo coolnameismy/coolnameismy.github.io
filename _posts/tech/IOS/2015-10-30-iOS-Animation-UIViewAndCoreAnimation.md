@@ -1,7 +1,7 @@
 ---
 layout: post
 title: iOS动画和特效（一）UIView动画和CoreAnimation
-category: 技术
+category: iOS
 tags:
 description:
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: iOS动画和特效（二）UIKit力学行为
-category: 技术
+category: iOS
 tags:
 description:
 ---

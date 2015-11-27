@@ -1,7 +1,7 @@
 ---
 layout: post
 title: swift5分钟语法速记
-category: 技术
+category: iOS
 tags: ios
 keywords: ios,swift
 description: 

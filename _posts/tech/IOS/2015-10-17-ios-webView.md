@@ -1,7 +1,7 @@
 ---
 layout: post
 title: UIWebView和WKWebView的使用及js交互
-category: 技术
+category: iOS
 tags: IOS,uiwebview,wkwebview,hybird
 description:
 ---

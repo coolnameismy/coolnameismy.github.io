@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 提高IOS开发效率的工具
-category: 技术
+category: iOS
 tags: IOS,pod,cocoapods,Xcode插件
 description:
 ---
