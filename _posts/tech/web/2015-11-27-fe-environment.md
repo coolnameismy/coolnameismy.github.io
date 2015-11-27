@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 前端开发的环境和工具安装
+title: 前端开发工具和环境搭建
 category: web前端
 tags:
 keywords:
