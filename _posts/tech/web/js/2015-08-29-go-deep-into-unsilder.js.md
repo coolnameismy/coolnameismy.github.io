@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 深入理解unslider.js源码
-category: 技术
+category: web前端
 tags: unslider,js
 keywords:  unslider,js,jquery
 description: 
