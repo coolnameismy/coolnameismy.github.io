@@ -112,7 +112,8 @@ $ gem sources -l  //验证成功
 -	gulp.js
 -	handlebarsjs
 -	compass
--	http-server 
+-	http-server
+
 
 
 
@@ -122,6 +123,9 @@ $ gem sources -l  //验证成功
 安装： npm install -g bower
 
 用法：待补充，先把环境搭起来
+
+教程：
+-   [bower解决js的依赖管理](http://blog.fens.me/nodejs-bower-intro/)
 
 
 ###  [gruntjs](http://www.gruntjs.net/)
@@ -156,6 +160,12 @@ $ gem sources -l  //验证成功
 安装： npm install http-server 
 
 
+### [browserify]()
+>   Browserify 可以让你使用类似于 node 的 require() 的方式来组织浏览器端的 Javascript 代码，通过预编译让前端 Javascript 可以直接使用 Node NPM 安装的一些库
+
+安装：npm install -g browserify
+
+
 ## 前端工程师的IDE
 ---
 
@@ -172,16 +182,28 @@ webStorm是一个很好用的前端开发IDE，功能很全，而Sublime只是�
 
 推荐插件：
 
--	package control 
--	Emmet 
--	Emmet liveStyle 
--	Pretty JSON 
--	Angluarjs
+-	package control:安装扩展和管理扩展包
+-	Emmet:快速写dom的扩展
+-   Side​Bar​Enhancements:右键菜单扩展
+-   BracketHighlighter:括号嵌套扩展
+-	Emmet liveStyle:配合chorme的liveStyle插件使用可以反向会写css文件
+-	Pretty JSON:json序列化
+-	Angluarjs:angluarjs智能提示
+-   jquery:jquery智能提示
+-   http requester: cmd+alt:R
+-   html5
+-   git
+-   sass
+-   less
+-   SublimeLinter:语法查错扩展
+-   SublimeLinter-jshint:语法查错扩展
 
 
 
 ### package control 
 >	sublime包安装功能扩展，有了他，再去用这个工具去安装其他的包就很方便了，所以必须先装
+
+[packagecontrol官网](https://packagecontrol.io/)
 
 sublime 3安装方式：
 
@@ -201,12 +223,16 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 
 安装好package就用它把之前推荐的插件都安装一下，具体插件的使用可以请教一下百度君
 
+推荐学习资料：[前端开发工具技巧介绍—Sublime篇](http://www.imooc.com/learn/40)
 
 <div style="display:none">
 	karma
  	Yeoman
  	###  [handlebarsjs](http://handlebarsjs.com/)
+    requirejs, seajs, browserify
+	开发环境和工程化，然后在弄模板化和组件化，最后 弄测试、发布，自动化等等
 
-	### sea.js
+	gulp.js->handlebarsjs->seajs
+
 </div>
  
