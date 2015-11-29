@@ -26,7 +26,7 @@ node.js这个名字看起来像是一个js库的名字，实际上差的很远�
 1：先安装一个 nvm（ https://github.com/creationix/nvm ） 当然也可以不装，不过装了的好处是便于nodejs版本切换
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.2/install.sh | bash
 
-2：安装linux
+2：安装 nodejs
 $ nvm install 0.12
 
 //查看nvm里面nodejs版本
@@ -233,7 +233,7 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 	开发环境和工程化，然后在弄模板化和组件化，最后 弄测试、发布，自动化等等
 
 	gulp.js->handlebarsjs->seajs
-	
+
 
 </div>
  
