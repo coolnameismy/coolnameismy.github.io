@@ -10,10 +10,130 @@ description:
 上一篇我们介绍了前端常用的开发环境和工具的安全和使用，本文主要介绍如何使用npm和bower搭建一个前端开发环境
 
 
+## Emmet
+
+效果图
+
+![](http://www.xuanfengge.com/wp-content/uploads/2013/12/emmet.gif)
+
+````
+
+** 1. 嵌套操作
+
+    >：子元素符号，表示嵌套的元素
+    ^：上级元素
+    +：同级标签符号
+    ^：可以使该符号前的标签提升一行
+    *：重复
+    ()：分组
+
+
+**  2. 属性操作
+
+    #:id名称
+    .:class名称
+    []:属性值
+    $:数列
+    @:条件数列  @- = -1：倒序开始   @n = 从n开始
+    {}:标签内容
+
+##  JSFormat
+
+![](http://www.xuanfengge.com/wp-content/uploads/2013/12/jsFormat.gif)
+
+功能：Javascript的代码格式化插件
+
+简介：很多网站的JS代码都进行了压缩，一行式的甚至混淆压缩，这让我们看起来很吃力。而这个插件能帮我们把原始代码进行格式的整理，包括换行和缩进等等，是代码一目了然，更快读懂~
+
+使用：在已压缩的JS文件中，右键选择jsFormat或者使用默认快捷键（Ctrl+Alt+F）
+
+
+##  [handlebars](http://handlebarsjs.com)
+
+-   [handlebars实用教程](http://www.cnblogs.com/iyangyuan/archive/2013/12/12/3471227.html)
+-   [极客标签视频教程](http://www.gbtags.com/gb/gbliblist/7.htm)
+-   [Handlebars.js 模板引擎](http://caibaojian.com/handlebars-js.html)
+
+### quick example
+
+````js
+
+//导入库
+<script src="../bower_components/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="../bower_components/handlebars/handlebars.js" type="text/javascript" charset="utf-8" ></script>
+
+````
+
+````js
+//定义模板
+<script id="demoTpl" type="text-x-handlebars-template">
+
+	  {{#each this}}
+        <div>
+         <h1>{{title}}</h1>
+         <p> {{content}}</p>
+        </div>
+      {{/each}}
+</script>
+
+````
+
+````js
+
+   //示例数据
+	var data = [
+		{ "title":"aaa","content":"contentaaa"},
+		{ "title":"aaa","content":"contentaaa"},
+		{ "title":"aaa","content":"contentaaa"},
+		{ "title":"aaa","content":"contentaaa"}
+	];
+
+    //jquery初始化完成
+	$(function(){
+         //编译模板
+		 var demoTpl = Handlebars.compile($("#demoTpl").html());
+		 //获取渲染后的html内容
+		 var html = demoTpl(data);
+		 //渲染dom，目标为#content
+		 $("#content").html(html)
+	});
+
+````
+
+### 语法
 
 
 
+### 预编译
 
+//命令 生成demoTpl.js
+handlebars demoList.handlebars -f  demoTpl.js
+
+//引入生成的js
+<script src="../component/Tpl/demoList.js"></script>
+
+//使用预编译的tpl
+Handlebars.templates.demoList(data)
+
+
+
+## sea.js
+
+### 解决jquery undefine问题
+
+jquery的标准和sea.js冲突，所以需要对源码进行修改，修改方式如下，建议重命名为jquery.sea.js
+
+```` js
+
+define(function(){
+    //jquery源代码
+    return $.noConflict();
+});
+
+````
+说明：
+
+noConflict()函数的作用是释放 jQuery 对 $ 变量的控制，[详细参考](http://www.w3school.com.cn/jquery/core_noconflict.asp)
 
 ## 推荐阅读
 

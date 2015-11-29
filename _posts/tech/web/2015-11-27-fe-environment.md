@@ -197,6 +197,8 @@ webStorm是一个很好用的前端开发IDE，功能很全，而Sublime只是�
 -   less
 -   SublimeLinter:语法查错扩展
 -   SublimeLinter-jshint:语法查错扩展
+-   JSFormat
+
 
 
 
@@ -223,7 +225,11 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 
 安装好package就用它把之前推荐的插件都安装一下，具体插件的使用可以请教一下百度君
 
-推荐学习资料：[前端开发工具技巧介绍—Sublime篇](http://www.imooc.com/learn/40)
+##  推荐学习资料
+---
+
+-   [前端开发工具技巧介绍—Sublime篇](http://www.imooc.com/learn/40)
+-   [常用插件推荐](http://www.xuanfengge.com/practical-collection-of-sublime-plug-in.html)
 
 <div style="display:none">
 	karma
@@ -234,6 +240,7 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 
 	gulp.js->handlebarsjs->seajs
 
+[前端自动化构建和发布系统的设计（一）](http://stylechen.com/static-build.html)
 
 </div>
  
