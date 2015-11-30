@@ -36,6 +36,11 @@ markdown: redcarpet                         #markdown解释器
 #  url:
 #
 
+# baidu analytics 设置
+
+ba:
+  src: //hm.baidu.com/hm.js?22d94317cfb9f9e0bb476228d9f79278
+
 # disqus 设置
 disqus:
   shortname: coolnameismy

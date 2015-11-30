@@ -1,0 +1,13 @@
+<script>
+    //百度站点统计,排除localhost
+    if(window.location.host.indexOf("localhost") ==-1){
+
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "{{ site.ba.src }}";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }
+</script>
