@@ -178,7 +178,7 @@ a {
   left: 0;
   bottom: 0; }
   #tags__bottom > .fontello, #tags__bottom > .post__toc-li:before {
-    width: 50%;
+    width: 33.33%;
     font-size: 18px;
     line-height: 44px;
     text-align: center;
@@ -186,14 +186,21 @@ a {
     float: left; }
 
 #icon-email {
-  border-right: 1px solid #3c4149; }
+  /*border-right: 1px solid #626262; */}
   #icon-email:before {
     content: "\e800"; }
 
 #icon-feed {
-  border-left: 1px solid #525965; }
+  border-right: 1px solid #626262; }
   #icon-feed:before {
     content: "\e802"; }
+
+#icon-github {
+    border-right: 1px solid #626262; }
+#icon-github:before {
+    content: "\e805"; }
+
+
 
 .tags-btn {
   color: #a6a6a7;
