@@ -572,6 +572,16 @@ iframe {
     #post__share > .fontello:hover, #post__share > .post__toc-li:hover:before {
       box-shadow: 0 0 0 2px rgba(125, 139, 153, 0.15); }
 
+    .share-info{
+        text-align: center;
+        top: 13px;
+        left: -122px;
+        position: relative;
+        color: rgb(133, 176, 255);
+        font-size: 10px;
+    }
+
+
 #icon-twitter {
   margin-left: -90px; }
   #icon-twitter:hover {
@@ -584,7 +594,7 @@ iframe {
   #icon-cc:hover {
     color: #f8ce5e; }
   #icon-cc:before {
-    content: "\e809"; }
+    content: "\e805"; }
 
 #icon-weibo {
   margin-left: 50px; }
