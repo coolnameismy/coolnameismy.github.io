@@ -251,5 +251,5 @@ git checkout v1
 ##  参考文章
 ---
 
--   [An Introduction to Gulp.js](http://www.sitepoint.com/introduction-gulp-js/）
+-   [An Introduction to Gulp](http://www.sitepoint.com/introduction-gulp-js/)
 -   [gulp入门教程](http://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/)
