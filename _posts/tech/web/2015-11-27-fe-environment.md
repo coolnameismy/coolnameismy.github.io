@@ -58,6 +58,8 @@ npm install -g bower
 
 ````
 
+推荐阅读：[npm-run自动化任务](http://segmentfault.com/a/1190000000344102)
+
 ## ruby环境安装
 ---
 
@@ -108,32 +110,16 @@ $ gem sources -l  //验证成功
 ---
 
 -	bower
--	gruntjs
 -	gulp.js
--	handlebarsjs
--	compass
 -	http-server
-
-
-
 
 ###  [bower](http://bower.io/)
 >	前端包依赖和管理工具
 
 安装： npm install -g bower
 
-用法：待补充，先把环境搭起来
-
 教程：
 -   [bower解决js的依赖管理](http://blog.fens.me/nodejs-bower-intro/)
-
-
-###  [gruntjs](http://www.gruntjs.net/)
->	JavaScript 世界的构建工具
-
-安装： npm install -g grunt-cli
-
-用法：待补充，先把环境搭起来
 
 
 ###  [gulp.js](http://www.gulpjs.com.cn/)
@@ -144,26 +130,12 @@ $ gem sources -l  //验证成功
 用法：待补充，先把环境搭起来
 
 
-###  [compass](http://compass-style.org/)
->	Compass是Sass的工具库（toolkit)
-
-安装: gem install compass
-
-用法：待补充，先把环境搭起来
-
-推荐文章：http://www.ruanyifeng.com/blog/2012/11/compass.html
-
-
 ###  [http-server](https://github.com/indexzero/http-server)
 >	一个轻量级的小型http服务
 
 安装： npm install http-server 
 
 
-### [browserify]()
->   Browserify 可以让你使用类似于 node 的 require() 的方式来组织浏览器端的 Javascript 代码，通过预编译让前端 Javascript 可以直接使用 Node NPM 安装的一些库
-
-安装：npm install -g browserify
 
 
 ## 前端工程师的IDE
@@ -232,6 +204,32 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 -   [常用插件推荐](http://www.xuanfengge.com/practical-collection-of-sublime-plug-in.html)
 
 <div style="display:none">
+
+###  [gruntjs](http://www.gruntjs.net/)
+>	JavaScript 世界的构建工具
+
+安装： npm install -g grunt-cli
+
+用法：待补充，先把环境搭起来
+
+
+###  [compass](http://compass-style.org/)
+>	Compass是Sass的工具库（toolkit)
+
+安装: gem install compass
+
+用法：待补充，先把环境搭起来
+
+推荐文章：http://www.ruanyifeng.com/blog/2012/11/compass.html
+
+### [browserify]()
+>   Browserify 可以让你使用类似于 node 的 require() 的方式来组织浏览器端的 Javascript 代码，通过预编译让前端 Javascript 可以直接使用 Node NPM 安装的一些库
+
+安装：npm install -g browserify
+
+
+
+    handlebarsjs
 	karma
  	Yeoman
  	###  [handlebarsjs](http://handlebarsjs.com/)
@@ -240,7 +238,12 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 
 	gulp.js->handlebarsjs->seajs
 
+	bash脚本自动运行脚本
+
 [前端自动化构建和发布系统的设计（一）](http://stylechen.com/static-build.html)
+npm install -g yo
+vue跟react
+
 
 </div>
  

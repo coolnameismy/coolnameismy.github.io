@@ -1,0 +1,37 @@
+---
+layout: post
+title: 前端开发工具和环境搭建
+category: web前端
+tags:
+keywords:
+description:
+---
+
+>   [gulp](http://gulpjs.com/)是一个nodejs的构建工具,思路更清晰，逻辑更简单，使他慢慢替代了grunt在自动构建工具中的地位。
+
+
+##  安装gulp
+
+
+```` npm install -g gulp ````
+
+
+
+##  常用命令简单介绍
+
+gulp.task(name, fn)这个你应经见过了
+
+gulp.run(tasks...)尽可能多的并行运行多个task
+
+gulp.watch(glob, fn)当glob内容发生改变时，执行fn
+
+gulp.src(glob)返回一个可读的stream
+
+gulp.dest(glob)返回一个可写的stream
+
+
+
+##  参考文章
+
+-   [An Introduction to Gulp.js](http://www.sitepoint.com/introduction-gulp-js/）
+-   [gulp入门教程](http://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/)
