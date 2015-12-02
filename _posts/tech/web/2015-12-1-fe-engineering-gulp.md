@@ -253,3 +253,6 @@ git checkout v1
 
 -   [An Introduction to Gulp](http://www.sitepoint.com/introduction-gulp-js/)
 -   [gulp入门教程](http://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/)
+-   [Gulp安装及配合组件构建前端开发一体化](http://www.dbpoo.com/getting-started-with-gulp/)
+-   [gulp中文网](http://www.gulpjs.com.cn/)
+-   [ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass)
