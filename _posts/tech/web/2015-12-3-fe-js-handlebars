@@ -50,7 +50,7 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 	var data = [
 		{ "title":"aaa","content":"contentaaa"},
 		{ "title":"aaa","content":"contentaaa"},
-		{ "title":"aaa","content":"contentaaa"},
+		{ "title":"aaa","content":"<h1>h1</h1>"},
 		{ "title":"aaa","content":"contentaaa"}
 	];
 
@@ -67,7 +67,146 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 ````
 
 
-### 语法
+## handlebars语法
+
+### 显示模板中的html 
+
+若数据中有html，如： ```` { "title":"aaa","content":"<h1>h1</h1>"} ```` 则模板绑定{{}}时会显示 ```` "<h1>h1</h1>" ```` 内容
+使用三对大括号{{{ }}} 可以显示 html效果
+
+###	Block表达式
+
+有时候当你需要对某条表达式进行更深入的操作时，Blocks就派上用场了，在Handlebars中，你可以在表达式后面跟随一个#号来表示Blocks，然后通过{{/表达式}}来结束Blocks。
+如果当前的表达式是一个数组，则Handlebars会“自动展开数组”，并将Blocks的上下文设为数组中的元素。
+
+````
+<ul>  
+{{#programme}}
+    <li>{{language}}</li>
+{{/programme}}
+</ul>  
+
+````
+
+
+````
+//使用数据
+{
+  programme: [
+    {language: "JavaScript"},
+    {language: "HTML"},
+    {language: "CSS"}
+  ]
+}
+
+//结果
+<ul>  
+  <li>JavaScript</li>
+  <li>HTML</li>
+  <li>CSS</li>
+</ul>  
+
+
+````
+
+###	遍历
+
+````
+	  {{#each this}}
+        <div>
+         <h1>{{title}}</h1>
+         <p> {{content}}</p>
+        </div>
+      {{/each}}
+````
+
+
+### if else,unless，with
+
+````
+{{#if list}}
+<ul id="list">  
+    {{#each list}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>  
+{{else}}
+    <p>{{error}}</p>
+{{/if}}
+````
+
+unless和if意思正好相反，语法使用是相同的
+
+with是判断属性是否存在，存在则绑定数据，不存在则不绑定
+
+###  注释
+
+{{! handlebars comments }}
+
+###  Path
+
+````
+. :子属性
+../ :父属性
+
+
+###  自定义helper
+
+这个方法用来注册一些handlebars静态工具方法。
+
+
+````js
+//定义
+Handlebars.registerHelper('methodName', function(para1,para2){
+		//做的你工作
+});
+
+//调用
+{{methodName para1 para2}}
+
+````
+
+一次性也可以注入多个help
+
+````
+andlebars.registerHelper({
+    fun1: function() {},
+    fun2: function() {}
+});
+````
+
+hash参数
+
+在helper方法内部，可以通过option.hash获取到方法的上下文参数
+
+````js
+
+Handlebars.registerHelper('list', function(items, options) {
+  var out = '<ul>';
+  for(var i=0, l=items.length; i<l; i++) {
+    var item = options.fn(items[i]);
+    out = out + '<li class="'+options.hash.class+'">' + item + '</li>';
+  }
+  return out + '</ul>';
+});
+
+````
+
+一个判断奇数偶数的例子
+
+````js 
+//判断是否是偶数
+Handlebars.registerHelper('if_even', function(value, options) {
+  console.log('value:', value); // value: 2
+  console.log('this:', this); // this: Object {num: 2}
+  console.log('fn(this):', options.fn(this)); // fn(this): 2是偶数
+  if((value % 2) == 0) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+````
 
 
 
@@ -122,7 +261,10 @@ handlebars预编译依赖于handlebars插件，安装方式：
 ````
 
 
-##  使用seajs做模板按需加载
+
+##  使用seajs模板按需加载
+
+>	seajs是
 
 
 
