@@ -29,15 +29,15 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 
 ````
 
-````js
+````html
 
 <script id="demoTpl" type="text-x-handlebars-template">
-	  {{#each this}}
+	  { {#each this}}
         <div>
-         <h1>{{title}}</h1>
-         <p> {{content}}</p>
+         <h1>  { {title} } </h1>
+         <p> { {content} } </p>
         </div>
-      {{/each}}
+      { {/each}}
 </script>
 
 ````
@@ -80,9 +80,9 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 
 ````
 <ul>  
-{{#programme}}
-    <li>{{language}}</li>
-{{/programme}}
+{ {#programme}}
+    <li>{ {language}}</li>
+{ {/programme}}
 </ul>  
 
 ````
@@ -111,12 +111,12 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 ###	遍历
 
 ````
-	  {{#each this}}
+	  { {#each this}}
         <div>
-         <h1>{{title}}</h1>
-         <p> {{content}}</p>
+         <h1>{ {title}}</h1>
+         <p> { {content}}</p>
         </div>
-      {{/each}}
+      { {/each}}
 ````
 
 
@@ -134,13 +134,13 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 
 答案是，用this关键字
 
-````js
+````
 
-	  {{#each this}}
+	  { {#each this}}
         <div>
-         <h1>{{this}}</h1>
+         <h1>{ {this}}</h1>
         </div>
-      {{/each}}
+      { {/each}}
 
 
 ````
@@ -149,15 +149,15 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 ### if else,unless，with
 
 ````
-{{#if list}}
+{ {#if list}}
 <ul id="list">  
-    {{#each list}}
-        <li>{{this}}</li>
-    {{/each}}
+    { {#each list}}
+        <li>{ {this}}</li>
+    { {/each}}
 </ul>  
-{{else}}
-    <p>{{error}}</p>
-{{/if}}
+{ {else}}
+    <p>{ {error}}</p>
+{ {/if}}
 ````
 
 unless和if意思正好相反，语法使用是相同的
@@ -166,13 +166,14 @@ with是判断属性是否存在，存在则绑定数据，不存在则不绑定
 
 ###  注释
 
-{{! handlebars comments }}
+````    { {! handlebars comments } }    ````
 
 ###  Path
 
 ````
 . :子属性
 ../ :父属性
+````
 
 
 ###  自定义helper
@@ -188,7 +189,7 @@ Handlebars.registerHelper('methodName', function(para1,para2){
 });
 
 //调用
-{{methodName para1 para2}}
+{ {methodName para1 para2} }
 
 ````
 
@@ -201,42 +202,93 @@ andlebars.registerHelper({
 });
 ````
 
+看例子吧：
+
+````
+
+    //数据
+	var data2 = [
+		{ "name":"liu1","age":30 },
+		{ "name":"liu2","age":20 }
+	];
+
+	//模板
+    <script id="demoTpl2" type="text-x-handlebars-template">
+
+      { {#each this}}
+        { {! 如果age大于25显示红色字体，否则显示绿色字体 }}
+        <div>
+            { {#if (lg age 25 class="green") }}
+                <h1 style="background-color:red">{ {name}}</h1>
+            { {else}}
+                <h1 style="background-color:green">{ {name}}</h1>
+            { {/if}}
+        </div>
+      { {/each}}
+
+    </script>
+
+
+````
+
+下面写一个名叫lg的handlebars的helper方法
+
+````js
+        //比较数字大小
+        Handlebars.registerHelper("lg",function(i,stand){
+            if(i>stand) return true
+            return false
+		})
+````
+
+生成的demo
+
+````html
+<div id="content2">
+    <div>
+            <h1 style="background-color:red">liu1</h1>
+    </div>
+    <div>
+            <h1 style="background-color:green">liu2</h1>
+    </div>
+
+</div>
+````
+
+
 ### hash参数
 
-在helper方法内部，可以通过option.hash获取到方法的上下文参数
+在helper方法内部，可以通过hash获取到方法的上下文参数，举个例子:
 
-````js
-
-Handlebars.registerHelper('list', function(items, options) {
-  var out = '<ul>';
-  for(var i=0, l=items.length; i<l; i++) {
-    var item = options.fn(items[i]);
-    out = out + '<li class="'+options.hash.class+'">' + item + '</li>';
-  }
-  return out + '</ul>';
-});
+我们把上一节中的lg方法的参数，换成用hash获取
 
 
 ````
+    //重写lg方法
+    //比较数字大小1
+    Handlebars.registerHelper("lg1",function(opts){
+         console.log(opts.hash.source)
+         console.log(opts.hash.target)
+        //source是要比较的数据，target是对比的数据
+        if(opts.hash.source>opts.hash.target) return true
+        return false
+    })
 
-一个判断奇数偶数的例子
-
-````js
-
-//判断是否是偶数
-Handlebars.registerHelper('if_even', function(value, options) {
-  console.log('value:', value); // value: 2
-  console.log('this:', this); // this: Object {num: 2}
-  console.log('fn(this):', options.fn(this)); // fn(this): 2是偶数
-  if((value % 2) == 0) {
-    return options.fn(this);
-  } else {
-    return options.inverse(this);
-  }
-});
+    //调用方法的模板
+   { {#each this}}
+    { {! 如果age大于25显示红色字体，否则显示绿色字体 }}
+    <div>
+        { {#if (lg1 source=age target=25) }}
+            <h1 style="background-color:red">{ {name}}</h1>
+        { {else}}
+            <h1 style="background-color:green">{ {name}}</h1>
+        { {/if}}
+    </div>
+  { {/each}}
 
 ````
 
+可以看见，效果和上面的一模一样。本文demo中可以查看效果。
 
 
 
@@ -251,12 +303,12 @@ handlebars预编译依赖于handlebars插件，安装方式：
 
 ````
 
-  {{#each this}}
+  { {#each this}}
     <div>
-     <h1>{{title}}</h1>
-     <p> {{content}}</p>
+     <h1>{ {title}}</h1>
+     <p> { {content}}</p>
     </div>
-  {{/each}}
+  { {/each}}
 
 
 ````
