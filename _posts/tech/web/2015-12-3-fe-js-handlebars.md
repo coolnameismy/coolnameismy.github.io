@@ -1,27 +1,25 @@
 ---
 layout: post
-title: handlerbars的使用及模板预编和按需加载
+title: handlerbars的使用及模板预编译
 category: web前端
-tags: gulp
-keywords: gulp
+tags: web
+keywords: handlerbars
 description:
 ---
 
 -   handlebars介绍
 -   handlebars的用法
 -   handlebars预编译
--   使用seajs做模板按需加载
 
 
 ##  [handlebars](http://handlebarsjs.com) 介绍
+---
 
 handlebars是一款前端模板引擎，使用模板引擎的作用是，可以解决通过js拼接html的方式渲染页面的缺点。
 
 主页：[handlebars](http://handlebarsjs.com)
 
-##  handlebars的用法
-
-### quick example
+##   quick example
 
 ````js
 
@@ -67,7 +65,8 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 ````
 
 
-## handlebars语法
+##  handlebars的用法
+---
 
 ### 显示模板中的html 
 
@@ -121,6 +120,32 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 ````
 
 
+考虑到这样一种情况，data中的数据直接就是数组，没有key。如：
+
+````js
+
+	var data1 = [
+		 "a","b","c","d","e"
+	];
+
+````
+
+那么模板怎么写？
+
+答案是，用this关键字
+
+````js
+
+	  {{#each this}}
+        <div>
+         <h1>{{this}}</h1>
+        </div>
+      {{/each}}
+
+
+````
+
+
 ### if else,unless，with
 
 ````
@@ -156,6 +181,7 @@ with是判断属性是否存在，存在则绑定数据，不存在则不绑定
 
 
 ````js
+
 //定义
 Handlebars.registerHelper('methodName', function(para1,para2){
 		//做的你工作
@@ -175,7 +201,7 @@ andlebars.registerHelper({
 });
 ````
 
-hash参数
+### hash参数
 
 在helper方法内部，可以通过option.hash获取到方法的上下文参数
 
@@ -190,11 +216,13 @@ Handlebars.registerHelper('list', function(items, options) {
   return out + '</ul>';
 });
 
+
 ````
 
 一个判断奇数偶数的例子
 
-````js 
+````js
+
 //判断是否是偶数
 Handlebars.registerHelper('if_even', function(value, options) {
   console.log('value:', value); // value: 2
@@ -206,11 +234,14 @@ Handlebars.registerHelper('if_even', function(value, options) {
     return options.inverse(this);
   }
 });
+
 ````
 
 
 
+
 ##  handlebars预编译
+---
 
 handlebars预编译依赖于handlebars插件，安装方式：
 
@@ -233,6 +264,8 @@ handlebars预编译依赖于handlebars插件，安装方式：
 之后我们通过命令，模板文件编译为handlebars js文件
 
 ```` handlebars demoList.handlebars -f  demoTpl.js ````
+
+**这里顺便说一句，handlebars后缀名很长，我试过换一个简单的后缀，结果发现编译后就找不到模板了。所以后缀还是不能随便换**
 
 执行后会在本文件夹生成一个js文件，接着我们在页面引入这个js
 
@@ -262,10 +295,9 @@ handlebars预编译依赖于handlebars插件，安装方式：
 
 
 
-##  使用seajs模板按需加载
+##  demo
 
->	seajs是
-
+本文示例demo见 [demo-web](https://github.com/coolnameismy/demo-web)
 
 
 ##  参考和其他资料
@@ -273,3 +305,7 @@ handlebars预编译依赖于handlebars插件，安装方式：
 -   [handlebars实用教程](http://www.cnblogs.com/iyangyuan/archive/2013/12/12/3471227.html)
 -   [极客标签视频教程](http://www.gbtags.com/gb/gbliblist/7.htm)
 -   [Handlebars.js 模板引擎](http://caibaojian.com/handlebars-js.html)
+
+## 最后
+
+如果大家喜欢，请[github上follow和star](https://github.com/coolnameismy)
