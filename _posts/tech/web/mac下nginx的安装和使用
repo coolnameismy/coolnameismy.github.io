@@ -1,0 +1,58 @@
+##  安装
+
+-   1:下载
+
+Download latest [nginx](http://nginx.org/) from [Nginx.org](http://nginx.org/)
+
+-   2:安装
+
+````
+$ cd ~/Downloads
+$ tar xvzf nginx-1.6.0.tar.gz
+$ cd nginx-1.6.0
+$ sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-cc-opt="-Wno-deprecated-declarations"
+$ sudo make
+$ sudo make install
+
+````
+
+
+-   3:配置环境变量
+
+````
+vim ~/.bash_profile
+````
+
+添加下面一段内容
+
+````
+#nginx config
+export PATH=${PATH}:/usr/local/nginx/sbin:$PATH
+````
+
+-   4：启动,停止
+
+```
+sudo nginx
+
+//停止
+Nginx sudo nginx -s stop
+nginx -s reload
+nginx -t
+
+````
+
+##  nginx配置
+
+mac安装后，nginx的默认配置文件位置在````/usr/local/nginx/conf````
+
+启动后默认在80端口，就可以访问[http://localhost/](http://localhost/)了
+
+
+
+
+## 参考
+
+[在mac os x 10.9.2上安装nginx](http://blog.csdn.net/eagle_naixue/article/details/26063871)
+[nginx配置](http://blog.csdn.net/joeblackzqq/article/details/45925995)
+

@@ -74,3 +74,6 @@ noConflict()函数的作用是释放 jQuery 对 $ 变量的控制，[详细参�
 -   [用npm-run自动化任务](http://segmentfault.com/a/1190000000344102)
 -   [npm package.json 配置文件](http://www.tuicool.com/articles/2uEjqmM)
 -   [cpmpass的用法](http://www.ruanyifeng.com/blog/2012/11/compass.html)
+
+-   [gulp做一个略完整的前端打包工作](http://www.gbtags.com/gb/share/5503.htm)
+- [](http://pinkyjie.com/2015/08/02/commonly-used-gulp-plugins-part-1/)
