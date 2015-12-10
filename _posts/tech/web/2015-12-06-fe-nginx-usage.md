@@ -1,3 +1,15 @@
+---
+layout: post
+title: mac环境nginx的安装和使用
+category: web前端
+tags:
+keywords:
+description:
+---
+
+>   nginx是一个轻量级服务器，特别适合一些静态资源服务，nginx是一项比较复杂的东西，我理解也不是很深，就不向大家介绍了，这里只是说一下mac环境nginx的安装和简单的使用
+
+
 ##  安装
 
 -   1:下载
@@ -16,7 +28,6 @@ $ sudo make install
 
 ````
 
-
 -   3:配置环境变量
 
 ````
@@ -33,6 +44,7 @@ export PATH=${PATH}:/usr/local/nginx/sbin:$PATH
 -   4：启动,停止
 
 ```
+//启动
 sudo nginx
 
 //停止
@@ -57,6 +69,12 @@ sudo chmod 755 /etc/init.d/foobar
 sudo update-rc.d foobar defaults     #开机时启动
 sudo update-rc.d -f foobar remove　　#开机时不启动
 ````
+##  nginx配置
+
+mac安装后，nginx的默认配置文件位置在````/usr/local/nginx/conf````
+
+启动后默认在80端口，就可以访问[http://localhost/](http://localhost/)了
+
 
 ##  nginx 评价
 
@@ -120,17 +138,10 @@ Apache好比是微软Word，它有100万个选项，但是你只需要其中6个
 我们用一些CMS系统（ Wordpress, Drupal, Joomla, TYPO3等）做了基准测试，结果是Nginx提供网页的速度比Apache快了50%，同时nginx每秒钟处理的请求数(RPS)是Apache的177%
 
 ````
-##  nginx配置
-
-mac安装后，nginx的默认配置文件位置在````/usr/local/nginx/conf````
-
-启动后默认在80端口，就可以访问[http://localhost/](http://localhost/)了
-
-
 
 
 ## 参考
 
-[在mac os x 10.9.2上安装nginx](http://blog.csdn.net/eagle_naixue/article/details/26063871)
-[nginx配置](http://blog.csdn.net/joeblackzqq/article/details/45925995)
-
+-   [在mac os x 10.9.2上安装nginx](http://blog.csdn.net/eagle_naixue/article/details/26063871)
+-   [nginx配置](http://blog.csdn.net/joeblackzqq/article/details/45925995)
+-   [Nginx开发从入门到精通](http://tengine.taobao.org/book/)

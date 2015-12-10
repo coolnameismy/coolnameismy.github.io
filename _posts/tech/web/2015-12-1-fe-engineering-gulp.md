@@ -261,3 +261,7 @@ git checkout v1
 -   [Gulp安装及配合组件构建前端开发一体化](http://www.dbpoo.com/getting-started-with-gulp/)
 -   [gulp中文网](http://www.gulpjs.com.cn/)
 -   [ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass)
+-   [gulp-构建工具](http://www.ydcss.com/archives/category/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7)
+-   [常用gulp插件介绍(一)](http://pinkyjie.com/2015/08/02/commonly-used-gulp-plugins-part-1/)
+-   [常用gulp插件介绍(二)](http://pinkyjie.com/2015/08/02/commonly-used-gulp-plugins-part-2/)
+-   [gulp做一个略完整的前端打包工作](http://www.gbtags.com/gb/share/5503.htm)

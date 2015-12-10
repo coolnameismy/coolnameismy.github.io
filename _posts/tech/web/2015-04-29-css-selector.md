@@ -1,7 +1,7 @@
 ---
 layout: post
 title: css选择器的用法
-category: 技术
+category: web前端
 tags: css,html
 description: css选择器参考
 ---
