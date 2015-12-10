@@ -351,6 +351,15 @@ handlebars预编译依赖于handlebars插件，安装方式：
 
 本文示例demo见 [demo-web](https://github.com/coolnameismy/demo-web)
 
+文本的demo在文件夹Handlebars中
+
+**使用方式**
+
+*	Handlebars目录下执行````http-server -p 8080````
+*	usage.html =》 handlerbars的使用及模板预编译
+*	componentization.html =》 前端开发框架 - seajs+handlebars模块化开发
+
+
 
 ##  参考和其他资料
 
@@ -360,4 +369,7 @@ handlebars预编译依赖于handlebars插件，安装方式：
 
 ## 最后
 
-如果大家喜欢，请[github上follow和star](https://github.com/coolnameismy)
+刘彦玮原创，转载请注明出处
+
+感谢大家支持，请[github上follow和star](https://github.com/coolnameismy)
+

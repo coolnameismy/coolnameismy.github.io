@@ -212,17 +212,24 @@ gulp.task('css-concat', function () {
 
 文本的demo在文件夹Handlebars中
 
-用法：
+**使用方式**
 
+*	Handlebars目录下执行````http-server -p 8080````
+*	usage.html =》 handlerbars的使用及模板预编译
+*	componentization.html =》 前端开发框架 - seajs+handlebars模块化开发
 
+**错误处理**
 
+如果本地没有http-server命令，请安装nodejs环境，并通过npm安装 http-server 命令：```` npm install -g http-server ````
 
 ##  参考和其他资料
 
+-   [handlerbars的使用及模板预编译](http://liuyanwei.jumppo.com/2015/12/03/fe-js-handlebars.html)
 -   [Hello Sea.js](http://island205.com/HelloSea.js/)
 -   [handlebars实用教程](http://www.cnblogs.com/iyangyuan/archive/2013/12/12/3471227.html)
 -   [极客标签视频教程](http://www.gbtags.com/gb/gbliblist/7.htm)
 -   [Handlebars.js 模板引擎](http://caibaojian.com/handlebars-js.html)
+
 
 ## 最后
 
