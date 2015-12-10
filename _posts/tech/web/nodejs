@@ -1,0 +1,9 @@
+最简单的办法：
+
+$ nohup node app.js &
+但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以在js中作为api使用。
+
+$ sudo npm install forever -g   #安装
+$ forever start app.js          #启动
+$ forever stop app.js           #关闭
+$ forever start -l forever.log -o out.log -e err.log app.js   #输出日志和错误
