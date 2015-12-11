@@ -136,6 +136,26 @@ $ gem sources -l  //验证成功
 安装： npm install http-server 
 
 
+###  [sass](https://github.com/indexzero/http-server)
+>	CSS预处理器，让css写起来更方便
+
+安装： gem install sass
+
+常见问题：安装sass时报错。 这个问题大多数是因为gem安装库被墙导致的。
+
+解决办法：修改gem安装包的下载位置，改成taobao的gem下载地址
+
+````
+//查看gem资源地址
+gem sources
+
+//修改资源地址
+gem sources -r https://rubygems.org        //删除
+gem sources -a http://ruby.taobao.org/     //增加
+
+````
+
+[教程](http://www.w3cplus.com/sassguide/)
 
 
 ## 前端工程师的IDE
@@ -226,7 +246,6 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 >   Browserify 可以让你使用类似于 node 的 require() 的方式来组织浏览器端的 Javascript 代码，通过预编译让前端 Javascript 可以直接使用 Node NPM 安装的一些库
 
 安装：npm install -g browserify
-
 
 
     handlebarsjs
