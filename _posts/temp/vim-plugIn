@@ -1,0 +1,93 @@
+## vim配置文件.vimrc
+
+vim本身有一些配置项目，这些配置都写在~/.vimrc这个文件里，通过vim ~/.vimrc可以查看或者编辑这个文件。
+
+
+
+## vim插件管理工具
+
+上面提到vim有很多插件，所以我们需要一个插件管理工具，我平时使用的是vim-pathogen, 用了这个工具后，就可以轻松的安装各种插件了。
+
+
+## vim-pathogen
+
+Installation 安装
+
+````
+Install to ~/.vim/autoload/pathogen.vim. Or copy and paste:
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+//If you're using Windows, change all occurrences of ~/.vim to ~\vimfiles
+
+````
+
+配置
+
+````
+Add this to your vimrc:
+execute pathogen#infect()
+````
+
+使用
+
+
+
+
+
+pathogen安装插件的通用步骤:
+
+cd ~/.vim/bundle/
+sudo git clone <所要安装插件的github代码库url>
+删除插件的方法:
+
+cd ~/.vim/bundle/
+sudo rm -rf <需要删除的插件文件夹>
+或
+sudo rm <需要删除的插件文件名>
+就是这么简单。
+
+
+
+
+
+
+
+## 前端常用插件
+
+以下是我平时前端开发中用到的插件：
+
+
+vim-sensible：包含了一些基本的Vim设置，大部分比较实用：
+
+````
+cd .vim/bundle/
+git clone git://github.com/tpope/vim-sensible.git
+````
+
+但我推荐往.vim/bundle/vim-sensible/plugin/sensible.vim里添加几句话，分别是：
+
+````
+# 设置行号显示
+set nu
+
+# 设置tab长度为4
+set tabstop=4
+set shiftwidth=4
+````
+
+
+NerdTree。必装插件，实现树状文件查找。
+YouCompleteMe。必备插件，代码自动补齐。
+emmet-vim。必备插件，zen-coding。
+vim-multiple-cursors。同时多行编辑。
+indentLine。显示代码缩进。
+syntastic。语法检查。
+javascript-libraries-syntax.vim。JS代码高亮插件。
+vim-javascript-syntax。代码折叠。
+tern_for_vim。快速跳转到变量/函数定义的地方。
+JavaScript-Indent。代码缩进。
+
+
+
