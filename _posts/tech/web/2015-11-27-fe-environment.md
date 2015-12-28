@@ -190,7 +190,7 @@ webStorm是一个很好用的前端开发IDE，功能很全，而Sublime只是�
 -   SublimeLinter:语法查错扩展
 -   SublimeLinter-jshint:语法查错扩展
 -   JSFormat
-
+-   [Theme - Brogrammer](https://packagecontrol.io/packages/Theme%20-%20Brogrammer):一个好看的sublime主题
 
 
 
@@ -216,6 +216,53 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 
 
 安装好package就用它把之前推荐的插件都安装一下，具体插件的使用可以请教一下百度君
+
+
+### Theme - Brogrammer
+>   一个好看的sublime主题
+
+![](https://packagecontrol.io/readmes/img/f50256299064364747f8c579288fdad31c6d688f.png)
+
+
+![](https://packagecontrol.io/readmes/img/e65c2ddfe03e0b5add9ebd6a55d15f85591a5506.png)
+
+
+
+Install
+
+````
+
+Via Package Control
+
+Theme is listed as Theme - Brogrammer in Will Bond's Sublime Package Control.
+
+````
+
+Manual
+
+````
+
+Download the .zip
+Unzip and rename the folder to Theme - Brogrammer
+Copy the folder into Packages directory, which you can find using the menu item Preferences -> Browse Packages... in Sublime Text
+
+````
+
+Setup
+
+````
+Activate the UI theme and color scheme by modifying your user preferences file, which you can find using the menu item Preferences -> Settings - User in Sublime Text or by clicking cmd + , on a Mac.
+
+Example settings
+
+{
+  "theme": "Brogrammer.sublime-theme",
+  "color_scheme": "Packages/Theme - Brogrammer/brogrammer.tmTheme"
+}
+
+````
+
+
 
 ##  推荐学习资料
 ---

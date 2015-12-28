@@ -15,7 +15,7 @@ w e b f t
 g G SHIFT-g
 
 ## 编辑
-i a o c d x r
+i a o c d x r R
 cw
 [行数]:s/<old>/<new>[/g]
 
@@ -36,6 +36,7 @@ e y
 ## 其他
 
 CTRL-g
+!
 
 
 
