@@ -74,7 +74,7 @@ npm install image-to-ascii --save-dev
 
 项目根目录下创建一个文件，index.js，代码如下：
 
-````nodejs
+````js
 
 //导入image-to-ascii 包
 var ImageToAscii = require("image-to-ascii");
