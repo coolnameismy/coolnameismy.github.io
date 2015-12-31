@@ -196,3 +196,9 @@ tips：``反引号可以返回到使用G之前的位置
 <C-d> → 向下移动 (你也可以使用hjkl来移动光标，或是使用%，或是别的)
 I-- [ESC] → I是插入，插入“--”，按ESC键来为每一行生效
 
+====== sublime 支持vim 操作 ===
+
+Reference-> User Settings 选项，点击进入配置文件编辑状态
+
+删除 vintage
+
