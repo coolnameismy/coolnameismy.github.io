@@ -10,7 +10,7 @@ description:
 无意中发现了一个好玩的库 [image-to-ascii](https://github.com/IonicaBizau/image-to-ascii) 他的作用能把图片转为ascii，我们先看一下完成后的效果是不是很有趣，有趣就可以接着往下看了~~
 
 
-![](https://github.com/IonicaBizau/image-to-ascii#)
+![](https://camo.githubusercontent.com/9550c7af22c784d5ec26fcc5e07312f159bd3c1f/687474703a2f2f692e696d6775722e636f6d2f736a6f776b704c2e706e67)
 
 
 ![](http://images.jumppo.com/uploads/2015-12-31-playwith-imageToAscii-1.png)
@@ -99,7 +99,7 @@ ImageToAscii(__dirname + '2.jpg',function(err,converted){
 node index.js
 ````
 
-![](http://images.jumppo.com/uploads/2015-12-31-playwith-imageToAscii-2.png)
+![](http://images.jumppo.com/uploads/2015-12-31-playwith-imageToAscii-3.png)
 
 
 是不是很简单？我们在吧对应的图片地址换成 3.jpg 或者4.jpg试试看其他图片的生成效果吧。当然，你也可以放入自己的图片玩一玩~
