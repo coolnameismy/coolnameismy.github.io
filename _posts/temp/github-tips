@@ -99,3 +99,6 @@ $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Cre
 $ git config -e                #打开当前配置
 $ git config -e --global    #打开全局配置
 $ git config -e --system        #打开系统配置
+
+## github labels的用法
+
