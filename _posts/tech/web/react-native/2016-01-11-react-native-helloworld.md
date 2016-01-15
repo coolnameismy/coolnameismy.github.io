@@ -64,9 +64,11 @@ brew install flow
 
 这样整个react-native就开发安装好了，重要的事情说三遍！
 
-````    nodejs版本一定要>4 ，重新设置nodejs版本一定要重新打开终端    ````
-````    nodejs版本一定要>4 ，重新设置nodejs版本一定要重新打开终端    ````
-````    nodejs版本一定要>4 ，重新设置nodejs版本一定要重新打开终端    ````
+````
+nodejs版本一定要>4 ，重新设置nodejs版本一定要重新打开终端
+nodejs版本一定要>4 ，重新设置nodejs版本一定要重新打开终端
+nodejs版本一定要>4 ，重新设置nodejs版本一定要重新打开终端
+````
 
 
 ## hello world
@@ -90,13 +92,18 @@ See https://facebook.github.io/react-native/docs/getting-started.html
 
 解决方法：nvm没有设置默认版本，导致每次终端打开都会都会使用之前的nodejsv0.12版本运行，自然报错，通过设置````nvm alias default stable````解决
 
-xcode怎么用我就不介绍了，虽然react-native是使用前端html，css，js开发ios和android程序，但是如果你不会ios和android开发任然是玩不转的，应该说
-react-native只是帮你节省了一些开发时间，减少了你对ios或者android深入了解的成本。
-
+xcode怎么用我就不介绍了，虽然react-native是使用前端html，css，js开发ios和android程序，但是如果你不会ios和android开发仍然会遇到很多问题，应该说
+react-native只是帮你节省了一些开发时间，减少了你对ios或者android深入了解的成本，但是还是得去了解一些基础。
 
 历经千辛万苦，终于启动成功鸟~~
 
 ![](http://images.jumppo.com/uploads/2016-01-11-react-native-helloworld-1.png)
+
+**说明下**
+
+xcode启动项目后，后启动一个react packager,这个脚本的最重要作用就是当你修改js文件的时候，同时帮你生成可以运行的ios和android项目。
+
+react native项目非常容易调试，在模拟器上按cmd+r可以刷新页面（更改的js立刻提醒在模拟器中，不需要重新启动项目），cmd+d可以弹出一个调试菜单，选择 enable live reload可以自动刷新。更多调试技巧下次单独写一篇文章说一说。
 
 ##  项目的文件结构
 
@@ -105,11 +112,25 @@ react-native只是帮你节省了一些开发时间，减少了你对ios或者an
 -   ios文件夹：生成的ios项目
 -   android文件夹：生成的android项目
 
+##  个人对react native的体会
+
+以前总是对hybirds和phonegap之类的东西，总是觉得这种东西除了节省成本以外，没什么其他的好处，并且虽然js语法前端工程师都会写，但是如果不深入了解ios或是android平台，用js写app也很难把一个app写好。
+
+学习react native一周后，觉得react native还是不错的，以后部门一些小项目可以尝试使用react native探探路。
+
+主要有这些吸引我的地方
+
+-   充分吸取了js和nodejs的优点：css样式，html的布局flex布局，nodejs的cmd规范相对ios或者android原生开发都是极好的
+-   组件化非常容易
+-   mvvm模型，数据绑定和渲染都很轻松
+-   代码量明显减少：看了知乎日报的源码，就那么几个文件就实现了2套app，代码量减少的不是一点点
+-   调试方便，可见即可得，开发体验好
 
 ##  学习资源
 
-[React Native的常见问题](http://bbs.reactnative.cn/topic/130/%E6%96%B0%E6%89%8B%E6%8F%90%E9%97%AE%E5%89%8D%E5%85%88%E6%9D%A5%E8%BF%99%E9%87%8C%E7%9C%8B%E7%9C%8B-react-native%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
-
+-   [React Native官网](https://facebook.github.io/react-native/)  |  [React Native中文网](http://reactjs.cn/)
+-   [React 开发中常见的问题](https://github.com/coolnameismy/dev-tips/tree/master/react-native)
+-   [React Native的常见问题](http://bbs.reactnative.cn/topic/130/%E6%96%B0%E6%89%8B%E6%8F%90%E9%97%AE%E5%89%8D%E5%85%88%E6%9D%A5%E8%BF%99%E9%87%8C%E7%9C%8B%E7%9C%8B-react-native%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
 
 ##  demo
 
@@ -132,14 +153,6 @@ react-native只是帮你节省了一些开发时间，减少了你对ios或者an
 动画
 
 //优点
-组件化非常容易
-css的布局模式比ios和android原生的都要优雅
-引入css样式，比原生代码写样式要方便的多的多
-mvvm模型，数据绑定和渲染都很轻松
-代码量明显减少
-可以使用路由
-调试方便，可见即可得
-
 
 
 </div>
