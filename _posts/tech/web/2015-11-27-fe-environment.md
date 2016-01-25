@@ -191,6 +191,8 @@ webStorm是一个很好用的前端开发IDE，功能很全，而Sublime只是�
 -   SublimeLinter-jshint:语法查错扩展
 -   JSFormat
 -   [Theme - Brogrammer](https://packagecontrol.io/packages/Theme%20-%20Brogrammer):一个好看的sublime主题
+-   all Autocomplete:全部打开文件的智能提示
+-   css3
 
 
 
@@ -269,6 +271,7 @@ Example settings
 
 -   [前端开发工具技巧介绍—Sublime篇](http://www.imooc.com/learn/40)
 -   [常用插件推荐](http://www.xuanfengge.com/practical-collection-of-sublime-plug-in.html)
+-   [sublime常用快捷键](http://blog.jobbole.com/82527/)
 
 <div style="display:none">
 

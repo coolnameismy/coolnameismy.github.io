@@ -1,0 +1,120 @@
+##
+
+[](http://think2011.qiniudn.com/gulp-livereload1.gif)
+
+
+## 最简单的用法
+
+全局方式安装livereload: ```` npm i livereload -g```` ，并安装 chorme 插件，[点我](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+
+提示：这个插件需要在chorme中安装，国内很可能chorme商店被墙，需要翻墙才能下载，如果不能下载可以在网上搜索一下看看有没有其他下载地址。
+
+````命令行执行 livereload```` ， 以服务器的方式打开页面，并打开chorme插件，这样修改任何一个html页面和css文件，保存后页面就会自动刷新。npm i livereload -g
+
+
+## gulp-livereload用法
+
+gulp-livereload是一款glup的插件，左右如图，可以通过配置gulp脚本，完成修改文件后的自动刷新。
+
+###  安装
+
+第一步：全局安装gulp 和 当前目录部署 gulp 和 gulp-livereload
+
+````
+npm install gulp -g
+npm install gulp gulp-livereload --save-dev
+````
+
+第二步：安装 chorme 插件，[点我](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+
+提示：这个插件需要在chorme中安装，国内很可能chorme商店被墙，需要翻墙才能下载，如果不能下载可以在网上搜索一下看看有没有其他下载地址。
+
+
+
+###  gulp脚本编写的方式
+>   gulp文件写在gulpfile.js中，对gulp不理解可以看我博客之前的gulp文章
+
+````JavaScript
+var gulp = require('gulp'),
+ 	sass = require('gulp-ruby-sass'),
+    livereload = require('gulp-livereload');
+
+var cssSrc = 'styles/',
+	cssDst = 'styles/';
+
+ // 这里的watch，是自定义的，写成live或者别的也行
+gulp.task('watch', function () {
+
+    //启动livereload
+    livereload.listen();
+
+    //监听html文件，如果文件修改则F5 这个文件
+    gulp.watch('./**/*.html', function(file){
+    	console.log(file);
+        gulp.src(file.path).pipe(livereload());
+    });
+});
+````
+
+###  gulp-livereload使用
+
+1:点击刚刚安装的 chrome插件 ，中间变为实心黑色圆点表示开始运作了
+
+[](http://think2011.qiniudn.com/gulp-livereload2.gif)
+
+2:在浏览器中以服务器方式打开页面，比如localhost:3000.推荐使用http-server这个nodejs插件。
+
+3：命令行中执行````gulp watch````
+
+4:找一个html文件修改后，就可以看到实时刷新的效果。
+
+## BrowserSync
+
+BrowserSync是一款更好用的自动刷新插件，和livereload相比：
+
+-  不需要浏览器插件
+-  局部刷新
+-  代理服务器，可以实现手机浏览器和pc浏览器同步刷新
+-  实现机制：liverload实际上上帮你做了F5的操作，而BrowerSync实际上是建立了一个tcp的代理服务器
+-  多个页面字体同步，包括页面和表单输入
+
+### 安装
+
+````
+npm install -g browser-sync
+````
+
+### 启动
+
+````
+browser-sync start --server --files "*.html"
+browser-sync start --proxy "localhost:8080" --files "./**/*.*" // "**"
+````
+
+### gulp 用法
+````
+var gulp = require(‘gulp‘);
+var browserSync = require(‘browser-sync‘);
+
+gulp.task(‘browser-sync‘, function() {
+    browserSync({
+        files: "**",
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+
+gulp.task(‘default‘, ["browser-sync"]);
+````
+
+### 其他
+
+缺点：
+1：不能反向回写css
+2：sass文件不能直接监控，但是可以监控sass生成的css文件
+
+
+http://www.tuicool.com/articles/byEbymv
+http://xiadd.me/2015/09/27/gulp-browser-sync实现自动刷新/
+http://www.lxway.com/489599996.htm
