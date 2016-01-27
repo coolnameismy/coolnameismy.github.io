@@ -27,7 +27,7 @@ gulp.src(glob)  加载stream
 gulp.dest(glob) 返回一个可写的stream
 ````
 [中文gulp api](http://www.gulpjs.com.cn/docs/api/)
-
+[原文gulp api](https://github.com/gulpjs/gulp/blob/master/docs/API.md)
 
 ## gulp使用简单例子
 ---
@@ -76,7 +76,7 @@ gulp-concat       //合并文件
 gulp-clean        //清空文件夹
 gulp-notify       //消息提示
 gulp-sourcemaps   //成maps文件
-
+gulp-changed   //检测文件修改
 ````
 
 一般在gulpfile.js 文件开始的时候，把这些库引入
@@ -211,6 +211,16 @@ gulp.task('watch',function(){
 
 });
 
+````
+
+### 路径匹配
+
+````
+*.js匹配当前目录下的所有js文件,不指名扩展名则匹配所有类型
+*/*.js匹配所有第一层子文件夹的js文件,第二层请用*/*/.js
+**/*.js匹配所有文件夹层次下的js文件, 包括当前目录
+**/*.* 递归匹配所有文件
+!:排除文件夹，可以设置gulp的目标文件夹为一个数组，例如： ['**/*', '!./atom-shell.app', '!./atom-shell.app/**/*']. 这样就可以把app完全exclude掉了.
 ````
 
 ### 默认任务
