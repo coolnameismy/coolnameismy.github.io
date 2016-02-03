@@ -66,6 +66,11 @@ description:
 支持多线程，同步异步操作，线程控制，线程队列，线程信号等等，IOS和OS中最强大的线程管理都是是它了。
 要说缺点的话，就是代码比较复杂，前面能实现的就用前面的把，如果实现不了，那找它准没错。
 
+5  NSOperation
+
+很容易实现异步队列操作，相比GCD比较简单，但功能任然没有GCD强大
+
+
 ##代码例子
 ---
 
@@ -141,7 +146,7 @@ description:
 ````
 
 
-### 2. NSThreadFunction的使用
+### 2. NSThread的使用
 
 ````objective-c
 
@@ -174,7 +179,21 @@ description:
 
 ````
 
-### 3. NSTimerFunction的使用
+#### 创建NSThread主要有两种方式：
+
+-   1.使用类方法创建
+
+```` [NSThread detachNewThreadSelector:@selector(doInBackgroud) toTarget:self withObject:nil];````
+
+-   2.使用传统方式创建
+
+````
+ NSThread *thread = [[NSThreadalloc] initWithTarget:self selector:@selector(doInBackgroud) object:nil];
+[thread start];
+````
+
+
+### 3. NSTimer的使用
 
 ````objective-c
 
@@ -352,6 +371,34 @@ GCD的方法很多，用法也很多，这里只列举一些常用的方法。�
 }
 
 
+
+````
+
+### 5.NSOperation的用法
+
+````objc
+
+-(void)NSOperationFunction{
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+    //设置队列最大数量
+    [queue setMaxConcurrentOperationCount:100];
+    //添加一个block任务
+    [queue addOperationWithBlock:^{
+        NSLog(@"block task 1");
+    }];
+    [queue addOperationWithBlock:^{
+        sleep(2);
+        NSLog(@"block task 2");
+    }];
+    //显示添加一个block任务
+    NSBlockOperation *block1 = [NSBlockOperation blockOperationWithBlock:^{
+        sleep(2);
+        NSLog(@"block task 3");
+    }];
+    [queue addOperation:block1];
+    //初始化一个子任务
+    NSInvocationOperation *oper1 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(function1) object:nil];
+    [queue addOperation:oper1];
 
 ````
 
