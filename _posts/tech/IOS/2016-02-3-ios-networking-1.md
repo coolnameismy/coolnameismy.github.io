@@ -88,7 +88,7 @@ description:
 
 我们来修改一下服务端代码，设置一个等待2秒后返回，因为nodejs是单线程应用，所以模拟一下等待2秒，代码如下
 
-````javscript
+````javascript
 
 //模拟阻塞
 function sleep(milliSeconds) {
