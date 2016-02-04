@@ -1,15 +1,23 @@
 ---
 layout: post
 title: ios networking（一） http同步请求
-category: 技术
-tags: react-native
-keywords: react-native
+category: iOS
+tags: ios
+keywords:
 description:
 ---
 
 
 ## 同步请求
 
+### 最简单的同步请求
+
+````objc
+  //请求数据
+  NSData *data = [NSData dataWithContentURL:[NSURL URLWithString:@"http://domain.com/a.png"]];
+````
+
+### 基于NSURLConnection的同步请求
 先用nodejs写一个简单的中间件处理请求，代码如下：
 
 ````javscript
@@ -126,3 +134,10 @@ function sleep(milliSeconds) {
 -   不能使用网络请求的高级功能，如验证，进度，流传输,取消
 
 
+
+## demo
+---
+
+[本文的demo下载](https://github.com/coolnameismy/demo/network-demo)
+
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)

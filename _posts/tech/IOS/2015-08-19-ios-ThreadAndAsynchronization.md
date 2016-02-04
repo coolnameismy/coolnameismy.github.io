@@ -108,7 +108,7 @@ description:
 ````
 
 
-### 1. performSelector的使用
+## 1. performSelector的使用
 
 ````objective-c
 
@@ -146,7 +146,7 @@ description:
 ````
 
 
-### 2. NSThread的使用
+## 2. NSThread的使用
 
 ````objective-c
 
@@ -179,7 +179,7 @@ description:
 
 ````
 
-#### 创建NSThread主要有两种方式：
+### 创建NSThread主要有两种方式：
 
 -   1.使用类方法创建
 
@@ -193,7 +193,7 @@ description:
 ````
 
 
-### 3. NSTimer的使用
+## 3. NSTimer的使用
 
 ````objective-c
 
@@ -223,7 +223,7 @@ description:
 
 ````
 
-### 4. GCD的使用
+## 4. GCD的使用
 
 GCD的方法很多，用法也很多，这里只列举一些常用的方法。常用的方法包括：
 
@@ -374,16 +374,22 @@ GCD的方法很多，用法也很多，这里只列举一些常用的方法。�
 
 ````
 
-### 5.NSOperation的用法
+## 5.NSOperation的用法
+
+### 基本用法
+
+NSOperation需要在NSOperationQueue中使用，通过queue可以实现先进先出的队列任务，可以添加或取消任务，NSOperation有2个重要的子类，分别是：NSInvocationOperation，NSBlockOperation，分别表示调用一个方法或调用一个block的任务。
+NSOperation是比GCD更高层次的api，相同的线程操作如果能用NSOperation操作就尽量用，不能实现的线程操作才使用GCD.相比GCD，NSOperation还有个好处，就是任务可以被取消，而GCD不可以。
 
 ````objc
 
 -(void)NSOperationFunction{
     NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-    //设置队列最大数量
-    [queue setMaxConcurrentOperationCount:100];
+    //设置队列最大同时进行的任务数量，1为串行队列
+    [queue setMaxConcurrentOperationCount:1];
     //添加一个block任务
     [queue addOperationWithBlock:^{
+       sleep(2);
         NSLog(@"block task 1");
     }];
     [queue addOperationWithBlock:^{
@@ -395,17 +401,130 @@ GCD的方法很多，用法也很多，这里只列举一些常用的方法。�
         sleep(2);
         NSLog(@"block task 3");
     }];
+    //设置任务优先级
+    //说明：优先级高的任务，调用的几率会更大,但不表示一定先调用
+    [block1 setQueuePriority:NSOperationQueuePriorityHigh];
     [queue addOperation:block1];
+
+    NSBlockOperation *block2 = [NSBlockOperation blockOperationWithBlock:^{
+        sleep(2);
+        NSLog(@"block task 4，任务3依赖4");
+    }];
+    [queue addOperation:block2];
+    //任务3依赖4
+    [block1 addDependency:block2];
+    //设置任务完成的回调
+    [block2 setCompletionBlock:^{
+         NSLog(@"block task 4 comlpete");
+    }];
+
+    //设置block1完成后才会继续往下走
+    [block1 waitUntilFinished];
+     NSLog(@"block task 3 is waitUntilFinished!");
+
     //初始化一个子任务
     NSInvocationOperation *oper1 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(function1) object:nil];
     [queue addOperation:oper1];
 
+    [queue waitUntilAllOperationsAreFinished];
+    NSLog(@"queue comlpeted");
+
+    //    取消全部操作
+    //    [queue cancelAllOperations];
+    //    暂停操作/恢复操作/是否暂定状态
+    //    [queue setSuspended:YES];[queue setSuspended:NO];[queue isSuspended];
+
+
+    //操作优先级
+
+
+
+    //      [queue waitUntilAllOperationsAreFinished];
+
 ````
+
+执行结果
+
+````
+2016-02-04 15:11:54.283 ThreadAndAsynchronization[28948:3783683] block task 1
+2016-02-04 15:11:56.358 ThreadAndAsynchronization[28948:3783684] block task 2
+2016-02-04 15:11:58.430 ThreadAndAsynchronization[28948:3783683] block task 4，任务3依赖4
+2016-02-04 15:11:58.430 ThreadAndAsynchronization[28948:3783694] block task 4 comlpete
+2016-02-04 15:12:00.504 ThreadAndAsynchronization[28948:3783683] block task 3
+2016-02-04 15:12:00.504 ThreadAndAsynchronization[28948:3783527] block task 4 is waitUntilFinished!
+2016-02-04 15:12:02.573 ThreadAndAsynchronization[28948:3783694] function1 done
+2016-02-04 15:12:02.573 ThreadAndAsynchronization[28948:3783527] queue comlpeted
+````
+
+
+有2个值得注意的地方，第一个是mainQueue，第二个是maxConcurrentOperationCount。
+
+mainQueue是通过 ````NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];```` 获取到，它代表主队列，也就是UI队列，所以用到mainQueue队列的时候一般用于更新ui界面，且特别注意在这个队列中执行的方法，要考虑到会不会阻塞进程。
+
+maxConcurrentOperationCount：最多有多少个队列可以同时执行，默认是5，当设置为1是，队列是一个串行队列，设置>1时，队列是一个并行队列。但是在主队列上设置同时执行的任务是没有效果的！如果没有设置最大并发数，那么并发的个数是由**系统内存和CPU决定的**，可能内存多久开多一点，内存少就开少一点。
+
+### 队列的取消，暂停和恢复
+
+-   取消队列的所有操作 ```` [queue cancelAllOperations];````
+-   暂停队列恢复
+
+````
+//    [queue setSuspended:YES];
+//    [queue setSuspended:NO];
+//    [queue isSuspended];
+````
+
+###  优先级
+、、、、objc
+     //显示添加一个block任务
+      NSBlockOperation *block1 = [NSBlockOperation blockOperationWithBlock:^{
+          sleep(2);
+          NSLog(@"block task 3");
+      }];
+      //设置任务优先级
+      //说明：优先级高的任务，调用的几率会更大,但不表示一定先调用
+      [block1 setQueuePriority:NSOperationQueuePriorityHigh];
+
+      [queue addOperation:block1];
+、、、、
+
+优先级高的任务，调用的几率会更大,但不表示一定先调用
+
+###  操作依赖
+
+````objc
+    //block1依赖block2
+    [block1 addDependency:block2];
+````
+
+### 操作完成的监听
+
+````objc
+    //设置任务完成的回调
+    [block2 setCompletionBlock:^{
+         NSLog(@"block task 4 comlpete");
+    }];
+````
+
+除了这个方法以外，还可以调用 ````waitUntilFinished````方法，等待完成操作或队列全部完成后继续执行代码。这是一个很好的顺序执行代码的异步编程最佳实践！
+
+queue也有对应的方法，叫做````waitUntilAllOperationsAreFinished````
+
+```
+  [queue waitUntilAllOperationsAreFinished];
+   NSLog(@"queue comlpeted");
+````
+
+### 更好的控制NSOperation
+
+如果这些自带的api还不能满足你对线程和队列任务的控制，你可以尝试继承NSOperation，重写一些关键方法。
+
+
 
 ##代码下载:
 
 ####我博客中大部分示例代码都上传到了github，地址是：https://github.com/coolnameismy/demo，[点击跳转代码下载地址](https://github.com/coolnameismy/demo)
-####本文代码存放目录是BleDemo
+####本文代码存放目录是ThreadAndAsynchronization
 
 ## 最后
 
