@@ -113,15 +113,109 @@ HTTPS：当客户端第一次发送请求的时候，服务器会返回一个包
 https的认证过程，在NSURLConnection中使用NSURLConnectionDelegate中的委托完成，简单的说我们获取到保护控件的证书后，验证证书，并授信证书，就可以请求https资源了，更详细的过程我也还在探索，以后再补充。
 
 
+在之前实现异步http请求的基础上，我们测试请求github获取用户信息https的api，需要现实线委托，然后请求，代码如下：
 
+````objc
+//https请求-github获取用户信息
+- (void)githubUserInfo{
+    //string 转 url编码
+    NSString *urlString = @"https://api.github.com/users/coolnameismy";
+    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+    [connection start];
+}
 
+#pragma mark -https认证
+-(BOOL)connectionShouldUseCredentialStorage:(NSURLConnection *)connection{
+    NSLog(@"=================connectionShouldUseCredentialStorage=================");
+    return true;
+}
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
+    NSLog(@"=================willSendRequestForAuthenticationChallenge=================");
+    NSLog(@"didReceiveAuthenticationChallenge %@ %zd", [[challenge protectionSpace] authenticationMethod], (ssize_t) [challenge previousFailureCount]);
 
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]){
+        NSLog(@"是服务器信任的证书:%@",challenge.protectionSpace.authenticationMethod);
+        //通过认证
+        [[challenge sender]  useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+        [[challenge sender]  continueWithoutCredentialForAuthenticationChallenge: challenge];
+    }
+}
+````
 
-待完成。。。
+请求成功打印出的日志
 
+````
+2016-02-09 21:01:42.102 network-demo[10032:403483] =================request redirectResponse=================
+2016-02-09 21:01:42.103 network-demo[10032:403483] request:<NSURLRequest: 0x7fa47b002ef0> { URL: https://api.github.com/users/coolnameismy }
+2016-02-09 21:01:42.103 network-demo[10032:403483] =================connectionShouldUseCredentialStorage=================
+2016-02-09 21:01:42.766 network-demo[10032:403483] =================willSendRequestForAuthenticationChallenge=================
+2016-02-09 21:01:42.766 network-demo[10032:403483] didReceiveAuthenticationChallenge NSURLAuthenticationMethodServerTrust 0
+2016-02-09 21:01:42.767 network-demo[10032:403483] 是服务器信任的证书:NSURLAuthenticationMethodServerTrust
+2016-02-09 21:01:43.459 network-demo[10032:403483] =================didReceiveResponse=================
+2016-02-09 21:01:43.460 network-demo[10032:403483] response:<NSHTTPURLResponse: 0x7fa478ee29a0> { URL: https://api.github.com/users/coolnameismy } { status code: 200, headers {
+    "Access-Control-Allow-Credentials" = true;
+    "Access-Control-Allow-Origin" = "*";
+    "Access-Control-Expose-Headers" = "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval";
+    "Cache-Control" = "public, max-age=60, s-maxage=60";
+    "Content-Encoding" = gzip;
+    "Content-Security-Policy" = "default-src 'none'";
+    "Content-Type" = "application/json; charset=utf-8";
+    Date = "Tue, 09 Feb 2016 12:55:57 GMT";
+    Etag = "W/\"f1434609a610832d68fb4fef98e43f48\"";
+    "Last-Modified" = "Tue, 26 Jan 2016 16:02:40 GMT";
+    Server = "GitHub.com";
+    Status = "200 OK";
+    "Strict-Transport-Security" = "max-age=31536000; includeSubdomains; preload";
+    "Transfer-Encoding" = Identity;
+    Vary = "Accept, Accept-Encoding";
+    "X-Content-Type-Options" = nosniff;
+    "X-Frame-Options" = deny;
+    "X-GitHub-Media-Type" = "github.v3";
+    "X-GitHub-Request-Id" = "7751919E:C8D5:8399087:56B9E1DC";
+    "X-RateLimit-Limit" = 60;
+    "X-RateLimit-Remaining" = 59;
+    "X-RateLimit-Reset" = 1455026157;
+    "X-Served-By" = 139317cebd6caf9cd03889139437f00b;
+    "X-XSS-Protection" = "1; mode=block";
+} }
+2016-02-09 21:01:43.461 network-demo[10032:403483] =================didReceiveData=================
+2016-02-09 21:01:43.463 network-demo[10032:403483] data:{
+    "avatar_url" = "https://avatars.githubusercontent.com/u/5010799?v=3";
+    bio = "<null>";
+    blog = "http://liuyanwei.jumppo.com";
+    company = ZTE;
+    "created_at" = "2013-07-15T06:29:49Z";
+    email = "coolnameismy@hotmail.com";
+    "events_url" = "https://api.github.com/users/coolnameismy/events{/privacy}";
+    followers = 207;
+    "followers_url" = "https://api.github.com/users/coolnameismy/followers";
+    following = 41;
+    "following_url" = "https://api.github.com/users/coolnameismy/following{/other_user}";
+    "gists_url" = "https://api.github.com/users/coolnameismy/gists{/gist_id}";
+    "gravatar_id" = "";
+    hireable = 1;
+    "html_url" = "https://github.com/coolnameismy";
+    id = 5010799;
+    location = "nanjing china";
+    login = coolnameismy;
+    name = "\U5218\U5f66\U73ae";
+    "organizations_url" = "https://api.github.com/users/coolnameismy/orgs";
+    "public_gists" = 0;
+    "public_repos" = 23;
+    "received_events_url" = "https://api.github.com/users/coolnameismy/received_events";
+    "repos_url" = "https://api.github.com/users/coolnameismy/repos";
+    "site_admin" = 0;
+    "starred_url" = "https://api.github.com/users/coolnameismy/starred{/owner}{/repo}";
+    "subscriptions_url" = "https://api.github.com/users/coolnameismy/subscriptions";
+    type = User;
+    "updated_at" = "2016-01-26T16:02:40Z";
+    url = "https://api.github.com/users/coolnameismy";
+}
+2016-02-09 21:01:43.463 network-demo[10032:403483] =================connectionDidFinishLoading=================
 
-
-
+````
 
 
 ## demo
@@ -130,7 +224,6 @@ https的认证过程，在NSURLConnection中使用NSURLConnectionDelegate中的�
 [本文的demo下载](https://github.com/coolnameismy/demo/network-demo)
 
 如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
-
 
 
 ## 参考阅读
