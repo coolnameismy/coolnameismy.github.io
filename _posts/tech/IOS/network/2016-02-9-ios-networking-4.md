@@ -480,9 +480,9 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
 
 ## 参考阅读
 
-- [iOS原生文件上传](http://www.jianshu.com/p/4e768bc9503a)
-- [iOS开发网络篇—文件的上传](http://www.cnblogs.com/wendingding/p/3949966.html)
-- [自己动手写一个 iOS 网络请求库（四）——快速文件上传](https://lvwenhan.com/ios/457.html)
-- [Multipart/form-data POST文件上传详解](http://blog.csdn.net/xiaojianpitt/article/details/6856536)
-- [nodejs 文件上传/下载功能实现](http://hzxiaosheng.bitbucket.org/work/2014/03/09/download-and-upload-file-with-nodejs/)
-- [Node.js：文件上传简单demo](http://kirochen.com/2015/07/21/upload-demo-formidable/)
+-   [iOS原生文件上传](http://www.jianshu.com/p/4e768bc9503a)
+-   [iOS开发网络篇—文件的上传](http://www.cnblogs.com/wendingding/p/3949966.html)
+-   [自己动手写一个 iOS 网络请求库（四）——快速文件上传](https://lvwenhan.com/ios/457.html)
+-   [Multipart/form-data POST文件上传详解](http://blog.csdn.net/xiaojianpitt/article/details/6856536)
+-   [nodejs 文件上传/下载功能实现](http://hzxiaosheng.bitbucket.org/work/2014/03/09/download-and-upload-file-with-nodejs/)
+-   [Node.js：文件上传简单demo](http://kirochen.com/2015/07/21/upload-demo-formidable/)
