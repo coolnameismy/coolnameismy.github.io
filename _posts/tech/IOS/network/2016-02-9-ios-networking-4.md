@@ -15,7 +15,7 @@ description:
 
 先改造一下我们的服务端程序，来下载一张图片，代码如下
 
-````JavaScript
+````js
 
     //下载返回文件流
 	function download(req,res){
