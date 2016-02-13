@@ -606,11 +606,14 @@ iframe {
 
     .share-info{
         text-align: center;
-        top: 13px;
-        left: -122px;
+        top: 7px;
+        left: 179px;
         position: relative;
         color: rgb(133, 176, 255);
         font-size: 10px;
+        /* display: none; */
+        z-index: 1;
+        display: inline;
     }
 
 
