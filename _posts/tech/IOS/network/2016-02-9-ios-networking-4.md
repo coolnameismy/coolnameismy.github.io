@@ -140,7 +140,14 @@ description:
 ````
 
 可以看到````didReceiveData````委托被反复调用了很多次，我们可以通过 ````data.length:151190 ```` 和 ```` "Content-Length" = 1265302;  ````
-就可以计算出流的下载进度。获取到完成的data后，可以直接把二进制的data转换成图片，代码如下：
+就可以计算出流的下载进度。
+
+````objc
+  //获取Content-Length
+  //[[((NSHTTPURLResponse *)response) allHeaderFields]objectForKey:@"Content-length"]
+````
+
+获取到完成的data后，可以直接把二进制的data转换成图片，代码如下：
 
 ````objc
    UIImage *img = [UIImage imageWithData:data];
@@ -331,6 +338,21 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
 
 ### 程序运行后打印的结果
 
+服务端日志，打印请求头
+
+````
+{ host: 'localhost:8001',
+  'content-type': 'multipart/form-data; boundary=YY',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'network-demo/1 CFNetwork/758.0.2 Darwin/14.5.0',
+  'content-length': '1265418',
+  'accept-language': 'en-us',
+  'accept-encoding': 'gzip, deflate' }
+````
+
+客户端日志：
+
 ````
 2016-02-12 13:05:07.330 network-demo[16708:1254465] =================request redirectResponse=================
 2016-02-12 13:05:07.331 network-demo[16708:1254465] request:<NSURLRequest: 0x7f9fa1691240> { URL: http://localhost:8001/upload }
@@ -468,6 +490,33 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
 ````
 
 大家可以看出如何读取文件上传的进度了。
+
+
+##  总结异步http请求
+>   使用异步http请求代码量复杂，但是有许多其他方式达不到的优点
+
+-   使用文件流上传和下载，节省内存
+-   文件上传和下载有进度提示
+-   可以处理url验证
+-   可以取消在请求过程中取消请求（ 使用 ```` [connection cancel] ```` 方法）
+
+例如在demo中注释的一段代码：
+
+````objc
+- (void)connection:(NSURLConnection *)connection   didSendBodyData:(NSInteger)bytesWritten
+ totalBytesWritten:(NSInteger)totalBytesWritten
+totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
+    ...
+    ...
+
+    //测试取消上传
+    //if((totalBytesWritten*100 / totalBytesExpectedToWrite) > 50){[connection cancel];}
+ }
+````
+
+测试当上传进度到50%的时候，取消文件上传。
+
+请用大一点的图片进行测试，因为这段代码是有bug的，当文件太小不会进入这个委托方法。
 
 
 ## demo

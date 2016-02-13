@@ -1,522 +1,302 @@
 ---
 layout: post
-title: ios networking（四） http异步文件上传和下载以及进度指示
+title: ios networking（五） cookie
 category: iOS
 tags:
 keywords:
 description:
 ---
 
->   本篇主要关注如何处理文件上传和下载，如何获取文件上传和下载的进度。
+>   本篇主要介绍客户端和服务端对cookie的操作
 
-## 文件下载和进度
-
-###  nodejs服务端下载图片
-
-先改造一下我们的服务端程序，来下载一张图片，代码如下
-
-````js
-
-    //下载返回文件流
-	function download(req,res){
-		//写入头
-	    var downloadFilePath = "./1.jpg";
-	    var filename = path.basename(downloadFilePath);
-	    var filesize = fs.readFileSync(downloadFilePath).length;
-	    res.setHeader('Content-Disposition','attachment;filename=' + filename);//此处是关键
-	    res.setHeader('Content-Length',filesize);
-	    res.setHeader('Content-Type','application/octet-stream');
-	    var fileStream = fs.createReadStream(downloadFilePath,{bufferSize:1024 * 1024});
-		 fileStream.pipe(res,{end:true});
-		// res.writeHead(200, {'content-type': 'text/html'});
-	}
-
-	//改造一下handler方法，让url访问/download的时候进入文件下载的方法，返回文件流
-	handler:function(req,res){
-        console.log('handler');
-        console.log(req.url);
-        switch(req.url){
-            case '/' : get(req,res); break;
-            case "/download" : download(req,res); break;
-        }
-
-    }
-````
-
-### ios请求下载文件流
-
-````objc
-//http下载文件流
-- (void)download{
-    //string 转 url编码
-    NSString *urlString = @"http://localhost:8001/download";
-    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    [connection start];
-}
-
-
-````
-
-修改下请求委托，打印出请求头和收到的data，从而看一下收到的数据大小和数据请求进度相关内容。
-
-````objc
-//接收响应
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    NSLog(@"=================didReceiveResponse=================");
-    NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
-    NSLog(@"response:%@",resp);
-
-}
-
-//接收响应
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    NSLog(@"=================didReceiveData=================");
-    NSLog(@"data.length:%lu",(unsigned long)data.length);
-
-}
-````
-
-完成请求后打印出的结果如下：
-
-````
-2016-02-11 21:48:50.694 network-demo[14461:1033375] =================request redirectResponse=================
-2016-02-11 21:48:50.696 network-demo[14461:1033375] request:<NSURLRequest: 0x7f91ea7948d0> { URL: http://localhost:8001/download }
-2016-02-11 21:48:50.706 network-demo[14461:1033375] =================didReceiveResponse=================
-2016-02-11 21:48:50.706 network-demo[14461:1033375] response:<NSHTTPURLResponse: 0x7f91ea5596f0> { URL: http://localhost:8001/download } { status code: 200, headers {
-    Connection = "keep-alive";
-    "Content-Disposition" = "attachment;filename=1.jpg";
-    "Content-Length" = 19557;
-    "Content-Type" = "application/octet-stream";
-    Date = "Thu, 11 Feb 2016 13:48:50 GMT";
-} }
-2016-02-11 21:48:50.706 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 21:48:56.148 network-demo[14461:1033375] data.length:19557
-2016-02-11 21:48:56.148 network-demo[14461:1033375] =================connectionDidFinishLoading=================
-````
-
-可以看出：服务端在resqonse头中加入了content-length信息，告知整个流的大小，不过因为图片文件本身
-较小，所以并没有分包，因此````didReceiveData````方法只调用了一次就完成了文件传递。大家可以试着修改下服务端返回的文件，
-改为一个较大点的文件来试一次，这里我改成一个稍微大一些的图片，一张我自己hhkb键盘的美图~
-
-```` var downloadFilePath = "./IMG_0222.jpg"; ```` 再试着发一次请求：
-
-````
-2016-02-11 22:09:14.088 network-demo[14461:1033375] =================request redirectResponse=================
-2016-02-11 22:09:14.089 network-demo[14461:1033375] request:<NSURLRequest: 0x7f91ea54c5f0> { URL: http://localhost:8001/download }
-2016-02-11 22:09:14.118 network-demo[14461:1033375] =================didReceiveResponse=================
-2016-02-11 22:09:14.119 network-demo[14461:1033375] response:<NSHTTPURLResponse: 0x7f91ea591810> { URL: http://localhost:8001/download } { status code: 200, headers {
-    Connection = "keep-alive";
-    "Content-Disposition" = "attachment;filename=IMG_0222.jpg";
-    "Content-Length" = 1265302;
-    "Content-Type" = "application/octet-stream";
-    Date = "Thu, 11 Feb 2016 14:09:14 GMT";
-} }
-2016-02-11 22:09:14.119 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.119 network-demo[14461:1033375] data.length:65536
-2016-02-11 22:09:14.120 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.120 network-demo[14461:1033375] data.length:65536
-2016-02-11 22:09:14.121 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.121 network-demo[14461:1033375] data.length:65536
-2016-02-11 22:09:14.122 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.122 network-demo[14461:1033375] data.length:131072
-2016-02-11 22:09:14.123 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.123 network-demo[14461:1033375] data.length:132000
-2016-02-11 22:09:14.123 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.124 network-demo[14461:1033375] data.length:392288
-2016-02-11 22:09:14.124 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.124 network-demo[14461:1033375] data.length:65536
-2016-02-11 22:09:14.124 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.125 network-demo[14461:1033375] data.length:65536
-2016-02-11 22:09:14.125 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.125 network-demo[14461:1033375] data.length:65536
-2016-02-11 22:09:14.125 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.125 network-demo[14461:1033375] data.length:65536
-2016-02-11 22:09:14.126 network-demo[14461:1033375] =================didReceiveData=================
-2016-02-11 22:09:14.126 network-demo[14461:1033375] data.length:151190
-2016-02-11 22:09:14.126 network-demo[14461:1033375] =================connectionDidFinishLoading=================
-
-````
-
-可以看到````didReceiveData````委托被反复调用了很多次，我们可以通过 ````data.length:151190 ```` 和 ```` "Content-Length" = 1265302;  ````
-就可以计算出流的下载进度。
-
-````objc
-  //获取Content-Length
-  //[[((NSHTTPURLResponse *)response) allHeaderFields]objectForKey:@"Content-length"]
-````
-
-获取到完成的data后，可以直接把二进制的data转换成图片，代码如下：
-
-````objc
-   UIImage *img = [UIImage imageWithData:data];
-   UIImageView *imageView = [[UIImageView alloc]initWithImage:img];
-   [imageView setFrame:CGRectMake(30, 30, 200, 200)];
-   [self.view addSubview:imageView];
-````
-
-
-## 上传文件和进度
-
-### 服务端代码
-服务端使用nodejs写的接受图片上传，重命名并保存文件，使用了````formidable````这个库完成图片获取，作为demo写的比较简单大家随意感受下。
+##  服务端代码
 
 ````JavaScript
 
-//文件上传
-	function upload(req,res){
-		//创建上传表单
-		var form = new formidable.IncomingForm();
-		//设置编辑
-		form.encoding = 'utf-8';
-		//设置上传目录
-		form.uploadDir = './upload/';
-		form.keepExtensions = true;
-		//文件大小
-		form.maxFieldsSize = 10 * 1024 * 1024;
-		form.parse(req, function (err, fields, files) {
-			if(err) {
-				res.send(err);
-				return;
-			}
-			// console.log(fields);
-			console.log("=====");
-			// console.log(files);
-			// console.log(files.file.name);
-			var extName = /\.[^\.]+/.exec(files.file.name);
-			var ext = Array.isArray(extName)
-				? extName[0]
-				: '';
-			//重命名，以防文件重复
-			var avatarName = uuid() + ext;
-			//移动的文件目录
-			var newPath = form.uploadDir + avatarName;
-			fs.renameSync(files.file.path, newPath);
-			// res.send('success');
-			var msg = { "status":1,"msg":"succeed"}
-			res.write(JSON.stringify(msg));
-			res.end();
-		});
+    //设置cookie
+	function cookie(req,res){
+		//打印客户端的cookie
+		console.log("client cookie:"+req.headers.cookie);
+
+		var today = new Date();
+		var time = today.getTime() + 60*1000;
+		var time2 = new Date(time);
+		var timeObj = time2.toGMTString();
+
+        //给f的值添加了一个过期时间的参数
+	    res.setHeader("Set-Cookie", ['d=001;maxAge=10*1000', 'e=1112', 'f=2222;Expires='+timeObj]);
+
+		var msg = { "status":1,"msg":"succeed"}
+		res.write(JSON.stringify(msg));
+		res.end();
 	}
 
 ````
 
-### http文件传输协议
+这段代码主要有2个地方需要注意，一是服务端设置cookie并返回到客户端，一个是服务端获取客户端上传的cookie
 
-来说点文件上传http协议的基础，前面的demo中，我们都没有设置请求头，因为我们都使用了默认的请求头
- ````  Content-Type:application/x-www-form-urlencoded  ```` ，这个请求头就是和html中的表单上传，如果get请求则
- 数据在url中，如果post请求，数据默认放在请求体中。然后默认的````x-www-form-urlencoded````头并不能上传文件，上传文件需要
- 设置头为：```` Content-Type:multipart/form-data; boundary=YY ```` ，boundary用于标识边界，可以自定义，使用时前面需要加上两个--，例如："--YY"
+### 服务端设置cookie
+>   服务端设置主要是通过在相应头中设置Set-Cookie，可以使用 ```` response.writeHead ```` 或是 ````response.setHeader ````方法设置
 
-我们在ios上传文件时需要这样设置请求头
+cookie的设置的一般格式：
 
-````objc
-  /** 设置请求头 */
-    // 请求体的长度
-    [request setValue:[NSString stringWithFormat:@"%zd", body.length] forHTTPHeaderField:@"Content-Length"];
-    // 声明这个POST请求是个文件上传
-    [request setValue:@"multipart/form-data; boundary=YY" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPMethod:@"POST"];
+单个
+
+````
+    Set-Cookie:
+            cookieName=cookieValue;
+            [expires=]
+            [;domain=]
+            [;path=]
+            [;secure=]
+            [;httpOnly=]
+````
+
+多个
+
+````
+    Set-Cookie:'[cookie1,cookie2];
+````
+
+参数说明：
+
+ ````
+    1、expires：指定过期时间，以GMT格式表示的时间字符串，如方法一个的“timeObj”。
+    2、maxAge：指定过期时间，同expires（expires和maxAge选两者其一设值即可）。和expires不同之处在于，maxAge值的单位为毫秒（见方法二中的maxAge:10*1000，即为10秒）。maxAge值可以是正数和负数。正数表示当前COOKIE存活的时间。负数表示当前COOKIE只是随着浏览器存储在客户端的内存里，只要关闭浏览器，此COOKIE就马上消失。默认值为-1。
+    3、domain：指定可访问COOKIE的主机名。主机名是指同一个域名下的不同主机。如：www.google.com和gmail.google.com是在两个不同的主机上，即两个不同的主机名。默认情况下，一个主机中创建的COOKIE在另一个主机下是不能被访问，但可以通过domain参数来实现对其的控制，即所谓的跨子域。以google为例，要实现跨主机（跨子域）访问，写法如下：domain=.google.com，这样就实现了所有google.com下的主机都可以访问此COOKIE。（本机环境上设置此值时，COOKIE无法查看。）
+    4、path：指定可访问此COOKIE的目录。如：path=/default  表示当前COOKIE仅能在 default 目录下使用。默认值为“/”，即根目录下的所有目录皆可以访问。
+    5、secure：当设为true时，表示创建的COOKIE会以安全的形式向服务器传输，即只能在HTTPS连接中被浏览器传递到服务器端进行会话验证；若是HTTP连接则不会传递该信息，所以不会被窃取到COOKIE里的具体内容。同理，在客户端，我们也无法使用document.cookie找到被设置了secure=true的cookie健值对。secure属性是防止信息在传递的过程中被监听捕获后信息泄漏，httpOnly属性的目的是防止程序获取COOKIE后进行攻击（XSS）。我们可以把secure=true看成比httpOnly=true是更严格的访问控制。
+    6、httpOnly：是微软对COOKIE做的扩展。如果在COOKIE中设置了“httpOnly”属性，则通过程序（JS脚本、applet等）将无法读取到COOKIE信息，防止XSS攻击产生。
 ````
 
 
-### ios文件上传代码
+### 服务端设置cookie的例子：
 
-我们上传一张稍微大点的图片，直接使用````NSBundle````对象读取项目中的文件，然后设置请求相关的委托方法，代码如下
+````javascript
+//例子1
+res.setHeader("Set-Cookie", ['a=001', 'b=1112', 'c=2222']);
+
+//例子2 设置过期时间
+var today = new Date();
+var time = today.getTime() + 60*1000;
+var time2 = new Date(time);
+var timeObj = time2.toGMTString();
+ res.setHeader("Set-Cookie", ['d=001', 'e=1112', 'f=2222;Expires='+timeObj,]);
+
+//例子3：
+res.writeHead(200,{
+    'Content-type':'text/json',
+    "Set-Cookie":['a=001', 'b=1112', 'c=2222']
+});
+````
+
+### 服务端获取客户端cookie
+
+````JavaScript
+//打印客户端的cookie
+console.log("client cookie:"+req.headers.cookie);
+````
+
+### 服务端删除或修改cookie
+
+删除和修改cookie本质都是一样的，把原来存在的cookie设为空值，就是删除，设为其他的值就是修改，服务端也有封装好的cookie库，
+我们这里的方法都是最底层的htpp模块的方法。
+
+
+## 客户端ios 操作cookie
+
+### 获取服务端返回的cookie
 
 ````objc
 
+    //获取cookie
+    NSDictionary *headers = [((NSHTTPURLResponse *)resp) allHeaderFields];
+    NSLog(@"headers:%@",headers);
+    NSDictionary *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:headers forURL:[NSURL URLWithString:@"http://localhost/"]];
 
-//http上传文件流
-- (void)upload{
-
-    #define Encode(str) [str dataUsingEncoding:NSUTF8StringEncoding]
-
-    NSURL *dataurl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"IMG_0222" ofType:@"jpg"]];
-    NSData *data = [NSData dataWithContentsOfURL:dataurl];
-
-    //string 转 url编码
-    NSString *urlString = @"http://localhost:8001/upload";
-    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-
-    /** 设置请求头 */
-    NSMutableData *body = [NSMutableData data];
-
-    //文件参数
-    // 参数开始的标志
-    [body appendData:Encode(@"--YY\r\n")];
-    // name : 指定参数名(必须跟服务器端保持一致)
-    // filename : 文件名
-    NSString *disposition = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", @"file", @"1.jpg"];
-    [body appendData:Encode(disposition)];
-    NSString *type = [NSString stringWithFormat:@"Content-Type: %@\r\n", @"multipart/form-data"];
-    [body appendData:Encode(type)];
-    [body appendData:Encode(@"\r\n")];
-
-    //添加图片数据
-    [body appendData:data];
-    [body appendData:Encode(@"\r\n")];
-    //结束符
-    [body appendData:Encode(@"--YY--\r\n")];
-    //把body添加到request中
-    [request setHTTPBody:body];
-
-    /** 设置请求头 */
-    // 请求体的长度
-    [request setValue:[NSString stringWithFormat:@"%zd", body.length] forHTTPHeaderField:@"Content-Length"];
-    // 声明这个POST请求是个文件上传
-    [request setValue:@"multipart/form-data; boundary=YY" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPMethod:@"POST"];
-
-
-    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    [connection start];
-}
-
-
-#pragma mark -网络请求委托
-
-//请求失败
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    NSLog(@"=================didFailWithError=================");
-    NSLog(@"error:%@",error);
-}
-
-//重定向
-- (nullable NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(nullable NSURLResponse *)response{
-    NSLog(@"=================request redirectResponse=================");
-    NSLog(@"request:%@",request);
-    return request;
-}
-
-//接收响应
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    NSLog(@"=================didReceiveResponse=================");
-    NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
-    NSLog(@"response:%@",resp);
-
-}
-
-//接收响应
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    NSLog(@"=================didReceiveData=================");
-    //    UIImage *img = [UIImage imageWithData:data];
-    //    UIImageView *imageView = [[UIImageView alloc]initWithImage:img];
-    //    [imageView setFrame:CGRectMake(30, 30, 200, 200)];
-    //    [self.view addSubview:imageView];
-
-    NSLog(@"data.length:%lu",(unsigned long)data.length);
-    if (data) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"data:%@",dic);
+    for (NSHTTPCookie *cookie in cookies) {
+        NSLog(@"cookie:%@",cookie);
     }
-}
-
-//上传数据委托，用于显示上传进度
-- (void)connection:(NSURLConnection *)connection   didSendBodyData:(NSInteger)bytesWritten
- totalBytesWritten:(NSInteger)totalBytesWritten
-totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
-    NSLog(@"=================totalBytesWritten=================");
-    NSLog(@"didSendBodyData:%ld,totalBytesWritten:%ld,totalBytesExpectedToWrite:%ld",(long)bytesWritten,(long)totalBytesWritten,(long)totalBytesExpectedToWrite);
-    NSLog(@"上传进度%ld%%",(long)(totalBytesWritten*100 / totalBytesExpectedToWrite));
-}
-
-//完成请求
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    NSLog(@"=================connectionDidFinishLoading=================");
-}
 
 ````
 
-大家可以看下代码，重点可以看下 ````upload````方法，和
- ````- (void)connection:(NSURLConnection *)connection   didSendBodyData:(NSInteger)bytesWritten
-                                        totalBytesWritten:(NSInteger)totalBytesWritten````
-这个委托，观察如何设置文件上传的请求头和请求体，如果获取上传文件的进度。
-
-### 程序运行后打印的结果
-
-服务端日志，打印请求头
+服务端返回的cookie在响应头中，请求上节服务端代码设置cookie的那个路径：http://localhost:8001/cookie 后打印的结果如下：
 
 ````
-{ host: 'localhost:8001',
-  'content-type': 'multipart/form-data; boundary=YY',
-  connection: 'keep-alive',
-  accept: '*/*',
-  'user-agent': 'network-demo/1 CFNetwork/758.0.2 Darwin/14.5.0',
-  'content-length': '1265418',
-  'accept-language': 'en-us',
-  'accept-encoding': 'gzip, deflate' }
-````
-
-客户端日志：
-
-````
-2016-02-12 13:05:07.330 network-demo[16708:1254465] =================request redirectResponse=================
-2016-02-12 13:05:07.331 network-demo[16708:1254465] request:<NSURLRequest: 0x7f9fa1691240> { URL: http://localhost:8001/upload }
-2016-02-12 13:05:07.339 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.339 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:32768,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.339 network-demo[16708:1254465] 上传进度2%
-2016-02-12 13:05:07.339 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.339 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:65536,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.339 network-demo[16708:1254465] 上传进度5%
-2016-02-12 13:05:07.340 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.340 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:98304,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.340 network-demo[16708:1254465] 上传进度7%
-2016-02-12 13:05:07.340 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.340 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:131072,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.340 network-demo[16708:1254465] 上传进度10%
-2016-02-12 13:05:07.340 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.341 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:163840,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.341 network-demo[16708:1254465] 上传进度12%
-2016-02-12 13:05:07.341 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.341 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:196608,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.341 network-demo[16708:1254465] 上传进度15%
-2016-02-12 13:05:07.341 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.341 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:229376,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.342 network-demo[16708:1254465] 上传进度18%
-2016-02-12 13:05:07.342 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.342 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:262144,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.342 network-demo[16708:1254465] 上传进度20%
-2016-02-12 13:05:07.342 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.342 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:294912,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.342 network-demo[16708:1254465] 上传进度23%
-2016-02-12 13:05:07.343 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.343 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:327680,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.343 network-demo[16708:1254465] 上传进度25%
-2016-02-12 13:05:07.343 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.343 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:360448,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.343 network-demo[16708:1254465] 上传进度28%
-2016-02-12 13:05:07.343 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.343 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:393216,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.344 network-demo[16708:1254465] 上传进度31%
-2016-02-12 13:05:07.344 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.344 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:425984,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.344 network-demo[16708:1254465] 上传进度33%
-2016-02-12 13:05:07.354 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.354 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:458752,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.354 network-demo[16708:1254465] 上传进度36%
-2016-02-12 13:05:07.354 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.354 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:491520,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.354 network-demo[16708:1254465] 上传进度38%
-2016-02-12 13:05:07.354 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.354 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:524288,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.355 network-demo[16708:1254465] 上传进度41%
-2016-02-12 13:05:07.355 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.355 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:557056,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.355 network-demo[16708:1254465] 上传进度44%
-2016-02-12 13:05:07.355 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.355 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:589824,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.355 network-demo[16708:1254465] 上传进度46%
-2016-02-12 13:05:07.356 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.356 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:622592,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.356 network-demo[16708:1254465] 上传进度49%
-2016-02-12 13:05:07.356 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.356 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:655360,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.356 network-demo[16708:1254465] 上传进度51%
-2016-02-12 13:05:07.356 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.357 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:688128,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.357 network-demo[16708:1254465] 上传进度54%
-2016-02-12 13:05:07.357 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.357 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:720896,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.357 network-demo[16708:1254465] 上传进度56%
-2016-02-12 13:05:07.357 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.357 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:753664,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.357 network-demo[16708:1254465] 上传进度59%
-2016-02-12 13:05:07.358 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.358 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:786432,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.358 network-demo[16708:1254465] 上传进度62%
-2016-02-12 13:05:07.358 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.358 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:819200,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.359 network-demo[16708:1254465] 上传进度64%
-2016-02-12 13:05:07.359 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.359 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:851968,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.359 network-demo[16708:1254465] 上传进度67%
-2016-02-12 13:05:07.359 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.359 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:884736,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.359 network-demo[16708:1254465] 上传进度69%
-2016-02-12 13:05:07.359 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.360 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:917504,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.360 network-demo[16708:1254465] 上传进度72%
-2016-02-12 13:05:07.360 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.360 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:950272,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.360 network-demo[16708:1254465] 上传进度75%
-2016-02-12 13:05:07.360 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.360 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:983040,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.361 network-demo[16708:1254465] 上传进度77%
-2016-02-12 13:05:07.374 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.375 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1015808,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.375 network-demo[16708:1254465] 上传进度80%
-2016-02-12 13:05:07.375 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.375 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1048576,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.375 network-demo[16708:1254465] 上传进度82%
-2016-02-12 13:05:07.375 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.375 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1081344,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.375 network-demo[16708:1254465] 上传进度85%
-2016-02-12 13:05:07.375 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.376 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1114112,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.376 network-demo[16708:1254465] 上传进度88%
-2016-02-12 13:05:07.376 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.376 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1146880,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.376 network-demo[16708:1254465] 上传进度90%
-2016-02-12 13:05:07.376 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.376 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1179648,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.376 network-demo[16708:1254465] 上传进度93%
-2016-02-12 13:05:07.377 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.377 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1212416,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.377 network-demo[16708:1254465] 上传进度95%
-2016-02-12 13:05:07.377 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.377 network-demo[16708:1254465] didSendBodyData:32768,totalBytesWritten:1245184,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.377 network-demo[16708:1254465] 上传进度98%
-2016-02-12 13:05:07.377 network-demo[16708:1254465] =================totalBytesWritten=================
-2016-02-12 13:05:07.377 network-demo[16708:1254465] didSendBodyData:20234,totalBytesWritten:1265418,totalBytesExpectedToWrite:1265418
-2016-02-12 13:05:07.378 network-demo[16708:1254465] 上传进度100%
-2016-02-12 13:05:07.404 network-demo[16708:1254465] =================didReceiveResponse=================
-2016-02-12 13:05:07.405 network-demo[16708:1254465] response:<NSHTTPURLResponse: 0x7f9fa16af610> { URL: http://localhost:8001/upload } { status code: 200, headers {
-    Connection = "keep-alive";
-    Date = "Fri, 12 Feb 2016 05:05:07 GMT";
-    "Transfer-Encoding" = Identity;
-} }
-2016-02-12 13:05:07.405 network-demo[16708:1254465] =================didReceiveData=================
-2016-02-12 13:05:07.405 network-demo[16708:1254465] data.length:28
-2016-02-12 13:05:07.405 network-demo[16708:1254465] data:{
+2016-02-13 18:04:08.611 network-demo[20302:1737476] ====请求开始====
+2016-02-13 18:04:08.611 network-demo[20302:1737476] {
     msg = succeed;
     status = 1;
 }
-2016-02-12 13:05:07.405 network-demo[16708:1254465] =================connectionDidFinishLoading=================
+2016-02-13 18:04:08.611 network-demo[20302:1737476] ====请求结束====
+2016-02-13 18:04:08.611 network-demo[20302:1737476] headers:{
+    Connection = "keep-alive";
+    Date = "Sat, 13 Feb 2016 10:04:08 GMT";
+    "Set-Cookie" = "d=001;maxAge=10*1000, e=1112, f=2222;Expires=Sat, 13 Feb 2016 10:05:08 GMT";
+    "Transfer-Encoding" = Identity;
+}
+2016-02-13 18:04:08.617 network-demo[20302:1737476] cookie:<NSHTTPCookie version:0 name:"d" value:"001" expiresDate:(null) created:2016-02-13 10:04:08 +0000 sessionOnly:TRUE domain:"localhost" path:"/" isSecure:FALSE>
+2016-02-13 18:04:08.617 network-demo[20302:1737476] cookie:<NSHTTPCookie version:0 name:"e" value:"1112" expiresDate:(null) created:2016-02-13 10:04:08 +0000 sessionOnly:TRUE domain:"localhost" path:"/" isSecure:FALSE>
+2016-02-13 18:04:08.617 network-demo[20302:1737476] cookie:<NSHTTPCookie version:0 name:"f" value:"2222" expiresDate:2016-02-13 10:05:08 +0000 created:2016-02-13 10:04:08 +0000 sessionOnly:FALSE domain:"localhost" path:"/" isSecure:FALSE>
 
 ````
 
-大家可以看出如何读取文件上传的进度了。
+可以看到服务端获取了3个cookie，key分别是d,e,f，其中f设置了cookie的过期时间。
+
+客户端cookie会在每次请求中把cookie自动加载到请求头中发送给服务端，
+我们已经收到相应的cookie后，再次请求服务端另一个没有设置cookie的url，看看服务端打印出客户端请求头中的cookie
+
+````
+{ host: 'localhost:8001',
+  accept: '*/*',
+  cookie: 'd=001; e=1112',
+  'user-agent': 'network-demo/1 CFNetwork/758.0.2 Darwin/14.5.0',
+  'accept-language': 'en-us',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive' }
+/
+client cookie:d=001; e=1112
+````
+
+可以看到请求头中获取到了cookie： ````client cookie:d=001; e=1112 ```` 。
+但是这里有个问题，我少了一个key为f的cookie，那是因为f的cookie已经过期了。再看之前ios模拟器打印的过期时间和服务返回的时间有8小时时差，这个应该是
+服务端的时间制式和客户端的制式不同导致的吧，已经搞mongodb的时候也遇到过，这里不用纠结这些小问题了，反正就是过期了。
 
 
-##  总结异步http请求
->   使用异步http请求代码量复杂，但是有许多其他方式达不到的优点
+### 获取客户端存储的cookie
 
--   使用文件流上传和下载，节省内存
--   文件上传和下载有进度提示
--   可以处理url验证
--   可以取消在请求过程中取消请求（ 使用 ```` [connection cancel] ```` 方法）
-
-例如在demo中注释的一段代码：
+通过````NSHTTPCookieStorage````的单例类就可以获取到之前服务端的cookie
 
 ````objc
-- (void)connection:(NSURLConnection *)connection   didSendBodyData:(NSInteger)bytesWritten
- totalBytesWritten:(NSInteger)totalBytesWritten
-totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
-    ...
-    ...
-
-    //测试取消上传
-    //if((totalBytesWritten*100 / totalBytesExpectedToWrite) > 50){[connection cancel];}
- }
+//获取本地cookie
+NSHTTPCookieStorage *httpCookiesStorage =  [NSHTTPCookieStorage sharedHTTPCookieStorage];
+NSDictionary *cookies = [httpCookiesStorage cookiesForURL:[NSURL URLWithString:@"http://localhost/"]];
+for (NSHTTPCookie *cookie in cookies) {
+    NSLog(@"cookie:%@",cookie);
+}
 ````
 
-测试当上传进度到50%的时候，取消文件上传。
 
-请用大一点的图片进行测试，因为这段代码是有bug的，当文件太小不会进入这个委托方法。
+### 客户端设置本地cookie
+
+````objc
+
+//客户端设置cookie
+-(void)clientSetCookie{
+
+    NSDictionary *prop1 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @"a",NSHTTPCookieName,
+                           @"aaa",NSHTTPCookieValue,
+                           @"/",NSHTTPCookiePath,
+                           [NSURL URLWithString:@"http://localhost/"],NSHTTPCookieOriginURL,
+                           [NSDate dateWithTimeIntervalSinceNow:60],NSHTTPCookieExpires,
+                           nil];
+
+    NSDictionary *prop2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @"b",NSHTTPCookieName,
+                           @"bbb",NSHTTPCookieValue,
+                           @"/",NSHTTPCookiePath,
+                           [NSURL URLWithString:@"http://localhost/"],NSHTTPCookieOriginURL,
+                           [NSDate dateWithTimeIntervalSinceNow:60],NSHTTPCookieExpires,
+                           nil];
+
+    NSHTTPCookie *cookie1 = [NSHTTPCookie cookieWithProperties:prop1];
+    NSHTTPCookie *cookie2 = [NSHTTPCookie cookieWithProperties:prop2];
+
+    //单个设置
+//    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie1];
+//    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie2];
+
+    //批量设置
+    NSArray *cookies = @[cookie1,cookie2];
+    [[NSHTTPCookieStorage sharedHTTPCookieStorage]setCookies:cookies forURL:[NSURL URLWithString:@"http://localhost/"] mainDocumentURL:nil];
+
+    NSLog(@"设置完成");
+}
+
+````
+
+说明：
+-   设置好了之后，下次请求url时会自动带入cookie中的数据
+-   ````[NSDate dateWithTimeIntervalSinceNow:60]````是设置1分钟后超时
+-   可以一个个设置也可以使用setCookies批量设置
+-  mainDocumentURL： The URL of the main HTML document for the top-level frame, if known. Can be nil. This URL is used to determine if the cookie should be accepted if the cookie accept policy is NSHTTPCookieAcceptPolicyOnlyFromMainDocumentDomain
+
+###  删除cookie
+
+````objc
+- (void)deleteCookie:(NSHTTPCookie *)cookie;
+- (void)removeCookiesSinceDate:(NSDate *)date NS_AVAILABLE(10_10, 8_0);
+````
+
+我们来示范如何删除cookie
+
+````objc
+    #pragma mark -客户端删除cookie
+    //根据url和name删除cookie
+    -(void)deleteCookie:(NSString *)cookieName url:(NSURL *)url{
+        //根据url找到所属的cookie集合
+        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage]cookiesForURL:url];
+        for (NSHTTPCookie *cookie in cookies) {
+            if([cookie.name isEqualToString:cookieName]){
+                [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+                NSLog(@"删除cookie:%@",cookieName);
+            }
+        }
+    }
+    //删除全部cookies
+    -(void)deleteCookies{
+        for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage]cookies]) {
+            [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+        }
+        NSLog(@"删除完成");
+    }
+````
+
+
+### cookie的本地缓存策略
+
+````objc
+//设置cookie本地缓存策略
+//NSHTTPCookieAcceptPolicyAlways:保存所有cookie，这个是默认值
+//NSHTTPCookieAcceptPolicyNever:不保存任何响应头中的cookie
+//NSHTTPCookieAcceptPolicyOnlyFromMainDocumentDomain:只保存域请求匹配的cookie
+````
+
+我们测试一下效果：
+````[[NSHTTPCookieStorage sharedHTTPCookieStorage]setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyNever];````
+
+![](http://images.jumppo.com/uploads/2016-02-13-ios-networking-5_1.png)
+
+这样设置之后，调用demo中的 ````客户端设置cookie```` ，在调用````从服务端获取cookie````，最后调用````打印客户端cookie````，查看日志：
+
+````
+
+````
+
+我们可以看到，客户端没有打印任何cookie，因为设置的策略为：````NSHTTPCookieAcceptPolicyNever````
+
+我们在修改为````NSHTTPCookieAcceptPolicyAlways 或是 NSHTTPCookieAcceptPolicyOnlyFromMainDocumentDomain````，再次测试一次，可以看到，服务端和客户端设置的cookie都会打印出来。这两个选项会针对不同域名返回的cookie做选择性保存。
+
+````
+2016-02-14 00:59:47.030 network-demo[21191:1810897] cookie:<NSHTTPCookie version:0 name:"a" value:"aaa" expiresDate:2016-02-13 17:00:32 +0000 created:2016-02-13 16:59:32 +0000 sessionOnly:FALSE domain:"localhost" path:"/" isSecure:FALSE>
+2016-02-14 00:59:47.030 network-demo[21191:1810897] cookie:<NSHTTPCookie version:0 name:"b" value:"bbb" expiresDate:2016-02-13 17:00:32 +0000 created:2016-02-13 16:59:32 +0000 sessionOnly:FALSE domain:"localhost" path:"/" isSecure:FALSE>
+2016-02-14 00:59:47.030 network-demo[21191:1810897] cookie:<NSHTTPCookie version:0 name:"d" value:"001" expiresDate:(null) created:2016-02-13 16:59:38 +0000 sessionOnly:TRUE domain:"localhost" path:"/" isSecure:FALSE>
+2016-02-14 00:59:47.031 network-demo[21191:1810897] cookie:<NSHTTPCookie version:0 name:"e" value:"1112" expiresDate:(null) created:2016-02-13 16:59:38 +0000 sessionOnly:TRUE domain:"localhost" path:"/" isSecure:FALSE>
+2016-02-14 00:59:47.031 network-demo[21191:1810897] cookie:<NSHTTPCookie version:0 name:"f" value:"2222" expiresDate:2016-02-13 17:00:38 +0000 created:2016-02-13 16:59:38 +0000 sessionOnly:FALSE domain:"localhost" path:"/" isSecure:FALSE>
+````
+
+
+
+## 使用cookie的注意点
+
+### Cookie的性能影响
+由于Cookie的实现机制，除非Cookie过期，否则浏览器每次请求都会向服务器发送Cookie，一旦Cookie设置过多，会导致请求报头过大，造成带宽的浪费。因此，对Cookie的性能优化也是值得关注的一个问题。如何进行性能优化？
+
+-   减小Cookie的大小
+-   为不需要Cookie的组件换个域名，以减少无效Cookie的传输
+-   减少DNS查询
+
 
 
 ## demo
@@ -529,9 +309,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
 
 ## 参考阅读
 
--   [iOS原生文件上传](http://www.jianshu.com/p/4e768bc9503a)
--   [iOS开发网络篇—文件的上传](http://www.cnblogs.com/wendingding/p/3949966.html)
--   [自己动手写一个 iOS 网络请求库（四）——快速文件上传](https://lvwenhan.com/ios/457.html)
--   [Multipart/form-data POST文件上传详解](http://blog.csdn.net/xiaojianpitt/article/details/6856536)
--   [nodejs 文件上传/下载功能实现](http://hzxiaosheng.bitbucket.org/work/2014/03/09/download-and-upload-file-with-nodejs/)
--   [Node.js：文件上传简单demo](http://kirochen.com/2015/07/21/upload-demo-formidable/)
+-   [node.js操作Cookie](http://www.tuicool.com/articles/F3UF7n)
+-   [【深入浅出NodeJS】Cookie&Session机制详解#1](http://www.jianshu.com/p/51d85be2e0e8)
+-   [nodejs api](https://nodejs.org/docs/latest/api/http.html)
+-   jack Cox[M] iOS网络高级编程-iphone和ipad企业应用开发 张龙 译．-北京 清华大学出版社，2014(2015.8重印)
