@@ -228,4 +228,5 @@ https的认证过程，在NSURLConnection中使用NSURLConnectionDelegate中的�
 
 ## 参考阅读
 
--[](http://www.jianshu.com/p/4b5d2d47833d)
+-   [iOS - HTTPS](http://www.jianshu.com/p/4b5d2d47833d)
+-   [iOS 网络通信](http://iyiming.me/blog/2015/01/10/ios-wang-luo-tong-xin/)
