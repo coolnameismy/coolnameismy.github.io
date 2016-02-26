@@ -44,3 +44,11 @@ http://www.cnblogs.com/kenshincui/p/4186022.html#mpMoviePlayerController
 
 
 ## js测试框架
+
+UI测试框架 [PhantomJS](http://phantomjs.org)
+
+单测 mocha，jasmine
+
+
+https://www.zhihu.com/question/29922082
+
