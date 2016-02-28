@@ -1,0 +1,35 @@
+## block用法
+
+
+## block作为参数的注意事项
+-   参数放在最后
+-   不要同时包含成功和失败
+-   block参数类型
+````
+dispatch_block_t completionBlock = ^{
+    NSLog(@"%@", self);
+}
+
+MyViewController *myController = [[MyViewController alloc] init...];
+[self presentViewController:myController
+                   animated:YES
+                 completion:completionHandler];
+````
+-   block定义可以使用detype
+-   block作为返回值类型，实现objc的链式方法使用
+-   block中self使用的三种情况
+````
+-	直接在 block 里面使用关键词 self
+-	在 block 外定义一个 __weak 的 引用到 self，并且在 block 里面使用这个弱引用
+-	在 block 外定义一个 __weak 的 引用到 self，并在在 block 内部通过这个弱引用定义一个 __strong 的引用。
+````
+-   block使用的作用于关键词
+-   dispatch_block_t可以表示一个无参数和返回值的block
+
+
+
+## 参考
+
+https://github.com/oa414/objc-zen-book-cn
+https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Blocks/Articles/bxVariables.html#//apple_ref/doc/uid/TP40007502-CH6-SW4
+https://github.com/jspahrsummers/libextobjc

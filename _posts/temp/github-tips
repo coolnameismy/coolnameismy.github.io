@@ -102,3 +102,7 @@ $ git config -e --system        #打开系统配置
 
 ## github labels的用法
 
+
+## 下载远程分支到本地
+
+````git co origin/CodeingStandard : CodeingStandard````
