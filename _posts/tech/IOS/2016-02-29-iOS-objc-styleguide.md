@@ -24,17 +24,20 @@ description:
 
 ## 最佳实践
 -	不要使用尤达表达式
+
 ````objc
 //尤达是星球大战中的jidi武师，他说话的语法都是很奇怪的倒装句，这里泛指这样的代码
 if ([@8 isEqual:a]) // 错误
 if ([a isEqual:@8]) // 正确
 ````
 -	不要和YES,NO,Nil这些值做比较
+
 ````objc
 if (great == YES) //错误
 if (great)        //正确
 ````
 -	不过过度使用if嵌套，有时可以用return减少if嵌套
+
 ````
 - (void)someMethod {
   if (![someOther boolValue]) {
@@ -47,6 +50,7 @@ if (great)        //正确
 -	三元运算符 ? 应该只用在它能让代码更加清楚的地方
 -	注意stong，weak，copy，assign的正确使用
 -   尽量避免使用c的基本类型 ，例如：
+
 ````
   int -> NSInteger
   unsigned -> NSUInteger
@@ -58,6 +62,7 @@ if (great)        //正确
 -	工厂方法或类构造器方法，返回类型需要使用instancetype而不要用id类型，方法中需要使用 [[xxx class]alloc] init]方法构造对象而不要用[[XXXClass alloc]init]
 -	永远不要在```` init dealloc ````方法中使用 getter，setter，.属性等，你应当直接访问实例变量
 -	类的构成方法（init方法）需要遵守Designated Secondary原则。这点在swift中被强制规定init和convenience构造方法。
+
 ````
 designated 初始化方法一般提供所有的参数，有且只有一个，而secondary 初始化方法是一个或多个，并且提供一个或者更多的默认参数来调用 designated初始化方法
 ````
@@ -67,16 +72,19 @@ designated 初始化方法一般提供所有的参数，有且只有一个，而
 -   永远不从 designated initializer 里面调用一个 secondary initializer
 -	注意初始化模式的合理使用（类簇，单例）
 -	合理使用懒加载Lazy loading
+
 ````
 当实例化一个对象需要耗费很多资源，或者配置一次就要调用很多配置相关的方法而你又不想弄乱这些方法时，我们需要重写 getter 方法以延迟实例化
 ````
--	要重写类的相等性时，需要同时实现isEqual 和 hash方法
+-	要重写类的相等性时，需要同时实现isEqual和hash方法
 -	常量推荐静态常量的声明，如果要暴露给外部，使用extern关键词，例如：
+
 ````objc
 extern NSString *const ZOCCacheControllerDidClearCacheNotification;
 static NSString * const ZOCCacheControllerDidClearCacheNotification = @"ZOCCacheControllerDidClearCacheNotification";
 ````
 -	定义你自己的 NSNotification 的时候你应该把你的通知的名字定义为一个字符串常量
+
 ````objc
 // Foo.h
 extern NSString * const ZOCFooDidBecomeBarNotification
@@ -84,19 +92,33 @@ extern NSString * const ZOCFooDidBecomeBarNotification
 NSString * const ZOCFooDidBecomeBarNotification = @"ZOCFooDidBecomeBarNotification";
 ````
 -	objc中可以合理使用代码块的特性，使局部变量更清晰
+
+````objc
+//代码块如果在闭合的圆括号内的话，会返回最后语句的值
+NSURL *url = ({
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@", baseURLString, endpoint];
+    [NSURL URLWithString:urlString];
+});
+````
 -	合理使用Pragma Mark区分：不同功能组的方法，protocols 的实现，对父类方法的重写,View 的生命周期,自定义访问器,
 -	方法注释最好用/** 开头，换行后第一句写方法的一句话描述，空一行后在写余下的描述，可以使用 | 来引用注释中的变量名及符号名而不是使用引号，例如```` // Sometimes we need |count| to be less than zero. ````
 -	函数定义中的block参数应该尽量放到最后一个参数，把需要提供的数据和错误信息整合到一个单独 block 中，比分别提供成功和失败的 block 要好
+
+````objc
+- (void)downloadObjectsAtPath:(NSString *)path
+                   completion:(void(^)(NSArray *objects, NSError *error))completion;
+````
 -	函数定义中的error参数，尽可能方法函数的最后一个函数，并且遵循，数据为空，那么error不为nil，和error不为空，数据必须为空
 -	block合理的使用self，weakself，strongSelf
+
 ````
 一般来说：如果block不是属性则使用self，是属性但block中调用单个self的方法时用weakSelf，多个方法用strongSelf
 ````
 -	block如果一行可以写完块，则没必要换行,块内的代码须按 4 空格缩进,果块太长，比如超过 20 行，建议把它定义成一个局部变量，然后再使用该变量,
 -	不要使用new方法创建对象
 
-## 命名规范
 
+## 命名规范
 ###  方法的命名：
 -	不要使用and连接参数，第一个参数可以用with，若有动词可以使用for,委托用did，will表示状态
 -	如果方法表示让对象执行一个动作，使用动词打头来命名
