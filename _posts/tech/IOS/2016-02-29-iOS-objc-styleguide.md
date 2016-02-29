@@ -38,7 +38,7 @@ if (great)        //正确
 ````
 -	不过过度使用if嵌套，有时可以用return减少if嵌套
 
-````
+````objc
 - (void)someMethod {
   if (![someOther boolValue]) {
       return;
@@ -51,7 +51,7 @@ if (great)        //正确
 -	注意stong，weak，copy，assign的正确使用
 -   尽量避免使用c的基本类型 ，例如：
 
-````
+````objc
   int -> NSInteger
   unsigned -> NSUInteger
   float -> CGFloat
@@ -101,7 +101,10 @@ NSURL *url = ({
 });
 ````
 -	合理使用Pragma Mark区分：不同功能组的方法，protocols 的实现，对父类方法的重写,View 的生命周期,自定义访问器,
--	方法注释最好用/** 开头，换行后第一句写方法的一句话描述，空一行后在写余下的描述，可以使用 | 来引用注释中的变量名及符号名而不是使用引号，例如```` // Sometimes we need |count| to be less than zero. ````
+-	方法注释最好用/** 开头，换行后第一句写方法的一句话描述，空一行后在写余下的描述，
+还可以使用 | 来引用注释中的变量名及符号名而不是使用引号，例如
+```` // Sometimes we need |count| to be less than zero. ````
+
 -	函数定义中的block参数应该尽量放到最后一个参数，把需要提供的数据和错误信息整合到一个单独 block 中，比分别提供成功和失败的 block 要好
 
 ````objc
