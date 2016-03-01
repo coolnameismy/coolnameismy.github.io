@@ -51,19 +51,18 @@ UI测试框架 [PhantomJS](http://phantomjs.org)
 
 单测 mocha，jasmine
 
-
 https://www.zhihu.com/question/29922082
 
 
 ## libextobjc阅读和实现
 -   @weakify(self); 的实现！
--
-
-##  iOS高仿爱鲜蜂（Swift2.0）代码复刻阅读和学习
-http://www.cocoachina.com/swift/20160216/15285.html
 
 
-## objc代码规范
+##  [iOS高仿爱鲜蜂（Swift2.0）代码复刻阅读和学习](http://www.jianshu.com/p/879f58fe3542)
+
+
+## 抓包工具charles使用
+-   [charles使用教程指南](http://www.2cto.com/Article/201406/310928.html)
 
 
 
