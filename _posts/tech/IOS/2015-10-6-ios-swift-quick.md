@@ -9,9 +9,9 @@ description:
 
 > 国庆在家,又把swift相关语法部分看了一遍，并整理了swift语法速记，帮助我们快速记住swift语法和查找对应语法。
 
-#(一)类型
+#  (一)类型
 
-##常见类型
+##  常见类型
 
 ````swift
 Int,String,Double,struct,enum,class,tuple
@@ -113,7 +113,7 @@ for (key,value) in dictionary{
 
 ````
 
-##枚举enum
+##  枚举enum
 ````swift
 
 //整形的枚举
@@ -137,7 +137,7 @@ Sharp.RawValue(1)
 Sharp.Rect.desc()
 
 ````
-##结构struct
+##  结构struct
 
 ````swift
 //结构
@@ -157,7 +157,7 @@ struct Sharp{
     }
 }
 ````
-##协议
+##  协议
 
 ````swift
 
@@ -182,7 +182,7 @@ protocol Sharp{
 
 ````
 
-##对象
+##  对象
 
 ````swift
 class Card: NSObject {
@@ -295,11 +295,11 @@ class Person: NSObject {
 ````
 
 
-#（二）语法
+#   （二）语法
 
-##流程控制
+##  流程控制
 
-###if语句
+### if语句
 
 ````swift
 
@@ -310,7 +310,7 @@ if let theStr = str2 {
 
 ````
 
-###switch
+### switch
 
 ````swift
 //switch 数字区间
@@ -363,7 +363,7 @@ switch num {
 
 
 
-##函数
+##  函数
 
 ````swift
 
@@ -447,7 +447,7 @@ func myswap<T>(inout obj1:T,inout _ obj2:T){
 
 ````
 
-##闭包
+##  闭包
 
 ````swift
 
@@ -506,7 +506,7 @@ touch()//4
 
 
 
-## 异常处理
+##  异常处理
 
 ````swift
 enum AwfulError: ErrorType {
@@ -536,7 +536,7 @@ catch  {
     print("all error")
 }
 ````
-## 断言
+##  断言
 
 ````swift
 assert(assert(<condition:Bool Bool>)
@@ -544,17 +544,17 @@ assert(<condition: Bool Bool>, <message: String String>)
 assertionFailure()
 assertionFailure(<message: String String>)
 ````
-## typealias
+##  typealias
 > 这个关键字可以给类，结构，枚举等增加别名，也常常用于合并协议后的别名
 typealias PetLike = protocol<KittenLike, DogLike>
 
-## 编译标记
+##  编译标记
 //MARK :
 //MARK -:
 // TODO:
 // FIXME:
 
-## Selector
+##  Selector
 > objc里面有@Selector(),在swift可以使用 let someMethod = Selector("someMethodName")得到。大多数情况无需这样
 
 ````swift
@@ -574,7 +574,7 @@ typealias PetLike = protocol<KittenLike, DogLike>
 
 ````
 
-## 扩展
+##  扩展
 
 ````swift
 extension Person{
@@ -583,7 +583,7 @@ extension Person{
     }
 }
 ````
-## OptionSetType
+##  OptionSetType
 
 OptionSetType是NSOption在swift的替代
 
@@ -606,10 +606,10 @@ public struct UIViewAutoresizing : OptionSetType {
 
 ````
 
-#（三）高级
+# （三）高级
 
 
-##柯里化 (Currying)
+##  柯里化 (Currying)
 > 柯里化是一种量产类似方法的好办法，可以通过柯里化一个方法模板来避免写出很多重复代码
 
 ````swift
@@ -620,7 +620,7 @@ let addToFour = addTwoNumbers(4)    // addToFour 是一个 Int -> Int
 let result = addToFour(num: 6)      // result = 10
 ````
 
-## 封装局部变量
+##  封装局部变量
 > 封装局部变量可以减少变量之间的冲突
 
 ````swift
@@ -632,7 +632,7 @@ var str:String = {
 ````
 
 
-## 方法调用的另一种方式
+##  方法调用的另一种方式
 
 ````swift
 
@@ -665,7 +665,7 @@ funcOnPerson2()
 
 ````
 
-##swift单例标准写法
+##  swift单例标准写法
 
 ````swift
 
@@ -678,7 +678,7 @@ class MyManager  {
 
 ````
 
-#最后
+#   最后
 
 此速记已经收录在[ios-tips](https://github.com/coolnameismy/ios-tips)中。
 
@@ -692,7 +692,7 @@ class MyManager  {
 
 目前已经整理完0_Foundation，开始整理UIKit。也欢迎大家给ios-tips补充内容。
 
-##补充要求
+##  补充要求
 1.  格式是md
 2.  tips都很简短，不要涉及复杂的原理和方法
 
