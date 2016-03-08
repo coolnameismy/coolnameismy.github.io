@@ -21,10 +21,10 @@ description:
 如果大家支持，请follow我的github账号，并fork我的项目，有其他问题可以在github上给我留言或者给我发邮件，coolnameismy@hotmail.com，blog的RSS订阅地址：http://liuyanwei.jumppo.com/pages/rss.xml
 
 
-##基础知识
+##  基础知识
 ---
 
-### 1.线程和进程 ,多线程
+###  1.线程和进程 ,多线程
 
 **线程和进程**：网上有一大堆很专业的说法，大多数说的都比较复杂，越复杂的解释其实说的越准确和严谨，但是常常会把人弄糊涂。这里我也不去解释了，大多数场景你可以理解为，一个应用程序就是一个进程，而一个进程可以分为多个线程
 
@@ -71,7 +71,7 @@ description:
 很容易实现异步队列操作，相比GCD比较简单，但功能任然没有GCD强大
 
 
-##代码例子
+##  代码例子
 ---
 
 代码注释写的很全，大家直接看注释都能懂，可以在github上把代码下载下来跑跑看。
@@ -521,10 +521,10 @@ queue也有对应的方法，叫做````waitUntilAllOperationsAreFinished````
 
 
 
-##代码下载:
+##  代码下载:
 
-####我博客中大部分示例代码都上传到了github，地址是：https://github.com/coolnameismy/demo，[点击跳转代码下载地址](https://github.com/coolnameismy/demo)
-####本文代码存放目录是ThreadAndAsynchronization
+####    我博客中大部分示例代码都上传到了github，地址是：https://github.com/coolnameismy/demo，[点击跳转代码下载地址](https://github.com/coolnameismy/demo)
+####    本文代码存放目录是ThreadAndAsynchronization
 
 ## 最后
 

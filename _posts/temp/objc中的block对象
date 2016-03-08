@@ -30,6 +30,6 @@ MyViewController *myController = [[MyViewController alloc] init...];
 
 ## 参考
 
-https://github.com/oa414/objc-zen-book-cn
-https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Blocks/Articles/bxVariables.html#//apple_ref/doc/uid/TP40007502-CH6-SW4
-https://github.com/jspahrsummers/libextobjc
+-   https://github.com/oa414/objc-zen-book-cn
+-   https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Blocks/Articles/bxVariables.html#//apple_ref/doc/uid/TP40007502-CH6-SW4
+-   https://github.com/jspahrsummers/libextobjc

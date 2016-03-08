@@ -19,15 +19,15 @@ description:
 - livesytle 配置和使用
 
 
-## ios
--	IOS 图片拉伸
+## iOS
+-	iOS 图片拉伸
 -	cocoa 2d 概念学习，初步了解
 -	iOS api 对象请求
 -	uiPageViewController使用
 -	预编译文件的使用
 -	预编译的常用方法
 -	故事版高级使用
--	ios蓝牙通讯概念
+-	iOS蓝牙通讯概念
 
 ## java
 -	java 项目tomcat的部署  mac

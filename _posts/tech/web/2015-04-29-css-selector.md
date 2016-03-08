@@ -6,7 +6,7 @@ tags: css,html
 description: css选择器参考
 ---
 
-# css选择器
+#  css选择器
 > css选择器用好了可以减少需要js的代码，css选择器也很容易记，和jquery差不多，能用css解决的尽可能用css，少用js
 
 

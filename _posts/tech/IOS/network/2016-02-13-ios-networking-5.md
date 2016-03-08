@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ios networking（五）网络请求中的cookie
+title: iOS networking（五）网络请求中的cookie
 category: iOS
 tags:
 keywords:
@@ -103,7 +103,7 @@ console.log("client cookie:"+req.headers.cookie);
 我们这里的方法都是最底层的htpp模块的方法。
 
 
-## 客户端ios 操作cookie
+## 客户端iOS 操作cookie
 ---
 
 ### 获取服务端返回的cookie
@@ -160,7 +160,7 @@ client cookie:d=001; e=1112
 ````
 
 可以看到请求头中获取到了cookie： ````client cookie:d=001; e=1112 ```` 。
-但是这里有个问题，我少了一个key为f的cookie，那是因为f的cookie已经过期了。再看之前ios模拟器打印的过期时间和服务返回的时间有8小时时差，这个应该是
+但是这里有个问题，我少了一个key为f的cookie，那是因为f的cookie已经过期了。再看之前iOS模拟器打印的过期时间和服务返回的时间有8小时时差，这个应该是
 服务端的时间制式和客户端的制式不同导致的吧，已经搞mongodb的时候也遇到过，这里不用纠结这些小问题了，反正就是过期了。
 
 

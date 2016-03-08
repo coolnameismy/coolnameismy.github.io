@@ -1,8 +1,8 @@
 ---
 layout: post
-title: ios networking（一） http同步请求
+title: iOS networking（一） http同步请求
 category: iOS
-tags: ios
+tags: iOS
 keywords:
 description:
 ---
@@ -99,7 +99,7 @@ function sleep(milliSeconds) {
 
 ````
 
-然后我们修改一下ios程序，加一个定时器，没秒钟输出一个log，判断主线程是否阻塞
+然后我们修改一下iOS程序，加一个定时器，没秒钟输出一个log，判断主线程是否阻塞
 
 ````objc
 [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:YES];

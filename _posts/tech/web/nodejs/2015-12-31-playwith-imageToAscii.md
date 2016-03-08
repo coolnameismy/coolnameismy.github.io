@@ -24,22 +24,22 @@ description:
 
 很有意思吧？ 下面我们来看看怎么实现的，主要分为这几个步骤去说明：
 
-## 配置环境，安装必要的插件
+##  配置环境，安装必要的插件
 
 image-to-ascii 依赖于 [Graphics Magick](http://www.graphicsmagick.org/)，所以我们先安装[Graphics Magick](http://www.graphicsmagick.org/)
 
 ````
-# Ubuntu
+#  Ubuntu
 $ sudo apt-get install graphicsmagick
 
-# Fedora
+#  Fedora
 $ sudo dnf install GraphicsMagick
 
-# OS X
+#  OS X
 $ brew install graphicsmagick
 
-# Chocolatey (package manager for Windows)
-# (Restart of cmd/PowerShell is required)
+#  Chocolatey (package manager for Windows)
+#  (Restart of cmd/PowerShell is required)
 $ choco install graphicsmagick
 
 ````
@@ -112,7 +112,7 @@ have fun ~
 本文示例demo见 [demo-web](https://github.com/coolnameismy/images-to-ascii)
 
 
-## 最后
+##  最后
 
 
 刘彦玮原创，转载请注明出处

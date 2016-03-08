@@ -140,7 +140,7 @@ Apache好比是微软Word，它有100万个选项，但是你只需要其中6个
 ````
 
 
-## 参考
+##  参考
 
 -   [在mac os x 10.9.2上安装nginx](http://blog.csdn.net/eagle_naixue/article/details/26063871)
 -   [nginx配置](http://blog.csdn.net/joeblackzqq/article/details/45925995)

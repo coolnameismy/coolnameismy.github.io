@@ -68,12 +68,12 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 ##  handlebars的用法
 ---
 
-### 显示模板中的html 
+###  显示模板中的html
 
 若数据中有html，如： ```` { "title":"aaa","content":"<h1>h1</h1>"} ```` 则模板绑定{{}}时会显示 ```` "<h1>h1</h1>" ```` 内容
 使用三对大括号{{{ }}} 可以显示 html效果
 
-###	Block表达式
+### 	Block表达式
 
 有时候当你需要对某条表达式进行更深入的操作时，Blocks就派上用场了，在Handlebars中，你可以在表达式后面跟随一个#号来表示Blocks，然后通过{{/表达式}}来结束Blocks。
 如果当前的表达式是一个数组，则Handlebars会“自动展开数组”，并将Blocks的上下文设为数组中的元素。
@@ -108,7 +108,7 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 
 ````
 
-###	遍历
+###	 遍历
 
 ````
 	  { {#each this}}
@@ -146,7 +146,7 @@ handlebars是一款前端模板引擎，使用模板引擎的作用是，可以�
 ````
 
 
-### if else,unless，with
+###  if else,unless，with
 
 ````
 { {#if list}}
@@ -164,11 +164,11 @@ unless和if意思正好相反，语法使用是相同的
 
 with是判断属性是否存在，存在则绑定数据，不存在则不绑定
 
-###  注释
+###   注释
 
 ````    { {! handlebars comments } }    ````
 
-###  Path
+###   Path
 
 ````
 . :子属性
@@ -256,7 +256,7 @@ andlebars.registerHelper({
 ````
 
 
-### hash参数
+###  hash参数
 
 在helper方法内部，可以通过hash获取到方法的上下文参数，举个例子:
 
@@ -367,7 +367,7 @@ handlebars预编译依赖于handlebars插件，安装方式：
 -   [极客标签视频教程](http://www.gbtags.com/gb/gbliblist/7.htm)
 -   [Handlebars.js 模板引擎](http://caibaojian.com/handlebars-js.html)
 
-## 最后
+##  最后
 
 刘彦玮原创，转载请注明出处
 

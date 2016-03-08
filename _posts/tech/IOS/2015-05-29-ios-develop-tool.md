@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 提高IOS开发效率的工具
+title: 提高iOS开发效率的工具
 category: iOS
-tags: IOS,pod,cocoapods,Xcode插件
+tags: iOS,pod,cocoapods,Xcode插件
 description:
 ---
 
->   ios开发中又很多可以提高开发效率的工具，这篇文章整理我使用提高效率的工具，如果你也有一些好的工具，可以向我推荐一下。
+>   iOS开发中又很多可以提高开发效率的工具，这篇文章整理我使用提高效率的工具，如果你也有一些好的工具，可以向我推荐一下。
 
 -1  源代码依赖管理工具cocoaPods
 
@@ -14,7 +14,7 @@ description:
 
 ## 1:源代码依赖管理工具cocoaPods
 
->   以来管理工具有很多，例如java的maven，android的gradle，js的bower，ios中的cocaPods。他们可以帮你下载第三方包
+>   以来管理工具有很多，例如java的maven，android的gradle，js的bower，iOS中的cocaPods。他们可以帮你下载第三方包
 >   并管理这些包的依赖关系。
 
 ---

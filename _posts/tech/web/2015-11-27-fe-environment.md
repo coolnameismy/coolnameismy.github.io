@@ -13,7 +13,7 @@ description:
 
 本文重点在于环境安装，具体插件和包的使用可以请教度娘。
 
-## node.js环境安装
+##  node.js环境安装
 ---
 
 node.js这个名字看起来像是一个js库的名字，实际上差的很远。简单的说，nodejs是一个c++写的一个解释器，用于把javascript转换成电脑或服务器上可执行的代码。一般用来开发服务端代码或者是作为开发计算机脚本。前端工程师用nodejs主要是因为nodejs环境可以给前端开发带来方便
@@ -60,7 +60,7 @@ npm install -g bower
 
 推荐阅读：[npm-run自动化任务](http://segmentfault.com/a/1190000000344102)
 
-## ruby环境安装
+##  ruby环境安装
 ---
 
 [window用户可以参考这篇文章](http://jingyan.baidu.com/article/6c67b1d6e421e62787bb1ef8.html?pu=sz&st=2&bd_page_type=0&os=&rst=4)
@@ -106,14 +106,14 @@ $ gem sources -l  //验证成功
 
 ````
 
-## 推荐前端工程师使用的工具
+##  推荐前端工程师使用的工具
 ---
 
 -	bower
 -	gulp.js
 -	http-server
 
-###  [bower](http://bower.io/)
+###   [bower](http://bower.io/)
 >	前端包依赖和管理工具
 
 安装： npm install -g bower
@@ -122,7 +122,7 @@ $ gem sources -l  //验证成功
 -   [bower解决js的依赖管理](http://blog.fens.me/nodejs-bower-intro/)
 
 
-###  [gulp.js](http://www.gulpjs.com.cn/)
+###   [gulp.js](http://www.gulpjs.com.cn/)
 >	用自动化构建工具增强你的工作流程!
 
 安装： npm install --global gulp
@@ -158,7 +158,7 @@ gem sources -a http://ruby.taobao.org/     //增加
 [教程](http://www.w3cplus.com/sassguide/)
 
 
-## 前端工程师的IDE
+##  前端工程师的IDE
 ---
 
 - sublime text 3
@@ -196,7 +196,7 @@ webStorm是一个很好用的前端开发IDE，功能很全，而Sublime只是�
 
 
 
-### package control 
+###  package control
 >	sublime包安装功能扩展，有了他，再去用这个工具去安装其他的包就很方便了，所以必须先装
 
 [packagecontrol官网](https://packagecontrol.io/)
@@ -220,7 +220,7 @@ window:ctrl + alt + p 输入 install ,选择install package, 然后查找自己�
 安装好package就用它把之前推荐的插件都安装一下，具体插件的使用可以请教一下百度君
 
 
-### Theme - Brogrammer
+###  Theme - Brogrammer
 >   一个好看的sublime主题
 
 ![](https://packagecontrol.io/readmes/img/f50256299064364747f8c579288fdad31c6d688f.png)

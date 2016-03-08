@@ -21,10 +21,10 @@ description:
 
 ---
 
-#### 画出来的草图：
+####  画出来的草图：
 ![草图](https://geekpics.net/images/2015/07/25/aNRFGp.jpg)
 
-#### 代码下载:github库，对应此文章的目录是draw [点击跳转代码下载地址](https://github.com/coolnameismy/demo)
+####  代码下载:github库，对应此文章的目录是draw [点击跳转代码下载地址](https://github.com/coolnameismy/demo)
 
 ## 1:ios绘图基础
 ---

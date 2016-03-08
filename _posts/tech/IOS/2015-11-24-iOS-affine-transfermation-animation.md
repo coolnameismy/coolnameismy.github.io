@@ -12,7 +12,7 @@ description:
  在iOS动画和特效专题（六）中有用到仿射变换的内容，这一篇专门来研究一下仿射变换，已经在iOS中的使用。在我写这章内容前我也
 对仿射变换一无所知，也是查了一下资料作和看了许多别人的解释，才慢慢了解。和大家一起学习，若有写的不正确的地方也欢迎指出。
 
-## table of content
+##  table of content
 
 -   仿射是什么
 -   仿射变换的原理和计算
@@ -97,11 +97,11 @@ description:
 以上面的缩放仿射变化CGAffineTransformScale为例。就是view中每一个点p通过矩阵C后，view中的每一个新的点p'组成的新的图形，相比之前的view有了缩放的效果。
 
 
-##  仿射变换的原理和计算
+##   仿射变换的原理和计算
 
 仿射变化原理是数学中的矩阵原理（线性代数、矩阵分析。感慨之前为什么没好好学这门课。。。 自己看这个仿射矩阵画了好多时间才弄明白怎么回事，还补了补基础的矩阵计算知识），要弄明白仿射矩阵对作用点的影响，还得先看看矩阵的乘法怎么计算。
 
-### 基础-矩阵的乘法
+###  基础-矩阵的乘法
 
 ````
 
@@ -140,7 +140,7 @@ description:
 3. ：结果矩阵C的第 i 行第 j 列的元素Cij  等于矩阵A的第 i 行的元素与矩阵B的第 j 列对应元素乘积之和
 
 
-### 仿射变换的矩阵计算
+###  仿射变换的矩阵计算
 
 仿射计算中，（以二维坐标为例，坐标点为x,y）我们设我们的坐标点矩阵为
 
@@ -186,7 +186,7 @@ y' = b*x + d*y + ty
 
 ![](http://my.csdn.net/uploads/201205/07/1336349566_2134.jpg)
 
-### 平移（Translation）
+###  平移（Translation）
 
 设a,d=1  c,b = 0 那么
 
@@ -241,7 +241,7 @@ let translate = CGAffineTransformMake(1,0,0,1,300,0)
 这下应该能明白仿射基础矩阵的意思了，如果没明白，从头在看一遍吧
 
 
-### 缩放（Scale）
+###  缩放（Scale）
 
 ````
 x' = a*x + c*y + tx
@@ -289,7 +289,7 @@ let scaleAffine = CGAffineTransformMake(2,0,0,2,0,0)
 
 ````
 
-### 剪切（Shear）
+###  剪切（Shear）
 
 ````
 x' = a*x + c*y + tx
@@ -388,7 +388,7 @@ let flipZ = CATransform3DMakeRotation(CGFloat(M_PI), 0, 0, 1)
 
 
 
-## 仿射在iOS中常用的方法
+##  仿射在iOS中常用的方法
 
 
 ````swift
@@ -511,7 +511,7 @@ let flipZ = CATransform3DMakeRotation(CGFloat(M_PI), 0, 0, 1)
 ````
 
 
-## demo
+##  demo
 ---
 
 [本文的demo下载](https://github.com/coolnameismy/demo/AffineTransform)

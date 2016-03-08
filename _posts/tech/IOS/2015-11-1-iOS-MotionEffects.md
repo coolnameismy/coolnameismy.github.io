@@ -58,7 +58,7 @@ ui元素绑定效果后，设备水平角度改变，就会对应修改keyPath�
 ## iOS上完成github404页面的Effect
 ---
 
-###步骤1：画界面
+### 步骤1：画界面
 
 ````swift
 
@@ -109,7 +109,7 @@ ui元素绑定效果后，设备水平角度改变，就会对应修改keyPath�
 ````
 
 
-###步骤2：设置motionEffect
+### 步骤2：设置motionEffect
 
 ````swift
 

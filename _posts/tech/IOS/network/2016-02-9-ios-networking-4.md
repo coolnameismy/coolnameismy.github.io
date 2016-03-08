@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ios networking（四） http异步文件上传和下载以及进度指示
+title: iOS networking（四） http异步文件上传和下载以及进度指示
 category: iOS
 tags:
 keywords:
@@ -43,7 +43,7 @@ description:
     }
 ````
 
-### ios请求下载文件流
+### iOS请求下载文件流
 
 ````objc
 //http下载文件流
@@ -209,7 +209,7 @@ description:
  数据在url中，如果post请求，数据默认放在请求体中。然后默认的````x-www-form-urlencoded````头并不能上传文件，上传文件需要
  设置头为：```` Content-Type:multipart/form-data; boundary=YY ```` ，boundary用于标识边界，可以自定义，使用时前面需要加上两个--，例如："--YY"
 
-我们在ios上传文件时需要这样设置请求头
+我们在iOS上传文件时需要这样设置请求头
 
 ````objc
   /** 设置请求头 */
@@ -221,7 +221,7 @@ description:
 ````
 
 
-### ios文件上传代码
+### iOS文件上传代码
 
 我们上传一张稍微大点的图片，直接使用````NSBundle````对象读取项目中的文件，然后设置请求相关的委托方法，代码如下
 

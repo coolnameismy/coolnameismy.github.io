@@ -29,7 +29,7 @@ gulp.dest(glob) 返回一个可写的stream
 [中文gulp api](http://www.gulpjs.com.cn/docs/api/)
 [原文gulp api](https://github.com/gulpjs/gulp/blob/master/docs/API.md)
 
-## gulp使用简单例子
+##  gulp使用简单例子
 ---
 
 1全局安装 gulp：
@@ -118,7 +118,7 @@ gulp.task('css', function () {
 .pipe()方法是传递数据流的方法，，gulp通过pipe方法把流不断进行处理和传递。
 
 
-### css编译任务
+###  css编译任务
 
 ````
 //css编译任务
@@ -153,7 +153,7 @@ gulp.task('css', function () {
 
 ````
 
-### js构建任务
+###  js构建任务
 
 js构建任务例子，和css的构建任务差不多，js文件压缩后和源文件一起放到目标文件夹，完成后通知生成的文件
 
@@ -174,7 +174,7 @@ gulp.task('js', function () {
 
 ````
 
-### clean 任务
+###  clean 任务
 
 有时候我们想清理一些文件夹或者是想在构建前先清空文件夹，我们就可以使用clean任务
 
@@ -190,7 +190,7 @@ gulp.task('clean', function() {
 
 ````
 
-### watch 任务
+###  watch 任务
 
 watch任务很关键，比如我们使用sass去写css，每次我们修改了sass文件后希望自动就去生成css，或者用coffee scrpit写代码时候自动检测文件修改，
 生成目标文件，就使用watch任务
@@ -213,7 +213,7 @@ gulp.task('watch',function(){
 
 ````
 
-### 路径匹配
+###  路径匹配
 
 ````
 *.js匹配当前目录下的所有js文件,不指名扩展名则匹配所有类型
@@ -223,7 +223,7 @@ gulp.task('watch',function(){
 !:排除文件夹，可以设置gulp的目标文件夹为一个数组，例如： ['**/*', '!./atom-shell.app', '!./atom-shell.app/**/*']. 这样就可以把app完全exclude掉了.
 ````
 
-### 默认任务
+###  默认任务
 
 默认任务是直接执行gulp的task，如果没有设置默认任务会报错。
 
@@ -239,12 +239,12 @@ gulp.task('default',['css','js']);
 这里有个值得注意的地方。默认任务中方法名后可以带一个数组，决定要调用的其他任务名称。之前的css或者js任务也可以通过这种方式，去调用依赖任务。
 
 
-### 其他更酷的任务
+###  其他更酷的任务
 
 gulp还能执行许多更酷的任务，比如图片压缩，服务根据文件修改自动刷新，js组合等等，等待大家自己去挖掘
 
 
-## 最后
+##  最后
 
 如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
 

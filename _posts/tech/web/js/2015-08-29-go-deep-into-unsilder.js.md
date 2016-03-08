@@ -20,7 +20,7 @@ unslider.js 源码和使用教程可以在他[github](https://github.com/idiot/u
 
 代码下载:github库，对应此文章的目录是DeepIntoUnslider ,[点击跳转代码下载地址](https://github.com/coolnameismy/demo)
 
-##(一)unslider.js使用
+##  (一)unslider.js使用
 ---
 
 
@@ -93,10 +93,10 @@ unslider.js用起来很简单。
 
 更多内容可以去[unslider官网](http://unslider.com/) 查看。
 
-##（二） unslider.js库的代码结构
+## （二） unslider.js库的代码结构
 ---
 
-####1.  先看Unslider内部实现的结构
+####    1.  先看Unslider内部实现的结构
 
 
         (function($, f) {
@@ -135,7 +135,7 @@ unslider.js用起来很简单。
 
 这个是jquery的方法扩展，执行这个方法后就可以使用： $('.banner').unslider(o) 的方式调用。o在unslider中就是你配置的各种参数
 
-####2. $.fn.unslider 的方法实现
+####    2. $.fn.unslider 的方法实现
 
         $.fn.unslider = function(o) {
                 var len = this.length;
@@ -185,7 +185,7 @@ $.fn.unslider = function(o) {} 改成这样
             return arr;
     	};
 
-#### 3.  ```` var Unslider = function() {} ```` 内部方法结构
+####  3.  ```` var Unslider = function() {} ```` 内部方法结构
 
 unsliders一共定义了8个对象，分别是：o,init,to,play,stop,next,perv,nav
 
@@ -231,11 +231,11 @@ unsliders一共定义了8个对象，分别是：o,init,to,play,stop,next,perv,n
 这样看下去，整个unslider.js的整体结构就都已经看清了，后面主要说一下init方法和to方法。
 
 
-## （三）unslider.js库的实现
+##  （三）unslider.js库的实现
 ---
 这里我只简单说说几个重要的方法，如果想看详细的每一步，可以打开[unsliders.zh-cn.js](https://github.com/coolnameismy/demo/blob/master/DeepIntoUnslider/js/unsliders.zh-cn.js)进行阅读，我对unslider.js的每一步的实现做了中文翻译，并添加了一些注释。
 
-### init方法：
+###  init方法：
 init方法开始时候通过```` _.o = $.extend(_.o, o);````把你设定的unslider参数和默认参数进行了合并。$.extend参数有很多作用，后面还会说道。
 
 接着修正了生成unslider容器的样式，构造dot和arrows（这两个东西主要是切换slider使用），开启了定时器调用play()方法
@@ -244,7 +244,7 @@ init方法开始时候通过```` _.o = $.extend(_.o, o);````把你设定的unsli
 
 最后初始化完成之后，返回self
 
-### to方法：
+###  to方法：
 
 **slider切换的原理**
 
@@ -263,7 +263,7 @@ ul中有4个li，每个li的宽高是100px*100px ，那么就需要把ul的style
 
 最后执行切换slider的动画，并回执行切换完成的回调方法。
 
-### 其他方法
+###  其他方法
 其他方法基本上都是对to方法的调用，和定时器的控制。
 
          // 自动播放
@@ -289,16 +289,16 @@ ul中有4个li，每个li的宽高是100px*100px ，那么就需要把ul的style
             return _.stop().to(_.i - 1);
         };
 
-## （四）总结unslider.js源码中值得我们学习的点
+##  （四）总结unslider.js源码中值得我们学习的点
 ---
 
 unslider有很多我们值得学习的地方。
 
-###1 标准js类库的写法
+###  1 标准js类库的写法
 
 ````(function($, f) {})(jQuery, false)````和 ````$.fn ````：通过这两个方法，把js类库中的变量私有化，不会和外部变量冲突，$.fn扩展方法使用，使类库的调用更优雅。
 
-###2 jquery工具函数的使用：
+###  2 jquery工具函数的使用：
 
 $.data ：缓存数据到jquery对象中
 
@@ -351,7 +351,7 @@ $.resize：监听容器尺寸变化
         $(document).queue("q");//返回当前队列
 
 
-###3 精炼的语法
+###  3 精炼的语法
 
         //连续赋值
         var me = $(this),

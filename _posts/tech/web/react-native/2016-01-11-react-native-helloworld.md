@@ -7,16 +7,16 @@ keywords: react-native
 description:
 ---
 
-## react-native简单介绍
+##  react-native简单介绍
 
 React-Native就是在开发效率和用户体验间做的一种权衡。React-native是使用JS开发，开发效率高、发布能力强，不仅拥有hybrid的开发效率，同时拥有native app相媲美的用户体验。
 
 学习react-native需要掌握不少基础知识，学习成本还是比较高的。
 
 -   js，html，css，nodejs，JSX语法基础，Flexbox布局
--   ios基本开发知识和android基本开发知识（最低要求也需要知道ios和android的一些基础）
+-   iOS基本开发知识和android基本开发知识（最低要求也需要知道ios和android的一些基础）
 
-## 配置react-native环境
+##  配置react-native环境
 >   网上有一大堆的react-native环境配置和入门教程，写的都很简单，几句话搞定环境，但是往往用起来总是会遇到各种各样的问题，所以我这里会写
 的稍微详细一些，都包括我在安装过程中遇到的问题。
 
@@ -92,8 +92,8 @@ See https://facebook.github.io/react-native/docs/getting-started.html
 
 解决方法：nvm没有设置默认版本，导致每次终端打开都会都会使用之前的nodejsv0.12版本运行，自然报错，通过设置````nvm alias default stable````解决
 
-xcode怎么用我就不介绍了，虽然react-native是使用前端html，css，js开发ios和android程序，但是如果你不会ios和android开发仍然会遇到很多问题，应该说
-react-native只是帮你节省了一些开发时间，减少了你对ios或者android深入了解的成本，但是还是得去了解一些基础。
+xcode怎么用我就不介绍了，虽然react-native是使用前端html，css，js开发iOS和android程序，但是如果你不会iOS和android开发仍然会遇到很多问题，应该说
+react-native只是帮你节省了一些开发时间，减少了你对iOS或者android深入了解的成本，但是还是得去了解一些基础。
 
 历经千辛万苦，终于启动成功鸟~~
 
@@ -101,7 +101,7 @@ react-native只是帮你节省了一些开发时间，减少了你对ios或者an
 
 **说明下**
 
-xcode启动项目后，后启动一个react packager,这个脚本的最重要作用就是当你修改js文件的时候，同时帮你生成可以运行的ios和android项目。
+xcode启动项目后，后启动一个react packager,这个脚本的最重要作用就是当你修改js文件的时候，同时帮你生成可以运行的iOS和android项目。
 
 react native项目非常容易调试，在模拟器上按cmd+r可以刷新页面（更改的js立刻提醒在模拟器中，不需要重新启动项目），cmd+d可以弹出一个调试菜单，选择 enable live reload可以自动刷新。更多调试技巧下次单独写一篇文章说一说。
 
@@ -109,18 +109,18 @@ react native项目非常容易调试，在模拟器上按cmd+r可以刷新页面
 
 -   index.ios.js: 项目的入口，示例程序中，页面样式和控件都写在这个里面
 -   node_module，package.json：nodejs依赖包和nodejs配置文件，熟悉nodejs的都懂，不熟悉的去学下nodejs，不然没法继续下去
--   ios文件夹：生成的ios项目
+-   ios文件夹：生成的iOS项目
 -   android文件夹：生成的android项目
 
 ##  个人对react native的体会
 
-以前总是对hybirds和phonegap之类的东西，总是觉得这种东西除了节省成本以外，没什么其他的好处，并且虽然js语法前端工程师都会写，但是如果不深入了解ios或是android平台，用js写app也很难把一个app写好。
+以前总是对hybirds和phonegap之类的东西，总是觉得这种东西除了节省成本以外，没什么其他的好处，并且虽然js语法前端工程师都会写，但是如果不深入了解iOS或是android平台，用js写app也很难把一个app写好。
 
 学习react native一周后，觉得react native还是不错的，以后部门一些小项目可以尝试使用react native探探路。
 
 主要有这些吸引我的地方
 
--   充分吸取了js和nodejs的优点：css样式，html的布局flex布局，nodejs的cmd规范相对ios或者android原生开发都是极好的
+-   充分吸取了js和nodejs的优点：css样式，html的布局flex布局，nodejs的cmd规范相对iOS或者android原生开发都是极好的
 -   组件化非常容易
 -   mvvm模型，数据绑定和渲染都很轻松
 -   代码量明显减少：看了知乎日报的源码，就那么几个文件就实现了2套app，代码量减少的不是一点点
@@ -138,7 +138,7 @@ react native项目非常容易调试，在模拟器上按cmd+r可以刷新页面
 本文示例demo见 [demo](https://github.com/coolnameismy/demo/react-native/helloworld)
 
 
-## 最后
+##  最后
 
 刘彦玮原创，转载请注明出处
 
@@ -159,15 +159,15 @@ react native项目非常容易调试，在模拟器上按cmd+r可以刷新页面
 动画
 
 //优点
-<<<<<<< HEAD
+
 组件化非常容易
-css的布局模式比ios和android原生的都要优雅
+css的布局模式比iOS和android原生的都要优雅
 引入css样式，比原生代码写样式要方便的多的多
 mvvm模型，数据绑定和渲染都很轻松
 代码量明显减少
 可以使用路由
 调试方便，可见即可得
-=======
+
 
 
 </div>

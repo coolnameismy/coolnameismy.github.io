@@ -13,12 +13,12 @@ description:
  
 
 
-## 创建一个库
+##  创建一个库
 
 在Github上新开一个库，名字叫做`username.github.io`
 
 
-## 设定目录结构
+##  设定目录结构
 
 jekyll推荐目录结构：
 
@@ -62,11 +62,11 @@ jekyll推荐目录结构：
 
 接下来我主要解释这里面每一个目录的功能。
 
-### 配置文件
+###  配置文件
 `_config.yml`里写有整个站点的主要配置项，我的如下：
 
 ```
-# Site settings
+#  Site settings
 title: 刘彦玮的技术博客
 email: coolnameismy@hotmail.com
 description: > #刘彦玮的技术博客
@@ -75,8 +75,8 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: coolnameismy@hotmail.com
 github_username:  coolnameismy
 
-# Build settings
-#markdown: kramdown
+#  Build settings
+#   markdown: kramdown
 permalink: /:year/:month/:day/:title.html   #博文的固定链接
 paginate: 10                                #分页时每页博文数量
 author:                                     #自定义常亮
@@ -87,9 +87,9 @@ author:                                     #自定义常亮
   github: http://github.com/coolnameismy
 title: 刘彦玮的技术博客                             #自定义常量
 
-# avatar头像及Favicon
+#  avatar头像及Favicon
 avatar: https://avatars1.githubusercontent.com/u/5010799?v=3&amp;s=460
-#favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
+#   favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 locals:                                     #自定义常量
   tags: 标签
@@ -103,7 +103,7 @@ markdown: redcarpet                         #markdown解释器
 把常量写在这里，方便配置。比如有一些个人使用的百度统计和disqus评论系统的id等等。如果大家从我的blogclone的项目，需要修改这些个人配置。
 
 
-### 域名配置
+###  域名配置
 
 `CNAME`这个文件写明了这个站点的域名，如果不喜欢`username.github.io`的话，可以像我一样改掉
 
@@ -112,7 +112,7 @@ markdown: redcarpet                         #markdown解释器
 把`主机记录`为`@`,`www`的记录值写成`username.github.io`就好了。
 
 
-### 博客存放
+###  博客存放
 
 `_posts`下的所有目录中的所有博客，都会被Jekyll处理成为静态的html文件，然后放在`_site`下。我这里没有`_site`目录，是因为我在`.gitignore`文件中把这个目录屏蔽掉了，它不会上传到Github上。
 
@@ -142,7 +142,7 @@ description:                                   #自定义常量
 
 除了自定义常量外的必须包含进去，自定义变量在这个布局中可以访问。
 
-### 模版文件
+###  模版文件
 剩余的目录，基本都属于模板文件了，我解释一下各自的作用：
 
 - `_includes` 可以在模板中随时包含的文件
@@ -152,7 +152,7 @@ description:                                   #自定义常量
 - `index.html` 站点的首页，整个站的入口文件
 - `sitemap.txt` 给搜索引擎看的，如何爬取这个站
 
-## 创建自己的主题
+##  创建自己的主题
 
 上面讲了如何布局好站内文件结构，接下来主要就是如何创建一个自己的主题了。
 
@@ -247,23 +247,23 @@ title: 首页
 
 其实整个主题书写就是这么简单，如果有不清楚的可以再看看官网的文档。动一动手就非常明白了。
 
-## 插入图片
+##  插入图片
 很多人感觉用Jekyll最不方便的就是插入图片了，其实我也是这么觉得的。所以只能自己去想些办法。
 
-### 图片统一存放
+###  图片统一存放
 图片我都放在了`/public/upload`下，所以我在插入图片的时候只要用`![xxx](http://7u2ho6.com1.z0.glb.clouddn.com/xxx)`就可以了。
 
-### 方便的图片导入
+###  方便的图片导入
 导入图片的方式是我将`upload`文件夹做了个软连接，放到mac的dock上就行了，有图片要用的时候直接往里面一拖。
 
-### 方便的截图
+###  方便的截图
 很多时候图片都是现截取的，比如用QQ的截图工具，或者系统的截图工具，但是他们截取完都存放在了`user/Pictures`里面，来回移动太累了。我这里介绍一个Mac下的一个工具——Trickster，看图
 
 ![移动图片](http://7u2ho6.com1.z0.glb.clouddn.com/tech-trickster-move-picture.png)
 
 这个工具可以看到刚刚修改过的图片，而且还有一个收藏的文件夹，我每次截取完图以后，从左边往右边一拖，然后在markdown中就可以继续书写了。一点都不耗时。
 
-## 本地预览及提交
+##  本地预览及提交
 本地预览自己的修改很容易，只要进入`username.github.io`目录，执行
 
 ```
@@ -280,7 +280,7 @@ git commit -m "xxx"
 git push
 ```
 
-## 其他
+##  其他
 我觉得自己的这个主题设定的算是比较好修改和移植的了，如果大家有什么问题，可以尽管问。
 
 另外一些特别的功能，比如三栏、评论、谷歌分析，这些都不难，相信你稍微打开Github读一下这个主题的代码就很快明白了。
@@ -295,5 +295,5 @@ git push
 [6]: https://github.com/coolnameismy/coolnameismy.github.io
 
 
-## 参考内容
+##  参考内容
 

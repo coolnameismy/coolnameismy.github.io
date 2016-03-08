@@ -9,7 +9,7 @@ description:
 ![](https://camo.githubusercontent.com/4b086bf363f44f96e9384c06fbfc36610a98f9d3/687474703a2f2f636c2e6c792f696d6167652f3031325230443352337832672f646f776e6c6f61642f737072696e677377696674322e6a7067)
 
 
-## table of content
+##  table of content
 
 * [spring介绍](#spring介绍)
 * [简单介绍使用spring实现动画效果](#简单介绍使用spring实现动画效果)
@@ -39,11 +39,11 @@ description:
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 ````
 
-## 简单介绍使用spring实现动画效果
+##  简单介绍使用spring实现动画效果
 
 spring实现动画效果有2种方式，一种是在storyboard里面配置，我个人来说不喜欢这种方式，iOS开发不分前端后端，动画实现放在界面中其实维护起来容易出错，并且不利于代码重用，所以我就不介绍storyboard的实现方式，有兴趣的自己看spring主页。spring提供的demo里面，code和option弹出vc使用的就是storyboard配置的方式。
 
-### 使用spring动画示例：
+###  使用spring动画示例：
 
 ````swift
     
@@ -66,7 +66,7 @@ spring实现动画效果有2种方式，一种是在storyboard里面配置，我
 ![]()
 
 
-### 可选的配置参数
+###  可选的配置参数
 
 Animation：动画类型
 
@@ -212,7 +212,7 @@ SpringView
 
 这段介绍暂时忽略动画的时间函数，都已线性时间函数为例
 
-### shake
+###  shake
 
 shake是一个关键帧动画，通过定义左右左右2次的数值变化实现晃动效果，这个效果使用原生代码实现如下
 
@@ -237,7 +237,7 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
 
 ````
 
-### pop
+###  pop
 
 
 ````swift
@@ -300,7 +300,7 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
 
 ````
 
-### wobble
+###  wobble
 
 摆动效果，实际上类似于shake并在shake中带一些旋转
 
@@ -328,7 +328,7 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
 
 ````
 
-### swing
+###  swing
 
 这个词翻译过来也是摆动，我的英文也没那么好，不能给大家形象的解释swing和wobble区别。这里就当不同的摆动效果吧。spring中swing的摆动是只旋转
 
@@ -345,7 +345,7 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
 
 ````
 
-### FlipX,FlipY
+###  FlipX,FlipY
 
 这两个动画是分别使用3D中x和y轴转换
 
@@ -373,7 +373,7 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
 
 ````
 
-### fall
+###  fall
 
 这个方法是使用animateWithDuration和CGAffineTransformMakeTranslation实现的,做了y轴下降和旋转
 
@@ -387,7 +387,7 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
 
 ````
 
-### squeezeLeft,squeezeRight,squeezeDown,squeezeUp,slideLeft,slideRight,slideDown,slideUp
+###  squeezeLeft,squeezeRight,squeezeDown,squeezeUp,slideLeft,slideRight,slideDown,slideUp
 
 这组方法是上下左右移动，slideLeft就是普通的移动，squeeze开头的会在移动中根据方向改变x或y的sacle，是效果更加逼真一些
 
@@ -406,21 +406,21 @@ shake是一个关键帧动画，通过定义左右左右2次的数值变化实�
 
 这组动画是淡入淡出效果。后面四个带方向的是淡入淡出时添加方向位移效果。代码不写了，都一样的东西，就比移动的动画代码增加了一个alpha属性的修改。这组动画任然使用animateWithDuration完成
 
-### zoomIn，zoomOut
+###  zoomIn，zoomOut
 
 方法缩小，但是在spring中附加了淡入淡出的效果。这个命名就和之前的不符合了，按照之前的方法命名习惯，这里应该分成4个方法，普通的和淡入淡出的版本
     
 
-### flash 
+###  flash
 
 就是repeat几次，fadeIn，fadeOut，fadeIn，fadeOut，好像在闪烁一样。这个效果spring根本没做好。
 
-### 动画类型总结
+###  动画类型总结
 
 基本动画类型就这么几种，关键帧动画，基本动画，CATransform3D和CATransform。整体来说spring的动画类型也没有很多，有的动画效果参数设置的还不错，有的动画也没做好，有很多优化的空间。
 
 
-## 时间函数实现
+##  时间函数实现
 
 spring动画库中扩充了原生时间函数的类型，原来只有EaseIn，EaseOut，EaseInOut，Linear四种。在spring中有很多很多种类，也有很多相似，名称也不知道如何翻译合适。我把所有的时间函数二次贝塞尔曲线画出来，大家自己看吧。
 
@@ -469,7 +469,7 @@ spring动画库中扩充了原生时间函数的类型，原来只有EaseIn，Ea
 ![](http://images.jumppo.com/uploads/springsCAMediaTimingFunction.png)
 
 
-## spring library中我们能学到的内容总结
+##  spring library中我们能学到的内容总结
 
 -   最值得我们学习的地方：spring中定义的各种动画效果和时间函数的实现，所有不是全都很有用，但是还是有很多好用的地方
 -   demo里面有很多细节，比如modal页面中presention和presenting的交互，通过````UIApplication.sharedApplication().sendAction("minimizeView:", to: nil, from: self, forEvent: nil)```` 和委托实现
@@ -477,6 +477,6 @@ spring动画库中扩充了原生时间函数的类型，原来只有EaseIn，Ea
 
 
 
-## 最后
+##  最后
 
 spring还算一个不错的动画库，欢迎大家和我一起交流学习，如果大家支持，请[github上follow和star](https://github.com/coolnameismy)

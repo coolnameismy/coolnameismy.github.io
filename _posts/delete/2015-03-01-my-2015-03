@@ -7,7 +7,7 @@ keywords: 个人总结,2015
 description: 
 ---
 
-> 在新公司的第一个月，用从.net转向java的我需要学习的地方有很多。这个月里我熟悉了java的web项目，maven管理，提高了ios开发水平。开发环境从window机器，迁移到了mac，
+> 在新公司的第一个月，用从.net转向java的我需要学习的地方有很多。这个月里我熟悉了java的web项目，maven管理，提高了iOS开发水平。开发环境从window机器，迁移到了mac，
 ...学习的内容列表
 
 ## android
@@ -16,9 +16,9 @@ description:
 -	android 常用功能开发理解
 -	今日头条，android源码分析
 
-## ios开发
--	回忆ios主要环境配置，cocoa基础，fundation基础，控件基础等
--	常见ios第三方库等使用
+## iOS开发
+-	回忆iOS主要环境配置，cocoa基础，fundation基础，控件基础等
+-	常见iOS第三方库等使用
 -	SDWebImage 图片异步加载及缓存
 -	AFNetworking
 -	MBProgressHUD
@@ -38,7 +38,7 @@ description:
 -	qq好友动态 “添加按钮” 点击旋转，展开按钮效果
 -	文本输入框和键盘同时出现和消失的效果
 -	用户登录功能开发和封装
--	ios静态类库的使用
+-	iOS静态类库的使用
 
 ## java spring
 - spring ioc和aop原理

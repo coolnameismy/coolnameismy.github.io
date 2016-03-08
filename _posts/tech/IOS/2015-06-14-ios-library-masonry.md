@@ -3,8 +3,8 @@ layout: post
 title: Masonry的使用
 subtitle: Masonry
 category: iOS
-tags: ios , library
-keywords: ios,AFNetworking,RestKit,SVProgressHUD,CocoaLumberjack,facebook/pop,Masonry
+tags: iOS , library
+keywords: iOS,AFNetworking,RestKit,SVProgressHUD,CocoaLumberjack,facebook/pop,Masonry
 description:
 ---
 
@@ -12,7 +12,7 @@ description:
 #  （一）Masonry介绍
 
 >  Masonry是一个轻量级的布局框架 拥有自己的描述语法 采用更优雅的链式语法封装自动布局 简洁明了 并具有高可读性 而且同时支持 iOS 和 Max OS X。
->  Masonry是一个用代码写ios或os界面的库，可以代替Auto layout。
+>  Masonry是一个用代码写iOS或os界面的库，可以代替Auto layout。
 >  Masonry的github地址：https://github.com/SnapKit/Masonry
 
 ## 本章内容
@@ -23,7 +23,7 @@ description:
 
 ### Masonry配置
 
-1. - 推荐使用pods方式引入类库，pod 'Masonry'，若不知道pod如何使用，情况我的另一篇文章： [提高ios开发效率的工具](http://liuyanwei.jumppo.com/2015/05/29/ios-develop-tool.html)
+1. - 推荐使用pods方式引入类库，pod 'Masonry'，若不知道pod如何使用，情况我的另一篇文章： [提高iOS开发效率的工具](http://liuyanwei.jumppo.com/2015/05/29/ios-develop-tool.html)
 2. - 引入头文件 #import "Masonry.h"
 
 ### Masonry使用讲解
@@ -121,7 +121,7 @@ make.left.and.right.equalTo(self.view);
 
 ```` objective-c
 
-//高级布局练习 ios自带计算器布局
+//高级布局练习 iOS自带计算器布局
 -(void)exp4{
 
 
