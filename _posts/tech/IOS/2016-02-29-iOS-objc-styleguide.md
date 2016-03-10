@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IOS objc编程规范
+title: iOS objc编程规范
 category: iOS
 tags:
 description:
