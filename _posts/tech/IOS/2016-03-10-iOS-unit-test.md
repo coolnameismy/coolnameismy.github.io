@@ -17,7 +17,6 @@ description:
 建好后默认会建一个测试类，代码如下：
 
 ````objc
-
 //
 //  BasicTests.m
 //  BabyBluetoothAppDemo
@@ -57,8 +56,6 @@ description:
 }
 
 @end
-
-
 ````
 
 其中有几点需要大家注意：
@@ -74,7 +71,6 @@ description:
 
 //性能测试方法，通过测试block中方法执行的时间，比对设定的标准值和偏差觉得是否可以通过测试
 measureBlock
-
 ````
 
 ##  断言
@@ -163,7 +159,6 @@ XCTFail(format...) //直接Fail的断言
         }
     }];
 }
-
 ````
 
 这个测试肯定是通过的，因为设置延迟为3秒，而异步操作2秒就除了一个正确的结果，并宣布了条件满足````  [exp fulfill] ````，但是当我们把延迟改成1秒，这个测试用例就不会成功，错误原因是 ````expectationWithDescription:@"这里可以是操作出错的原因描述。。。````
@@ -184,7 +179,6 @@ XCTFail(format...) //直接Fail的断言
                           handler:nil];
     [self waitForExpectationsWithTimeout:20 handler:nil];
 }
-
 ````
 
 利用谓词计算，button是否正确的获得了backgroundImage，如果正确20秒内正确获得则通过测试，否则失败。
@@ -202,10 +196,10 @@ XCTFail(format...) //直接Fail的断言
 }
 ````
 
-这个例子也可以用`expectationWithDescription`实现,只是多些很多代码而已，但是这个可以帮助你更好的理解` expectationForNotification `方法已经该方法和 ` expectationWithDescription `的区别。同理，`expectationForPredicate`方法也可以使用`expectationWithDescription`实现。
+这个例子也可以用`expectationWithDescription`实现,只是多些很多代码而已，但是这个可以帮助你更好的理解 `expectationForNotification` 方法和 `expectationWithDescription` 的区别。同理，`expectationForPredicate`方法也可以使用`expectationWithDescription`实现。
 
 ````objc
- func testItShouldRaiseAPassNotificationV1() {
+ func testAsynExample1() {
     let expectation = expectationWithDescription("监听通知的名称xxx")
     let sub = NSNotificationCenter.defaultCenter().addObserverForName("监听通知的名称xxx", object: nil, queue: nil) { (not) -> Void in
         expectation.fulfill()
@@ -214,18 +208,16 @@ XCTFail(format...) //直接Fail的断言
     waitForExpectationsWithTimeout(1, handler: nil)
     NSNotificationCenter.defaultCenter().removeObserver(sub)
 }
-
-
 ````
 
 ##  命令行测试
 >   测试不仅可以在xcode中执行，也可以在命令行中执行，这个便于代码持续集成和构建，在git提交中也编译检查代码
 
 如果你有development-enabled设备插入，你可以按照名称或 id 调用他们。例如，如果你有一个名为"Development iPod touch"的 iPod 设备连接了测试的代码，可以使用下面的命令来测试代码
-`  > xcodebuild test -project MyAppProject.xcodeproj -scheme MyApp -destination 'platform=iOS,name=Development iPod touch'  `
+````  > xcodebuild test -project MyAppProject.xcodeproj -scheme MyApp -destination 'platform=iOS,name=Development iPod touch  ````
 
 测试也可以在 iOS模拟器上运行。使用模拟器可以应对不同的外形因素和操作系统版本。例如
-`  > xcodebuild test -project MyAppProject.xcodeproj -scheme MyApp -destination 'platform=iOS Simulator,name=iPhone,0S=7.0'  `
+````  > xcodebuild test -project MyAppProject.xcodeproj -scheme MyApp -destination 'platform=iOS Simulator,name=iPhone,0S=7.0'  ````
 
 -destination 参数可以被连接在一起，这样你只需使用一个命令，就可以跨目标进行指定集成共享方案。例如，下面的命令把之前的三个例子合并到一个命令中
 
@@ -241,13 +233,12 @@ XCTFail(format...) //直接Fail的断言
 
 ##  执行测试快捷键
 
--	cmd + 5 切换到测试选项卡，单独或整体测试
--	cmd + U  运行单元测试
+-	cmd + 5 切换到测试选项卡后会看到很多小箭头，点击可以单独或整体测试
+-	cmd + U 运行整个单元测试
 
 ##  注意点
 
 -	使用pod的项目中，在XC测试框架中测试内容包括第三方包时，需要手动去设置Header Search Paths才能找到头文件 ，还需要设置test target的PODS_ROOT。
-
 
 ##  参考阅读
 
@@ -256,4 +247,5 @@ XCTFail(format...) //直接Fail的断言
 -	[In what situation would one use expectationForNotification in swift testing](http://stackoverflow.com/questions/29802214/in-what-situation-would-one-use-expectationfornotification-in-swift-testing)
 
 ##  最后
+
 如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
