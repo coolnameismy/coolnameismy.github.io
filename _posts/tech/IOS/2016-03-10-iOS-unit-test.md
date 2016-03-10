@@ -245,6 +245,8 @@ XCTFail(format...) //直接Fail的断言
 -	[cocoachina测试专题](http://www.cocoachina.com/cms/tags.php?/Xcode%E6%B5%8B%E8%AF%95/)
 -	[iOS单元测试(作用及入门提升)](http://www.jianshu.com/p/8bbec078cabe)
 -	[In what situation would one use expectationForNotification in swift testing](http://stackoverflow.com/questions/29802214/in-what-situation-would-one-use-expectationfornotification-in-swift-testing)
+-   [XCTest 测试实战](http://www.objccn.io/issue-15-2/）
+
 
 ##  最后
 
