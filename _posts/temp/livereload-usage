@@ -128,3 +128,63 @@ gulp.task(‘default‘, ["browser-sync"]);
 http://www.tuicool.com/articles/byEbymv
 http://xiadd.me/2015/09/27/gulp-browser-sync实现自动刷新/
 http://www.lxway.com/489599996.htm
+
+
+HI 大家好，我是刘彦玮，本节和大家介绍BrowserSync，BrowserSync本质是启动一个代理服务器，代理服务监听文件变化，通过tcp长连接仅仅修改文件变化的部分对应视图的变化，而liverload实际上上帮你做了F5的操作，这一点导致它与liveReload有了许多区别。
+
+先说所相似之处：
+BrowserSync和liveReload的相似之处在于他们都支持所有文件改动实时更新页面，他们也都是单向数据流，即只能通过修改文件更新页面
+
+再来说说区别：
+
+-  不需要浏览器插件，只依赖于node插件，安装简单
+-  BrowserSync是局部刷新，而liveReload是整个页面刷新
+-  可以实现手机浏览器和pc浏览器，多个浏览器间的同步
+-  多个页面同步，包括页面滚动和表单输入等细节
+
+基于这些区别，个人认为他比liveReload更好用一些，也是我最为推荐的方式。
+
+
+如何使用BrowserSync，我们需要安装browser-sync
+
+
+````
+npm install -g browser-sync //由于我电脑的node环境是交个nvm托管的，所以我不需要加-g
+````
+
+安装好之后，我们就可以启动browser-sync了
+
+
+````
+//静态工程启动方法
+browser-sync start --server --files "**"
+//动态工程代理启动
+browser-sync start --proxy "localhost:8080" --files "./**/*.*" // "**"
+````
+
+## browser-sync的 gulp 用法
+
+安装
+
+````
+gulp.task('browser-sync',function(){
+    browserSync({
+        files: "**",
+        server: {
+            baseDir: "./"
+        }
+    });
+
+    //如果使用代理
+    browserSync.init({
+        proxy: "yourlocal.dev"
+    });
+});
+````
+
+## browser-sync的扩展功能
+
+
+http://www.tuicool.com/articles/byEbymv
+
+http://www.lxway.com/489599996.htm
