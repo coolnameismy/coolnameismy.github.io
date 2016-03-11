@@ -8,7 +8,7 @@ description:
 
 >   Xcode集成了对测试的支持,其中单元测试使用的是XCTest框架 `<XCTest/XCTest.h>` ，良好的单元测试可以提高产品的稳定性，快速定位bug，节省开发时间。确实能节省时间，[babybluetooth](https://github.com/coolnameismy/BabyBluetooth)的开发中，每次有修改后总是要进行手动测试费时费力效果还不好,在折腾过一阵子之后，我决定开始写单元测试，为自己节省时间。
 
-本文主要介XCTest单元测试的基础，测试方法，断言，异步测试，测试命令等等。
+本文主要介XCTest单元测试的基础，测试方法，断言，期望，测试命令等等。
 
 ## quick start
 
@@ -134,8 +134,8 @@ XCTFail(format...) //直接Fail的断言
 ![](http://images.jumppo.com/uploads/320A0A3C-6264-4C75-8EC7-1E2EEB5B13D0.png)
 
 
-##  异步测试
->   测试异步方法时，因为结果并不是立刻获得，所以在异步方法测试有一些特殊的方法和技巧。
+##  期望
+>   期望实际上是异步测试，当测试异步方法时，因为结果并不是立刻获得，所以我们可以设置一个期望，期望是有时间限定的的，fulfill表示满足期望
 
 举个栗子
 
@@ -237,8 +237,10 @@ XCTFail(format...) //直接Fail的断言
 -	cmd + U 运行整个单元测试
 
 ##  注意点
+>   都是血与泪的教训
 
 -	使用pod的项目中，在XC测试框架中测试内容包括第三方包时，需要手动去设置Header Search Paths才能找到头文件 ，还需要设置test target的PODS_ROOT。
+-   xcode7要使用真机做跑测试时，证书必须配对，否则会报错`exc_breakpoint`错误
 
 ##  参考阅读
 
@@ -246,6 +248,7 @@ XCTFail(format...) //直接Fail的断言
 -	[iOS单元测试(作用及入门提升)](http://www.jianshu.com/p/8bbec078cabe)
 -	[In what situation would one use expectationForNotification in swift testing](http://stackoverflow.com/questions/29802214/in-what-situation-would-one-use-expectationfornotification-in-swift-testing)
 -   [XCTest 测试实战](http://www.objccn.io/issue-15-2/）
+-   [WWDC15 Session笔记 - Xcode 7 UI 测试初窥](https://onevcat.com/2015/09/ui-testing/)
 
 
 ##  最后
