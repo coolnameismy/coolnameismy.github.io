@@ -241,6 +241,7 @@ XCTFail(format...) //直接Fail的断言
 
 -	使用pod的项目中，在XC测试框架中测试内容包括第三方包时，需要手动去设置Header Search Paths才能找到头文件 ，还需要设置test target的PODS_ROOT。
 -   xcode7要使用真机做跑测试时，证书必须配对，否则会报错`exc_breakpoint`错误
+-   XCTestExpectation的fulfill方法只能调用一次，系统不会帮你检查，如果你调用两次就会出错，而且你经常都找不到错在哪里。
 
 ##  参考阅读
 
