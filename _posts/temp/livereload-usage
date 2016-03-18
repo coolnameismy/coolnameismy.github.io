@@ -1,11 +1,12 @@
 ---
 layout: post
-title: 
+title: 前端实时可视化开发工具，liveStyle，livereload，broswer-sync
 category: web前端
 tags:
 description:
 ---
 
+>   开发工具的使用，可以极大的提高开发效率，本篇介绍的三种工具，可以让你编码的同时立即展示页面所体现的效果。
 
 ##
 
@@ -185,6 +186,10 @@ gulp.task('browser-sync',function(){
 ## browser-sync的扩展功能
 
 
+	<a href="http://livestyle.io/">http://livestyle.io/</a> </br>
+	<a href="http://livereload.com//">http://livereload.com//</a> </br>
+	<a href="https://www.browsersync.io/">https://www.browsersync.io/</a></br>
+	
 http://www.tuicool.com/articles/byEbymv
 
 http://www.lxway.com/489599996.htm
