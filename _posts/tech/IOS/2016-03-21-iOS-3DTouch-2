@@ -1,0 +1,37 @@
+---
+layout: post
+title: iOS 3D touch开发(一) Home Screen Quick Actions
+category: iOS
+tags:
+keywords:
+description:
+---
+
+
+##  3D touch介绍
+
+3D touch 是ios9+、iphone6s+的新功能，简单的说3Dtouch就是用力按压，通过3Dtouch增加了一组手势交互方式。
+
+3D touch主要常见的使用：
+
+-   1：Home Screen Quick Actions （主屏快捷行为入口）
+-   2：peek and pop （预览和弹出）
+-   3：Force Properties （按压力度）
+-   4: Web view peek and pop API (HTML链接预览功能)
+
+后面会逐一进行介绍，本文主要介绍Home Screen Quick Actions
+
+
+下一篇会介绍...
+
+##  demo
+
+[本文的demo下载](https://github.com/coolnameismy/demo/3DTouchDemo)
+
+如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
+
+
+
+## 推荐阅读
+
+-   [在iPhone上使用3D Touch](http://www.cocoachina.com/ios/20151021/13849.html)
