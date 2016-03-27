@@ -19,10 +19,93 @@ description:
 -   3：Force Properties （按压力度）
 -   4: Web view peek and pop API (HTML链接预览功能)
 
-后面会逐一进行介绍，本文主要介绍Home Screen Quick Actions
+前一篇文章介绍了Home Screen Quick Actions，本文主要介绍 peek and pop （预览和弹出）
 
 
-下一篇会介绍...
+##  使用效果
+
+-   在tableview中，用力按住一栏，会出peek视图
+
+![](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Adopting3DTouchOniPhone/Art/preview_available_2_2x.png)
+
+![](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Adopting3DTouchOniPhone/Art/peek_2x.png)
+
+-   再次用力按一次，可以完全展示peek视图
+
+-   在预览页时，手指向上滑，会出现peek视图的快速选项
+
+![](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Adopting3DTouchOniPhone/Art/peek_quick_actions_2x.png)
+
+iphone6s, iphone6s puls都支持3d touch 功能，原生应用email和短信都有这样的效果，大家可以动手试一下。
+
+##  代码实现
+
+大家都看了效果时候，是不是觉得挺酷呢，其实实现起来也非常的简单，我来做个简单的demo演示，分为3个步骤
+
+-   步骤1：显示peek视图
+-   步骤2：再次peek操作弹出视图
+-   步骤3：peek视图时手指上滑，唤出peek视图快速选项
+
+###  步骤1：显示peek视图
+
+实现peek视图我们需要在对应的tableViewController实现UIViewControllerPreviewingDelegate的方法
+
+````swift
+ func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+ }
+````
+
+然后在tableViewController中注册委托
+````swift
+    //注册委托
+    registerForPreviewingWithDelegate(self, sourceView: view)
+
+````
+
+
+在这个方法中，我们可以使用location拿到indexPath，方法如下：
+
+````swift
+indexPath = tableView.indexPathForRowAtPoint(location)
+````
+
+接着，我们申明一个peek视图的控制器，设置控制器内容和peek视图的大小,设置大小使用`preferredContentSize `属性，如果为0的话则系统自动配置最佳大小
+
+````swift
+let detailViewController = DetailViewController()
+detailViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
+previewingContext.sourceRect = cell.frame
+//设置peek视图显示的内容，这里我在detailViewController做的封装，设置了一个标题
+detailViewController.setContent("title", subTitle: "subtitle")
+//最后返回视图
+return detailViewController
+````
+
+这样我们就完成了，运行程序，用力点击tableview的cell，就会出现peek视图了。
+
+
+### 步骤2：再次peek操作弹出视图
+
+要先有这个操作，需要实现UIViewControllerPreviewingDelegate的方法,并在方法中show这个视图就ok了，当然代码中也
+可以加上一些逻辑处理，比如是不是有权限打开之类的操作
+
+````swift
+     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+         // Reuse the "Peek" view controller for presentation.
+         showViewController(viewControllerToCommit, sender: self)
+     }
+````
+
+###  步骤3：peek视图时手指上滑，唤出peek视图快速选项
+
+
+
+
+
+
+
+
+下一篇会介绍 Force Properties （按压力度）
 
 ##  demo
 
