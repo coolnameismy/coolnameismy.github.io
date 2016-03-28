@@ -98,6 +98,58 @@ return detailViewController
 
 ###  步骤3：peek视图时手指上滑，唤出peek视图快速选项
 
+要实现这个操作，需要在peek视图对应的控制器中重写`previewActionItems`方法
+
+````
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        return previewActions
+    }
+
+````
+
+这里返回了一个UIPreviewActionItem，再来看看我们是如何构造这个Item的
+
+````swift
+lazy var previewActions:[UIPreviewActionItem] = {
+        func previewActionWithTitle(title:String, style:UIPreviewActionStyle = .Default) -> UIPreviewAction {
+            return UIPreviewAction(title: title, style: style) { (previewAction, viewController) -> Void in
+                NSLog("\(previewAction.title)")
+            }
+        }
+
+        let a = previewActionWithTitle("a")
+        let b = previewActionWithTitle("b", style: .Destructive)
+        let c = previewActionWithTitle("c", style: .Selected)
+        let d_e_f = UIPreviewActionGroup(title: "d&e&f ...",
+                                     style: .Default,
+                                     actions: [previewActionWithTitle("d"),previewActionWithTitle("e"),previewActionWithTitle("f")])
+
+        return [a,b,c,d_e_f]
+    }()
+````
+
+这里稍微做几点说明：
+
+-   1：使用了swift特有的延迟加载功能，lazy关键字，这样的好处是在用到的时候才回去构造这个对象，当然这个并不是必须这样用的，
+你也可以直接把他构造好。
+
+-   2：构造UIPreviewActionItem的方法函数是
+
+````swift
+    func previewActionWithTitle(title:String, style:UIPreviewActionStyle = .Default) -> UIPreviewAction {
+        return UIPreviewAction(title: title, style: style) { (previewAction, viewController) -> Void in
+            NSLog("\(previewAction.title)")
+        }
+    }
+````
+
+这是一个闭包，最后一个方法里的函数是点击这个按钮后执行的代码。这个构造方法还有2个参数，一个是选项显示的文字，另一个是选项的样式，
+选项的样式有3种，分别是default，select，Destructive
+
+-   3：可以通过构造`UIPreviewActionGroup`对象实现选项的2级选项
+
+
+### 好了，代码实现就到这里，下面放一张执行这段代码后的效果图吧
 
 
 
