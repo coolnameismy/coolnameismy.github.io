@@ -35,6 +35,8 @@ $ nvm ls
 //切换nodejs版本
 $ nvm use 0.12
 
+//设置默认版本,否则每次关闭终端再打开就要use一次
+$ nvm alias default stable
 
 //windows请访问主页下载安装
 http://nodejs.cn/
