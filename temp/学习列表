@@ -1,3 +1,37 @@
+## 三月学习
+
+-   [禅与 Objective-C 编程艺术 （Zen and the Art of the Objective-C Craftsmanship 中文翻译 ](https://github.com/oa414/objc-zen-book-cn)
+-   [谷歌编程规范-objc zh-google-styleguide](https://github.com/zh-google-styleguide/zh-google-styleguide)
+-   [ios单元测试基础和babybluetooth单元测试用例编写](http://liuyanwei.jumppo.com/2016/03/10/iOS-unit-test.html)
+-   ios6s 3dtouch学习
+-   UISplitViewController粗浅了解
+
+
+##  四月学习
+
+-	javascriptCore使用
+
+
+
+-   ios获取计步器数据
+-   Swift 烧脑体操,唐巧的技术文章
+-	研究weex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## MRProgress
 >   一个progress控件
 类文档地址：http://cocoadocs.org/docsets/MRProgress/0.8.3/
@@ -71,16 +105,9 @@ https://onevcat.com/2015/09/ui-testing/
 -   [](https://www.raywenderlich.com/94443/uisplitviewcontroller-tutorial-getting-started)
 -   [](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UISplitViewController_class/index.html)
 
-## 三月学习
-
--   [禅与 Objective-C 编程艺术 （Zen and the Art of the Objective-C Craftsmanship 中文翻译 ](https://github.com/oa414/objc-zen-book-cn)
--   [谷歌编程规范-objc zh-google-styleguide](https://github.com/zh-google-styleguide/zh-google-styleguide)
--   [ios单元测试基础和babybluetooth单元测试用例编写](http://liuyanwei.jumppo.com/2016/03/10/iOS-unit-test.html)
--   ios6s 3dtouch学习
--   UISplitViewController粗浅了解
 
 
-##  四月学习
+
 -   [iOS高仿爱鲜蜂（Swift2.0）代码复刻阅读和学习](http://www.jianshu.com/p/879f58fe3542)
 ````
 1：图片设计尺寸规范
@@ -88,5 +115,4 @@ https://onevcat.com/2015/09/ui-testing/
 
 ````
 
--   ios获取计步器数据
--   Swift 烧脑体操,唐巧的技术文章
+
