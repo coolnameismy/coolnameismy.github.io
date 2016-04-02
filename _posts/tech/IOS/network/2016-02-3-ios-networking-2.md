@@ -134,7 +134,7 @@ description:
 ## demo
 ---
 
-[本文的demo下载](https://github.com/coolnameismy/demo/network-demo)
+[本文的demo下载](https://github.com/coolnameismy/demo/tree/master/network-demo)
 
 如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
 

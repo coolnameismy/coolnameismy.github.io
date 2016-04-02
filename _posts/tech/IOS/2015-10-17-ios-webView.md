@@ -373,7 +373,7 @@ UIwebView没有js调app的方法，而在WKWebView中有了改进。具体步骤
 
 ## demo
 ---
-我博客中大部分示例代码都上传到了github，地址是：https://github.com/coolnameismy/demo，[点击跳转代码下载地址](https://github.com/coolnameismy/demo)
+我博客中大部分示例代码都上传到了github，地址是：https://github.com/coolnameismy/demo，[点击跳转代码下载地址](https://github.com/coolnameismy/tree/master/demo)
 
 本文代码存放目录是ios-WebView,本demo没做界面自适应，为了保证效果请用iPhone6及以上模拟器打开
 

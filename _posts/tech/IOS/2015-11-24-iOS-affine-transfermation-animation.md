@@ -514,7 +514,7 @@ let flipZ = CATransform3DMakeRotation(CGFloat(M_PI), 0, 0, 1)
 ##  demo
 ---
 
-[本文的demo下载](https://github.com/coolnameismy/demo/AffineTransform)
+[本文的demo下载](https://github.com/coolnameismy/demo/tree/master/AffineTransform)
 
 本文demo是一个playground文件，做了一些2D仿射的效果。如果没有显示出UIView，可以在每一个bg对应的行后面的小圆圈点一下，就可以在playground中看见UIView对应仿射的变化
 

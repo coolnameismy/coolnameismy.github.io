@@ -643,7 +643,7 @@ presenting -》presention ：解除模态视图过程
 
 ![](http://images.jumppo.com/uploads/ControllerTransitioning1.gif)
 
-[本文的demo下载](https://github.com/coolnameismy/demo/AnimationAndEffects)
+[本文的demo下载](https://github.com/coolnameismy/demo/tree/master/AnimationAndEffects)
 
 本文的代码对于的文件夹/ControllerTransitioning
 
