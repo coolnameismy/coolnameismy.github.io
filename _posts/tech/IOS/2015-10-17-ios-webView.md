@@ -257,7 +257,7 @@ override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObjec
 
     }
 
-```
+````
 
 
 ### app调js方法
@@ -280,7 +280,7 @@ WKWebView调用js方法和UIWebView类似，一个是evaluateJavaScript，一个
 
 ### js调app方法
 
-UIwebView没有js调app的方法，而在WKWebView中有了改进。具体步骤分为app注册handler，app处理handler委托，js调用三个步骤
+UIwebView没有js调app的方法主要有2种实现，一种是通过拦截request的方式间接实现，另一种是使用JavaScriptCore的jsContext注册objc对象或使用JSExport协议导出Native对象的方式。本文主要介绍第一种实现，第二种实现方式参考后续文章 JavaScriptCore的使用教程
 
 
 1：注册handler需要在webView初始化之前，如示例，注册了一个webViewApp的handler
