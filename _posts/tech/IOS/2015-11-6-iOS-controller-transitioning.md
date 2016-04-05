@@ -653,7 +653,7 @@ presenting -》presention ：解除模态视图过程
 - ControllerTransitioningDemoViewController.swift : 实现了push、pop 、present、dismiss视图动画委托的viewcontroller
 - To1ViewController、To2ViewController ： 两个用于展示的viewcontroller
 
-如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
 
 ## 文章引用和参考
 

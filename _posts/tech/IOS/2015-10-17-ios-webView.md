@@ -377,7 +377,7 @@ UIwebView没有js调app的方法主要有2种实现，一种是通过拦截reque
 
 本文代码存放目录是ios-WebView,本demo没做界面自适应，为了保证效果请用iPhone6及以上模拟器打开
 
-如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
 
 dome截图
 

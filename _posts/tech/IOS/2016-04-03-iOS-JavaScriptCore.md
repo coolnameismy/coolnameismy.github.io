@@ -230,12 +230,20 @@ callee和this都是js中的对象，callee简单的说就是调用函数的对�
     };
 }
 ````
-##  JavaScriptCore和webView的结合使用
 
+##  JavaScriptCore和UIWebView的结合使用
+
+上面的代码都是基于JSContext的，如果声明了一个UIWebView，也可以使用UIWebView获取到JSContext对象，就可以使用JavaScriptCore的Api了，在UIWebView中获取JSContext的方法是：
+
+````objc
+ JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+````
+
+不过遗憾的是WKWebView目前我还没有找到获取JSContext的方法，如果有知道的朋友也希望能联系我。
 
 
 ##  demo
 
 [本文的demo下载](https://github.com/coolnameismy/demo/tree/master/JavaScriptCore)
 
-如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处

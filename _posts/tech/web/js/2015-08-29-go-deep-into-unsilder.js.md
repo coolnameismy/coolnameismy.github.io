@@ -363,3 +363,6 @@ $.resize：监听容器尺寸变化
 
         //jquery的串行函数执行
         el.find('.dot').eq(index).addClass('active').siblings().removeClass('active');
+
+
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处

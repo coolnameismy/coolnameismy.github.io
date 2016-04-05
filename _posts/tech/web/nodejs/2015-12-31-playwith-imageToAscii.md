@@ -115,9 +115,7 @@ have fun ~
 ##  最后
 
 
-刘彦玮原创，转载请注明出处
-
-感谢大家支持，请[github上follow和star](https://github.com/coolnameismy)
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
 
 
 

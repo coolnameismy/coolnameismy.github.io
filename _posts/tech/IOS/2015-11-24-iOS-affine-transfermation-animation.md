@@ -518,7 +518,7 @@ let flipZ = CATransform3DMakeRotation(CGFloat(M_PI), 0, 0, 1)
 
 本文demo是一个playground文件，做了一些2D仿射的效果。如果没有显示出UIView，可以在每一个bg对应的行后面的小圆圈点一下，就可以在playground中看见UIView对应仿射的变化
 
-如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
 
 
 ##  推荐的相关文章

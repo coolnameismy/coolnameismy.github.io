@@ -215,4 +215,4 @@ public class MyMotionEffect:UIMotionEffect {
 
 本文的代码对于的文件名：AnimationAndEffects/MotionEffectsViewController.swift
 
-如果大家支持，请[github上follow和star](https://github.com/coolnameismy)
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
