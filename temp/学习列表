@@ -13,17 +13,33 @@
 -	React-Native
 	-	在现有App项目中使用React-Native
 	-	react-native服务端搭建
+-   chrome插件开发原理学习
+-   Android genymotion模拟器配置和使用
+-   adb简单使用
+-   yo 简单了解
+-   iOS蓝牙行为研究
+
+
+##  五月
+
+-   Android蓝牙开发
+
+
+
+
+
+
+##  想研究的内容
 
 -   [ZhiHuDaily-React-Nativ](https://github.com/race604/ZhiHuDaily-React-Native)
-
 -   ios获取计步器数据
 -   Swift 烧脑体操,唐巧的技术文章
 -	研究weex
 -	Automator用法
--   adb使用
--   yo 使用
-
-
+-   sublime插件
+-   node工具
+-   nodejs shell
+-   ios指纹验证
 
 
 
