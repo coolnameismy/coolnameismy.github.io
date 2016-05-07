@@ -5,7 +5,7 @@
 -   [ios单元测试基础和babybluetooth单元测试用例编写](http://liuyanwei.jumppo.com/2016/03/10/iOS-unit-test.html)
 -   ios6s 3dtouch学习
 -   UISplitViewController粗浅了解
-
+-   Babybluetooth代码优化和功能更新
 
 ##  四月学习
 
@@ -18,11 +18,14 @@
 -   adb简单使用
 -   yo 简单了解
 -   iOS蓝牙行为研究
-
+-   Babybluetooth发布0.7.0版本，增加了许多功能
 
 ##  五月
 
--   Android蓝牙开发
+-  Android蓝牙开发
+-  git基线管理
+-  iterm2使用
+-  ios native和html互相调用以及ios notifycation高频调用的性能测试
 
 
 
