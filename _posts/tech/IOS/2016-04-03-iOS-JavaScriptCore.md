@@ -242,6 +242,25 @@ callee和this都是js中的对象，callee简单的说就是调用函数的对�
 不过遗憾的是WKWebView目前我还没有找到获取JSContext的方法，如果有知道的朋友也希望能联系我。
 
 
+##  JSVirtualMachine
+
+在创建jscontext的时候，可以传入一个JSVirtualMachine对象，如果没有传入这个对象，会新建一个JSVirtualMachine对象。
+
+JSVirtualMachine主要有3个作用：
+
+1: 支持js并发，多个VM之间的js操作是并发的
+1：使用JSVirtualMachine初始化的多个context，可以共享jsvalue对象
+2：解决循环引用问题
+
+````
+注意，当我们 export 一个 OC 或 Swift object 到 JS 中时，不能在这个object 中存储对应的 JS values。这种行为会导致一个retain cycle，JSValue objects 持有他们对应的 JSContext 的强引用，JSContext 则持有export到JS的native object的强引用，即 native object(OC or Swift object) —> JSValue —> JSContext —> native object
+````
+
+
+##  参考
+
+- [JavaScriptCore学习之JavaScriptCore](http://blog.csdn.net/colorapp/article/details/51059645)
+- [iOS7新JavaScriptCore框架入门介绍](http://blog.iderzheng.com/introduction-to-ios7-javascriptcore-framework/)
 ##  demo
 
 [本文的demo下载](https://github.com/coolnameismy/demo/tree/master/JavaScriptCore)
