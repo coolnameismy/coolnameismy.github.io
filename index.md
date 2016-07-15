@@ -13,14 +13,19 @@ title: Welcome
 
 本博客90%为原创，10%来自于网络文章
 
+
 ## 博客中的技术类型
 ---
+
+![](my_pic/qrcode.jpg)
+
 
 我叫刘彦玮，7年全栈工程师，目前就职于阿里巴巴,花名玄彦。技术上熟悉iOS，web前端，nodejs，.net,java,flex。所以博客中主要包含的技术类型主要是这些，另外也会写一个自己不熟悉但是感兴趣的内容，和大家一起学习。
 
 -   iOS 
--	web前段 
--   java 少量
+-	web前端
+-   蓝牙开发
+-   java少量
 -   C# .net 会写一些
 -   其他（数据库，网站部署，博客建站seo优化，个人生活等会少量涉及）
 
@@ -29,12 +34,10 @@ title: Welcome
 -	[dev-tips](https://github.com/coolnameismy/dev-tips)
 -	[ios-tips](https://github.com/coolnameismy/ios-tips)
 
-
 ## 博客更新频率
 ---
 
-预计周一篇
-
+之前每周一篇，来到阿里后平时工作比较忙，所以现在也只能保证一月一篇。
 
 ## 博客中示例程序代码下载：
 ---
