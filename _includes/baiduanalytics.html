@@ -1,6 +1,6 @@
 <script>
     //百度站点统计,排除localhost
-    if(window.location.host.indexOf("localhost") ==-1){
+    if(window.location.host.indexOf("localhost") ==-1 &&  window.location.host.indexOf("127.0.0.1") == -1){
 
         var _hmt = _hmt || [];
         (function() {
