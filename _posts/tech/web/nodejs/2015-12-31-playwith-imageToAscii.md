@@ -13,13 +13,13 @@ description:
 ![](https://camo.githubusercontent.com/9550c7af22c784d5ec26fcc5e07312f159bd3c1f/687474703a2f2f692e696d6775722e636f6d2f736a6f776b704c2e706e67)
 
 
-![](assets/uploads/2015-12-31-playwith-imageToAscii-1.png)
+![]({{site.url}}/assets/uploads/2015-12-31-playwith-imageToAscii-1.png)
 
-![](assets/uploads/2015-12-31-playwith-imageToAscii-2.png)
+![]({{site.url}}/assets/uploads/2015-12-31-playwith-imageToAscii-2.png)
 
-![](assets/uploads/2015-12-31-playwith-imageToAscii-3.png)
+![]({{site.url}}/assets/uploads/2015-12-31-playwith-imageToAscii-3.png)
 
-![](assets/uploads/2015-12-31-playwith-imageToAscii-4.png)
+![]({{site.url}}/assets/uploads/2015-12-31-playwith-imageToAscii-4.png)
 
 
 很有意思吧？ 下面我们来看看怎么实现的，主要分为这几个步骤去说明：
@@ -99,7 +99,7 @@ ImageToAscii(__dirname + '2.jpg',function(err,converted){
 node index.js
 ````
 
-![](assets/uploads/2015-12-31-playwith-imageToAscii-3.png)
+![]({{site.url}}/assets/uploads/2015-12-31-playwith-imageToAscii-3.png)
 
 
 是不是很简单？我们在吧对应的图片地址换成 3.jpg 或者4.jpg试试看其他图片的生成效果吧。当然，你也可以放入自己的图片玩一玩~

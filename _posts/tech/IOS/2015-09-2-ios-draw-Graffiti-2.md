@@ -21,7 +21,7 @@ description:
 ---
 
 #### | ios绘图demo,做一个涂鸦板(下) | 完成后的效果图：
-![](assets/uploads/paintDemo2.gif)
+![]({{site.url}}/assets/uploads/paintDemo2.gif)
 
 #### 代码下载:github库,[点击跳转代码下载地址](https://github.com/coolnameismy/demo/tree/master/paint)
 
@@ -361,7 +361,7 @@ description:
 完成后的文件见 PaintViewV03.m
 
 #### | ios绘图demo,做一个涂鸦板(下) | 完成后的效果图：
-![](assets/uploads/paintDemo2.gif)
+![]({{site.url}}/assets/uploads/paintDemo2.gif)
 
 
 ## 最后

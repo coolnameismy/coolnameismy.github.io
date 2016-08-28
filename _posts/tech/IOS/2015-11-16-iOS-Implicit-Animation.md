@@ -11,7 +11,7 @@ description:
 
 CALayer常用的属性
 
-![](assets/uploads/layerProperty.png)
+![]({{site.url}}/assets/uploads/layerProperty.png)
 
 **注意点**
 -   CALayer中很少使用frame属性，因为frame本身不支持动画效果，通常使用bounds和position代替

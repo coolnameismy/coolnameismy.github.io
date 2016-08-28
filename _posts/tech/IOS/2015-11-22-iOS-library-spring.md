@@ -466,7 +466,7 @@ spring动画库中扩充了原生时间函数的类型，原来只有EaseIn，Ea
 
 所有时间曲线的函数图如下
 
-![](assets/uploads/springsCAMediaTimingFunction.png)
+![]({{site.url}}/assets/uploads/springsCAMediaTimingFunction.png)
 
 
 ##  spring library中我们能学到的内容总结

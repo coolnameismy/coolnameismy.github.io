@@ -117,7 +117,7 @@ make.left.and.right.equalTo(self.view);
 
 ### Masonry例子-计算器布局
 
-![](assets/uploads/masonry_1.png)
+![]({{site.url}}/assets/uploads/masonry_1.png)
 
 ```` objective-c
 
@@ -296,7 +296,7 @@ for（遍历所有行)
 #### 根据设计图，使用masonry布局：
 
 步骤1
-![](assets/uploads/masonry_2.png)
+![]({{site.url}}/assets/uploads/masonry_2.png)
 步骤2
 ![步骤2](https://geekpics.net/images/2015/06/15/dOGITvg.jpg)
 

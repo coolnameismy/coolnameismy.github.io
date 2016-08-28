@@ -267,7 +267,7 @@ for (NSHTTPCookie *cookie in cookies) {
 我们测试一下效果：
 ````[[NSHTTPCookieStorage sharedHTTPCookieStorage]setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyNever];````
 
-![](assets/uploads/2016-02-13-ios-networking-5_1.png)
+![]({{site.url}}/assets/uploads/2016-02-13-ios-networking-5_1.png)
 
 这样设置之后，调用demo中的 ````客户端设置cookie```` ，在调用````从服务端获取cookie````，最后调用````打印客户端cookie````，查看日志：
 

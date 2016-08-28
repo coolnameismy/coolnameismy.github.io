@@ -10,14 +10,14 @@ MotionEffects到底是个什么效果？我也描述不清楚，可以给大家�
 
 github的404页面，随着鼠标的移动，图片中octocat、飞船、房子都在一起移动。这是一个很友好的ue
 
-![](assets/uploads/github404.gif)
+![]({{site.url}}/assets/uploads/github404.gif)
 
 这个就是iOS中的MotionEffect，iOS在根据设备水平角度的改变，可以对应修改UIView的属性。我们的demo中，就在iOS手机上实现了这样一个效果。
 （效果只能真机启动才能看到，模拟器无法得到水平仪的修改！）
 
 完成后的demo效果
 
-![](assets/uploads/motionEffect1.gif)
+![]({{site.url}}/assets/uploads/motionEffect1.gif)
 
 ## 核心原理
 
@@ -153,7 +153,7 @@ ui元素绑定效果后，设备水平角度改变，就会对应修改keyPath�
 ````
 完成后的demo效果
 
-![](assets/uploads/motionEffect1.gif)
+![]({{site.url}}/assets/uploads/motionEffect1.gif)
 
 ## 自定义的MotionEffect
 

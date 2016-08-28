@@ -97,7 +97,7 @@ react-native只是帮你节省了一些开发时间，减少了你对iOS或者an
 
 历经千辛万苦，终于启动成功鸟~~
 
-![](assets/uploads/2016-01-11-react-native-helloworld-1.png)
+![]({{site.url}}/assets/uploads/2016-01-11-react-native-helloworld-1.png)
 
 **说明下**
 
