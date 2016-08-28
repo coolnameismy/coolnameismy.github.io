@@ -17,7 +17,7 @@ title: Welcome
 ## 博客中的技术类型
 ---
 
-![](my_pic/qrcode.jpg)
+![](assets/images/qrcode.jpg)
 
 
 我叫刘彦玮，7年全栈工程师，目前就职于阿里巴巴,花名玄彦。技术上熟悉iOS，web前端，nodejs，.net,java,flex。所以博客中主要包含的技术类型主要是这些，另外也会写一个自己不熟悉但是感兴趣的内容，和大家一起学习。

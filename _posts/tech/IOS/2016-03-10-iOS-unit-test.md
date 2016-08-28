@@ -131,7 +131,7 @@ XCTFail(format...) //直接Fail的断言
 
 直接执行方法，因为block中没有内容，所以方法的执行时间为0.0s,如果我们把baseline设成0.05，偏差10%,是可以通过的测试的。但是如果设置如果我们把baseline为1，偏差10%，那测试会失败，因为不满足条件。
 
-![](http://images.jumppo.com/uploads/320A0A3C-6264-4C75-8EC7-1E2EEB5B13D0.png)
+![](assets/uploads/320A0A3C-6264-4C75-8EC7-1E2EEB5B13D0.png)
 
 
 ##  期望

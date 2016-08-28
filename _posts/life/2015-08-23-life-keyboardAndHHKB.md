@@ -46,70 +46,70 @@ hhkb是简称，它的霸气全称是：**Happy Hacking keyboard**  快乐黑客
 
 终于到了重点，来直播一下hhkb第一手的开箱照片。我直接在日本亚马逊入手的，通过转运公司转运到中国，一共用了一周时间吧，还是挺快的。
 
-![jp箱子](http://images.jumppo.com/uploads/2015hhkb/IMG_0201.jpg)
+![jp箱子](assets/uploads/2015hhkb/IMG_0201.jpg)
 
 一起买的还有hhkb原厂的键盘包，键帽和拔键器，还有个travel笔记本
 
-![jp箱子](http://images.jumppo.com/uploads/2015hhkb/IMG_0203.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0229.jpg)
+![jp箱子](assets/uploads/2015hhkb/IMG_0203.jpg)
+![](assets/uploads/2015hhkb/IMG_0229.jpg)
 
 键盘的盒子,type-s盒子和pro的盒子区别就在右上角有个type-s的标，我看了别人晒的开箱图，有的type-s标还是蓝色的，型号是kb400ws，那个是白色字母正刻的型号，我买的是 kb400wns，白色无刻，所以是红色标。
 
-![jp箱子](http://images.jumppo.com/uploads/2015hhkb/IMG_0204.jpg)
-![jp箱子](http://images.jumppo.com/uploads/2015hhkb/IMG_0205.jpg)
-![jp箱子](http://images.jumppo.com/uploads/2015hhkb/IMG_0206.jpg)
-![jp箱子](http://images.jumppo.com/uploads/2015hhkb/IMG_0207.jpg)
+![jp箱子](assets/uploads/2015hhkb/IMG_0204.jpg)
+![jp箱子](assets/uploads/2015hhkb/IMG_0205.jpg)
+![jp箱子](assets/uploads/2015hhkb/IMG_0206.jpg)
+![jp箱子](assets/uploads/2015hhkb/IMG_0207.jpg)
 
 键盘拿出来了
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0208.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0209.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0212.jpg)
+![](assets/uploads/2015hhkb/IMG_0208.jpg)
+![](assets/uploads/2015hhkb/IMG_0209.jpg)
+![](assets/uploads/2015hhkb/IMG_0212.jpg)
 
 type-s和pro外观外观唯一的区别在于右上角的type-s
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0210.jpg)
+![](assets/uploads/2015hhkb/IMG_0210.jpg)
 
 hhkb的背面，那幅图是键盘的跳线说明，通过跳线可以修改键盘的按钮分布规则，可以适配mac和windows。我是mac机器用，跳线2、3位打开，其他关闭
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0211.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0214.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0215.jpg)
+![](assets/uploads/2015hhkb/IMG_0211.jpg)
+![](assets/uploads/2015hhkb/IMG_0214.jpg)
+![](assets/uploads/2015hhkb/IMG_0215.jpg)
 
 hhkb的键帽和拔键器
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0216.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0217.jpg)
+![](assets/uploads/2015hhkb/IMG_0216.jpg)
+![](assets/uploads/2015hhkb/IMG_0217.jpg)
 
 拆下两个键可以看到电容键盘下的结构.静电容使用了无触点的电容式开关，静电容量是利用电容容量的变化来判断按键的开和关，在按下按键后，开关中电容容量发生改变，从而实现触发，整个过程不需要开关的闭合，无物理接触点就可以实现敲击操作，因而磨损更小，使用寿命更长
 
 ![](http://igao7.qiniudn.com/uploads/07-2/-4/07-22-49-85.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0218.jpg)
+![](assets/uploads/2015hhkb/IMG_0218.jpg)
 
 换了两个红色的键帽。hhkb的键盘材质是PBT,它要比ABS高端一点，触感有细微不同，键帽上的刻字更不容易磨损。大多机械键盘的键帽都是ABS材质的，包括前面说的filco这么高端的机械键盘品牌的键帽都是ABS的。
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0219.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0220.jpg)
+![](assets/uploads/2015hhkb/IMG_0219.jpg)
+![](assets/uploads/2015hhkb/IMG_0220.jpg)
 
 
 
 把我的filco拿过来和他拍个照对比一下。filco已经是87键的短键盘了，但是hhkb比filco更短，hhkb只有60个键，大量的键通过fn功能键实现，包括上下左右的方向键。
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0223.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0224.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0225.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0226.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0227.jpg)
+![](assets/uploads/2015hhkb/IMG_0223.jpg)
+![](assets/uploads/2015hhkb/IMG_0224.jpg)
+![](assets/uploads/2015hhkb/IMG_0225.jpg)
+![](assets/uploads/2015hhkb/IMG_0226.jpg)
+![](assets/uploads/2015hhkb/IMG_0227.jpg)
 
 hhkb键盘包登场。本来买这个包是想既可以装hhkb又可以装filco87圣手的，结果这个包尺寸是按照hhkb设计的，正好放得下hhkb，放不下filco87。包还是很硬正的，质感很好。
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0222.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0228.jpg)
+![](assets/uploads/2015hhkb/IMG_0222.jpg)
+![](assets/uploads/2015hhkb/IMG_0228.jpg)
 
 最后包里装着键盘，带到了单位使用。毕竟在单位敲键盘的时间更多一些。来几张在单位拍的照片
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0233.jpg)
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0235.jpg)
+![](assets/uploads/2015hhkb/IMG_0233.jpg)
+![](assets/uploads/2015hhkb/IMG_0235.jpg)
 
 用了一天后，来谈谈大家最关心的问题。到底好不好用，手感行不行？
 
@@ -121,7 +121,7 @@ hhkb键盘包登场。本来买这个包是想既可以装hhkb又可以装filco8
 
 注意ctrl的位置，ctrl放那真的合理吗？至少我用mac觉得ctrl在那个位置很合理。mac中command其实相当于windows里面的ctrl。复制粘贴就是command+c和command+v，刚开始window用喜欢也觉得那个位置不好。但是mac用一段时间之后，觉得这个位置更科学，因为mac用大拇指按command键，windows用小拇指按ctrl。习惯后会觉得大拇指按的更舒服。ctrl在mac里面是辅助键，所以在mac里经常需要command+ctrl一起按，mac键盘里面ctrl和command中间之隔一个键，所以你2个手指去按这两个键就觉得很变扭。再看hhkb的键位，ctrl和command就是自然手型的位置，大拇指放在command上，无名指和中指都自然的在ctrl上了。在原先的mac键盘的这个位置是caps lock。这个键又不会和command组合使用，把它干掉换成ctrl是非常舒服的。在有的vim的教程里面，也会推荐你使用工具去把caps lock和ctrl互换位置。
 
-![](http://images.jumppo.com/uploads/2015hhkb/IMG_0115.jpg)
+![](assets/uploads/2015hhkb/IMG_0115.jpg)
 
 最后说说hhkb的按键的声音，types的按键声音很低调，噗噗噗的，但是很有感觉，下面有段视频，大家可以打开听一听。[types和pro的声音对比](http://www.tudou.com/programs/view/O4KNR_VTW70)
 

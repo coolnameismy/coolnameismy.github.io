@@ -39,8 +39,8 @@ jumppo图床网站，基于html5和php。
 ---
 > 说明：demo程序仅供演示，请不要作为图床使用，上传的图片会定期自动清理。
 
-![](http://images.jumppo.com/uploads/imagesUploadWebsite0.png)
-![](http://images.jumppo.com/uploads/imagesUploadWebsite.png)
+![](assets/uploads/imagesUploadWebsite0.png)
+![](assets/uploads/imagesUploadWebsite.png)
 
 
 #   如何使用

@@ -23,7 +23,7 @@ description:
 ---
 
 ### ios绘图demo,做一个涂鸦板(上) 的效果图：
-![效果图](http://images.jumppo.com/uploads/paintDemo.gif)
+![效果图](assets/uploads/paintDemo.gif)
 
 ### 代码下载:github库，对应此文章的目录是paint ,[点击跳转代码下载地址](https://github.com/coolnameismy/demo)
 
@@ -344,7 +344,7 @@ description:
 #### 完成后，我们的画板就可以画出彩色的笔画，控制粗细了。之后，我会继续给画板增加一些功能，并把方法写出来。
 
 #### | ios绘图demo,做一个涂鸦板(上) | 完成后的效果图：
-![效果图](http://images.jumppo.com/uploads/paintDemo.gif)
+![效果图](assets/uploads/paintDemo.gif)
 
 ## 最后
 

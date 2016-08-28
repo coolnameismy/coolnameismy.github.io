@@ -12,7 +12,7 @@ description:
 -  点击模态controller，会弹出一个新的绿色UIViewController，手指下滑可以dismiss这个controller
 -  四个角的按钮可以自定义圆形切换的过渡效果切换的一个红色的UIViewController，点击返回用同样的方式切换回来
 
-![](http://images.jumppo.com/uploads/ControllerTransitioning1.gif)
+![](assets/uploads/ControllerTransitioning1.gif)
 
 
 ## 出场人物介绍
@@ -89,7 +89,7 @@ UIViewControllerAnimatedTransitioning协议的关键方法```` animateTransition
 
 示例效果见demo点击后，弹出的绿色界
 
-![](http://images.jumppo.com/uploads/ControllerTransitioning1.gif)
+![](assets/uploads/ControllerTransitioning1.gif)
 
 ### 步骤1：界面画出按钮，点击之后用 modal 显示 To2ViewController，并设置transitioningDelegate指向自己
 
@@ -641,7 +641,7 @@ presenting -》presention ：解除模态视图过程
 ## demo
 ---
 
-![](http://images.jumppo.com/uploads/ControllerTransitioning1.gif)
+![](assets/uploads/ControllerTransitioning1.gif)
 
 [本文的demo下载](https://github.com/coolnameismy/demo/tree/master/AnimationAndEffects)
 

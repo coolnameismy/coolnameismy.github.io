@@ -34,9 +34,9 @@ ios9默认是不允许加载http请求的，对于webview，加载http网页也�
 
 dome截图
 
-![](http://images.jumppo.com/uploads/webview0.png)
+![](assets/uploads/webview0.png)
 
-![](http://images.jumppo.com/uploads/webview1.png)
+![](assets/uploads/webview1.png)
 
 ##  大纲
 
@@ -381,6 +381,6 @@ UIwebView没有js调app的方法主要有2种实现，一种是通过拦截reque
 
 dome截图
 
-![](http://images.jumppo.com/uploads/webview0.png)
+![](assets/uploads/webview0.png)
 
-![](http://images.jumppo.com/uploads/webview1.png)
+![](assets/uploads/webview1.png)

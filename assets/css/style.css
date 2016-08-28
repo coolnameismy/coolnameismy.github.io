@@ -333,7 +333,14 @@ a {
       margin: 4px 0;
       border-radius: 0; } }
 
-.pl__circle {
+.pl__all .pl__title {
+    font-size: 14px;
+}
+.pl__all .pl__date {
+    font-size: 12px;
+}
+
+.pl__all .pl__circle {
   width: .75em;
   height: .75em;
   margin-right: 5px;
@@ -345,7 +352,9 @@ a {
   -moz-transition: border-color .35s;
   -ms-transition: border-color .35s;
   -o-transition: border-color .35s;
-  transition: border-color .35s; }
+  transition: border-color .35s; 
+  display: none;
+}
 
 .pl__date {
   color: #9aa4af;
