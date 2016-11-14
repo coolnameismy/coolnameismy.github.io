@@ -420,6 +420,7 @@ class Dispatcher<TPayload> {
 
 module.exports = Dispatcher;
 
+````
 
 ###  invariant.js
 
@@ -478,7 +479,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 
-````js
+````
 
 
  
