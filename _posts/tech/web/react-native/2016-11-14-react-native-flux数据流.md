@@ -10,7 +10,10 @@ description:
 
 ## flux介绍
 
-flux是Facebook提出的react开发单向数据流的模式，在实际开发过程做看过很多逻辑混乱，flux可以很大程度解决这一的问题。
+flux是Facebook提出的react开发单向数据流的模式，在实际开发过程做看过很多逻辑混乱，flux可以很大程度解决这一的问题不仅如此，这种设计模式在其他的项目结构中任然很有用。
+
+网上很多文章都是在react中使用flux，放到react-native中各种出错，本文针对react-native。
+
 
 
 ![]({{site.url}}/assets/uploads/rn_flux_01.jpg)
@@ -80,6 +83,8 @@ var Recipes = React.createClass({
   ....
 
 );
+````
+
 
 ### actions层
 
@@ -168,6 +173,7 @@ module.exports = RecipesStore;
 ##  附录
 
 ###  Dispatcher.js
+
 
 ````js
 
