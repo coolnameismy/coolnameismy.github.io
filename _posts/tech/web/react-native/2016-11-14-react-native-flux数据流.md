@@ -1,7 +1,7 @@
 ---
 layout: post
 title: flux数据流在rn中的使用
-category: 技术
+category: react-native
 tags: react-native
 keywords: react-native
 description:

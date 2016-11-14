@@ -1,7 +1,7 @@
 ---
 layout: post
 title: react-native（二） 自己写的react-native学习demo和整理的tips
-category: 技术
+category: react-native
 tags: react-native
 keywords: react-native
 description:

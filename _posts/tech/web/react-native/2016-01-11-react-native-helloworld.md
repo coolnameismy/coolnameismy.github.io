@@ -1,7 +1,7 @@
 ---
 layout: post
 title: react-native（一） hello world
-category: 技术
+category: react-native
 tags: react-native
 keywords: react-native
 description:
