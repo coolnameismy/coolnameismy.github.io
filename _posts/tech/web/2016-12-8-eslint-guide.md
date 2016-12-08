@@ -5,8 +5,6 @@ category: web前端
 ---
 
 
-## ESLint使用
-
 ESLint是一个QA工具，用来避免低级错误和统一代码的风格。
  
 常用的类似代码检测工具有4个，JSLint、JSHint、JSCS、ESLint，其中ESLint比较好的一个（ [原因可以看这篇文章分析](http://zhenhua-lee.github.io/tools/linter.html) ）
@@ -15,10 +13,13 @@ ESLint是一个QA工具，用来避免低级错误和统一代码的风格。
 ## 常用命令
 
 `npm install -g eslint`
+
 `eslint --init`
+
 `eslint [options] [file|dir|glob]*`
 
 举例：
+
 ````
 eslint file1.js file2.js
 eslint lib/**
@@ -27,6 +28,7 @@ eslint -c ~/my-eslint.json file.js
 eslint -o ./test/test.html
 eslint --max-warnings 10 file.js
 ````
+
 [options详细参考](http://eslint.cn/docs/user-guide/command-line-interface)
  
  
@@ -49,6 +51,7 @@ eslint --max-warnings 10 file.js
 执行： `eslint index.js` 
 
 出现验证结果：
+
 ````
 /Users/xuanyan.lyw/foo/ESLint/foo/index.js
   1:1   error  Unexpected var, use let or const instead  no-var
@@ -84,6 +87,7 @@ module.exports = {
     "extends": "google"
 };
 ````
+
 如果指定文件，可以使用下面这种方式
 
 ````
@@ -124,6 +128,7 @@ demo中我们使用了google风格，可以在路径 node_modules/eslint-config-
 ## 通过注释灵活改变一些规则
 
 比如我们现在把代码修改成
+
 ````js
 var a = "sadas"
 /* eslint-disable */
@@ -131,6 +136,7 @@ var b = "sadas";
 var c = 'sada';
 var c = a;
 ````
+
 这样，从第三行开始所有问题都不会再有错误信息，执行`eslint index.js` 后的信息
 
 ````
