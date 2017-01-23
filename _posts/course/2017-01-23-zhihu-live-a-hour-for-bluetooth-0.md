@@ -45,7 +45,7 @@ write，read，notify，indecate， response or not ...  这个在后面详细�
 
 indecate和notify的区别就在于，indecate是一定会收到数据，notify有可能会丢失数据（不会有central收到数据的回应），write也分为response和noresponse，如果是response，那么write成功回收到peripheral的确认消息，但是会降低写入的速率。
 
-** 协议：**
+**协议**
 
 每个具体的智能设备，都约定了一组数据格式，这个就是数据协议，例如手环中获取到数据0X001023，其中第2位到第5位表示步数，那么就2310就是步数的16进制的数据，转换成10进制就是8976步，需要注意的是，设备端都是小端模式，所以取4位时候，高字节在前低字节在后
 
@@ -90,8 +90,8 @@ indecate和notify的区别就在于，indecate是一定会收到数据，notify�
 ### 连接失败处理
 分两个平台来说，iOS端也有连接失败的委托，但是好像几乎不会发生这种情况，至少我从来没遇见过，而对于同款设备，android常常会出现连接失败的情况，`status != BluetoothGatt.GATT_SUCCESS`  ，android端开发请不要把连接失败和断开连接放在一块处理，因为断开连接可以直接尝试重新连接，而连接失败后尝试重新连接，需要加一些延时，并且需要gatt.close，清空一下状态，否则会把gatt阻塞导致手机不重启蓝牙就再也无法连接任何设备的情况。
 
-### [后台运行][104]
-iOS后来运行，需要设备中info.Plist权限，key:Required background modes ,value: bluetooth-central(手机作为central) , bluetooth-peripheral（手机作为外设）
+### 后台运行
+iOS后来运行，需要设备中info.Plist权限，key:Required background modes ,value: bluetooth-central(手机作为central) , bluetooth-peripheral（手机作为外设） [参考链接][104]
 
 ###  同时连接多个设备
 android很简单，创建多个gattCallback，每个gattCallback单独管理设备连接后的操作，而iOS也最好不要创建多个CBCentralManager,多个CBCentralManager理论上可以用，但是会存在多个手机版本存在不同的行为，还有一些很容易出错的问题，这块内容不细说了。使用同一个CBCentralManager，通过进入委托的peripheral的identifier区分不同的设备，进行不同的操作和处理。
