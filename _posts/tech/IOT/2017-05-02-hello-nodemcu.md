@@ -23,7 +23,7 @@ nodemuc出厂的操作系统并不好，我们使用mongoose OS，直接使用no
 在mac中直接使用命令行安装:  ` curl -fsSL https://mongoose-os.com/downloads/mos/install.sh | /bin/sh `
 
 ### 3:mongoose os使用
- 安装成功后输入 `cd .mos/bin/ ` 进入os的应用目录 ,可以输入 ` ./mos --help ` 查看帮助， 首先我们配置一下wifi环境，输入命令 ` ./mos wifi <wifi-ssid> <password> ` 第一个参数是wifi的ssid，就是wifi名称，第二个参数是密码。 接着输入 ` ./mos `  会启动一个web界面，通过web界面可以对os进行操作。点击 switch to protyping mode,进入主系统。
+ 安装成功后输入 `cd .mos/bin/ ` 进入os的应用目录 ,可以输入 ```` ./mos --help ```` 查看帮助， 首先我们配置一下wifi环境，输入命令 ` ./mos wifi <wifi-ssid> <password> ` 第一个参数是wifi的ssid，就是wifi名称，第二个参数是密码。 接着输入 ` ./mos `  会启动一个web界面，通过web界面可以对os进行操作。点击 switch to protyping mode,进入主系统。
 
  ![]({{site.url}}/assets/uploads/mongooseos.png)
 
