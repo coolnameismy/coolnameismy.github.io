@@ -20,10 +20,10 @@ nodemuc官方介绍：这是一款开源快速硬件原型平台，包括固件�
 ### 2：安装操作系统
 nodemuc出厂的操作系统并不好，我们使用mongoose OS，直接使用node api，有很有的的demo示例，使用超级简单。 [官网](https://mongoose-os.com/) 
 
-在mac中直接使用命令行安装:  ` curl -fsSL https://mongoose-os.com/downloads/mos/install.sh | /bin/sh `
+在mac中直接使用命令行安装:  ```` curl -fsSL https://mongoose-os.com/downloads/mos/install.sh | /bin/sh ````
 
 ### 3:mongoose os使用
- 安装成功后输入 `cd .mos/bin/ ` 进入os的应用目录 ,可以输入 ```` ./mos --help ```` 查看帮助， 首先我们配置一下wifi环境，输入命令 ` ./mos wifi <wifi-ssid> <password> ` 第一个参数是wifi的ssid，就是wifi名称，第二个参数是密码。 接着输入 ` ./mos `  会启动一个web界面，通过web界面可以对os进行操作。点击 switch to protyping mode,进入主系统。
+ 安装成功后输入 ```` cd .mos/bin/ ```` 进入os的应用目录 ,可以输入 ```` ./mos --help ```` 查看帮助， 首先我们配置一下wifi环境，输入命令 ```` ./mos wifi <wifi-ssid> <password> ```` 第一个参数是wifi的ssid，就是wifi名称，第二个参数是密码。 接着输入 ```` ./mos ```` 会启动一个web界面，通过web界面可以对os进行操作。点击 switch to protyping mode,进入主系统。
 
  ![]({{site.url}}/assets/uploads/mongooseos.png)
 
@@ -57,7 +57,7 @@ MQTT.pub(topic,data,data.length);
 
 mos有个默认的mqtt borker服务端，地址是:[http://www.hivemq.com/demos/websocket-client/](http://www.hivemq.com/demos/websocket-client/),可以进入网页，这个网站的名字叫做HIVEMQ。 进入后首先点击右侧的 "add new topic subscription",增加一个主题，然后在左侧的用相同主题发送数据，在messages中就可以看到。那么在nodemcu中发送相同topic的数据，HIVEMQ也同样可以看到。
 
-注意，mos的mqtt borker端是默认的，可以通过下面命令修改borker地址： ` mos config-set mqtt.server=broker.hivemq.com:1883 `
+注意，mos的mqtt borker地址配置可以在configuratio中修改，也可以通过命令修改，比： ```` mos config-set mqtt.server=broker.hivemq.com:1883 ````
 
 ![]({{site.url}}/assets/uploads/hivemq.png)
 
