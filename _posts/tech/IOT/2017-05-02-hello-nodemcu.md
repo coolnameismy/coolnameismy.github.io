@@ -1,7 +1,7 @@
 ---
 layout: post
 title: hello nodemcu
-category: iot
+category: IoT
 ---
 
 我的同事里有很多geek,上午被介绍了一块nodemuc的单片机，10分钟驱动安装，刷系统，写代码就变成了一个基于mqtt的物联网设备，确实觉得非常简单和方便，所以也做个简单的使用介绍，和大家一起玩一玩。
